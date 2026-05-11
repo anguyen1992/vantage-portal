@@ -6,15 +6,82 @@
   <title>Australian Equities — Vantage Wealth Management | Investment Data Portal</title>
 
   <!-- ===== Page metadata (update as content is added) ===== -->
-  <meta name="last-updated" content="[DD MMM YYYY]">
-  <meta name="owner"        content="[Owner Name / Team]">
-  <meta name="source"       content="[Data Source]">
-  <meta name="as-at"        content="[DD MMM YYYY]">
+  <meta name="last-updated" content="11 May 2026">
+  <meta name="owner"        content="Anthony Nguyen">
+  <meta name="source"       content="Resonant">
+  <meta name="as-at"        content="30 Apr 2026">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/styles.css">
+
+  <style>
+  .eq-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+  }
+  .eq-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    table-layout: fixed;
+  }
+  .eq-table th,
+  .eq-table td {
+    padding: 8px 10px;
+    text-align: left;
+    border: 1px solid #e0e0e0;
+    vertical-align: top;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  .eq-table thead th {
+    background-color: #1a2744;
+    color: #fff;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .eq-table tbody tr:nth-child(even) {
+    background-color: #f7f8fb;
+  }
+  .eq-table tbody tr:hover {
+    background-color: #eef1f8;
+  }
+
+  /* Column widths */
+  .eq-table col.col-name        { width: 14%; }
+  .eq-table col.col-ticker      { width: 5%; }
+  .eq-table col.col-desc        { width: 28%; }
+  .eq-table col.col-thesis      { width: 28%; }
+  .eq-table col.col-rating      { width: 8%; }
+  .eq-table col.col-pe          { width: 8%; }
+  .eq-table col.col-div         { width: 9%; }
+
+  /* Last 3 columns: center align, no wrap */
+  .eq-table td.col-rating,
+  .eq-table td.col-pe,
+  .eq-table td.col-div,
+  .eq-table th.col-rating,
+  .eq-table th.col-pe,
+  .eq-table th.col-div {
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  /* Rating badges */
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    font-weight: 600;
+  }
+  .badge-strong-buy { background: #d4edda; color: #155724; }
+  .badge-buy        { background: #cce5ff; color: #004085; }
+  .badge-hold       { background: #fff3cd; color: #856404; }
+  .badge-na         { background: #e9ecef; color: #6c757d; }
+  </style>
 </head>
 
 <body data-page="australian-equities" data-depth="1">
@@ -43,25 +110,289 @@
       <!-- Page header -->
       <div class="page-header">
         <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/index.html">Overview</a>
+          <a href="/vantage-portal/">Overview</a>
           <span class="sep">›</span>
           <span class="current">Australian Equities</span>
         </nav>
         <p class="page-eyebrow">Australian Equities</p>
         <h1>Australian Equities</h1>
         <div class="page-meta">
-          <span class="meta-item"><strong>As at:</strong> [DD MMM YYYY]</span>
-          <span class="meta-item"><strong>Last updated:</strong> [DD MMM YYYY]</span>
-          <span class="meta-item"><strong>Owner:</strong> [Owner Name]</span>
-          <span class="meta-item"><strong>Source:</strong> [Data Source]</span>
+          <span class="meta-item"><strong>As at:</strong> 30 Apr 2026</span>
+          <span class="meta-item"><strong>Last updated:</strong> 11 May 2026</span>
+          <span class="meta-item"><strong>Owner:</strong> Anthony Nguyen</span>
+          <span class="meta-item"><strong>Source:</strong> Resonant</span>
         </div>
       </div>
 
-      <!-- ===== CONTENT AREA — add ASX equity data here ===== -->
-      <div class="placeholder-block">
-        <span class="placeholder-icon">◇</span>
-        <h2>Content coming soon</h2>
-        <p>ASX equity data, stock-level analytics, and recommendations will appear here.</p>
+      <!-- ===== CONTENT AREA ===== -->
+      <div class="eq-table-wrapper">
+        <table class="eq-table">
+          <colgroup>
+            <col class="col-name">
+            <col class="col-ticker">
+            <col class="col-desc">
+            <col class="col-thesis">
+            <col class="col-rating">
+            <col class="col-pe">
+            <col class="col-div">
+          </colgroup>
+          <thead>
+            <tr>
+              <th>Security Name</th>
+              <th>Ticker</th>
+              <th>Business Description</th>
+              <th>Investment Thesis</th>
+              <th class="col-rating">Rating</th>
+              <th class="col-pe">P/E Ratio</th>
+              <th class="col-div">Gross Div. Yield</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>AGL ENERGY LTD</td>
+              <td>AGL</td>
+              <td>AGL Energy Limited is an Australia-based company which operates an electricity generation portfolio within the National Electricity Market and is a private investor in renewable energy. Its segments include Customer Markets, Integrated Energy and Investments.</td>
+              <td>AGL is one of Australia's largest vertically integrated utility businesses and is Australia's largest private owner, operator, and developer of renewable generation assets. The stealth takeover by Mike Cannon-Brookes is a very positive development, particularly when considering the government's energy policy.</td>
+              <td class="col-rating"><span class="badge badge-buy">Buy</span></td>
+              <td class="col-pe">10.26</td>
+              <td class="col-div">7.23%</td>
+            </tr>
+            <tr>
+              <td>AMCOR PLC-CDI</td>
+              <td>AMC</td>
+              <td>Amcor plc is a packaging company developing and producing solutions across a variety of materials for food, beverage, pharmaceutical, medical, home and personal-care, and other products. It operates through Flexibles and Rigid Packaging segments.</td>
+              <td>The management team has continued to excel in maintaining and growing margins. The Berry acquisition looks to be a win-win for shareholders, completed on a very favourable basis. The US market underappreciates the business, its defensive characteristics and its ability to grow margins.</td>
+              <td class="col-rating"><span class="badge badge-buy">Buy</span></td>
+              <td class="col-pe">10.88</td>
+              <td class="col-div">5.61%</td>
+            </tr>
+            <tr>
+              <td>AUST AND NZ BANKING GROUP</td>
+              <td>ANZ</td>
+              <td>ANZ Group Holdings Limited is a non-operating holding company. Its divisions include Australia Retail, Australia Commercial, Institutional, New Zealand, Suncorp Bank, Pacific, and Group Center, providing a full range of banking products and financial services.</td>
+              <td>While ANZ trades on a P/E discount to peers, there are two reasons for caution: a poor track record integrating systems and technology, making it inefficient; and aggressive competition in residential mortgages at a time when margins are weakening.</td>
+              <td class="col-rating"><span class="badge badge-hold">Hold</span></td>
+              <td class="col-pe">14.90</td>
+              <td class="col-div">5.82%</td>
+            </tr>
+            <tr>
+              <td>BHP GROUP LTD</td>
+              <td>BHP</td>
+              <td>BHP Group Limited is a resources company and a producer of commodities including iron ore, copper, nickel, potash and metallurgical coal. Its segments include Copper, Iron Ore, and Coal, with operations across Australia, Europe, Asia, North and South America.</td>
+              <td>BHP is the world's largest mining company. Being one of the lowest cost producers, it is well positioned to weather commodity price volatility. Its diversified earnings by geography and commodity is especially attractive. Balance sheet, capital management, and capex planning remain best in class.</td>
+              <td class="col-rating"><span class="badge badge-strong-buy">Strong Buy</span></td>
+              <td class="col-pe">16.18</td>
+              <td class="col-div">4.88%</td>
+            </tr>
+            <tr>
+              <td>BREVILLE GROUP LTD</td>
+              <td>BRG</td>
+              <td>Breville Group Limited is engaged in designing, developing and marketing small electrical kitchen appliances globally. It operates through Global Product and Distribution segments, with products including espresso machines, juicers, blenders, ovens and air fryers.</td>
+              <td>Quality household item manufacturer that has consistently outperformed expectations. With takeaway coffee nudging $10 in the US, there is scope for a mass purchase of at-home coffee machines. R&amp;D is paying off with rising margins.</td>
+              <td class="col-rating"><span class="badge badge-strong-buy">Strong Buy</span></td>
+              <td class="col-pe">27.70</td>
+              <td class="col-div">2.04%</td>
+            </tr>
+            <tr>
+              <td>CHALLENGER LTD</td>
+              <td>CGF</td>
+              <td>Challenger Limited is an investment management company operating through Life and Funds Management segments. Its Life segment offers fixed-rate and lifetime retirement products, while Funds Management provides end-to-end fund management across fixed income and property.</td>
+              <td>Annuities business is a key driver looking ahead. With volatility and uncertainty, demand from retirees for income certainty is rising. Steeper yield curves are broadly beneficial, and green shoots of sales momentum in annuities are not fully baked into consensus earnings estimates.</td>
+              <td class="col-rating"><span class="badge badge-buy">Buy</span></td>
+              <td class="col-pe">11.53</td>
+              <td class="col-div">5.75%</td>
+            </tr>
+            <tr>
+              <td>CLEANAWAY WASTE MANAGEMENT L</td>
+              <td>CWY</td>
+              <td>Cleanaway Waste Management Limited is a total waste management, industrial and environmental services company. Its segments include Solid Waste Services, Industrial &amp; Waste Services, and Liquid Waste &amp; Health Services.</td>
+              <td>Defensive earnings, well-managed company with strong and stable growth prospects. Industry regulation and consolidation look inevitable, and Cleanaway is poised to benefit with a bullet-proof balance sheet. Has acquired Sydney-based recycling and landfill sites from Suez.</td>
+              <td class="col-rating"><span class="badge badge-buy">Buy</span></td>
+              <td class="col-pe">21.36</td>
+              <td class="col-div">4.40%</td>
+            </tr>
+            <tr>
+              <td>COLES GROUP LTD</td>
+              <td>COL</td>
+              <td>Coles Group Limited is engaged in the retail industry, operating through Supermarkets and Liquor segments. It operates more than 851 supermarkets nationally under the Coles brand, along with Liquorland, First Choice Liquor Market and Vintage Cellars.</td>
+              <td>Better cost management than Woolworths. However, there is little to appeal as wages continue to grow while top-line food inflation sensitive earnings fall. Has limited political capital currently.</td>
+              <td class="col-rating"><span class="badge badge-buy">Buy</span></td>
+              <td class="col-pe">21.26</td>
+              <td class="col-div">5.61%</td>
+            </tr>
+            <tr>
+              <td>COMMONWEALTH BANK OF AUSTRAL</td>
+              <td>CBA</td>
+              <td>Commonwealth Bank of Australia is a bank focused on retail and commercial banking, serving approximately 17 million customers. Its segments include Retail Banking Services, Business Banking, Institutional Banking and Markets, and New Zealand.</td>
+              <td>While the brand strength and management quality are appreciated, risks ahead include a peak-level P/E ratio, falling net interest margins, and considerable exposure to residential housing.</td>
+              <td class="col-rating"><span class="badge badge-hold">Hold</span></td>
+              <td class="col-pe">25.54</td>
+              <td class="col-div">4.33%</td>
+            </tr>
+            <tr>
+              <td>HUB24 LTD</td>
+              <td>HUB</td>
+              <td>HUB24 Limited is a provider of integrated platform, technology, and data solutions. It operates HUB24 Platform, HUBconnect, Xplore Wealth, Class, and myprosperity, providing managed portfolio solutions, SMSF administration and client portal services.</td>
+              <td>Managed accounts are growing strongly and could disrupt the traditional fund structure over the next 5–10 years. HUB's tech stack is viewed as best in class, enabling rapid scaling. Ability to avoid fallout from the First Guardian and Shield debacle will be a competitive advantage.</td>
+              <td class="col-rating"><span class="badge badge-strong-buy">Strong Buy</span></td>
+              <td class="col-pe">50.49</td>
+              <td class="col-div">1.41%</td>
+            </tr>
+            <tr>
+              <td>MACQUARIE GROUP LTD</td>
+              <td>MQG</td>
+              <td>Macquarie Group Limited is a global financial services company specialising in asset management, retail and business banking, wealth management, leasing, commodity trading, renewables development, and capital markets. Segments include MAM, BFS, CGM and Macquarie Capital.</td>
+              <td>With many profit levers and segments at its disposal, Macquarie is the best equipped bank to navigate choppy commodities and volatile interest rates. They are also starting to offload data centres in what appears to be a timely move.</td>
+              <td class="col-rating"><span class="badge badge-strong-buy">Strong Buy</span></td>
+              <td class="col-pe">15.81</td>
+              <td class="col-div">4.62%</td>
+            </tr>
+            <tr>
+              <td>MONADELPHOUS GROUP LTD</td>
+              <td>MND</td>
+              <td>Monadelphous Group Limited is an engineering company providing construction, maintenance and industrial services to the resources, energy and infrastructure sectors through Engineering Construction and Maintenance and Industrial Services divisions.</td>
+              <td>Higher quality mining services business with a strong balance sheet and conservative management. Potential start of a more favourable cycle across engineering and construction. Has provided FY26 guidance, demonstrating confidence, and continues to win contracts not in consensus.</td>
+              <td class="col-rating"><span class="badge badge-strong-buy">Strong Buy</span></td>
+              <td class="col-pe">26.22</td>
+              <td class="col-div">4.59%</td>
+            </tr>
+            <tr>
+              <td>NATIONAL AUSTRALIA BANK LTD</td>
+              <td>NAB</td>
+              <td>National Australia Bank Limited provides financial services through Business and Private Banking, Personal Banking, Corporate and Institutional Banking, New Zealand Banking and Corporate Functions segments, with a focus on business banking.</td>
+              <td>The focus on business banking is better suited than residential mortgages in the current environment. NAB has deliberately limited residential exposure since 2023, demonstrating margin stabilisation in 2024. NAB has also shown better aptitude at managing large-scale technology projects on time.</td>
+              <td class="col-rating"><span class="badge badge-strong-buy">Strong Buy</span></td>
+              <td class="col-pe">18.54</td>
+              <td class="col-div">3.71%</td>
+            </tr>
+            <tr>
+              <td>NEWMONT CORP-CDI</td>
+              <td>NEM</td>
+              <td>Newmont Corporation is a gold producer with operations in the United States, Canada, Mexico, Peru, Australia, Papua New Guinea, Ghana and other regions. Key operations include Boddington, Tanami, Cadia, Lihir, Ahafo and NGM.</td>
+              <td>Gold plays a useful role as a hedge for geopolitical risk in multi-asset portfolios. Newmont is the most diversified of the gold miners. The valuation does not reflect this lower-risk earnings profile relative to ASX-listed gold miners.</td>
+              <td class="col-rating"><span class="badge badge-strong-buy">Strong Buy</span></td>
+              <td class="col-pe">12.00</td>
+              <td class="col-div">0.86%</td>
+            </tr>
+            <tr>
+              <td>NIB HOLDINGS LTD</td>
+              <td>NHF</td>
+              <td>nib Holdings Limited is a provider of health and medical insurance. Its segments include Australian Residents Health Insurance, New Zealand Insurance, International Health Insurance, nib Travel and nib Thrive. It also operates as a Plan Manager under the NDIS.</td>
+              <td>The health insurance space is an attractive defensive option given the valuation. NIB has advantages over competitors in that its data has never been compromised to the extent of Medibank. Recent pick-up in interest rates is not factored into consensus.</td>
+              <td class="col-rating"><span class="badge badge-hold">Hold</span></td>
+              <td class="col-pe">13.82</td>
+              <td class="col-div">6.82%</td>
+            </tr>
+            <tr>
+              <td>ORICA LTD</td>
+              <td>ORI</td>
+              <td>Orica Limited is a mining and infrastructure solutions provider engaged in the production and supply of explosives, blasting systems, mining chemicals and geotechnical monitoring. It operates across APA, North America, Latin America, EMEA and Global Support segments.</td>
+              <td>Recent results and innovative use of technology build a promising forward earnings picture. Tailwinds come from commodities strength, rising exploration interest and cutting-edge technology for blast site analysis. Broad exposure across various commodities lowers single metal price risk.</td>
+              <td class="col-rating"><span class="badge badge-strong-buy">Strong Buy</span></td>
+              <td class="col-pe">17.80</td>
+              <td class="col-div">2.93%</td>
+            </tr>
+            <tr>
+              <td>ORIGIN ENERGY LTD</td>
+              <td>ORG</td>
+              <td>Origin Energy Limited is an integrated energy company with segments including Energy Markets, Share of Octopus Energy, Integrated Gas, and Corporate. It is engaged in energy retailing, wholesaling, power generation, and LNG production predominantly in Australia.</td>
+              <td>Origin Energy is aligned with national goals of driving productivity through AI. Data centres will continue to drain the grid and Origin is a key partner to facilitate additional power needs from both fossil fuels and sustainable sources. LNG and industry fund support for sustainable capex are further positives.</td>
+              <td class="col-rating"><span class="badge badge-strong-buy">Strong Buy</span></td>
+              <td class="col-pe">17.91</td>
+              <td class="col-div">7.41%</td>
+            </tr>
+            <tr>
+              <td>QBE INSURANCE GROUP LTD</td>
+              <td>QBE</td>
+              <td>QBE Insurance Group Limited is an insurance and reinsurance company. Its segments include North America, International, and Australia Pacific, underwriting general insurance and reinsurance risks across the United States, UK, Europe, Canada, Asia and Australia.</td>
+              <td>QBE is one of the few stocks to benefit from rising bond yields, as it increases returns on its investment book. Tight labour markets and higher wages have enabled higher insurance premiums. Management is now more conservative with guidance and has set achievable operating efficiency and profitability targets.</td>
+              <td class="col-rating"><span class="badge badge-strong-buy">Strong Buy</span></td>
+              <td class="col-pe">11.39</td>
+              <td class="col-div">5.58%</td>
+            </tr>
+            <tr>
+              <td>RESMED INC-CDI</td>
+              <td>RMD</td>
+              <td>ResMed Inc. is engaged in the development, manufacturing and marketing of medical devices and cloud-based software that diagnose, treat and manage respiratory disorders including sleep disordered breathing and COPD. Segments include Sleep and Breathing Health and Residential Care Software.</td>
+              <td>Resmed has defied expectations of a revenue collapse from GLP-1 drugs and continues to exceed bearish expectations. One of the few securities in the index to have consistently grown Return on Equity, revenues and earnings over the last decade.</td>
+              <td class="col-rating"><span class="badge badge-strong-buy">Strong Buy</span></td>
+              <td class="col-pe">21.40</td>
+              <td class="col-div">1.04%</td>
+            </tr>
+            <tr>
+              <td>RIO TINTO LTD</td>
+              <td>RIO</td>
+              <td>Rio Tinto Limited is a mining and metals company operating in 35 countries, producing iron ore, copper, aluminum, critical minerals and other materials. Its segments include Iron Ore, Aluminum, Copper, and Minerals, with major Pilbara operations in Western Australia.</td>
+              <td>Rio Tinto is shifting from an Iron Ore focus to a broader suite of commodities, with Copper the most significant beneficiary. Increased diversification makes enormous sense in a world of volatile commodities. Very well managed from both a balance sheet and capex standpoint.</td>
+              <td class="col-rating"><span class="badge badge-strong-buy">Strong Buy</span></td>
+              <td class="col-pe">13.97</td>
+              <td class="col-div">5.87%</td>
+            </tr>
+            <tr>
+              <td>SPDR S&amp;P/ASX 200 FUND</td>
+              <td>STW</td>
+              <td>—</td>
+              <td>The most liquid and tradeable exposure to Australian Equities. Used to manage asset allocation dynamically and to respond swiftly to changes in financial markets. This ETF fully replicates the S&amp;P/ASX 200 index.</td>
+              <td class="col-rating"><span class="badge badge-na">N/A</span></td>
+              <td class="col-pe">N/A</td>
+              <td class="col-div">N/A</td>
+            </tr>
+            <tr>
+              <td>STEADFAST GROUP LTD</td>
+              <td>SDF</td>
+              <td>Steadfast Group Limited operates international general insurance broking and agency networks across Australia, New Zealand, Singapore and the United States. It owns approximately 29 underwriting agencies and a 60% equity stake in UnisonSteadfast, a global broker referral network.</td>
+              <td>Earnings are more defensive than the market appreciates given the spread of underlying segments and geographies in insurance broking. Industry-wide tailwinds remain significant with tight labour markets and strong wage growth. Recent management controversies have blown over.</td>
+              <td class="col-rating"><span class="badge badge-hold">Hold</span></td>
+              <td class="col-pe">13.03</td>
+              <td class="col-div">7.20%</td>
+            </tr>
+            <tr>
+              <td>STOCKLAND</td>
+              <td>SGP</td>
+              <td>Stockland Corporation Ltd is a diversified real estate group in Australia. It owns, manages and develops a portfolio of income-producing investment assets across town centres, workplaces and logistics centres. Segments include Development, Investment Management, and Other.</td>
+              <td>Government policy is focused on increasing housing supply, which will benefit large development players. This includes fast-tracking of DAs in urban areas. Smaller players will struggle with capital and labour costs, while larger developers like Stockland have advantages on both fronts.</td>
+              <td class="col-rating"><span class="badge badge-buy">Buy</span></td>
+              <td class="col-pe">12.71</td>
+              <td class="col-div">5.31%</td>
+            </tr>
+            <tr>
+              <td>TECHNOLOGY ONE LTD</td>
+              <td>TNE</td>
+              <td>TechnologyOne Limited is an enterprise software company engaged in the development, marketing, sales, implementation, and support of fully integrated enterprise business software solutions. Its segments include Software and Consulting, with a SaaS platform for government and semi-government organisations.</td>
+              <td>Cloud computing in government and semi-government organisations is not complete. It is a significant cost saver and enables organisations to use cutting-edge tools such as AI. TechnologyOne has a very sticky customer base not just domestically but also growing sharply in the UK.</td>
+              <td class="col-rating"><span class="badge badge-buy">Buy</span></td>
+              <td class="col-pe">46.66</td>
+              <td class="col-div">1.85%</td>
+            </tr>
+            <tr>
+              <td>TPG TELECOM LTD</td>
+              <td>TPG</td>
+              <td>TPG Telecom Limited is a full-service telecommunications provider owning and operating nationwide mobile and fixed networks. It operates brands including Vodafone, TPG, iiNet, AAPT, Internode, Lebara and felix across Consumer and Enterprise, Government and Wholesale segments.</td>
+              <td>TPG has shrewdly simplified its business, cut leverage and refocused on mobile distribution. This will unlock value with a reduction in balance sheet risk. Consensus numbers are underestimating TPG's ability to add market share from incumbents. The slow bleed in the Optus brand continues to boost earnings.</td>
+              <td class="col-rating"><span class="badge badge-buy">Buy</span></td>
+              <td class="col-pe">34.32</td>
+              <td class="col-div">5.41%</td>
+            </tr>
+            <tr>
+              <td>WOODSIDE ENERGY GROUP LTD</td>
+              <td>WDS</td>
+              <td>Woodside Energy Group Ltd is a global energy company with segments including Australia, International and Marketing. Its projects include Pluto LNG, the North West Shelf Project, Macedon, and Woodside Louisiana LNG, an under-construction LNG terminal in Louisiana.</td>
+              <td>High quality LNG and oil assets both domestically and offshore, including across the US Gulf of Mexico and North America. Growth optionality is lower than typical historically, and leverage to oil price higher. A constructive view on the oil price makes this a buy, likely leading to an upgrade cycle.</td>
+              <td class="col-rating"><span class="badge badge-buy">Buy</span></td>
+              <td class="col-pe">27.94</td>
+              <td class="col-div">4.22%</td>
+            </tr>
+            <tr>
+              <td>XERO LTD</td>
+              <td>XRO</td>
+              <td>Xero Limited is a software-as-a-service company operating a global small business platform including core accounting, payroll, workforce management, expenses and projects. It connects small businesses to banks, financial institutions and an ecosystem of apps across Australia, New Zealand and internationally.</td>
+              <td>Xero is the best in class accounting software package. The perceived threat from AI is likely overstated for accounting software given the burden of rigour. The future will depend on AI integration, the extent to which Xero can provide a broader ecosystem of functionality, and its ability to charge a higher price.</td>
+              <td class="col-rating"><span class="badge badge-strong-buy">Strong Buy</span></td>
+              <td class="col-pe">62.75</td>
+              <td class="col-div">0.00%</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <!-- ===== END CONTENT AREA ===== -->
 
