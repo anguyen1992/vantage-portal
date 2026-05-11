@@ -99,6 +99,19 @@ function initLockBtn() {
   });
 }
 
+/* ----- GitHub Pages Link Fix ----- */
+
+function fixAbsoluteLinks() {
+  if (window.location.hostname !== 'anguyen1992.github.io') return;
+  const repoBase = '/i';
+  document.querySelectorAll('a[href]').forEach(a => {
+    const href = a.getAttribute('href');
+    if (href && href.startsWith('/') && !href.startsWith(repoBase + '/') && href !== repoBase) {
+      a.setAttribute('href', repoBase + href);
+    }
+  });
+}
+
 /* ----- Bootstrap ----- */
 
 async function init() {
@@ -121,6 +134,7 @@ async function init() {
   /* Run after components are injected */
   setActiveNav();
   setFooterYear();
+  fixAbsoluteLinks();
 }
 
 document.addEventListener('DOMContentLoaded', init);

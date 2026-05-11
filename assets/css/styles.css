@@ -669,7 +669,8 @@ thead th {
   white-space: nowrap;
 }
 
-thead th.numeric, td.numeric { text-align: right; font-variant-numeric: tabular-nums; }
+thead th:not(:first-child) { text-align: center; }
+thead th.numeric, td.numeric { text-align: center; font-variant-numeric: tabular-nums; }
 
 tbody tr {
   border-bottom: 1px solid var(--line-soft);

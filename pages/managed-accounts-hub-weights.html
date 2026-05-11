@@ -55,7 +55,8 @@
     td.fee   { font-variant-numeric: tabular-nums; text-align: right; color: var(--ink-soft); }
     td.disc  { font-variant-numeric: tabular-nums; text-align: right; color: #2e7d32; }
     td.na    { text-align: right; color: var(--muted); font-style: italic; }
-    .sec-code { display: block; font-size: 0.72rem; color: var(--muted); margin-top: 1px; }
+    td.code  { font-size: 0.78rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+    td.cls   { font-size: 0.80rem; color: var(--ink-soft); }
   </style>
 </head>
 
@@ -91,6 +92,7 @@
         <p class="page-eyebrow">HUB24 Managed Accounts</p>
         <h1>HUB24 Model Portfolio Weights</h1>
         <div class="page-meta">
+          <span class="meta-item"><strong>As at:</strong> 30 Apr 2026</span>
           <span class="meta-item"><strong>Last updated:</strong> 11 May 2026</span>
           <span class="meta-item"><strong>Owner:</strong> Anthony Nguyen</span>
           <span class="meta-item"><strong>Source:</strong> HUB24</span>
@@ -102,10 +104,10 @@
         <button class="tab-btn"        role="tab" data-tab="global-eq"   onclick="showTab('global-eq')">Global Equities</button>
         <button class="tab-btn"        role="tab" data-tab="prop-infra"  onclick="showTab('prop-infra')">Prop / Infra</button>
         <button class="tab-btn"        role="tab" data-tab="fixed-int"   onclick="showTab('fixed-int')">Fixed Interest</button>
-        <button class="tab-btn"        role="tab" data-tab="alts"        onclick="showTab('alts')">Alternatives</button>
-        <button class="tab-btn"        role="tab" data-tab="high-growth" onclick="showTab('high-growth')">High Growth</button>
-        <button class="tab-btn"        role="tab" data-tab="growth"      onclick="showTab('growth')">Growth</button>
         <button class="tab-btn"        role="tab" data-tab="mod-growth"  onclick="showTab('mod-growth')">Moderate Growth</button>
+        <button class="tab-btn"        role="tab" data-tab="growth"      onclick="showTab('growth')">Growth</button>
+        <button class="tab-btn"        role="tab" data-tab="high-growth" onclick="showTab('high-growth')">High Growth</button>
+        <button class="tab-btn"        role="tab" data-tab="alts"        onclick="showTab('alts')">Alternatives</button>
       </div>
 
 
@@ -114,12 +116,23 @@
         <div class="block">
           <p class="block-eyebrow">Standalone SMA</p>
           <h2>Australian Equities Portfolio</h2>
-          <p class="block-meta">HUB24 Managed Accounts — SMA.</p>
+          <p class="block-meta">HUB24 Managed Accounts — SMA. Sorted alphabetically by code.</p>
           <div class="table-wrap">
-            <table>
+            <table style="table-layout:fixed; width:100%;">
+              <colgroup>
+                <col style="width:12%">
+                <col style="width:26%">
+                <col style="width:14%">
+                <col style="width:12%">
+                <col style="width:12%">
+                <col style="width:12%">
+                <col style="width:12%">
+              </colgroup>
               <thead>
                 <tr>
+                  <th>Code</th>
                   <th>Security</th>
+                  <th>Classification</th>
                   <th class="numeric">Allocation (%)</th>
                   <th class="numeric">SMA MER</th>
                   <th class="numeric">VWM Discount</th>
@@ -127,149 +140,36 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="subheader"><td colspan="5">Utilities</td></tr>
-                <tr>
-                  <td>AGL Energy <span class="sec-code">AGL</span></td>
-                  <td class="alloc">1.45%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-                <tr>
-                  <td>Origin Energy <span class="sec-code">ORG</span></td>
-                  <td class="alloc">2.63%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-
-                <tr class="subheader"><td colspan="5">Materials</td></tr>
-                <tr>
-                  <td>Amcor <span class="sec-code">AMC</span></td>
-                  <td class="alloc">1.01%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-                <tr>
-                  <td>Newmont <span class="sec-code">NEM</span></td>
-                  <td class="alloc">1.89%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-                <tr>
-                  <td>Orica <span class="sec-code">ORI</span></td>
-                  <td class="alloc">1.59%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-
-                <tr class="subheader"><td colspan="5">Financials</td></tr>
-                <tr>
-                  <td>ANZ Banking Group <span class="sec-code">ANZ</span></td>
-                  <td class="alloc">2.47%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-                <tr>
-                  <td>Commonwealth Bank <span class="sec-code">CBA</span></td>
-                  <td class="alloc">2.26%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-                <tr>
-                  <td>Challenger <span class="sec-code">CGF</span></td>
-                  <td class="alloc">0.96%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-                <tr>
-                  <td>HUB24 <span class="sec-code">HUB</span></td>
-                  <td class="alloc">1.36%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-                <tr>
-                  <td>Macquarie Group <span class="sec-code">MQG</span></td>
-                  <td class="alloc">3.18%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-                <tr>
-                  <td>National Australia Bank <span class="sec-code">NAB</span></td>
-                  <td class="alloc">3.74%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-                <tr>
-                  <td>NIB Holdings <span class="sec-code">NHF</span></td>
-                  <td class="alloc">1.21%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-                <tr>
-                  <td>QBE Insurance <span class="sec-code">QBE</span></td>
-                  <td class="alloc">2.90%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-                <tr>
-                  <td>Steadfast Group <span class="sec-code">SDF</span></td>
-                  <td class="alloc">0.81%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-
-                <tr class="subheader"><td colspan="5">Resources</td></tr>
-                <tr>
-                  <td>BHP Group <span class="sec-code">BHP</span></td>
-                  <td class="alloc">7.75%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-                <tr>
-                  <td>Rio Tinto <span class="sec-code">RIO</span></td>
-                  <td class="alloc">3.68%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-
-                <tr class="subheader"><td colspan="5">Consumer Discretionary</td></tr>
-                <tr>
-                  <td>Breville Group <span class="sec-code">BRG</span></td>
-                  <td class="alloc">1.12%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-
-                <tr class="subheader"><td colspan="5">Consumer Staples</td></tr>
-                <tr>
-                  <td>Coles <span class="sec-code">COL</span></td>
-                  <td class="alloc">1.05%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-
-                <tr class="subheader"><td colspan="5">Health Care</td></tr>
-                <tr>
-                  <td>ResMed CDI <span class="sec-code">RMD</span></td>
-                  <td class="alloc">2.23%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-
-                <tr class="subheader"><td colspan="5">Industrials</td></tr>
-                <tr>
-                  <td>Cleanaway Waste Management <span class="sec-code">CWY</span></td>
-                  <td class="alloc">0.98%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-                <tr>
-                  <td>Monadelphous Group <span class="sec-code">MND</span></td>
-                  <td class="alloc">1.01%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-
-                <tr class="subheader"><td colspan="5">Real Estate</td></tr>
-                <tr>
-                  <td>Stockland <span class="sec-code">SGP</span></td>
-                  <td class="alloc">1.45%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-
-                <tr class="subheader"><td colspan="5">Information Technology</td></tr>
-                <tr>
-                  <td>Technology One <span class="sec-code">TNE</span></td>
-                  <td class="alloc">1.24%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-                <tr>
-                  <td>Xero <span class="sec-code">XRO</span></td>
-                  <td class="alloc">1.25%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-
-                <tr class="subheader"><td colspan="5">Communication Services</td></tr>
-                <tr>
-                  <td>TPG Telecom <span class="sec-code">TPG</span></td>
-                  <td class="alloc">1.16%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-
-                <tr class="subheader"><td colspan="5">Energy</td></tr>
-                <tr>
-                  <td>Woodside Energy <span class="sec-code">WDS</span></td>
-                  <td class="alloc">2.48%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-
-                <tr class="subheader"><td colspan="5">Index ETF</td></tr>
-                <tr>
-                  <td>SPDR S&amp;P/ASX 200 ETF <span class="sec-code">STW.ASX</span></td>
-                  <td class="alloc">46.60%</td>
-                  <td class="fee">0.05%</td><td class="na">—</td><td class="fee">0.05%</td>
-                </tr>
-
-                <tr class="subheader"><td colspan="5">Cash</td></tr>
-                <tr>
-                  <td>Cash &amp; Reserves</td>
-                  <td class="alloc">0.55%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-
+                <tr><td class="code">AGL</td><td>AGL Energy</td><td class="cls">Utilities</td><td class="alloc">1.45%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">AMC</td><td>Amcor</td><td class="cls">Materials</td><td class="alloc">1.01%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">ANZ</td><td>ANZ Banking Group</td><td class="cls">Financials</td><td class="alloc">2.47%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">BHP</td><td>BHP Group</td><td class="cls">Resources</td><td class="alloc">7.75%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">BRG</td><td>Breville Group</td><td class="cls">Consumer Discretionary</td><td class="alloc">1.12%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">CBA</td><td>Commonwealth Bank</td><td class="cls">Financials</td><td class="alloc">2.26%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">CGF</td><td>Challenger</td><td class="cls">Financials</td><td class="alloc">0.96%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">COL</td><td>Coles</td><td class="cls">Consumer Staples</td><td class="alloc">1.05%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">CWY</td><td>Cleanaway Waste Management</td><td class="cls">Industrials</td><td class="alloc">0.98%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">HUB</td><td>HUB24</td><td class="cls">Financials</td><td class="alloc">1.36%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">MND</td><td>Monadelphous Group</td><td class="cls">Industrials</td><td class="alloc">1.01%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">MQG</td><td>Macquarie Group</td><td class="cls">Financials</td><td class="alloc">3.18%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">NAB</td><td>National Australia Bank</td><td class="cls">Financials</td><td class="alloc">3.74%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">NEM</td><td>Newmont</td><td class="cls">Materials</td><td class="alloc">1.89%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">NHF</td><td>NIB Holdings</td><td class="cls">Financials</td><td class="alloc">1.21%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">ORG</td><td>Origin Energy</td><td class="cls">Utilities</td><td class="alloc">2.63%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">ORI</td><td>Orica</td><td class="cls">Materials</td><td class="alloc">1.59%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">QBE</td><td>QBE Insurance</td><td class="cls">Financials</td><td class="alloc">2.90%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">RIO</td><td>Rio Tinto</td><td class="cls">Resources</td><td class="alloc">3.68%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">RMD</td><td>ResMed CDI</td><td class="cls">Health Care</td><td class="alloc">2.23%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">SDF</td><td>Steadfast Group</td><td class="cls">Financials</td><td class="alloc">0.81%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">SGP</td><td>Stockland</td><td class="cls">Real Estate</td><td class="alloc">1.45%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">STW.ASX</td><td>SPDR S&amp;P/ASX 200 ETF</td><td class="cls">Index ETF</td><td class="alloc">46.60%</td><td class="fee">0.05%</td><td class="na">—</td><td class="fee">0.05%</td></tr>
+                <tr><td class="code">TNE</td><td>Technology One</td><td class="cls">Information Technology</td><td class="alloc">1.24%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">TPG</td><td>TPG Telecom</td><td class="cls">Communication Services</td><td class="alloc">1.16%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">WDS</td><td>Woodside Energy</td><td class="cls">Energy</td><td class="alloc">2.48%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">XRO</td><td>Xero</td><td class="cls">Information Technology</td><td class="alloc">1.25%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">CASH</td><td>Cash &amp; Reserves</td><td class="cls">Cash</td><td class="alloc">0.55%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
                 <tr class="total-row">
-                  <td>Total / Weighted Average</td>
+                  <td colspan="3">Total / Weighted Average</td>
                   <td class="alloc">100.0%</td>
                   <td class="fee">0.023%</td>
                   <td class="na">—</td>
@@ -287,12 +187,23 @@
         <div class="block">
           <p class="block-eyebrow">Standalone SMA</p>
           <h2>Global Equities Portfolio</h2>
-          <p class="block-meta">HUB24 Managed Accounts — SMA.</p>
+          <p class="block-meta">HUB24 Managed Accounts — SMA. Sorted alphabetically by code.</p>
           <div class="table-wrap">
-            <table>
+            <table style="table-layout:fixed; width:100%;">
+              <colgroup>
+                <col style="width:12%">
+                <col style="width:26%">
+                <col style="width:14%">
+                <col style="width:12%">
+                <col style="width:12%">
+                <col style="width:12%">
+                <col style="width:12%">
+              </colgroup>
               <thead>
                 <tr>
+                  <th>Code</th>
                   <th>Security</th>
+                  <th>Classification</th>
                   <th class="numeric">Allocation (%)</th>
                   <th class="numeric">SMA MER</th>
                   <th class="numeric">VWM Discount</th>
@@ -300,61 +211,16 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="subheader"><td colspan="5">Large Cap Core Growth</td></tr>
-                <tr>
-                  <td>T. Rowe Price Global Equity Fund — M Class <span class="sec-code">ETL8482AU</span></td>
-                  <td class="alloc">12.88%</td>
-                  <td class="fee">0.70%</td><td class="na">—</td><td class="fee">0.70%</td>
-                </tr>
-
-                <tr class="subheader"><td colspan="5">Large Cap Blend</td></tr>
-                <tr>
-                  <td>Arrowstreet Global Equity Fund No. 2 — Hedged <span class="sec-code">MAQ1878AU</span></td>
-                  <td class="alloc">35.23%</td>
-                  <td class="fee">0.75%</td><td class="na">—</td><td class="fee">0.75%</td>
-                </tr>
-
-                <tr class="subheader"><td colspan="5">Small Cap Value</td></tr>
-                <tr>
-                  <td>Arrowstreet Global Small Companies No. 2 Fund — Class I <span class="sec-code">MAQ8493AU</span></td>
-                  <td class="alloc">10.43%</td>
-                  <td class="fee">0.90%</td><td class="na">—</td><td class="fee">0.90%</td>
-                </tr>
-
-                <tr class="subheader"><td colspan="5">Mid Cap Growth</td></tr>
-                <tr>
-                  <td>Aoris International Fund — Class B <span class="sec-code">PIM0058AU</span></td>
-                  <td class="alloc">8.24%</td>
-                  <td class="fee">1.34%</td><td class="disc">−0.22%</td><td class="fee">1.56%</td>
-                </tr>
-
-                <tr class="subheader"><td colspan="5">Factor ETF</td></tr>
-                <tr>
-                  <td>VanEck MSCI World ex Australia Quality ETF <span class="sec-code">QUAL.ASX</span></td>
-                  <td class="alloc">4.80%</td>
-                  <td class="fee">0.42%</td><td class="na">—</td><td class="fee">0.40%</td>
-                </tr>
-                <tr>
-                  <td>Vanguard Global Value Equity Active ETF <span class="sec-code">VVLU.ASX</span></td>
-                  <td class="alloc">9.13%</td>
-                  <td class="fee">0.28%</td><td class="na">—</td><td class="fee">0.28%</td>
-                </tr>
-
-                <tr class="subheader"><td colspan="5">Index ETF</td></tr>
-                <tr>
-                  <td>Vanguard MSCI Index International Shares ETF <span class="sec-code">VGS.ASX</span></td>
-                  <td class="alloc">18.79%</td>
-                  <td class="fee">0.18%</td><td class="na">—</td><td class="fee">0.18%</td>
-                </tr>
-
-                <tr class="subheader"><td colspan="5">Cash</td></tr>
-                <tr>
-                  <td>Cash &amp; Reserves</td>
-                  <td class="alloc">0.49%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-
+                <tr><td class="code">ETL8482AU</td><td>T. Rowe Price Global Equity Fund — M Class</td><td class="cls">Large Cap Core Growth</td><td class="alloc">12.88%</td><td class="fee">0.70%</td><td class="na">—</td><td class="fee">0.70%</td></tr>
+                <tr><td class="code">MAQ1878AU</td><td>Arrowstreet Global Equity Fund No. 2 — Hedged</td><td class="cls">Large Cap Blend</td><td class="alloc">35.23%</td><td class="fee">0.75%</td><td class="na">—</td><td class="fee">0.75%</td></tr>
+                <tr><td class="code">MAQ8493AU</td><td>Arrowstreet Global Small Companies No. 2 Fund — Class I</td><td class="cls">Small Cap Value</td><td class="alloc">10.43%</td><td class="fee">0.90%</td><td class="na">—</td><td class="fee">0.90%</td></tr>
+                <tr><td class="code">PIM0058AU</td><td>Aoris International Fund — Class B</td><td class="cls">Mid Cap Growth</td><td class="alloc">8.24%</td><td class="fee">1.34%</td><td class="disc">−0.22%</td><td class="fee">1.56%</td></tr>
+                <tr><td class="code">QUAL.ASX</td><td>VanEck MSCI World ex Australia Quality ETF</td><td class="cls">Factor ETF</td><td class="alloc">4.80%</td><td class="fee">0.42%</td><td class="na">—</td><td class="fee">0.40%</td></tr>
+                <tr><td class="code">VGS.ASX</td><td>Vanguard MSCI Index International Shares ETF</td><td class="cls">Index ETF</td><td class="alloc">18.79%</td><td class="fee">0.18%</td><td class="na">—</td><td class="fee">0.18%</td></tr>
+                <tr><td class="code">VVLU.ASX</td><td>Vanguard Global Value Equity Active ETF</td><td class="cls">Factor ETF</td><td class="alloc">9.13%</td><td class="fee">0.28%</td><td class="na">—</td><td class="fee">0.28%</td></tr>
+                <tr><td class="code">CASH</td><td>Cash &amp; Reserves</td><td class="cls">Cash</td><td class="alloc">0.49%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
                 <tr class="total-row">
-                  <td>Total / Weighted Average</td>
+                  <td colspan="3">Total / Weighted Average</td>
                   <td class="alloc">100.00%</td>
                   <td class="fee">0.638%</td>
                   <td class="na">—</td>
@@ -372,12 +238,23 @@
         <div class="block">
           <p class="block-eyebrow">Standalone SMA</p>
           <h2>Property / Infrastructure Portfolio</h2>
-          <p class="block-meta">HUB24 Managed Accounts — SMA.</p>
+          <p class="block-meta">HUB24 Managed Accounts — SMA. Sorted alphabetically by code.</p>
           <div class="table-wrap">
-            <table>
+            <table style="table-layout:fixed; width:100%;">
+              <colgroup>
+                <col style="width:12%">
+                <col style="width:26%">
+                <col style="width:14%">
+                <col style="width:12%">
+                <col style="width:12%">
+                <col style="width:12%">
+                <col style="width:12%">
+              </colgroup>
               <thead>
                 <tr>
+                  <th>Code</th>
                   <th>Security</th>
+                  <th>Classification</th>
                   <th class="numeric">Allocation (%)</th>
                   <th class="numeric">SMA MER</th>
                   <th class="numeric">VWM Discount</th>
@@ -385,45 +262,14 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="subheader"><td colspan="5">Core Infrastructure</td></tr>
-                <tr>
-                  <td>Ausbil Global Essential Infrastructure Fund — Hedged <span class="sec-code">AAP3601AU</span></td>
-                  <td class="alloc">28.90%</td>
-                  <td class="fee">0.65%</td><td class="disc">−0.35%</td><td class="fee">1.00%</td>
-                </tr>
-                <tr>
-                  <td>ATLAS Infrastructure Australian Feeder Fund — Hedged <span class="sec-code">PIM1961AU</span></td>
-                  <td class="alloc">23.95%</td>
-                  <td class="fee">0.87%</td><td class="na">—</td><td class="fee">0.95%</td>
-                </tr>
-
-                <tr class="subheader"><td colspan="5">Global REITs</td></tr>
-                <tr>
-                  <td>Quay Global Real Estate Fund — Unhedged <span class="sec-code">BFL0020AU</span></td>
-                  <td class="alloc">24.48%</td>
-                  <td class="fee">1.13%</td><td class="disc">−0.12%</td><td class="fee">1.25%</td>
-                </tr>
-
-                <tr class="subheader"><td colspan="5">Index ETF</td></tr>
-                <tr>
-                  <td>VanEck FTSE Global Infrastructure (Hedged) ETF <span class="sec-code">IFRA</span></td>
-                  <td class="alloc">7.75%</td>
-                  <td class="fee">0.21%</td><td class="na">—</td><td class="fee">0.20%</td>
-                </tr>
-                <tr>
-                  <td>VanEck FTSE International Property (Hedged) ETF <span class="sec-code">REIT</span></td>
-                  <td class="alloc">14.50%</td>
-                  <td class="fee">0.21%</td><td class="na">—</td><td class="fee">0.20%</td>
-                </tr>
-
-                <tr class="subheader"><td colspan="5">Cash</td></tr>
-                <tr>
-                  <td>Cash &amp; Reserves</td>
-                  <td class="alloc">0.42%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-
+                <tr><td class="code">AAP3601AU</td><td>Ausbil Global Essential Infrastructure Fund — Hedged</td><td class="cls">Core Infrastructure</td><td class="alloc">28.90%</td><td class="fee">0.65%</td><td class="disc">−0.35%</td><td class="fee">1.00%</td></tr>
+                <tr><td class="code">BFL0020AU</td><td>Quay Global Real Estate Fund — Unhedged</td><td class="cls">Global REITs</td><td class="alloc">24.48%</td><td class="fee">1.13%</td><td class="disc">−0.12%</td><td class="fee">1.25%</td></tr>
+                <tr><td class="code">IFRA</td><td>VanEck FTSE Global Infrastructure (Hedged) ETF</td><td class="cls">Index ETF</td><td class="alloc">7.75%</td><td class="fee">0.21%</td><td class="na">—</td><td class="fee">0.20%</td></tr>
+                <tr><td class="code">PIM1961AU</td><td>ATLAS Infrastructure Australian Feeder Fund — Hedged</td><td class="cls">Core Infrastructure</td><td class="alloc">23.95%</td><td class="fee">0.87%</td><td class="na">—</td><td class="fee">0.95%</td></tr>
+                <tr><td class="code">REIT</td><td>VanEck FTSE International Property (Hedged) ETF</td><td class="cls">Index ETF</td><td class="alloc">14.50%</td><td class="fee">0.21%</td><td class="na">—</td><td class="fee">0.20%</td></tr>
+                <tr><td class="code">CASH</td><td>Cash &amp; Reserves</td><td class="cls">Cash</td><td class="alloc">0.42%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
                 <tr class="total-row">
-                  <td>Total / Weighted Average</td>
+                  <td colspan="3">Total / Weighted Average</td>
                   <td class="alloc">100.0%</td>
                   <td class="fee">0.720%</td>
                   <td class="na">—</td>
@@ -441,12 +287,23 @@
         <div class="block">
           <p class="block-eyebrow">Standalone SMA</p>
           <h2>Fixed Interest Portfolio</h2>
-          <p class="block-meta">HUB24 Managed Accounts — SMA.</p>
+          <p class="block-meta">HUB24 Managed Accounts — SMA. Sorted alphabetically by code.</p>
           <div class="table-wrap">
-            <table>
+            <table style="table-layout:fixed; width:100%;">
+              <colgroup>
+                <col style="width:12%">
+                <col style="width:26%">
+                <col style="width:14%">
+                <col style="width:12%">
+                <col style="width:12%">
+                <col style="width:12%">
+                <col style="width:12%">
+              </colgroup>
               <thead>
                 <tr>
+                  <th>Code</th>
                   <th>Security</th>
+                  <th>Classification</th>
                   <th class="numeric">Allocation (%)</th>
                   <th class="numeric">SMA MER</th>
                   <th class="numeric">VWM Discount</th>
@@ -454,293 +311,16 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="subheader"><td colspan="5">Global Credit</td></tr>
-                <tr>
-                  <td>Bentham Global Income Fund <span class="sec-code">CSA0038AU</span></td>
-                  <td class="alloc">14.04%</td>
-                  <td class="fee">0.52%</td><td class="disc">−0.25%</td><td class="fee">0.77%</td>
-                </tr>
-                <tr>
-                  <td>Macquarie Dynamic Bond Fund <span class="sec-code">MAQ0274AU</span></td>
-                  <td class="alloc">25.83%</td>
-                  <td class="fee">0.49%</td><td class="disc">−0.12%</td><td class="fee">0.61%</td>
-                </tr>
-
-                <tr class="subheader"><td colspan="5">Global ABS</td></tr>
-                <tr>
-                  <td>Bentham Asset Backed Securities Fund <span class="sec-code">HOW2852AU</span></td>
-                  <td class="alloc">19.31%</td>
-                  <td class="fee">0.25%</td><td class="disc">−0.10%</td><td class="fee">0.35%</td>
-                </tr>
-
-                <tr class="subheader"><td colspan="5">Domestic Credit</td></tr>
-                <tr>
-                  <td>Perpetual Diversified Income Fund <span class="sec-code">PER0260AU</span></td>
-                  <td class="alloc">20.25%</td>
-                  <td class="fee">0.40%</td><td class="disc">−0.19%</td><td class="fee">0.59%</td>
-                </tr>
-                <tr>
-                  <td>Coolabah Short Term Income Fund <span class="sec-code">SLT0052AU</span></td>
-                  <td class="alloc">20.11%</td>
-                  <td class="fee">0.80%</td><td class="disc">−0.10%</td><td class="fee">0.90%</td>
-                </tr>
-
-                <tr class="subheader"><td colspan="5">Cash</td></tr>
-                <tr>
-                  <td>Cash &amp; Reserves</td>
-                  <td class="alloc">0.46%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-
+                <tr><td class="code">CSA0038AU</td><td>Bentham Global Income Fund</td><td class="cls">Global Credit</td><td class="alloc">14.04%</td><td class="fee">0.52%</td><td class="disc">−0.25%</td><td class="fee">0.77%</td></tr>
+                <tr><td class="code">HOW2852AU</td><td>Bentham Asset Backed Securities Fund</td><td class="cls">Global ABS</td><td class="alloc">19.31%</td><td class="fee">0.25%</td><td class="disc">−0.10%</td><td class="fee">0.35%</td></tr>
+                <tr><td class="code">MAQ0274AU</td><td>Macquarie Dynamic Bond Fund</td><td class="cls">Global Credit</td><td class="alloc">25.83%</td><td class="fee">0.49%</td><td class="disc">−0.12%</td><td class="fee">0.61%</td></tr>
+                <tr><td class="code">PER0260AU</td><td>Perpetual Diversified Income Fund</td><td class="cls">Domestic Credit</td><td class="alloc">20.25%</td><td class="fee">0.40%</td><td class="disc">−0.19%</td><td class="fee">0.59%</td></tr>
+                <tr><td class="code">SLT0052AU</td><td>Coolabah Short Term Income Fund</td><td class="cls">Domestic Credit</td><td class="alloc">20.11%</td><td class="fee">0.80%</td><td class="disc">−0.10%</td><td class="fee">0.90%</td></tr>
+                <tr><td class="code">CASH</td><td>Cash &amp; Reserves</td><td class="cls">Cash</td><td class="alloc">0.46%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
                 <tr class="total-row">
-                  <td>Total / Weighted Average</td>
+                  <td colspan="3">Total / Weighted Average</td>
                   <td class="alloc">100.0%</td>
                   <td class="fee">0.490%</td>
-                  <td class="na">—</td>
-                  <td class="na">—</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-
-      <!-- ===== TAB: ALTERNATIVES ===== -->
-      <div id="panel-alts" class="tab-panel">
-        <div class="block">
-          <p class="block-eyebrow">Standalone SMA</p>
-          <h2>Alternatives Portfolio</h2>
-          <p class="block-meta">HUB24 Managed Accounts — SMA.</p>
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>Security</th>
-                  <th class="numeric">Allocation (%)</th>
-                  <th class="numeric">SMA MER</th>
-                  <th class="numeric">VWM Discount</th>
-                  <th class="numeric">Standard MER</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>iShares Asia 50 ETF <span class="sec-code">IAA.ASX</span></td>
-                  <td class="alloc">18.31%</td>
-                  <td class="fee">0.29%</td><td class="na">—</td><td class="fee">0.29%</td>
-                </tr>
-                <tr>
-                  <td>VanEck 1–3m U.S. Treasury Bond ETF <span class="sec-code">TBIL.ASX</span></td>
-                  <td class="alloc">15.73%</td>
-                  <td class="fee">0.22%</td><td class="na">—</td><td class="fee">0.22%</td>
-                </tr>
-                <tr>
-                  <td>Colchester EM Bond Fund <span class="sec-code">ETL3065AU</span></td>
-                  <td class="alloc">16.11%</td>
-                  <td class="fee">0.77%</td><td class="disc">−0.05%</td><td class="fee">0.82%</td>
-                </tr>
-                <tr>
-                  <td>Aspect Absolute Return Fund <span class="sec-code">FSF3532AU</span></td>
-                  <td class="alloc">16.57%</td>
-                  <td class="fee">0.98%</td><td class="disc">−0.10%</td><td class="fee">1.08%</td>
-                </tr>
-                <tr>
-                  <td>Perpetual Pure Equity Alpha Fund <span class="sec-code">PER0668AU</span></td>
-                  <td class="alloc">16.30%</td>
-                  <td class="fee">2.39%</td><td class="disc">−0.29%</td><td class="fee">2.68%</td>
-                </tr>
-                <tr>
-                  <td>Janus Henderson Global Multi-Strategy <span class="sec-code">HGI1794AU</span></td>
-                  <td class="alloc">16.49%</td>
-                  <td class="na">N/A</td><td class="disc">−0.29%</td><td class="na">N/A</td>
-                </tr>
-
-                <tr class="subheader"><td colspan="5">Cash</td></tr>
-                <tr>
-                  <td>Cash &amp; Reserves</td>
-                  <td class="alloc">0.48%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
-                </tr>
-
-                <tr class="total-row">
-                  <td>Total / Weighted Average</td>
-                  <td class="alloc">100.0%</td>
-                  <td class="na">N/A</td>
-                  <td class="na">—</td>
-                  <td class="na">N/A</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p style="font-size:0.77rem; color:var(--muted);">* SMA MER for Janus Henderson Global Multi-Strategy pending confirmation.</p>
-        </div>
-      </div>
-
-
-      <!-- ===== TAB: HIGH GROWTH ===== -->
-      <div id="panel-high-growth" class="tab-panel">
-        <div class="block">
-          <p class="block-eyebrow">Multi-Asset Portfolio</p>
-          <h2>High Growth Portfolio</h2>
-          <p class="block-meta">HUB24 Managed Accounts — SMA.</p>
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>Security</th>
-                  <th class="numeric">Allocation (%)</th>
-                  <th class="numeric">SMA MER</th>
-                  <th class="numeric">VWM Discount</th>
-                  <th class="numeric">Standard MER</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="subheader"><td colspan="5">Australian Equities</td></tr>
-                <tr><td>AGL Energy <span class="sec-code">AGL</span></td><td class="alloc">0.48%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Amcor <span class="sec-code">AMC</span></td><td class="alloc">0.33%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>ANZ Banking Group <span class="sec-code">ANZ</span></td><td class="alloc">0.81%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>BHP Group <span class="sec-code">BHP</span></td><td class="alloc">2.58%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Breville Group <span class="sec-code">BRG</span></td><td class="alloc">0.37%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Commonwealth Bank <span class="sec-code">CBA</span></td><td class="alloc">0.31%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Challenger <span class="sec-code">CGF</span></td><td class="alloc">0.35%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Coles <span class="sec-code">COL</span></td><td class="alloc">0.76%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Cleanaway Waste Management <span class="sec-code">CWY</span></td><td class="alloc">0.32%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>HUB24 <span class="sec-code">HUB</span></td><td class="alloc">0.45%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Monadelphous Group <span class="sec-code">MND</span></td><td class="alloc">0.34%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Macquarie Group <span class="sec-code">MQG</span></td><td class="alloc">1.05%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>National Australia Bank <span class="sec-code">NAB</span></td><td class="alloc">1.22%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Newmont <span class="sec-code">NEM</span></td><td class="alloc">0.63%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>NIB Holdings <span class="sec-code">NHF</span></td><td class="alloc">0.39%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Origin Energy <span class="sec-code">ORG</span></td><td class="alloc">0.84%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Orica <span class="sec-code">ORI</span></td><td class="alloc">0.53%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>QBE Insurance Group <span class="sec-code">QBE</span></td><td class="alloc">0.95%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>ResMed CDI <span class="sec-code">RMD</span></td><td class="alloc">0.74%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Rio Tinto <span class="sec-code">RIO</span></td><td class="alloc">1.22%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Steadfast Group <span class="sec-code">SDF</span></td><td class="alloc">0.26%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Stockland <span class="sec-code">SGP</span></td><td class="alloc">0.48%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>SPDR S&amp;P/ASX 200 ETF <span class="sec-code">STW.ASX</span></td><td class="alloc">15.46%</td><td class="fee">0.05%</td><td class="na">—</td><td class="fee">0.05%</td></tr>
-                <tr><td>Technology One <span class="sec-code">TNE</span></td><td class="alloc">0.41%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>TPG Telecom <span class="sec-code">TPG</span></td><td class="alloc">0.37%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Woodside Energy <span class="sec-code">WDS</span></td><td class="alloc">0.84%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Xero <span class="sec-code">XRO</span></td><td class="alloc">0.41%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-
-                <tr class="subheader"><td colspan="5">Global Equities</td></tr>
-                <tr><td>T. Rowe Price Global Equity Fund — M Class <span class="sec-code">ETL8482AU</span></td><td class="alloc">5.43%</td><td class="fee">0.70%</td><td class="na">—</td><td class="fee">0.70%</td></tr>
-                <tr><td>Arrowstreet Global Equity Fund No. 2 — Hedged <span class="sec-code">MAQ1878AU</span></td><td class="alloc">14.52%</td><td class="fee">0.70%</td><td class="na">—</td><td class="fee">0.70%</td></tr>
-                <tr><td>Arrowstreet Global Small Companies No. 2 Fund — Class I <span class="sec-code">MAQ8493AU</span></td><td class="alloc">4.49%</td><td class="fee">0.90%</td><td class="na">—</td><td class="fee">0.90%</td></tr>
-                <tr><td>Aoris International Fund — Class B <span class="sec-code">PIM0058AU</span></td><td class="alloc">3.51%</td><td class="fee">1.34%</td><td class="disc">−0.22%</td><td class="fee">1.56%</td></tr>
-                <tr><td>VanEck MSCI World ex Australia Quality ETF <span class="sec-code">QUAL.ASX</span></td><td class="alloc">1.99%</td><td class="fee">0.42%</td><td class="na">—</td><td class="fee">0.40%</td></tr>
-                <tr><td>Vanguard MSCI Index International Shares ETF <span class="sec-code">VGS.ASX</span></td><td class="alloc">8.13%</td><td class="fee">0.18%</td><td class="na">—</td><td class="fee">0.18%</td></tr>
-                <tr><td>Vanguard Global Value Equity Active ETF <span class="sec-code">VVLU.ASX</span></td><td class="alloc">3.94%</td><td class="fee">0.28%</td><td class="na">—</td><td class="fee">0.28%</td></tr>
-
-                <tr class="subheader"><td colspan="5">Property / Infrastructure</td></tr>
-                <tr><td>Ausbil Global Essential Infrastructure Fund — Hedged <span class="sec-code">AAP3601AU</span></td><td class="alloc">2.96%</td><td class="fee">0.65%</td><td class="disc">−0.35%</td><td class="fee">1.00%</td></tr>
-                <tr><td>Quay Global Real Estate Fund — Unhedged <span class="sec-code">BFL0020AU</span></td><td class="alloc">2.65%</td><td class="fee">1.13%</td><td class="disc">−0.12%</td><td class="fee">1.25%</td></tr>
-                <tr><td>VanEck FTSE Global Infrastructure (Hedged) ETF <span class="sec-code">IFRA</span></td><td class="alloc">0.79%</td><td class="fee">0.21%</td><td class="na">—</td><td class="fee">0.20%</td></tr>
-                <tr><td>ATLAS Infrastructure Australian Feeder Fund — Hedged <span class="sec-code">PIM1961AU</span></td><td class="alloc">2.46%</td><td class="fee">0.95%</td><td class="na">—</td><td class="fee">0.95%</td></tr>
-                <tr><td>VanEck FTSE International Property (Hedged) ETF <span class="sec-code">REIT</span></td><td class="alloc">1.50%</td><td class="fee">0.21%</td><td class="na">—</td><td class="fee">0.20%</td></tr>
-
-                <tr class="subheader"><td colspan="5">Fixed Interest</td></tr>
-                <tr><td>Bentham Global Income Fund <span class="sec-code">CSA0038AU</span></td><td class="alloc">1.60%</td><td class="fee">0.52%</td><td class="disc">−0.25%</td><td class="fee">0.77%</td></tr>
-                <tr><td>Bentham Asset Backed Securities Fund <span class="sec-code">HOW2852AU</span></td><td class="alloc">2.19%</td><td class="fee">0.25%</td><td class="disc">−0.10%</td><td class="fee">0.35%</td></tr>
-                <tr><td>Macquarie Dynamic Bond Fund <span class="sec-code">MAQ0274AU</span></td><td class="alloc">2.95%</td><td class="fee">0.49%</td><td class="disc">−0.12%</td><td class="fee">0.61%</td></tr>
-                <tr><td>Perpetual Diversified Income Fund <span class="sec-code">PER0260AU</span></td><td class="alloc">2.32%</td><td class="fee">0.40%</td><td class="disc">−0.19%</td><td class="fee">0.59%</td></tr>
-                <tr><td>Coolabah Short Term Income Fund <span class="sec-code">SLT0052AU</span></td><td class="alloc">2.27%</td><td class="fee">0.80%</td><td class="disc">−0.10%</td><td class="fee">0.90%</td></tr>
-
-                <tr class="subheader"><td colspan="5">Cash</td></tr>
-                <tr><td>iShares Enhanced Cash ETF <span class="sec-code">ISEC</span></td><td class="alloc">2.77%</td><td class="fee">0.12%</td><td class="na">—</td><td class="fee">0.12%</td></tr>
-                <tr><td>Cash &amp; Reserves</td><td class="alloc">0.62%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-
-                <tr class="total-row">
-                  <td>Total / Weighted Average</td>
-                  <td class="alloc">100.0%</td>
-                  <td class="fee">0.405%</td>
-                  <td class="na">—</td>
-                  <td class="na">—</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-
-      <!-- ===== TAB: GROWTH ===== -->
-      <div id="panel-growth" class="tab-panel">
-        <div class="block">
-          <p class="block-eyebrow">Multi-Asset Portfolio</p>
-          <h2>Growth Portfolio</h2>
-          <p class="block-meta">HUB24 Managed Accounts — SMA.</p>
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>Security</th>
-                  <th class="numeric">Allocation (%)</th>
-                  <th class="numeric">SMA MER</th>
-                  <th class="numeric">VWM Discount</th>
-                  <th class="numeric">Standard MER</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="subheader"><td colspan="5">Australian Equities</td></tr>
-                <tr><td>AGL Energy <span class="sec-code">AGL</span></td><td class="alloc">0.38%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Amcor <span class="sec-code">AMC</span></td><td class="alloc">0.26%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>ANZ Banking Group <span class="sec-code">ANZ</span></td><td class="alloc">0.64%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>BHP Group <span class="sec-code">BHP</span></td><td class="alloc">2.04%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Breville Group <span class="sec-code">BRG</span></td><td class="alloc">0.29%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Commonwealth Bank <span class="sec-code">CBA</span></td><td class="alloc">0.26%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Challenger <span class="sec-code">CGF</span></td><td class="alloc">0.25%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Coles <span class="sec-code">COL</span></td><td class="alloc">0.28%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Cleanaway Waste Management <span class="sec-code">CWY</span></td><td class="alloc">0.59%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>HUB24 <span class="sec-code">HUB</span></td><td class="alloc">0.36%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Monadelphous Group <span class="sec-code">MND</span></td><td class="alloc">0.27%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Macquarie Group <span class="sec-code">MQG</span></td><td class="alloc">0.83%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>National Australia Bank <span class="sec-code">NAB</span></td><td class="alloc">0.96%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Newmont <span class="sec-code">NEM</span></td><td class="alloc">0.50%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>NIB Holdings <span class="sec-code">NHF</span></td><td class="alloc">0.31%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Origin Energy <span class="sec-code">ORG</span></td><td class="alloc">0.66%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Orica <span class="sec-code">ORI</span></td><td class="alloc">0.42%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>QBE Insurance Group <span class="sec-code">QBE</span></td><td class="alloc">0.75%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>ResMed CDI <span class="sec-code">RMD</span></td><td class="alloc">0.58%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Rio Tinto <span class="sec-code">RIO</span></td><td class="alloc">0.97%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Steadfast Group <span class="sec-code">SDF</span></td><td class="alloc">0.21%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Stockland <span class="sec-code">SGP</span></td><td class="alloc">0.38%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>SPDR S&amp;P/ASX 200 ETF <span class="sec-code">STW.ASX</span></td><td class="alloc">12.24%</td><td class="fee">0.05%</td><td class="na">—</td><td class="fee">0.05%</td></tr>
-                <tr><td>Technology One <span class="sec-code">TNE</span></td><td class="alloc">0.33%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>TPG Telecom <span class="sec-code">TPG</span></td><td class="alloc">0.30%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Woodside Energy <span class="sec-code">WDS</span></td><td class="alloc">0.72%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Xero <span class="sec-code">XRO</span></td><td class="alloc">0.33%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-
-                <tr class="subheader"><td colspan="5">Global Equities</td></tr>
-                <tr><td>T. Rowe Price Global Equity Fund — M Class <span class="sec-code">ETL8482AU</span></td><td class="alloc">4.64%</td><td class="fee">0.70%</td><td class="na">—</td><td class="fee">0.70%</td></tr>
-                <tr><td>Arrowstreet Global Equity Fund No. 2 — Hedged <span class="sec-code">MAQ1878AU</span></td><td class="alloc">12.43%</td><td class="fee">0.70%</td><td class="na">—</td><td class="fee">0.70%</td></tr>
-                <tr><td>Arrowstreet Global Small Companies No. 2 Fund — Class I <span class="sec-code">MAQ8493AU</span></td><td class="alloc">3.84%</td><td class="fee">0.90%</td><td class="na">—</td><td class="fee">0.90%</td></tr>
-                <tr><td>Aoris International Fund — Class B <span class="sec-code">PIM0058AU</span></td><td class="alloc">3.01%</td><td class="fee">1.34%</td><td class="disc">−0.22%</td><td class="fee">1.56%</td></tr>
-                <tr><td>VanEck MSCI World ex Australia Quality ETF <span class="sec-code">QUAL.ASX</span></td><td class="alloc">1.76%</td><td class="fee">0.40%</td><td class="na">—</td><td class="fee">0.40%</td></tr>
-                <tr><td>Vanguard MSCI Index International Shares ETF <span class="sec-code">VGS.ASX</span></td><td class="alloc">6.96%</td><td class="fee">0.18%</td><td class="na">—</td><td class="fee">0.18%</td></tr>
-                <tr><td>Vanguard Global Value Equity Active ETF <span class="sec-code">VVLU.ASX</span></td><td class="alloc">3.32%</td><td class="fee">0.28%</td><td class="na">—</td><td class="fee">0.28%</td></tr>
-
-                <tr class="subheader"><td colspan="5">Property / Infrastructure</td></tr>
-                <tr><td>Ausbil Global Essential Infrastructure Fund — Hedged <span class="sec-code">AAP3601AU</span></td><td class="alloc">2.53%</td><td class="fee">0.65%</td><td class="disc">−0.35%</td><td class="fee">1.00%</td></tr>
-                <tr><td>Quay Global Real Estate Fund — Unhedged <span class="sec-code">BFL0020AU</span></td><td class="alloc">2.27%</td><td class="fee">1.13%</td><td class="disc">−0.12%</td><td class="fee">1.25%</td></tr>
-                <tr><td>VanEck FTSE Global Infrastructure (Hedged) ETF <span class="sec-code">IFRA</span></td><td class="alloc">0.68%</td><td class="fee">0.21%</td><td class="na">—</td><td class="fee">0.20%</td></tr>
-                <tr><td>ATLAS Infrastructure Australian Feeder Fund — Hedged <span class="sec-code">PIM1961AU</span></td><td class="alloc">2.10%</td><td class="fee">0.95%</td><td class="na">—</td><td class="fee">0.95%</td></tr>
-                <tr><td>VanEck FTSE International Property (Hedged) ETF <span class="sec-code">REIT</span></td><td class="alloc">1.28%</td><td class="fee">0.21%</td><td class="na">—</td><td class="fee">0.20%</td></tr>
-
-                <tr class="subheader"><td colspan="5">Fixed Interest</td></tr>
-                <tr><td>Bentham Global Income Fund <span class="sec-code">CSA0038AU</span></td><td class="alloc">3.35%</td><td class="fee">0.52%</td><td class="disc">−0.25%</td><td class="fee">0.77%</td></tr>
-                <tr><td>Bentham Asset Backed Securities Fund <span class="sec-code">HOW2852AU</span></td><td class="alloc">4.60%</td><td class="fee">0.25%</td><td class="disc">−0.10%</td><td class="fee">0.35%</td></tr>
-                <tr><td>Macquarie Dynamic Bond Fund <span class="sec-code">MAQ0274AU</span></td><td class="alloc">6.18%</td><td class="fee">0.49%</td><td class="disc">−0.12%</td><td class="fee">0.61%</td></tr>
-                <tr><td>Perpetual Diversified Income Fund <span class="sec-code">PER0260AU</span></td><td class="alloc">4.87%</td><td class="fee">0.40%</td><td class="disc">−0.19%</td><td class="fee">0.59%</td></tr>
-                <tr><td>Coolabah Short Term Income Fund <span class="sec-code">SLT0052AU</span></td><td class="alloc">4.77%</td><td class="fee">0.80%</td><td class="disc">−0.10%</td><td class="fee">0.90%</td></tr>
-
-                <tr class="subheader"><td colspan="5">Cash</td></tr>
-                <tr><td>iShares Enhanced Cash ETF <span class="sec-code">ISEC</span></td><td class="alloc">4.76%</td><td class="fee">0.12%</td><td class="na">—</td><td class="fee">0.12%</td></tr>
-                <tr><td>Cash &amp; Reserves</td><td class="alloc">0.55%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-
-                <tr class="total-row">
-                  <td>Total / Weighted Average</td>
-                  <td class="alloc">100.00%</td>
-                  <td class="fee">0.418%</td>
                   <td class="na">—</td>
                   <td class="na">—</td>
                 </tr>
@@ -756,11 +336,20 @@
         <div class="block">
           <p class="block-eyebrow">Multi-Asset Portfolio</p>
           <h2>Moderate Growth Portfolio</h2>
-          <p class="block-meta">HUB24 Managed Accounts — SMA.</p>
+          <p class="block-meta">HUB24 Managed Accounts — SMA. Inception 14 July 2025.</p>
           <div class="table-wrap">
-            <table>
+            <table style="table-layout:fixed; width:100%;">
+              <colgroup>
+                <col style="width:12%">
+                <col style="width:32%">
+                <col style="width:14%">
+                <col style="width:14%">
+                <col style="width:14%">
+                <col style="width:14%">
+              </colgroup>
               <thead>
                 <tr>
+                  <th>Code</th>
                   <th>Security</th>
                   <th class="numeric">Allocation (%)</th>
                   <th class="numeric">SMA MER</th>
@@ -769,64 +358,64 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="subheader"><td colspan="5">Australian Equities</td></tr>
-                <tr><td>AGL Energy <span class="sec-code">AGL</span></td><td class="alloc">0.28%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Amcor <span class="sec-code">AMC</span></td><td class="alloc">0.19%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>ANZ Banking Group <span class="sec-code">ANZ</span></td><td class="alloc">0.47%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>BHP Group <span class="sec-code">BHP</span></td><td class="alloc">1.47%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Breville Group <span class="sec-code">BRG</span></td><td class="alloc">0.31%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Commonwealth Bank <span class="sec-code">CBA</span></td><td class="alloc">0.19%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Challenger <span class="sec-code">CGF</span></td><td class="alloc">0.18%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Coles <span class="sec-code">COL</span></td><td class="alloc">0.20%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Cleanaway Waste Management <span class="sec-code">CWY</span></td><td class="alloc">0.44%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>HUB24 <span class="sec-code">HUB</span></td><td class="alloc">0.26%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Monadelphous Group <span class="sec-code">MND</span></td><td class="alloc">0.20%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Macquarie Group <span class="sec-code">MQG</span></td><td class="alloc">0.61%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>National Australia Bank <span class="sec-code">NAB</span></td><td class="alloc">0.71%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Newmont <span class="sec-code">NEM</span></td><td class="alloc">0.37%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>NIB Holdings <span class="sec-code">NHF</span></td><td class="alloc">0.23%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Origin Energy <span class="sec-code">ORG</span></td><td class="alloc">0.49%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Orica <span class="sec-code">ORI</span></td><td class="alloc">0.31%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>QBE Insurance Group <span class="sec-code">QBE</span></td><td class="alloc">0.55%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>ResMed CDI <span class="sec-code">RMD</span></td><td class="alloc">0.43%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Rio Tinto <span class="sec-code">RIO</span></td><td class="alloc">0.70%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Steadfast Group <span class="sec-code">SDF</span></td><td class="alloc">0.15%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Stockland <span class="sec-code">SGP</span></td><td class="alloc">0.28%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>SPDR S&amp;P/ASX 200 ETF <span class="sec-code">STW.ASX</span></td><td class="alloc">8.65%</td><td class="fee">0.05%</td><td class="na">—</td><td class="fee">0.05%</td></tr>
-                <tr><td>Technology One <span class="sec-code">TNE</span></td><td class="alloc">0.33%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>TPG Telecom <span class="sec-code">TPG</span></td><td class="alloc">0.22%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Woodside Energy <span class="sec-code">WDS</span></td><td class="alloc">0.47%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-                <tr><td>Xero <span class="sec-code">XRO</span></td><td class="alloc">0.24%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr class="subheader"><td colspan="6">Australian Equities</td></tr>
+                <tr><td class="code">AGL</td><td>AGL Energy</td><td class="alloc">0.28%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">AMC</td><td>Amcor</td><td class="alloc">0.19%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">ANZ</td><td>ANZ Banking Group</td><td class="alloc">0.47%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">BHP</td><td>BHP Group</td><td class="alloc">1.47%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">BRG</td><td>Breville Group</td><td class="alloc">0.31%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">CBA</td><td>Commonwealth Bank</td><td class="alloc">0.19%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">CGF</td><td>Challenger</td><td class="alloc">0.18%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">COL</td><td>Coles</td><td class="alloc">0.20%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">CWY</td><td>Cleanaway Waste Management</td><td class="alloc">0.44%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">HUB</td><td>HUB24</td><td class="alloc">0.26%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">MND</td><td>Monadelphous Group</td><td class="alloc">0.20%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">MQG</td><td>Macquarie Group</td><td class="alloc">0.61%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">NAB</td><td>National Australia Bank</td><td class="alloc">0.71%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">NEM</td><td>Newmont</td><td class="alloc">0.37%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">NHF</td><td>NIB Holdings</td><td class="alloc">0.23%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">ORG</td><td>Origin Energy</td><td class="alloc">0.49%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">ORI</td><td>Orica</td><td class="alloc">0.31%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">QBE</td><td>QBE Insurance Group</td><td class="alloc">0.55%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">RIO</td><td>Rio Tinto</td><td class="alloc">0.70%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">RMD</td><td>ResMed CDI</td><td class="alloc">0.43%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">SDF</td><td>Steadfast Group</td><td class="alloc">0.15%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">SGP</td><td>Stockland</td><td class="alloc">0.28%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">STW.ASX</td><td>SPDR S&amp;P/ASX 200 ETF</td><td class="alloc">8.65%</td><td class="fee">0.05%</td><td class="na">—</td><td class="fee">0.05%</td></tr>
+                <tr><td class="code">TNE</td><td>Technology One</td><td class="alloc">0.33%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">TPG</td><td>TPG Telecom</td><td class="alloc">0.22%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">WDS</td><td>Woodside Energy</td><td class="alloc">0.47%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">XRO</td><td>Xero</td><td class="alloc">0.24%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
 
-                <tr class="subheader"><td colspan="5">Global Equities</td></tr>
-                <tr><td>T. Rowe Price Global Equity Fund — M Class <span class="sec-code">ETL8482AU</span></td><td class="alloc">3.78%</td><td class="fee">0.70%</td><td class="na">—</td><td class="fee">0.70%</td></tr>
-                <tr><td>Arrowstreet Global Equity Fund No. 2 — Hedged <span class="sec-code">MAQ1878AU</span></td><td class="alloc">10.13%</td><td class="fee">0.70%</td><td class="na">—</td><td class="fee">0.70%</td></tr>
-                <tr><td>Arrowstreet Global Small Companies No. 2 Fund — Class I <span class="sec-code">MAQ8493AU</span></td><td class="alloc">3.13%</td><td class="fee">0.90%</td><td class="na">—</td><td class="fee">0.90%</td></tr>
-                <tr><td>Aoris International Fund — Class B <span class="sec-code">PIM0058AU</span></td><td class="alloc">2.45%</td><td class="fee">1.34%</td><td class="disc">−0.22%</td><td class="fee">1.56%</td></tr>
-                <tr><td>VanEck MSCI World ex Australia Quality ETF <span class="sec-code">QUAL.ASX</span></td><td class="alloc">1.40%</td><td class="fee">0.42%</td><td class="na">—</td><td class="fee">0.40%</td></tr>
-                <tr><td>Vanguard MSCI Index International Shares ETF <span class="sec-code">VGS.ASX</span></td><td class="alloc">5.67%</td><td class="fee">0.18%</td><td class="na">—</td><td class="fee">0.18%</td></tr>
-                <tr><td>Vanguard Global Value Equity Active ETF <span class="sec-code">VVLU.ASX</span></td><td class="alloc">2.76%</td><td class="fee">0.28%</td><td class="na">—</td><td class="fee">0.28%</td></tr>
+                <tr class="subheader"><td colspan="6">Global Equities</td></tr>
+                <tr><td class="code">ETL8482AU</td><td>T. Rowe Price Global Equity Fund — M Class</td><td class="alloc">3.78%</td><td class="fee">0.70%</td><td class="na">—</td><td class="fee">0.70%</td></tr>
+                <tr><td class="code">MAQ1878AU</td><td>Arrowstreet Global Equity Fund No. 2 — Hedged</td><td class="alloc">10.13%</td><td class="fee">0.70%</td><td class="na">—</td><td class="fee">0.70%</td></tr>
+                <tr><td class="code">MAQ8493AU</td><td>Arrowstreet Global Small Companies No. 2 Fund — Class I</td><td class="alloc">3.13%</td><td class="fee">0.90%</td><td class="na">—</td><td class="fee">0.90%</td></tr>
+                <tr><td class="code">PIM0058AU</td><td>Aoris International Fund — Class B</td><td class="alloc">2.45%</td><td class="fee">1.34%</td><td class="disc">−0.22%</td><td class="fee">1.56%</td></tr>
+                <tr><td class="code">QUAL.ASX</td><td>VanEck MSCI World ex Australia Quality ETF</td><td class="alloc">1.40%</td><td class="fee">0.42%</td><td class="na">—</td><td class="fee">0.40%</td></tr>
+                <tr><td class="code">VGS.ASX</td><td>Vanguard MSCI Index International Shares ETF</td><td class="alloc">5.67%</td><td class="fee">0.18%</td><td class="na">—</td><td class="fee">0.18%</td></tr>
+                <tr><td class="code">VVLU.ASX</td><td>Vanguard Global Value Equity Active ETF</td><td class="alloc">2.76%</td><td class="fee">0.28%</td><td class="na">—</td><td class="fee">0.28%</td></tr>
 
-                <tr class="subheader"><td colspan="5">Property / Infrastructure</td></tr>
-                <tr><td>Ausbil Global Essential Infrastructure Fund — Hedged <span class="sec-code">AAP3601AU</span></td><td class="alloc">2.25%</td><td class="fee">0.65%</td><td class="disc">−0.35%</td><td class="fee">1.00%</td></tr>
-                <tr><td>Quay Global Real Estate Fund — Unhedged <span class="sec-code">BFL0020AU</span></td><td class="alloc">2.02%</td><td class="fee">1.13%</td><td class="disc">−0.12%</td><td class="fee">1.25%</td></tr>
-                <tr><td>VanEck FTSE Global Infrastructure (Hedged) ETF <span class="sec-code">IFRA</span></td><td class="alloc">0.60%</td><td class="fee">0.21%</td><td class="na">—</td><td class="fee">0.20%</td></tr>
-                <tr><td>ATLAS Infrastructure Australian Feeder Fund — Hedged <span class="sec-code">PIM1961AU</span></td><td class="alloc">1.87%</td><td class="fee">0.95%</td><td class="na">—</td><td class="fee">0.95%</td></tr>
-                <tr><td>VanEck FTSE International Property (Hedged) ETF <span class="sec-code">REIT</span></td><td class="alloc">1.14%</td><td class="fee">0.21%</td><td class="na">—</td><td class="fee">0.20%</td></tr>
+                <tr class="subheader"><td colspan="6">Property / Infrastructure</td></tr>
+                <tr><td class="code">AAP3601AU</td><td>Ausbil Global Essential Infrastructure Fund — Hedged</td><td class="alloc">2.25%</td><td class="fee">0.65%</td><td class="disc">−0.35%</td><td class="fee">1.00%</td></tr>
+                <tr><td class="code">BFL0020AU</td><td>Quay Global Real Estate Fund — Unhedged</td><td class="alloc">2.02%</td><td class="fee">1.13%</td><td class="disc">−0.12%</td><td class="fee">1.25%</td></tr>
+                <tr><td class="code">IFRA</td><td>VanEck FTSE Global Infrastructure (Hedged) ETF</td><td class="alloc">0.60%</td><td class="fee">0.21%</td><td class="na">—</td><td class="fee">0.20%</td></tr>
+                <tr><td class="code">PIM1961AU</td><td>ATLAS Infrastructure Australian Feeder Fund — Hedged</td><td class="alloc">1.87%</td><td class="fee">0.95%</td><td class="na">—</td><td class="fee">0.95%</td></tr>
+                <tr><td class="code">REIT</td><td>VanEck FTSE International Property (Hedged) ETF</td><td class="alloc">1.14%</td><td class="fee">0.21%</td><td class="na">—</td><td class="fee">0.20%</td></tr>
 
-                <tr class="subheader"><td colspan="5">Fixed Interest</td></tr>
-                <tr><td>Bentham Global Income Fund <span class="sec-code">CSA0038AU</span></td><td class="alloc">4.72%</td><td class="fee">0.52%</td><td class="disc">−0.25%</td><td class="fee">0.77%</td></tr>
-                <tr><td>Bentham Asset Backed Securities Fund <span class="sec-code">HOW2852AU</span></td><td class="alloc">6.49%</td><td class="fee">0.25%</td><td class="disc">−0.10%</td><td class="fee">0.35%</td></tr>
-                <tr><td>Macquarie Dynamic Bond Fund <span class="sec-code">MAQ0274AU</span></td><td class="alloc">8.72%</td><td class="fee">0.49%</td><td class="disc">−0.12%</td><td class="fee">0.61%</td></tr>
-                <tr><td>Perpetual Diversified Income Fund <span class="sec-code">PER0260AU</span></td><td class="alloc">6.86%</td><td class="fee">0.40%</td><td class="disc">−0.19%</td><td class="fee">0.59%</td></tr>
-                <tr><td>Coolabah Short Term Income Fund <span class="sec-code">SLT0052AU</span></td><td class="alloc">6.73%</td><td class="fee">0.80%</td><td class="disc">−0.10%</td><td class="fee">0.90%</td></tr>
+                <tr class="subheader"><td colspan="6">Fixed Interest</td></tr>
+                <tr><td class="code">CSA0038AU</td><td>Bentham Global Income Fund</td><td class="alloc">4.72%</td><td class="fee">0.52%</td><td class="disc">−0.25%</td><td class="fee">0.77%</td></tr>
+                <tr><td class="code">HOW2852AU</td><td>Bentham Asset Backed Securities Fund</td><td class="alloc">6.49%</td><td class="fee">0.25%</td><td class="disc">−0.10%</td><td class="fee">0.35%</td></tr>
+                <tr><td class="code">MAQ0274AU</td><td>Macquarie Dynamic Bond Fund</td><td class="alloc">8.72%</td><td class="fee">0.49%</td><td class="disc">−0.12%</td><td class="fee">0.61%</td></tr>
+                <tr><td class="code">PER0260AU</td><td>Perpetual Diversified Income Fund</td><td class="alloc">6.86%</td><td class="fee">0.40%</td><td class="disc">−0.19%</td><td class="fee">0.59%</td></tr>
+                <tr><td class="code">SLT0052AU</td><td>Coolabah Short Term Income Fund</td><td class="alloc">6.73%</td><td class="fee">0.80%</td><td class="disc">−0.10%</td><td class="fee">0.90%</td></tr>
 
-                <tr class="subheader"><td colspan="5">Cash</td></tr>
-                <tr><td>iShares Enhanced Cash ETF <span class="sec-code">ISEC</span></td><td class="alloc">9.86%</td><td class="fee">0.12%</td><td class="na">—</td><td class="fee">0.12%</td></tr>
-                <tr><td>Cash &amp; Reserves</td><td class="alloc">0.53%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr class="subheader"><td colspan="6">Cash</td></tr>
+                <tr><td class="code">ISEC</td><td>iShares Enhanced Cash ETF</td><td class="alloc">9.86%</td><td class="fee">0.12%</td><td class="na">—</td><td class="fee">0.12%</td></tr>
+                <tr><td class="code">CASH</td><td>Cash &amp; Reserves</td><td class="alloc">0.53%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
 
                 <tr class="total-row">
-                  <td>Total / Weighted Average</td>
+                  <td colspan="2">Total / Weighted Average</td>
                   <td class="alloc">100.0%</td>
                   <td class="fee">0.422%</td>
                   <td class="na">—</td>
@@ -835,6 +424,249 @@
               </tbody>
             </table>
           </div>
+        </div>
+      </div>
+
+
+      <!-- ===== TAB: GROWTH ===== -->
+      <div id="panel-growth" class="tab-panel">
+        <div class="block">
+          <p class="block-eyebrow">Multi-Asset Portfolio</p>
+          <h2>Growth Portfolio</h2>
+          <p class="block-meta">HUB24 Managed Accounts — SMA. Inception 14 July 2025.</p>
+          <div class="table-wrap">
+            <table style="table-layout:fixed; width:100%;">
+              <colgroup>
+                <col style="width:12%">
+                <col style="width:32%">
+                <col style="width:14%">
+                <col style="width:14%">
+                <col style="width:14%">
+                <col style="width:14%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>Code</th>
+                  <th>Security</th>
+                  <th class="numeric">Allocation (%)</th>
+                  <th class="numeric">SMA MER</th>
+                  <th class="numeric">VWM Discount</th>
+                  <th class="numeric">Standard MER</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="subheader"><td colspan="6">Australian Equities</td></tr>
+                <tr><td class="code">AGL</td><td>AGL Energy</td><td class="alloc">0.38%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">AMC</td><td>Amcor</td><td class="alloc">0.26%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">ANZ</td><td>ANZ Banking Group</td><td class="alloc">0.64%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">BHP</td><td>BHP Group</td><td class="alloc">2.04%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">BRG</td><td>Breville Group</td><td class="alloc">0.29%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">CBA</td><td>Commonwealth Bank</td><td class="alloc">0.26%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">CGF</td><td>Challenger</td><td class="alloc">0.25%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">COL</td><td>Coles</td><td class="alloc">0.28%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">CWY</td><td>Cleanaway Waste Management</td><td class="alloc">0.59%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">HUB</td><td>HUB24</td><td class="alloc">0.36%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">MND</td><td>Monadelphous Group</td><td class="alloc">0.27%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">MQG</td><td>Macquarie Group</td><td class="alloc">0.83%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">NAB</td><td>National Australia Bank</td><td class="alloc">0.96%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">NEM</td><td>Newmont</td><td class="alloc">0.50%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">NHF</td><td>NIB Holdings</td><td class="alloc">0.31%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">ORG</td><td>Origin Energy</td><td class="alloc">0.66%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">ORI</td><td>Orica</td><td class="alloc">0.42%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">QBE</td><td>QBE Insurance Group</td><td class="alloc">0.75%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">RIO</td><td>Rio Tinto</td><td class="alloc">0.97%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">RMD</td><td>ResMed CDI</td><td class="alloc">0.58%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">SDF</td><td>Steadfast Group</td><td class="alloc">0.21%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">SGP</td><td>Stockland</td><td class="alloc">0.38%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">STW.ASX</td><td>SPDR S&amp;P/ASX 200 ETF</td><td class="alloc">12.24%</td><td class="fee">0.05%</td><td class="na">—</td><td class="fee">0.05%</td></tr>
+                <tr><td class="code">TNE</td><td>Technology One</td><td class="alloc">0.33%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">TPG</td><td>TPG Telecom</td><td class="alloc">0.30%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">WDS</td><td>Woodside Energy</td><td class="alloc">0.72%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">XRO</td><td>Xero</td><td class="alloc">0.33%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+
+                <tr class="subheader"><td colspan="6">Global Equities</td></tr>
+                <tr><td class="code">ETL8482AU</td><td>T. Rowe Price Global Equity Fund — M Class</td><td class="alloc">4.64%</td><td class="fee">0.70%</td><td class="na">—</td><td class="fee">0.70%</td></tr>
+                <tr><td class="code">MAQ1878AU</td><td>Arrowstreet Global Equity Fund No. 2 — Hedged</td><td class="alloc">12.43%</td><td class="fee">0.70%</td><td class="na">—</td><td class="fee">0.70%</td></tr>
+                <tr><td class="code">MAQ8493AU</td><td>Arrowstreet Global Small Companies No. 2 Fund — Class I</td><td class="alloc">3.84%</td><td class="fee">0.90%</td><td class="na">—</td><td class="fee">0.90%</td></tr>
+                <tr><td class="code">PIM0058AU</td><td>Aoris International Fund — Class B</td><td class="alloc">3.01%</td><td class="fee">1.34%</td><td class="disc">−0.22%</td><td class="fee">1.56%</td></tr>
+                <tr><td class="code">QUAL.ASX</td><td>VanEck MSCI World ex Australia Quality ETF</td><td class="alloc">1.76%</td><td class="fee">0.40%</td><td class="na">—</td><td class="fee">0.40%</td></tr>
+                <tr><td class="code">VGS.ASX</td><td>Vanguard MSCI Index International Shares ETF</td><td class="alloc">6.96%</td><td class="fee">0.18%</td><td class="na">—</td><td class="fee">0.18%</td></tr>
+                <tr><td class="code">VVLU.ASX</td><td>Vanguard Global Value Equity Active ETF</td><td class="alloc">3.32%</td><td class="fee">0.28%</td><td class="na">—</td><td class="fee">0.28%</td></tr>
+
+                <tr class="subheader"><td colspan="6">Property / Infrastructure</td></tr>
+                <tr><td class="code">AAP3601AU</td><td>Ausbil Global Essential Infrastructure Fund — Hedged</td><td class="alloc">2.53%</td><td class="fee">0.65%</td><td class="disc">−0.35%</td><td class="fee">1.00%</td></tr>
+                <tr><td class="code">BFL0020AU</td><td>Quay Global Real Estate Fund — Unhedged</td><td class="alloc">2.27%</td><td class="fee">1.13%</td><td class="disc">−0.12%</td><td class="fee">1.25%</td></tr>
+                <tr><td class="code">IFRA</td><td>VanEck FTSE Global Infrastructure (Hedged) ETF</td><td class="alloc">0.68%</td><td class="fee">0.21%</td><td class="na">—</td><td class="fee">0.20%</td></tr>
+                <tr><td class="code">PIM1961AU</td><td>ATLAS Infrastructure Australian Feeder Fund — Hedged</td><td class="alloc">2.10%</td><td class="fee">0.95%</td><td class="na">—</td><td class="fee">0.95%</td></tr>
+                <tr><td class="code">REIT</td><td>VanEck FTSE International Property (Hedged) ETF</td><td class="alloc">1.28%</td><td class="fee">0.21%</td><td class="na">—</td><td class="fee">0.20%</td></tr>
+
+                <tr class="subheader"><td colspan="6">Fixed Interest</td></tr>
+                <tr><td class="code">CSA0038AU</td><td>Bentham Global Income Fund</td><td class="alloc">3.35%</td><td class="fee">0.52%</td><td class="disc">−0.25%</td><td class="fee">0.77%</td></tr>
+                <tr><td class="code">HOW2852AU</td><td>Bentham Asset Backed Securities Fund</td><td class="alloc">4.60%</td><td class="fee">0.25%</td><td class="disc">−0.10%</td><td class="fee">0.35%</td></tr>
+                <tr><td class="code">MAQ0274AU</td><td>Macquarie Dynamic Bond Fund</td><td class="alloc">6.18%</td><td class="fee">0.49%</td><td class="disc">−0.12%</td><td class="fee">0.61%</td></tr>
+                <tr><td class="code">PER0260AU</td><td>Perpetual Diversified Income Fund</td><td class="alloc">4.87%</td><td class="fee">0.40%</td><td class="disc">−0.19%</td><td class="fee">0.59%</td></tr>
+                <tr><td class="code">SLT0052AU</td><td>Coolabah Short Term Income Fund</td><td class="alloc">4.77%</td><td class="fee">0.80%</td><td class="disc">−0.10%</td><td class="fee">0.90%</td></tr>
+
+                <tr class="subheader"><td colspan="6">Cash</td></tr>
+                <tr><td class="code">ISEC</td><td>iShares Enhanced Cash ETF</td><td class="alloc">4.76%</td><td class="fee">0.12%</td><td class="na">—</td><td class="fee">0.12%</td></tr>
+                <tr><td class="code">CASH</td><td>Cash &amp; Reserves</td><td class="alloc">0.55%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+
+                <tr class="total-row">
+                  <td colspan="2">Total / Weighted Average</td>
+                  <td class="alloc">100.00%</td>
+                  <td class="fee">0.418%</td>
+                  <td class="na">—</td>
+                  <td class="na">—</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ===== TAB: HIGH GROWTH ===== -->
+      <div id="panel-high-growth" class="tab-panel">
+        <div class="block">
+          <p class="block-eyebrow">Multi-Asset Portfolio</p>
+          <h2>High Growth Portfolio</h2>
+          <p class="block-meta">HUB24 Managed Accounts — SMA. Inception 14 July 2025.</p>
+          <div class="table-wrap">
+            <table style="table-layout:fixed; width:100%;">
+              <colgroup>
+                <col style="width:12%">
+                <col style="width:32%">
+                <col style="width:14%">
+                <col style="width:14%">
+                <col style="width:14%">
+                <col style="width:14%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>Code</th>
+                  <th>Security</th>
+                  <th class="numeric">Allocation (%)</th>
+                  <th class="numeric">SMA MER</th>
+                  <th class="numeric">VWM Discount</th>
+                  <th class="numeric">Standard MER</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="subheader"><td colspan="6">Australian Equities</td></tr>
+                <tr><td class="code">AGL</td><td>AGL Energy</td><td class="alloc">0.48%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">AMC</td><td>Amcor</td><td class="alloc">0.33%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">ANZ</td><td>ANZ Banking Group</td><td class="alloc">0.81%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">BHP</td><td>BHP Group</td><td class="alloc">2.58%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">BRG</td><td>Breville Group</td><td class="alloc">0.37%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">CBA</td><td>Commonwealth Bank</td><td class="alloc">0.31%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">CGF</td><td>Challenger</td><td class="alloc">0.35%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">COL</td><td>Coles</td><td class="alloc">0.76%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">CWY</td><td>Cleanaway Waste Management</td><td class="alloc">0.32%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">HUB</td><td>HUB24</td><td class="alloc">0.45%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">MND</td><td>Monadelphous Group</td><td class="alloc">0.34%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">MQG</td><td>Macquarie Group</td><td class="alloc">1.05%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">NAB</td><td>National Australia Bank</td><td class="alloc">1.22%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">NEM</td><td>Newmont</td><td class="alloc">0.63%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">NHF</td><td>NIB Holdings</td><td class="alloc">0.39%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">ORG</td><td>Origin Energy</td><td class="alloc">0.84%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">ORI</td><td>Orica</td><td class="alloc">0.53%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">QBE</td><td>QBE Insurance Group</td><td class="alloc">0.95%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">RIO</td><td>Rio Tinto</td><td class="alloc">1.22%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">RMD</td><td>ResMed CDI</td><td class="alloc">0.74%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">SDF</td><td>Steadfast Group</td><td class="alloc">0.26%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">SGP</td><td>Stockland</td><td class="alloc">0.48%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">STW.ASX</td><td>SPDR S&amp;P/ASX 200 ETF</td><td class="alloc">15.46%</td><td class="fee">0.05%</td><td class="na">—</td><td class="fee">0.05%</td></tr>
+                <tr><td class="code">TNE</td><td>Technology One</td><td class="alloc">0.41%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">TPG</td><td>TPG Telecom</td><td class="alloc">0.37%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">WDS</td><td>Woodside Energy</td><td class="alloc">0.84%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr><td class="code">XRO</td><td>Xero</td><td class="alloc">0.41%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+
+                <tr class="subheader"><td colspan="6">Global Equities</td></tr>
+                <tr><td class="code">ETL8482AU</td><td>T. Rowe Price Global Equity Fund — M Class</td><td class="alloc">5.43%</td><td class="fee">0.70%</td><td class="na">—</td><td class="fee">0.70%</td></tr>
+                <tr><td class="code">MAQ1878AU</td><td>Arrowstreet Global Equity Fund No. 2 — Hedged</td><td class="alloc">14.52%</td><td class="fee">0.70%</td><td class="na">—</td><td class="fee">0.70%</td></tr>
+                <tr><td class="code">MAQ8493AU</td><td>Arrowstreet Global Small Companies No. 2 Fund — Class I</td><td class="alloc">4.49%</td><td class="fee">0.90%</td><td class="na">—</td><td class="fee">0.90%</td></tr>
+                <tr><td class="code">PIM0058AU</td><td>Aoris International Fund — Class B</td><td class="alloc">3.51%</td><td class="fee">1.34%</td><td class="disc">−0.22%</td><td class="fee">1.56%</td></tr>
+                <tr><td class="code">QUAL.ASX</td><td>VanEck MSCI World ex Australia Quality ETF</td><td class="alloc">1.99%</td><td class="fee">0.42%</td><td class="na">—</td><td class="fee">0.40%</td></tr>
+                <tr><td class="code">VGS.ASX</td><td>Vanguard MSCI Index International Shares ETF</td><td class="alloc">8.13%</td><td class="fee">0.18%</td><td class="na">—</td><td class="fee">0.18%</td></tr>
+                <tr><td class="code">VVLU.ASX</td><td>Vanguard Global Value Equity Active ETF</td><td class="alloc">3.94%</td><td class="fee">0.28%</td><td class="na">—</td><td class="fee">0.28%</td></tr>
+
+                <tr class="subheader"><td colspan="6">Property / Infrastructure</td></tr>
+                <tr><td class="code">AAP3601AU</td><td>Ausbil Global Essential Infrastructure Fund — Hedged</td><td class="alloc">2.96%</td><td class="fee">0.65%</td><td class="disc">−0.35%</td><td class="fee">1.00%</td></tr>
+                <tr><td class="code">BFL0020AU</td><td>Quay Global Real Estate Fund — Unhedged</td><td class="alloc">2.65%</td><td class="fee">1.13%</td><td class="disc">−0.12%</td><td class="fee">1.25%</td></tr>
+                <tr><td class="code">IFRA</td><td>VanEck FTSE Global Infrastructure (Hedged) ETF</td><td class="alloc">0.79%</td><td class="fee">0.21%</td><td class="na">—</td><td class="fee">0.20%</td></tr>
+                <tr><td class="code">PIM1961AU</td><td>ATLAS Infrastructure Australian Feeder Fund — Hedged</td><td class="alloc">2.46%</td><td class="fee">0.95%</td><td class="na">—</td><td class="fee">0.95%</td></tr>
+                <tr><td class="code">REIT</td><td>VanEck FTSE International Property (Hedged) ETF</td><td class="alloc">1.50%</td><td class="fee">0.21%</td><td class="na">—</td><td class="fee">0.20%</td></tr>
+
+                <tr class="subheader"><td colspan="6">Fixed Interest</td></tr>
+                <tr><td class="code">CSA0038AU</td><td>Bentham Global Income Fund</td><td class="alloc">1.60%</td><td class="fee">0.52%</td><td class="disc">−0.25%</td><td class="fee">0.77%</td></tr>
+                <tr><td class="code">HOW2852AU</td><td>Bentham Asset Backed Securities Fund</td><td class="alloc">2.19%</td><td class="fee">0.25%</td><td class="disc">−0.10%</td><td class="fee">0.35%</td></tr>
+                <tr><td class="code">MAQ0274AU</td><td>Macquarie Dynamic Bond Fund</td><td class="alloc">2.95%</td><td class="fee">0.49%</td><td class="disc">−0.12%</td><td class="fee">0.61%</td></tr>
+                <tr><td class="code">PER0260AU</td><td>Perpetual Diversified Income Fund</td><td class="alloc">2.32%</td><td class="fee">0.40%</td><td class="disc">−0.19%</td><td class="fee">0.59%</td></tr>
+                <tr><td class="code">SLT0052AU</td><td>Coolabah Short Term Income Fund</td><td class="alloc">2.27%</td><td class="fee">0.80%</td><td class="disc">−0.10%</td><td class="fee">0.90%</td></tr>
+
+                <tr class="subheader"><td colspan="6">Cash</td></tr>
+                <tr><td class="code">ISEC</td><td>iShares Enhanced Cash ETF</td><td class="alloc">2.77%</td><td class="fee">0.12%</td><td class="na">—</td><td class="fee">0.12%</td></tr>
+                <tr><td class="code">CASH</td><td>Cash &amp; Reserves</td><td class="alloc">0.62%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+
+                <tr class="total-row">
+                  <td colspan="2">Total / Weighted Average</td>
+                  <td class="alloc">100.0%</td>
+                  <td class="fee">0.405%</td>
+                  <td class="na">—</td>
+                  <td class="na">—</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ===== TAB: ALTERNATIVES ===== -->
+      <div id="panel-alts" class="tab-panel">
+        <div class="block">
+          <p class="block-eyebrow">Standalone SMA</p>
+          <h2>Alternatives Portfolio</h2>
+          <p class="block-meta">HUB24 Managed Accounts — SMA. Sorted alphabetically by code.</p>
+          <div class="table-wrap">
+            <table style="table-layout:fixed; width:100%;">
+              <colgroup>
+                <col style="width:12%">
+                <col style="width:32%">
+                <col style="width:14%">
+                <col style="width:14%">
+                <col style="width:14%">
+                <col style="width:14%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>Code</th>
+                  <th>Security</th>
+                  <th class="numeric">Allocation (%)</th>
+                  <th class="numeric">SMA MER</th>
+                  <th class="numeric">VWM Discount</th>
+                  <th class="numeric">Standard MER</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td class="code">ETL3065AU</td><td>Colchester EM Bond Fund</td><td class="alloc">16.11%</td><td class="fee">0.77%</td><td class="disc">−0.05%</td><td class="fee">0.82%</td></tr>
+                <tr><td class="code">FSF3532AU</td><td>Aspect Absolute Return Fund</td><td class="alloc">16.57%</td><td class="fee">0.98%</td><td class="disc">−0.10%</td><td class="fee">1.08%</td></tr>
+                <tr><td class="code">HGI1794AU</td><td>Janus Henderson Global Multi-Strategy</td><td class="alloc">16.49%</td><td class="na">N/A</td><td class="disc">−0.29%</td><td class="na">N/A</td></tr>
+                <tr><td class="code">IAA.ASX</td><td>iShares Asia 50 ETF</td><td class="alloc">18.31%</td><td class="fee">0.29%</td><td class="na">—</td><td class="fee">0.29%</td></tr>
+                <tr><td class="code">PER0668AU</td><td>Perpetual Pure Equity Alpha Fund</td><td class="alloc">16.30%</td><td class="fee">2.39%</td><td class="disc">−0.29%</td><td class="fee">2.68%</td></tr>
+                <tr><td class="code">TBIL.ASX</td><td>VanEck 1–3m U.S. Treasury Bond ETF</td><td class="alloc">15.73%</td><td class="fee">0.22%</td><td class="na">—</td><td class="fee">0.22%</td></tr>
+                <tr><td class="code">CASH</td><td>Cash &amp; Reserves</td><td class="alloc">0.48%</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+                <tr class="total-row">
+                  <td colspan="2">Total / Weighted Average</td>
+                  <td class="alloc">100.0%</td>
+                  <td class="na">N/A</td>
+                  <td class="na">—</td>
+                  <td class="na">N/A</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:0.77rem; color:var(--muted);">* SMA MER for Janus Henderson Global Multi-Strategy pending confirmation.</p>
         </div>
       </div>
 
