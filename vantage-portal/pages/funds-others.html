@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RBA Cash Rate &amp; Australian CPI — Vantage Wealth Management | Investment Data Portal</title>
+  <meta name="last-updated" content="10 May 2026">
+  <meta name="owner"        content="Anthony Nguyen">
+  <meta name="source"       content="Morningstar">
+  <meta name="as-at"        content="30 Apr 2026">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <style>
+    .asset-section { margin-bottom: 3rem; }
+    .asset-title { font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:500; color:var(--navy); margin-bottom:0.8rem; padding-bottom:0.5rem; border-bottom:1px solid var(--line); }
+    .apir { font-size:0.7rem; color:var(--muted); font-family:monospace; }
+    td.r { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+    td.w { white-space:nowrap; font-size:0.82rem; }
+  </style>
+</head>
+<body data-page="funds" data-depth="1">
+
+  <div id="gate">
+    <div class="gate-inner">
+      <div class="gate-mark">VANTAGE</div>
+      <div class="gate-sub">Wealth Management</div>
+      <h1>Investment Data Portal</h1>
+      <p>This portal contains confidential investment research and performance data.<br>Please enter your access password to continue.</p>
+      <input type="password" id="pwd-input" placeholder="Access password" autocomplete="off" autofocus>
+      <button id="pwd-btn">Enter Portal</button>
+      <div class="gate-error" id="pwd-error" role="alert"></div>
+    </div>
+  </div>
+
+  <div id="app" class="hidden">
+    <div id="nav-placeholder"></div>
+    <main>
+      <div class="page-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/index.html">Overview</a><span class="sep">&#x203A;</span>
+          <a href="./funds.html">Funds</a><span class="sep">&#x203A;</span>
+          <span class="current">RBA Cash Rate &amp; Australian CPI</span>
+        </nav>
+        <p class="page-eyebrow">Funds</p>
+        <h1>RBA Cash Rate &amp; Australian CPI</h1>
+        <div class="page-meta">
+          <span class="meta-item"><strong>As at:</strong> 30 Apr 2026</span>
+          <span class="meta-item"><strong>Last updated:</strong> 10 May 2026</span>
+          <span class="meta-item"><strong>Owner:</strong> Anthony Nguyen</span>
+          <span class="meta-item"><strong>Source:</strong> Morningstar</span>
+        </div>
+      </div>
+
+      <!-- RBA Cash Rate & Australian CPI -->
+      <div class="asset-section">
+        <h2 class="asset-title">RBA Cash Rate &amp; Australian CPI</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Series</th><th></th>
+                <th class="numeric">1M</th><th class="numeric">3M</th><th class="numeric">6M</th>
+                <th class="numeric">1Y</th><th class="numeric">3Y</th><th class="numeric">5Y</th>
+                <th class="numeric">10Y</th><th class="numeric">15Y</th><th class="numeric">20Y</th>
+                <th>Inception</th><th class="numeric">IM Fee</th>
+                <th class="numeric">MS Rating</th><th>MS Medallist</th>
+                <th>APL Date</th><th>Checklist</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>RBA Cash Rate Target</td><td class="w">4.35% (5 May 2026)</td><td class="r">0.34%</td><td class="r">0.99%</td><td class="r">1.92%</td><td class="r">3.90%</td><td class="r">4.24%</td><td class="r">3.03%</td><td class="r">2.08%</td><td class="r">2.41%</td><td class="r">3.16%</td><td class="w">-</td><td class="r">-</td><td class="r">-</td><td>-</td><td class="w">-</td><td class="w">-</td></tr>
+              <tr><td>ABS Australian CPI AUD — Quarterly</td><td class="w">31 March 2026</td><td class="r">1.38%</td><td class="r">1.38%</td><td class="r">1.98%</td><td class="r">4.09%</td><td class="r">3.37%</td><td class="r">4.43%</td><td class="r">3.08%</td><td class="r">2.69%</td><td class="r">2.78%</td><td class="w">-</td><td class="r">-</td><td class="r">-</td><td>-</td><td class="w">-</td><td class="w">-</td></tr>
+              <tr><td>ABS Australian CPI AUD — Monthly</td><td class="w">31 March 2026</td><td class="r">1.12%</td><td class="r">1.46%</td><td class="r">2.44%</td><td class="r">4.57%</td><td class="r">-4.77%</td><td class="r">-0.61%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">-</td><td class="r">-</td><td class="r">-</td><td>-</td><td class="w">-</td><td class="w">-</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <p style="font-size:0.78rem;color:var(--muted);">Source: Morningstar / ABS / RBA. Returns as at 30 April 2026 (CPI as at 31 March 2026). Past performance is not a reliable indicator of future performance.</p>
+    </main>
+    <div id="footer-placeholder"></div>
+  </div>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

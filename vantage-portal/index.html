@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overview — Vantage Wealth Management | Investment Data Portal</title>
+
+  <!-- ===== Page metadata (update as content is added) ===== -->
+  <meta name="last-updated" content="[DD MMM YYYY]">
+  <meta name="owner"        content="[Owner Name / Team]">
+  <meta name="source"       content="[Data Source]">
+  <meta name="as-at"        content="[DD MMM YYYY]">
+  <meta name="description"  content="Vantage Wealth Management — Internal Investment Data Portal">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Shared stylesheet -->
+  <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+
+<!--
+  data-page  : matches data-nav on the nav link to apply active styling
+  data-depth : 0 = root, 1 = /pages/ — used by main.js to resolve component paths
+-->
+<body data-page="home" data-depth="0">
+
+  <!-- ===== PASSWORD GATE ===== -->
+  <div id="gate">
+    <div class="gate-inner">
+      <div class="gate-mark">VANTAGE</div>
+      <div class="gate-sub">Wealth Management</div>
+      <h1>Investment Data Portal</h1>
+      <p>This portal contains confidential investment research and performance data.<br>
+         Please enter your access password to continue.</p>
+      <input type="password" id="pwd-input" placeholder="Access password" autocomplete="off" autofocus>
+      <button id="pwd-btn">Enter Portal</button>
+      <div class="gate-error" id="pwd-error" role="alert"></div>
+    </div>
+  </div>
+
+  <!-- ===== MAIN APP (revealed after authentication) ===== -->
+  <div id="app" class="hidden">
+
+    <!-- Nav component injected here by main.js -->
+    <div id="nav-placeholder"></div>
+
+    <!-- ===== PAGE CONTENT ===== -->
+    <main>
+
+      <!-- Hero banner -->
+      <section class="hero" aria-label="Portal welcome">
+        <div class="hero-inner">
+          <p class="page-eyebrow">Internal Use Only</p>
+          <h1>Investment Data<br><span class="accent">Portal</span></h1>
+          <p>
+            Centralised access to investment model performance, approved product lists,
+            research, benchmarks, and governance documentation for the Vantage Wealth
+            Management investment team.
+          </p>
+        </div>
+      </section>
+
+      <!-- Quick-access navigation cards -->
+      <!-- ===== CONTENT AREA — add portal section cards here ===== -->
+      <section aria-label="Portal sections">
+        <div class="section-header">
+          <p class="section-eyebrow">Portal Sections</p>
+          <h1>Quick Access</h1>
+          <p class="ref-line">Select a section to view current data and reports.</p>
+        </div>
+
+        <div class="home-grid">
+
+          <!-- Card: Managed Accounts HUB24 -->
+          <a class="home-card" href="./pages/managed-accounts-hub.html">
+            <div class="card-num">01</div>
+            <h3>HUB24 Managed Accounts</h3>
+            <p>Performance data, model holdings, and reporting for HUB24 managed account portfolios.</p>
+            <div class="card-footer">Managed Accounts</div>
+          </a>
+
+          <!-- Card: Managed Accounts CFS -->
+          <a class="home-card" href="./pages/managed-accounts-cfs.html">
+            <div class="card-num">02</div>
+            <h3>CFS Managed Accounts</h3>
+            <p>Performance data, model holdings, and reporting for Colonial First State managed account portfolios.</p>
+            <div class="card-footer">Managed Accounts</div>
+          </a>
+
+          <!-- Card: SAA's -->
+          <a class="home-card" href="./pages/saas.html">
+            <div class="card-num">03</div>
+            <h3>SAA's</h3>
+            <p>Strategic asset allocations, probability of meeting objectives and capital market assumptions</p>
+            <div class="card-footer">SAA's</div>
+          </a>
+
+          <!-- Card: Research -->
+          <a class="home-card" href="./pages/research.html">
+            <div class="card-num">04</div>
+            <h3>Research</h3>
+            <p>Investment manager research, fund ratings, and internal commentary.</p>
+            <div class="card-footer">Research</div>
+          </a>
+
+          <!-- Card: Benchmark Data -->
+          <a class="home-card" href="./pages/benchmark-data.html">
+            <div class="card-num">05</div>
+            <h3>Benchmark Data</h3>
+            <p>Index and benchmark performance data for comparison and attribution analysis.</p>
+            <div class="card-footer">Benchmarks</div>
+          </a>
+
+          <!-- Card: Funds -->
+          <a class="home-card" href="./pages/funds.html">
+            <div class="card-num">06</div>
+            <h3>Funds</h3>
+            <p>Managed fund performance, analytics, and risk metrics across approved funds.</p>
+            <div class="card-footer">Funds</div>
+          </a>
+
+          <!-- Card: Australian Equities -->
+          <a class="home-card" href="./pages/australian-equities.html">
+            <div class="card-num">07</div>
+            <h3>Australian Equities</h3>
+            <p>ASX equity data, stock-level analytics, and recommendations.</p>
+            <div class="card-footer">Australian Equities</div>
+          </a>
+
+          <!-- Card: APL Lists -->
+          <a class="home-card" href="./pages/models-apl.html">
+            <div class="card-num">08</div>
+            <h3>APL Lists</h3>
+            <p>Approved product lists across all platforms and strategies.</p>
+            <div class="card-footer">APL Lists</div>
+          </a>
+
+          <!-- Card: Governance -->
+          <a class="home-card" href="./pages/governance.html">
+            <div class="card-num">09</div>
+            <h3>Governance</h3>
+            <p>Investment committee minutes, policy documents, and compliance records.</p>
+            <div class="card-footer">Governance</div>
+          </a>
+
+          <!-- Card: Disclosures -->
+          <a class="home-card" href="./pages/disclosures.html">
+            <div class="card-num">10</div>
+            <h3>Disclosures</h3>
+            <p>Regulatory disclosures, FSG, SOA templates, and governance documentation.</p>
+            <div class="card-footer">Disclosures</div>
+          </a>
+
+        </div><!-- /.home-grid -->
+      </section>
+      <!-- ===== END CONTENT AREA ===== -->
+
+    </main><!-- /main -->
+
+    <!-- Footer component injected here by main.js -->
+    <div id="footer-placeholder"></div>
+
+  </div><!-- /#app -->
+
+  <!-- Main script (password gate + component loader) -->
+  <script src="./assets/js/main.js"></script>
+
+</body>
+</html>
