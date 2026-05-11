@@ -103,7 +103,7 @@ function initLockBtn() {
 
 function fixAbsoluteLinks() {
   if (window.location.hostname !== 'anguyen1992.github.io') return;
-  const repoBase = '/i';
+  const repoBase = '/vantage-portal';
   document.querySelectorAll('a[href]').forEach(a => {
     const href = a.getAttribute('href');
     if (href && href.startsWith('/') && !href.startsWith(repoBase + '/') && href !== repoBase) {
