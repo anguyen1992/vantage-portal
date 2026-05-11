@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strategic Asset Allocations — Vantage Wealth Management | Investment Data Portal</title>
+  <meta name="last-updated" content="11 May 2026">
+  <meta name="owner"        content="Anthony Nguyen">
+  <meta name="source"       content="Vantage Wealth Management">
+  <meta name="as-at"        content="11 May 2026">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <style>
+    .saa-section { margin-bottom: 3rem; }
+    .saa-title { font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:500; color:var(--navy); margin-bottom:0.8rem; padding-bottom:0.5rem; border-bottom:1px solid var(--line); }
+    .saa-table th { text-align:center; }
+    .saa-table th.left { text-align:left; }
+    .saa-table td.asset { white-space:nowrap; }
+    .saa-table td.pct { text-align:center; font-variant-numeric:tabular-nums; white-space:nowrap; }
+    .saa-table td.pct.old { color:var(--muted); }
+    .saa-table tr.total-row td { font-weight:600; border-top:2px solid var(--line); }
+    .saa-table th.subhead { font-size:0.75rem; font-weight:500; }
+    .prob-table { table-layout:fixed; width:100%; }
+    .prob-table th { text-align:left; }
+    .prob-table th:not(:first-child) { text-align:center; }
+    .prob-table td.c { text-align:center; font-variant-numeric:tabular-nums; white-space:nowrap; }
+    .prob-table td.muted { color:var(--muted); text-align:center; }
+  </style>
+</head>
+<body data-page="saas" data-depth="1">
+
+  <div id="gate">
+    <div class="gate-inner">
+      <div class="gate-mark">VANTAGE</div>
+      <div class="gate-sub">Wealth Management</div>
+      <h1>Investment Data Portal</h1>
+      <p>This portal contains confidential investment research and performance data.<br>Please enter your access password to continue.</p>
+      <input type="password" id="pwd-input" placeholder="Access password" autocomplete="off" autofocus>
+      <button id="pwd-btn">Enter Portal</button>
+      <div class="gate-error" id="pwd-error" role="alert"></div>
+    </div>
+  </div>
+
+  <div id="app" class="hidden">
+    <div id="nav-placeholder"></div>
+    <main>
+      <div class="page-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/index.html">Overview</a>
+          <span class="sep">›</span>
+          <span class="current">SAA's</span>
+        </nav>
+        <p class="page-eyebrow">SAA's</p>
+        <h1>Strategic Asset Allocations</h1>
+        <div class="page-meta">
+          <span class="meta-item"><strong>As at:</strong> 11 May 2026</span>
+          <span class="meta-item"><strong>Last updated:</strong> 11 May 2026</span>
+          <span class="meta-item"><strong>Owner:</strong> Anthony Nguyen</span>
+          <span class="meta-item"><strong>Source:</strong> Vantage Wealth Management</span>
+        </div>
+      </div>
+
+      <!-- Asset Allocation Table -->
+      <div class="saa-section">
+        <h2 class="saa-title">Asset Allocation</h2>
+        <div class="table-wrap">
+          <table class="saa-table">
+            <thead>
+              <tr>
+                <th class="left" rowspan="2">Asset Class</th>
+                <th colspan="2">Vantage SAA Conservative</th>
+                <th colspan="2">Vantage SAA Moderate</th>
+                <th colspan="2">Vantage SAA Growth</th>
+                <th colspan="2">Vantage SAA High Growth</th>
+                <th colspan="2">Vantage SAA Aggressive</th>
+              </tr>
+              <tr>
+                <th class="subhead">Old</th><th class="subhead">New</th>
+                <th class="subhead">Old</th><th class="subhead">New</th>
+                <th class="subhead">Old</th><th class="subhead">New</th>
+                <th class="subhead">Old</th><th class="subhead">New</th>
+                <th class="subhead">Old</th><th class="subhead">New</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="asset">Australian Equities</td>
+                <td class="pct old">12.50%</td><td class="pct">15.00%</td>
+                <td class="pct old">20.00%</td><td class="pct">20.00%</td>
+                <td class="pct old">27.50%</td><td class="pct">27.50%</td>
+                <td class="pct old">35.00%</td><td class="pct">35.00%</td>
+                <td class="pct old">37.50%</td><td class="pct">37.50%</td>
+              </tr>
+              <tr>
+                <td class="asset">International Equities</td>
+                <td class="pct old">12.50%</td><td class="pct">17.50%</td>
+                <td class="pct old">20.00%</td><td class="pct">27.50%</td>
+                <td class="pct old">25.00%</td><td class="pct">34.00%</td>
+                <td class="pct old">30.00%</td><td class="pct">40.00%</td>
+                <td class="pct old">37.50%</td><td class="pct">50.50%</td>
+              </tr>
+              <tr>
+                <td class="asset">Property and Infrastructure</td>
+                <td class="pct old">15.00%</td><td class="pct">7.50%</td>
+                <td class="pct old">15.00%</td><td class="pct">7.50%</td>
+                <td class="pct old">17.50%</td><td class="pct">8.50%</td>
+                <td class="pct old">20.00%</td><td class="pct">10.00%</td>
+                <td class="pct old">20.00%</td><td class="pct">10.00%</td>
+              </tr>
+              <tr>
+                <td class="asset">Alternatives</td>
+                <td class="pct old">0.00%</td><td class="pct">0.00%</td>
+                <td class="pct old">0.00%</td><td class="pct">0.00%</td>
+                <td class="pct old">0.00%</td><td class="pct">0.00%</td>
+                <td class="pct old">0.00%</td><td class="pct">0.00%</td>
+                <td class="pct old">0.00%</td><td class="pct">0.00%</td>
+              </tr>
+              <tr>
+                <td class="asset">Fixed Interest</td>
+                <td class="pct old">40.00%</td><td class="pct">50.00%</td>
+                <td class="pct old">25.00%</td><td class="pct">35.00%</td>
+                <td class="pct old">20.00%</td><td class="pct">25.00%</td>
+                <td class="pct old">10.00%</td><td class="pct">12.00%</td>
+                <td class="pct old">0.00%</td><td class="pct">0.00%</td>
+              </tr>
+              <tr>
+                <td class="asset">Cash</td>
+                <td class="pct old">20.00%</td><td class="pct">10.00%</td>
+                <td class="pct old">20.00%</td><td class="pct">10.00%</td>
+                <td class="pct old">10.00%</td><td class="pct">5.00%</td>
+                <td class="pct old">5.00%</td><td class="pct">3.00%</td>
+                <td class="pct old">5.00%</td><td class="pct">2.00%</td>
+              </tr>
+              <tr class="total-row">
+                <td class="asset">Total</td>
+                <td class="pct old">100.00%</td><td class="pct">100.00%</td>
+                <td class="pct old">100.00%</td><td class="pct">100.00%</td>
+                <td class="pct old">100.00%</td><td class="pct">100.00%</td>
+                <td class="pct old">100.00%</td><td class="pct">100.00%</td>
+                <td class="pct old">100.00%</td><td class="pct">100.00%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Probability of Meeting Objectives -->
+      <div class="saa-section">
+        <h2 class="saa-title">Probability of Meeting Objectives <span style="font-size:0.8rem;font-weight:400;color:var(--muted);font-family:'Inter',sans-serif;">(last reviewed February 2025)</span></h2>
+        <div class="table-wrap">
+          <table class="prob-table">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Official Stated Objective</th>
+                <th class="numeric">Old</th>
+                <th class="numeric">New</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Vantage SAA Conservative</td><td class="muted">CPI+1%</td><td class="c">91.20%</td><td class="c">90.90%</td></tr>
+              <tr><td>Vantage SAA Moderate</td><td class="muted">CPI+2%</td><td class="c">80.00%</td><td class="c">80.00%</td></tr>
+              <tr><td>Vantage SAA Growth</td><td class="muted">CPI+3%</td><td class="c">67.90%</td><td class="c">78.10%</td></tr>
+              <tr><td>Vantage SAA High Growth</td><td class="muted">CPI+3.5%</td><td class="c">62.40%</td><td class="c">69.50%</td></tr>
+              <tr><td>Vantage SAA Aggressive</td><td class="muted">CPI+4%</td><td class="c">59.30%</td><td class="c">61.60%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Capital Market Assumptions -->
+      <div class="saa-section">
+        <h2 class="saa-title">Capital Market Assumptions <span style="font-size:0.8rem;font-weight:400;color:var(--muted);font-family:'Inter',sans-serif;">(last reviewed February 2025)</span></h2>
+        <div class="table-wrap">
+          <table class="prob-table">
+            <thead>
+              <tr>
+                <th>Asset Class</th>
+                <th class="numeric">Volatility</th>
+                <th class="numeric">Alpha</th>
+                <th class="numeric">Total</th>
+                <th class="numeric">Total Franked</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Cash</td><td class="c">-</td><td class="c">-</td><td class="c">3.9%</td><td class="c">3.9%</td></tr>
+              <tr><td>Australian Equities</td><td class="c">15%</td><td class="c">1%</td><td class="c">5.7%</td><td class="c">6.7%</td></tr>
+              <tr><td>International Equities Hedged</td><td class="c">15%</td><td class="c">2%</td><td class="c">8.9%</td><td class="c">8.9%</td></tr>
+              <tr><td>International Equities Unhedged</td><td class="c">11%</td><td class="c">2%</td><td class="c">7.4%</td><td class="c">7.4%</td></tr>
+              <tr><td>Alternatives</td><td class="c">4%</td><td class="c">0%</td><td class="c">5.9%</td><td class="c">5.9%</td></tr>
+              <tr><td>Australian Fixed Interest</td><td class="c">5%</td><td class="c">2%</td><td class="c">6.4%</td><td class="c">6.4%</td></tr>
+              <tr><td>International Fixed Interest</td><td class="c">5%</td><td class="c">2%</td><td class="c">5.9%</td><td class="c">5.9%</td></tr>
+              <tr><td>Australian Property and Infrastructure</td><td class="c">17%</td><td class="c">1%</td><td class="c">5.6%</td><td class="c">5.6%</td></tr>
+              <tr><td>International Property and Infrastructure</td><td class="c">13%</td><td class="c">1%</td><td class="c">6.2%</td><td class="c">6.2%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </main>
+    <div id="footer-placeholder"></div>
+  </div>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

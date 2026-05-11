@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APL Investments — Vantage Wealth Management | Investment Data Portal</title>
+  <meta name="last-updated" content="10 May 2026">
+  <meta name="owner"        content="Anthony Nguyen">
+  <meta name="source"       content="Vantage Wealth Management">
+  <meta name="as-at"        content="10 May 2026">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <style>
+    td.date { white-space:nowrap; font-size:0.82rem; }
+    td.ch-add { color:#1a7a4a; font-size:0.82rem; white-space:nowrap; }
+    td.ch-rem { color:#b91c1c; font-size:0.82rem; white-space:nowrap; }
+    td.asset { font-size:0.82rem; white-space:nowrap; }
+    td.code { font-family:monospace; font-size:0.75rem; color:var(--muted); white-space:nowrap; }
+    td.reg { font-size:0.82rem; white-space:nowrap; }
+  </style>
+</head>
+<body data-page="apl-changes" data-depth="1">
+
+  <div id="gate">
+    <div class="gate-inner">
+      <div class="gate-mark">VANTAGE</div>
+      <div class="gate-sub">Wealth Management</div>
+      <h1>Investment Data Portal</h1>
+      <p>This portal contains confidential investment research and performance data.<br>
+         Please enter your access password to continue.</p>
+      <input type="password" id="pwd-input" placeholder="Access password" autocomplete="off" autofocus>
+      <button id="pwd-btn">Enter Portal</button>
+      <div class="gate-error" id="pwd-error" role="alert"></div>
+    </div>
+  </div>
+
+  <div id="app" class="hidden">
+    <div id="nav-placeholder"></div>
+    <main>
+      <div class="page-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/index.html">Overview</a>
+          <span class="sep">›</span>
+          <span>Models &amp; APL</span>
+          <span class="sep">›</span>
+          <span class="current">APL Investments</span>
+        </nav>
+        <p class="page-eyebrow">Models &amp; APL</p>
+        <h1>APL Investments</h1>
+        <div class="page-meta">
+          <span class="meta-item"><strong>As at:</strong> 10 May 2026</span>
+          <span class="meta-item"><strong>Last updated:</strong> 10 May 2026</span>
+          <span class="meta-item"><strong>Owner:</strong> Anthony Nguyen</span>
+          <span class="meta-item"><strong>Source:</strong> Vantage Wealth Management</span>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Change</th>
+              <th>Asset Class</th>
+              <th>Code</th>
+              <th>Name</th>
+              <th>Registry</th>
+              <th>Registry Contact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="date">13/03/2026</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">-</td><td>Vinva Australian Equity Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">13/03/2026</td><td class="ch-add">Addition</td><td class="asset">Global Equities</td><td class="code">-</td><td>Vinva Global Equity Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">13/03/2026</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">-</td><td>Harvis Finance Mortgage Fund 32</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">09/02/2026</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">N/A</td><td>Harvis Finance Mortgage Fund 30</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">15/12/2025</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">FSML</td><td>Firetrail Australian Small Companies Fund – Active ETF</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">04/12/2025</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">N/A</td><td>Harvis Finance Mortgage Fund 29</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">24/11/2025</td><td class="ch-add">Addition</td><td class="asset">Cash</td><td class="code">ISEC</td><td>iShares Enhanced Cash ETF</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">13/11/2025</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">-</td><td>Dorado First Mortgage 185</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">07/11/2025</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">PEP3457AU</td><td>PEP Gateway Evergreen Fund - (Wholesale)</td><td class="reg">Boardroom</td><td class="reg">-</td></tr>
+            <tr><td class="date">07/11/2025</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">TBC</td><td>PEP Gateway Vintages (Access) Funds</td><td class="reg">Apex</td><td class="reg">-</td></tr>
+            <tr><td class="date">07/11/2025</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">ETL5317AU</td><td>PEP Gateway Evergreen Fund - (Retail)</td><td class="reg">Boardroom</td><td class="reg">-</td></tr>
+            <tr><td class="date">31/10/2025</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">N/A</td><td>Harvis Finance Mortgage Fund 28</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">17/10/2025</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">-</td><td>Ares Diversified Credit Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">01/10/2025</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">-</td><td>MA Priority Income Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">11/07/2025</td><td class="ch-add">Addition</td><td class="asset">Global Equities</td><td class="code">VVLU</td><td>Vanguard Global Value Equity Active ETF</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">09/07/2025</td><td class="ch-add">Addition</td><td class="asset">Infrastructure</td><td class="code">IFRA</td><td>VanEck FTSE Global Infrastructure (Hedged) ETF</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">09/07/2025</td><td class="ch-add">Addition</td><td class="asset">Global Equities</td><td class="code">QUAL</td><td>VanEck MSCI International Quality ETF</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">09/07/2025</td><td class="ch-add">Addition</td><td class="asset">Property</td><td class="code">REIT</td><td>VanEck FTSE International Property (Hedged) ETF</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">18/02/2025</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">N/A</td><td>Dorado First Mortgage 181</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">11/02/2025</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">N/A</td><td>Perennial Active Engagement Trust</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">22/01/2025</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">N/A</td><td>Dorado First Mortgage 172</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">01/07/2024</td><td class="ch-add">Addition</td><td class="asset">Global Equities</td><td class="code">MAQ8493AU</td><td>Arrowstreet Global Small Companies No. 2 Fund – Class I</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">01/07/2024</td><td class="ch-add">Addition</td><td class="asset">Global Equities</td><td class="code">MAQ0464AU</td><td>Arrowstreet Global Equity Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">07/03/2024</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">N/A</td><td>Dorado First Mortgage 156</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">13/12/2023</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">CHN2868AU</td><td>Revolution Wholesale Private Debt Fund II</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">13/12/2023</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">OMF5868AU</td><td>Realm Strategy Income Fund (Enduring Units)</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">08/09/2023</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">BRG</td><td>Breville Group</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">02/08/2023</td><td class="ch-add">Addition</td><td class="asset">Property</td><td class="code">FSF2891AU</td><td>CFS Index Global Real Estate Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">19/07/2023</td><td class="ch-rem">Removal</td><td class="asset">Australian Equities</td><td class="code">BFL0002AU</td><td>Bennelong Concentrated Aus Equities</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">19/07/2023</td><td class="ch-rem">Removal</td><td class="asset">Australian Equities</td><td class="code">BFL0004AU</td><td>Bennelong ex-20 Australian Equities</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">19/07/2023</td><td class="ch-rem">Removal</td><td class="asset">Australian Equities</td><td class="code">FSF1015AU</td><td>RealIndex Wholesale Australian Share</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">19/07/2023</td><td class="ch-rem">Removal</td><td class="asset">Australian Equities</td><td class="code">WHT0012AU</td><td>Solaris Core Australian Equity</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">19/07/2023</td><td class="ch-rem">Removal</td><td class="asset">Australian Equities</td><td class="code">SOL0001AU</td><td>Solaris Core AEF (Perf Alignment)</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">19/07/2023</td><td class="ch-rem">Removal</td><td class="asset">Australian Equities</td><td class="code">BNT0101AU</td><td>Hyperion Small Growth Companies</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">19/07/2023</td><td class="ch-rem">Removal</td><td class="asset">Global Equities</td><td class="code">PLA0002AU</td><td>Platinum International Fund (C Class)</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">19/07/2023</td><td class="ch-rem">Removal</td><td class="asset">Global Equities</td><td class="code">PLA0100AU</td><td>Platinum International Brands Fund (C Class)</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">19/07/2023</td><td class="ch-rem">Removal</td><td class="asset">Diversified</td><td class="code">PAC0001AU</td><td>Packer &amp; Co Investigator Trust</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">19/07/2023</td><td class="ch-rem">Removal</td><td class="asset">Cash</td><td class="code">ADV0069AU</td><td>Advance Cash Multi-Blend</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">19/07/2023</td><td class="ch-rem">Removal</td><td class="asset">Australian Equities</td><td class="code">IML0002AU</td><td>IML Australian Share</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">19/07/2023</td><td class="ch-rem">Removal</td><td class="asset">Australian Equities</td><td class="code">IML0004AU</td><td>IML All Industrials Share</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">19/07/2023</td><td class="ch-rem">Removal</td><td class="asset">Australian Equities</td><td class="code">IML0003AU</td><td>IML Future Leaders</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">19/07/2023</td><td class="ch-rem">Removal</td><td class="asset">Australian Equities</td><td class="code">IML0001AU</td><td>IML Australian Smaller Companies</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">19/07/2023</td><td class="ch-rem">Removal</td><td class="asset">Diversified</td><td class="code">SCH0102AU</td><td>Schroder Strategic Growth Fund (Balanced Fund)</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">19/07/2023</td><td class="ch-rem">Removal</td><td class="asset">Diversified</td><td class="code">SCH0047AU</td><td>Schroder Real Return CPI + 5%</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">08/06/2023</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">HUB</td><td>HUB24</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">08/06/2023</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">NHF</td><td>NIB Holdings</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">08/06/2023</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">WTC</td><td>Wisetech Global</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">09/05/2023</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">TWE</td><td>Treasury Wine Estates</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">13/04/2023</td><td class="ch-add">Addition</td><td class="asset">-</td><td class="code">N/A</td><td>AustralianSuper</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">12/04/2023</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">N/A</td><td>Dorado First Mortgage 138</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">03/03/2023</td><td class="ch-add">Addition</td><td class="asset">Global Equities</td><td class="code">AUS0035AU</td><td>Talaria Global Equity Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">21/02/2023</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">N/A</td><td>Dorado First Mortgage 134</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">20/02/2023</td><td class="ch-add">Addition</td><td class="asset">Global Equities</td><td class="code">VGS</td><td>Vanguard MSCI Index International Shares ETF</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">10/02/2023</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">MGE9705AU</td><td>Airlie Australian Share Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">10/02/2023</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">PIM0028AU</td><td>DNR Capital Australian Equities High Conviction Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">02/02/2023</td><td class="ch-add">Addition</td><td class="asset">Cash</td><td class="code">FSF9378AU</td><td>FirstRate Cash</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">25/01/2023</td><td class="ch-add">Addition</td><td class="asset">Infrastructure</td><td class="code">FSF4698AU</td><td>CFS Index Global Listed Infrastructure Fund - Hedged</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">25/01/2023</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">AMC</td><td>Amcor</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">25/01/2023</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">NCM</td><td>Newcrest Mining</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">25/01/2023</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">QAN</td><td>Qantas</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">25/01/2023</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">QBE</td><td>QBE Insurance</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">06/12/2022</td><td class="ch-add">Addition</td><td class="asset">Infrastructure</td><td class="code">PIM1961AU</td><td>ATLAS Infrastructure Australian Feeder Fund - Hedged</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">06/12/2022</td><td class="ch-add">Addition</td><td class="asset">Infrastructure</td><td class="code">SSB9640AU</td><td>Clearbridge RARE Infrastructure Income Fund - Hedged (C Class)</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">28/09/2022</td><td class="ch-add">Addition</td><td class="asset">Diversified</td><td class="code">VDGR</td><td>Vanguard Diversified Growth Index ETF</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">08/02/2022</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">A200</td><td>BetaShares Australia 200 ETF</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">15/12/2021</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">MP1</td><td>Megaport</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">15/12/2021</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">RMD</td><td>ResMed</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">11/11/2021</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">N/A</td><td>Dorado First Mortgage 102</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">11/11/2021</td><td class="ch-add">Addition</td><td class="asset">-</td><td class="code">N/A</td><td>Dorado Mandate</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">11/11/2021</td><td class="ch-add">Addition</td><td class="asset">-</td><td class="code">RSM8774AU.FND</td><td>Realside Capital Flagship Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">30/09/2021</td><td class="ch-add">Addition</td><td class="asset">Diversified</td><td class="code">FSF2964AU</td><td>CFS Index High Growth Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">23/09/2021</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">N/A</td><td>Dorado First Mortgage 97</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">16/09/2021</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">N/A</td><td>Dorado First Mortgage 104</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">17/08/2021</td><td class="ch-add">Addition</td><td class="asset">Global Equities</td><td class="code">FRT0010AU</td><td>Franklin Templeton Global Growth Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">09/08/2021</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">N/A</td><td>Dorado Subordinate Finance 100</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">21/07/2021</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">AUG0018AU</td><td>Australian Ethical Australian Shares Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">21/07/2021</td><td class="ch-add">Addition</td><td class="asset">Global Equities</td><td class="code">MSUF.ASX</td><td>Magellan Sustainable Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">21/07/2021</td><td class="ch-add">Addition</td><td class="asset">Global Equities</td><td class="code">SLT2171AU</td><td>Nanuk New World Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">21/07/2021</td><td class="ch-add">Addition</td><td class="asset">Global Equities</td><td class="code">ETL6342AU</td><td>T.Rowe Global Impact Equity Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">09/07/2021</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">CKF</td><td>Collins Foods</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">01/07/2021</td><td class="ch-add">Addition</td><td class="asset">Global Equities</td><td class="code">PIM7802AU</td><td>Fairlight Global SMID Cap Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">17/06/2021</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">N/A</td><td>Dorado First Mortgage 94</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">17/06/2021</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">N/A</td><td>Dorado First Mortgage 100</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">17/06/2021</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">N/A</td><td>Dorado First Mortgage 101</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">16/06/2021</td><td class="ch-add">Addition</td><td class="asset">Global Equities</td><td class="code">FSF1295AU</td><td>Stewart Investors Worldwide Sustainability Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">16/06/2021</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">EDV</td><td>Endeavour Group</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">11/06/2021</td><td class="ch-add">Addition</td><td class="asset">Global Equities</td><td class="code">MAET.AXW</td><td>Munro Global Growth Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">19/05/2021</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">HOW0121AU</td><td>Alphinity Sustainable Share Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">19/05/2021</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">FSF0016AU</td><td>First Sentier Concentrated Australian Share Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">24/03/2021</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">N/A</td><td>Dorado First Mortgage 96</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">05/03/2021</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">N/A</td><td>Dorado First Mortgage 95</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">16/12/2020</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">IEL</td><td>IDP Education</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">16/12/2020</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">TYR</td><td>Tyro Payments</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">21/10/2020</td><td class="ch-add">Addition</td><td class="asset">Infrastructure</td><td class="code">AAP3601AU</td><td>Ausbil Global Essential Infrastructure Fund - Hedged</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">09/09/2020</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">FPH</td><td>Fisher &amp; Paykel Healthcare Corporation</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">30/06/2020</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">N/A</td><td>Dorado First Mortgage 82</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">02/04/2020</td><td class="ch-add">Addition</td><td class="asset">Property</td><td class="code">DXS</td><td>Dexus</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">02/04/2020</td><td class="ch-add">Addition</td><td class="asset">Property</td><td class="code">SCP</td><td>SCA Property Group</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">31/03/2020</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">REA</td><td>REA Group</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">31/03/2020</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">TPM</td><td>TPG Telecom</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">23/03/2020</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">COL</td><td>Coles Group</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">20/03/2020</td><td class="ch-add">Addition</td><td class="asset">-</td><td class="code">TCL</td><td>Transurban Group</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">20/03/2020</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">XRO</td><td>Xero</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">10/02/2020</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">NXT</td><td>NextDC</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">14/11/2019</td><td class="ch-add">Addition</td><td class="asset">Property</td><td class="code">N/A</td><td>Quay Global Real Estate Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">04/11/2019</td><td class="ch-add">Addition</td><td class="asset">Cash</td><td class="code">AAA.AXW</td><td>Betashares Australian High Interest Cash ETF</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">30/10/2019</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">AD8</td><td>Audinate Group</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">20/09/2019</td><td class="ch-add">Addition</td><td class="asset">-</td><td class="code">AYUHC</td><td>Australian Unity Series C Bonds</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">17/07/2019</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">NWL</td><td>Netwealth Group</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">17/07/2019</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">TNE</td><td>Technology One</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">17/07/2019</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">OML</td><td>oOh! Media</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">17/07/2019</td><td class="ch-add">Addition</td><td class="asset">-</td><td class="code">N/A</td><td>NEOS Life</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">01/07/2019</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">N/A</td><td>Netwealth Group</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">16/05/2019</td><td class="ch-add">Addition</td><td class="asset">Infrastructure</td><td class="code">N/A</td><td>Ausbil Global Essential Infrastructure Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">14/11/2018</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">N/A</td><td>Dorado First Mortgage 56</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">22/10/2018</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">GUD</td><td>GUD Holdings</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">29/06/2018</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">N/A</td><td>Solaris Core Australian Equity Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">29/06/2018</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">N/A</td><td>Solaris Core AEF (Perf Alignment)</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">20/06/2018</td><td class="ch-add">Addition</td><td class="asset">-</td><td class="code">N/A</td><td>WestState Super (GESB)</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">20/06/2018</td><td class="ch-add">Addition</td><td class="asset">-</td><td class="code">N/A</td><td>CBH Super Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">20/06/2018</td><td class="ch-add">Addition</td><td class="asset">-</td><td class="code">N/A</td><td>Fire &amp; Emergency Services Super Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">20/06/2018</td><td class="ch-add">Addition</td><td class="asset">Diversified</td><td class="code">N/A</td><td>Vanguard Growth Index Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">14/05/2018</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">N/A</td><td>Dorado First Mortgage 50</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">28/03/2018</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">N/A</td><td>HUB24</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">09/03/2018</td><td class="ch-add">Addition</td><td class="asset">-</td><td class="code">AIA</td><td>Auckland International Airport</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">09/03/2018</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">HSN</td><td>Hansen Technologies</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">09/03/2018</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">MQG</td><td>Macquarie Group</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">22/01/2018</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">N/A</td><td>Dorado First Mortgage 48</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">31/10/2017</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">N/A</td><td>Dorado First Mortgage 45</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">06/10/2017</td><td class="ch-add">Addition</td><td class="asset">Fixed Interest</td><td class="code">CWNHA</td><td>Crown Subordinated Notes I</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">27/09/2017</td><td class="ch-add">Addition</td><td class="asset">Global Equities</td><td class="code">PIXX.AXW</td><td>Platinum International Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">27/09/2017</td><td class="ch-add">Addition</td><td class="asset">Global Equities</td><td class="code">MGG</td><td>Magellan Global Trust</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">21/08/2017</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">APO</td><td>APN Outdoor Group</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">01/08/2017</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">N/A</td><td>Sovereignty Mortgage No.43</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">19/07/2017</td><td class="ch-add">Addition</td><td class="asset">Alternatives</td><td class="code">N/A</td><td>Sovereignty Mortgage No.42</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">12/06/2017</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">SLK</td><td>SeaLink Travel Group</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">10/04/2017</td><td class="ch-add">Addition</td><td class="asset">Fixed Interest</td><td class="code">NABPE</td><td>NAB Subordinated Notes II</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">16/11/2016</td><td class="ch-add">Addition</td><td class="asset">Infrastructure</td><td class="code">SYD</td><td>Sydney Airport</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">25/05/2016</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">N/A</td><td>Bennelong Concentrated Aus Equities</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">25/05/2016</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">N/A</td><td>Bennelong ex-20 Australian Equities</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">20/04/2016</td><td class="ch-add">Addition</td><td class="asset">Infrastructure</td><td class="code">MICH.AXW</td><td>Magellan Infrastructure Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">12/04/2016</td><td class="ch-add">Addition</td><td class="asset">Fixed Interest</td><td class="code">AYUHB</td><td>Australian Unity Series B Bonds</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">17/09/2015</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">SHL</td><td>Sonic Healthcare</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">03/07/2015</td><td class="ch-add">Addition</td><td class="asset">Cash</td><td class="code">N/A</td><td>Smarter Money Active Cash</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">03/07/2015</td><td class="ch-add">Addition</td><td class="asset">Fixed Interest</td><td class="code">N/A</td><td>Smarter Money Higher Income</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">03/07/2015</td><td class="ch-add">Addition</td><td class="asset">Diversified</td><td class="code">N/A</td><td>Schroder Real Return CPI + 5%</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">16/06/2015</td><td class="ch-add">Addition</td><td class="asset">Global Equities</td><td class="code">N/A</td><td>T. Rowe Price Global Growth Equity</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">27/05/2015</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">OFX</td><td>OzForex Group</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">21/04/2015</td><td class="ch-add">Addition</td><td class="asset">Global Equities</td><td class="code">MGE</td><td>Magellan Global Equities Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">21/04/2015</td><td class="ch-add">Addition</td><td class="asset">Diversified</td><td class="code">N/A</td><td>Packer &amp; Co Investigator Trust</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">24/11/2014</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">MPL</td><td>Medibank Private</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">13/11/2014</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">CRZ</td><td>Carsales.Com</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">15/09/2014</td><td class="ch-rem">Removal</td><td class="asset">Fixed Interest</td><td class="code">AAZPB</td><td>Australand ASSETS</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">15/09/2014</td><td class="ch-rem">Removal</td><td class="asset">Fixed Interest</td><td class="code">HBSHA</td><td>Heritage Sub Notes</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">01/07/2014</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">BXB</td><td>Brambles</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">18/06/2014</td><td class="ch-add">Addition</td><td class="asset">Diversified</td><td class="code">N/A</td><td>Schroder Balanced Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">18/06/2014</td><td class="ch-add">Addition</td><td class="asset">Diversified</td><td class="code">N/A</td><td>Vanguard Conservative Index Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">10/06/2014</td><td class="ch-rem">Removal</td><td class="asset">Fixed Interest</td><td class="code">ANZPB</td><td>ANZ Bank CPS</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">01/06/2014</td><td class="ch-rem">Removal</td><td class="asset">Australian Equities</td><td class="code">N/A</td><td>Antares High Growth Shares Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">19/03/2014</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">N/A</td><td>Hyperion Small Growth Companies</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">19/03/2014</td><td class="ch-add">Addition</td><td class="asset">Fixed Interest</td><td class="code">AMPHA</td><td>AMP Subordinated Notes II</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">19/03/2014</td><td class="ch-add">Addition</td><td class="asset">Fixed Interest</td><td class="code">SUNPD</td><td>Suncorp Subordinated Notes</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">10/03/2014</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">IVC</td><td>InvoCare</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">19/02/2014</td><td class="ch-add">Addition</td><td class="asset">Property</td><td class="code">BWP</td><td>BWP Trust</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">16/01/2014</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">CTX</td><td>Caltex Australia</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">16/12/2013</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">N/A</td><td>BlackRock Indexed Australian Equity Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">16/12/2013</td><td class="ch-add">Addition</td><td class="asset">Global Equities</td><td class="code">N/A</td><td>BlackRock Indexed International Equity</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">16/12/2013</td><td class="ch-add">Addition</td><td class="asset">Global Equities</td><td class="code">N/A</td><td>BlackRock Indexed Hedged Intl Equity</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">16/12/2013</td><td class="ch-add">Addition</td><td class="asset">Cash</td><td class="code">N/A</td><td>Advance Cash Multi-Blend</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">16/12/2013</td><td class="ch-add">Addition</td><td class="asset">Property</td><td class="code">N/A</td><td>BlackRock Indexed Australian Property</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">26/09/2013</td><td class="ch-add">Addition</td><td class="asset">Fixed Interest</td><td class="code">WBCHA</td><td>Westpac Subordinated Notes</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">26/09/2013</td><td class="ch-add">Addition</td><td class="asset">Fixed Interest</td><td class="code">WBCHB</td><td>Westpac Subordinated Notes II</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">27/03/2013</td><td class="ch-add">Addition</td><td class="asset">Property</td><td class="code">SLF.AXW</td><td>SPDR S&amp;P/ASX 200 Listed Property Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">07/12/2012</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">ANN</td><td>Ansell</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">24/07/2012</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">LEP</td><td>ALE Property Group</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">20/06/2012</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">STW.AXW</td><td>SPDR ASX 200 Fund</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">21/12/2010</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">FLT</td><td>Flight Centre</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">21/12/2010</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">IRE</td><td>IRESS Market Technologies</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">21/12/2010</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">MND</td><td>Monadelphous</td><td class="reg">-</td><td class="reg">-</td></tr>
+            <tr><td class="date">21/12/2010</td><td class="ch-add">Addition</td><td class="asset">Australian Equities</td><td class="code">SEK</td><td>Seek</td><td class="reg">-</td><td class="reg">-</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+    <div id="footer-placeholder"></div>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

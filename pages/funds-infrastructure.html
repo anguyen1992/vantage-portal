@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infrastructure — Vantage Wealth Management | Investment Data Portal</title>
+  <meta name="last-updated" content="10 May 2026">
+  <meta name="owner"        content="Anthony Nguyen">
+  <meta name="source"       content="Morningstar">
+  <meta name="as-at"        content="30 Apr 2026">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <style>
+    .asset-section { margin-bottom: 3rem; }
+    .asset-title { font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:500; color:var(--navy); margin-bottom:0.8rem; padding-bottom:0.5rem; border-bottom:1px solid var(--line); }
+    .apir { font-size:0.7rem; color:var(--muted); font-family:monospace; }
+    td.r { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+    td.w { white-space:nowrap; font-size:0.82rem; }
+    tbody tr.benchmark-row td { color:var(--muted); font-style:italic; }
+    tbody tr.benchmark-row td:first-child { padding-left:1.5rem; font-size:0.8rem; }
+  </style>
+</head>
+<body data-page="funds" data-depth="1">
+
+  <div id="gate">
+    <div class="gate-inner">
+      <div class="gate-mark">VANTAGE</div>
+      <div class="gate-sub">Wealth Management</div>
+      <h1>Investment Data Portal</h1>
+      <p>This portal contains confidential investment research and performance data.<br>Please enter your access password to continue.</p>
+      <input type="password" id="pwd-input" placeholder="Access password" autocomplete="off" autofocus>
+      <button id="pwd-btn">Enter Portal</button>
+      <div class="gate-error" id="pwd-error" role="alert"></div>
+    </div>
+  </div>
+
+  <div id="app" class="hidden">
+    <div id="nav-placeholder"></div>
+    <main>
+      <div class="page-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/index.html">Overview</a><span class="sep">›</span>
+          <a href="./funds.html">Funds</a><span class="sep">›</span>
+          <span class="current">Infrastructure</span>
+        </nav>
+        <p class="page-eyebrow">Funds</p>
+        <h1>Infrastructure</h1>
+        <div class="page-meta">
+          <span class="meta-item"><strong>As at:</strong> 30 Apr 2026</span>
+          <span class="meta-item"><strong>Last updated:</strong> 10 May 2026</span>
+          <span class="meta-item"><strong>Owner:</strong> Anthony Nguyen</span>
+          <span class="meta-item"><strong>Source:</strong> Morningstar</span>
+        </div>
+      </div>
+
+      <!-- Infrastructure (Hedged) — Active -->
+      <div class="asset-section">
+        <h2 class="asset-title">Infrastructure (Hedged) — Active</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Fund</th><th>APIR</th>
+                <th class="numeric">1M</th><th class="numeric">3M</th><th class="numeric">6M</th>
+                <th class="numeric">1Y</th><th class="numeric">3Y</th><th class="numeric">5Y</th>
+                <th class="numeric">10Y</th><th class="numeric">15Y</th><th class="numeric">20Y</th>
+                <th>Inception</th><th class="numeric">IM Fee</th>
+                <th class="numeric">MS Rating</th><th>MS Medallist</th>
+                <th>APL Date</th><th>Checklist</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>ATLAS Infrastructure Australian Feeder Fund - Hedged</td><td class="apir">PIM9253AU</td><td class="r">3.86%</td><td class="r">9.32%</td><td class="r">18.03%</td><td class="r">28.49%</td><td class="r">10.84%</td><td class="r">10.92%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">03-Oct-17</td><td class="r">0.70%</td><td class="r">4</td><td>Silver</td><td class="w">06-Dec-22</td><td class="w">01-Dec-22</td></tr>
+              <tr><td>Ausbil Global Essential Infrastructure Fund - Hedged</td><td class="apir">AAP3601AU</td><td class="r">3.63%</td><td class="r">10.14%</td><td class="r">15.25%</td><td class="r">22.90%</td><td class="r">10.03%</td><td class="r">9.21%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">16-Oct-20</td><td class="r">1.00%</td><td class="r">3</td><td>-</td><td class="w">21-Oct-20</td><td class="w">11-Jun-19</td></tr>
+              <tr><td>CFS Index Global Listed Infrastructure Fund - Hedged</td><td class="apir">FSF4698AU</td><td class="r">1.82%</td><td class="r">7.26%</td><td class="r">11.46%</td><td class="r">17.77%</td><td class="r">10.88%</td><td class="r">6.65%</td><td class="r">7.17%</td><td class="r">-</td><td class="r">-</td><td class="w">29-Sep-12</td><td class="r">0.33%</td><td class="r">2</td><td>Bronze</td><td class="w">25-Jan-23</td><td class="w">23-Jan-23</td></tr>
+              <tr><td>Clearbridge RARE Infrastructure Income - Hedged A</td><td class="apir">TGP0016AU</td><td class="r">2.14%</td><td class="r">8.87%</td><td class="r">15.15%</td><td class="r">23.27%</td><td class="r">11.60%</td><td class="r">9.46%</td><td class="r">10.14%</td><td class="r">10.09%</td><td class="r">-</td><td class="w">09-Jul-08</td><td class="r">1.03%</td><td class="r">5</td><td>Neutral</td><td class="w">06-Dec-22</td><td class="w">01-Nov-22</td></tr>
+              <tr><td>Magellan Infrastructure Fund - Hedged</td><td class="apir">MGE0002AU</td><td class="r">3.05%</td><td class="r">6.70%</td><td class="r">9.78%</td><td class="r">17.89%</td><td class="r">9.67%</td><td class="r">7.43%</td><td class="r">6.97%</td><td class="r">9.54%</td><td class="r">-</td><td class="w">01-Jul-07</td><td class="r">1.05%</td><td class="r">2</td><td>Neutral</td><td class="w">20-Apr-16</td><td class="w">18-Apr-16</td></tr>
+              <tr><td>VanEck FTSE Global Infrastructure (Hedged) ETF</td><td class="apir">IFRA</td><td class="r">1.87%</td><td class="r">7.38%</td><td class="r">11.61%</td><td class="r">18.10%</td><td class="r">10.52%</td><td class="r">7.56%</td><td class="r">7.62%</td><td class="r">-</td><td class="r">-</td><td class="w">29-Apr-16</td><td class="r">0.20%</td><td class="r">3</td><td>Bronze</td><td class="w">Watching</td><td class="w">-</td></tr>
+              <tr class="benchmark-row"><td>FTSE Developed Core Infrastructure 50/50 ($A Hedged) Index</td><td class="apir">-</td><td class="r">1.86%</td><td class="r">7.33%</td><td class="r">11.53%</td><td class="r">17.92%</td><td class="r">10.32%</td><td class="r">7.55%</td><td class="r">7.71%</td><td class="r">9.77%</td><td class="r">8.77%</td><td class="w">-</td><td class="r">-</td><td class="r">-</td><td>-</td><td class="w">-</td><td class="w">-</td></tr>
+              <tr class="benchmark-row"><td>FTSE Developed Core Infrastructure Index Net ($A Hedged)</td><td class="apir">-</td><td class="r">2.69%</td><td class="r">9.81%</td><td class="r">14.68%</td><td class="r">21.01%</td><td class="r">11.90%</td><td class="r">7.72%</td><td class="r">9.09%</td><td class="r">-</td><td class="r">-</td><td class="w">-</td><td class="r">-</td><td class="r">-</td><td>-</td><td class="w">-</td><td class="w">-</td></tr>
+              <tr class="benchmark-row"><td>S&amp;P Global Infrastructure Index ($A, Hedged)</td><td class="apir">GII</td><td class="r">1.48%</td><td class="r">6.01%</td><td class="r">12.01%</td><td class="r">22.68%</td><td class="r">14.01%</td><td class="r">11.12%</td><td class="r">8.42%</td><td class="r">8.90%</td><td class="r">-</td><td class="w">-</td><td class="r">-</td><td class="r">-</td><td>-</td><td class="w">-</td><td class="w">-</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Infrastructure — Active (Unhedged) -->
+      <div class="asset-section">
+        <h2 class="asset-title">Infrastructure — Active (Unhedged)</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Fund</th><th>APIR</th>
+                <th class="numeric">1M</th><th class="numeric">3M</th><th class="numeric">6M</th>
+                <th class="numeric">1Y</th><th class="numeric">3Y</th><th class="numeric">5Y</th>
+                <th class="numeric">10Y</th><th class="numeric">15Y</th><th class="numeric">20Y</th>
+                <th>Inception</th><th class="numeric">IM Fee</th>
+                <th class="numeric">MS Rating</th><th>MS Medallist</th>
+                <th>APL Date</th><th>Checklist</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>ATLAS Infrastructure Australian Feeder Fund - Unhedged</td><td class="apir">PIM6769AU</td><td class="r">0.46%</td><td class="r">5.95%</td><td class="r">9.55%</td><td class="r">16.90%</td><td class="r">9.85%</td><td class="r">12.88%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">03-Oct-17</td><td class="r">0.70%</td><td class="r">4</td><td>Silver</td><td class="w">06-Dec-22</td><td class="w">01-Nov-22</td></tr>
+              <tr><td>Ausbil Global Essential Infrastructure Fund - Unhedged</td><td class="apir">AAP3254AU</td><td class="r">-0.38%</td><td class="r">6.93%</td><td class="r">6.21%</td><td class="r">11.06%</td><td class="r">8.43%</td><td class="r">10.21%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">17-Dec-18</td><td class="r">1.00%</td><td class="r">3</td><td>-</td><td class="w">16-May-19</td><td class="w">11-Jun-19</td></tr>
+              <tr><td>Clearbridge RARE Infrastructure Income - Unhedged A</td><td class="apir">SSB6649AU</td><td class="r">-0.94%</td><td class="r">6.22%</td><td class="r">7.88%</td><td class="r">13.26%</td><td class="r">10.28%</td><td class="r">11.04%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">13-Apr-21</td><td class="r">0.97%</td><td class="r">4</td><td>Neutral</td><td class="w">06-Dec-22</td><td class="w">01-Nov-22</td></tr>
+              <tr><td>Magellan Infrastructure Fund (Unhedged)</td><td class="apir">MGE0006AU</td><td class="r">-0.50%</td><td class="r">3.23%</td><td class="r">1.62%</td><td class="r">6.82%</td><td class="r">8.54%</td><td class="r">9.43%</td><td class="r">7.71%</td><td class="r">-</td><td class="r">-</td><td class="w">01-Jul-13</td><td class="r">0.10%</td><td class="r">2</td><td>Neutral</td><td class="w">01-Jul-13</td><td class="w">18-Apr-16</td></tr>
+              <tr class="benchmark-row"><td>FTSE Developed Core Infrastructure 50/50 ($A Unhedged) Index</td><td class="apir">-</td><td class="r">-1.95%</td><td class="r">4.47%</td><td class="r">2.95%</td><td class="r">6.13%</td><td class="r">8.22%</td><td class="r">9.11%</td><td class="r">8.42%</td><td class="r">11.23%</td><td class="r">-</td><td class="w">-</td><td class="r">-</td><td class="r">-</td><td>-</td><td class="w">-</td><td class="w">-</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <p style="font-size:0.78rem;color:var(--muted);">Source: Morningstar. Historical returns as at 30 April 2026. Past performance is not a reliable indicator of future performance.</p>
+    </main>
+    <div id="footer-placeholder"></div>
+  </div>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

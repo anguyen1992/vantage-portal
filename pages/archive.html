@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Archive — Vantage Wealth Management | Investment Data Portal</title>
+
+  <!-- ===== Page metadata (update as content is added) ===== -->
+  <meta name="last-updated" content="[DD MMM YYYY]">
+  <meta name="owner"        content="[Owner Name / Team]">
+  <meta name="source"       content="[Data Source]">
+  <meta name="as-at"        content="[DD MMM YYYY]">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body data-page="archive" data-depth="1">
+
+  <!-- ===== PASSWORD GATE ===== -->
+  <div id="gate">
+    <div class="gate-inner">
+      <div class="gate-mark">VANTAGE</div>
+      <div class="gate-sub">Wealth Management</div>
+      <h1>Investment Data Portal</h1>
+      <p>This portal contains confidential investment research and performance data.<br>
+         Please enter your access password to continue.</p>
+      <input type="password" id="pwd-input" placeholder="Access password" autocomplete="off" autofocus>
+      <button id="pwd-btn">Enter Portal</button>
+      <div class="gate-error" id="pwd-error" role="alert"></div>
+    </div>
+  </div>
+
+  <!-- ===== MAIN APP ===== -->
+  <div id="app" class="hidden">
+
+    <div id="nav-placeholder"></div>
+
+    <main>
+
+      <!-- Page header -->
+      <div class="page-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/index.html">Overview</a>
+          <span class="sep">›</span>
+          <span class="current">Archive</span>
+        </nav>
+        <p class="page-eyebrow">Archive</p>
+        <h1>Archive</h1>
+        <div class="page-meta">
+          <span class="meta-item"><strong>As at:</strong> [DD MMM YYYY]</span>
+          <span class="meta-item"><strong>Last updated:</strong> [DD MMM YYYY]</span>
+          <span class="meta-item"><strong>Owner:</strong> [Owner Name]</span>
+          <span class="meta-item"><strong>Source:</strong> [Data Source]</span>
+        </div>
+      </div>
+
+      <!-- ===== CONTENT AREA — add archived reports and documents here ===== -->
+      <div class="placeholder-block">
+        <span class="placeholder-icon">◇</span>
+        <h2>Content coming soon</h2>
+        <p>Historical reports, superseded documents, and prior-period data will appear here.</p>
+      </div>
+      <!-- ===== END CONTENT AREA ===== -->
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+  </div><!-- /#app -->
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

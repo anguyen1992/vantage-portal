@@ -1,0 +1,120 @@
+<!-- ===========================================================
+     nav.html — Shared navigation component
+     Injected into every page via main.js loadComponent()
+     NOTE: Requires a local HTTP server (not file://)
+     =========================================================== -->
+
+<header class="site">
+  <div class="header-bar">
+
+    <!-- Brand -->
+    <a href="/index.html" class="brand-link" aria-label="Vantage Wealth Management — Home">
+      <span class="brand-name">VANTAGE</span>
+      <span class="brand-tag">Wealth Management</span>
+    </a>
+
+    <!-- Header actions -->
+    <div class="header-actions">
+      <span class="ref-date">Investment Data Portal</span>
+      <button id="logout-btn" aria-label="Lock portal">Lock</button>
+    </div>
+
+  </div><!-- /.header-bar -->
+
+  <!-- Primary navigation -->
+  <nav class="primary" aria-label="Main navigation">
+    <ul class="nav-list">
+
+      <!-- Overview -->
+      <li>
+        <a href="/index.html" data-nav="home">Overview</a>
+      </li>
+
+      <!-- Managed Accounts (dropdown) -->
+      <li class="nav-dropdown">
+        <a href="#" aria-haspopup="true">Managed Accounts</a>
+        <ul class="dropdown-menu" role="menu">
+          <li role="none">
+            <a href="/pages/managed-accounts-hub.html" data-nav="managed-accounts-hub" role="menuitem">
+              HUB24 Managed Accounts
+            </a>
+          </li>
+          <li role="none">
+            <a href="/pages/managed-accounts-cfs.html" data-nav="managed-accounts-cfs" role="menuitem">
+              CFS Managed Accounts
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <!-- SAA's -->
+      <li>
+        <a href="/pages/saas.html" data-nav="saas">SAA's</a>
+      </li>
+
+      <!-- Research -->
+      <li>
+        <a href="/pages/research.html" data-nav="research">Research</a>
+      </li>
+
+      <!-- Benchmark Data -->
+      <li>
+        <a href="/pages/benchmark-data.html" data-nav="benchmark-data">Benchmark Data</a>
+      </li>
+
+      <!-- Funds -->
+      <li>
+        <a href="/pages/funds.html" data-nav="funds">Funds</a>
+      </li>
+
+      <!-- Australian Equities -->
+      <li>
+        <a href="/pages/australian-equities.html" data-nav="australian-equities">Australian Equities</a>
+      </li>
+
+      <!-- APL Lists (dropdown) -->
+      <li class="nav-dropdown">
+        <a href="#" aria-haspopup="true">APL Lists</a>
+        <ul class="dropdown-menu" role="menu">
+          <li role="none">
+            <a href="/pages/models-apl.html" data-nav="models-apl" role="menuitem">
+              Models and APL
+            </a>
+          </li>
+          <li role="none">
+            <a href="/pages/apl-platforms.html" data-nav="apl-platforms" role="menuitem">
+              APL Platforms
+            </a>
+          </li>
+          <li role="none">
+            <a href="/pages/apl-insurance.html" data-nav="apl-insurance" role="menuitem">
+              APL Insurance
+            </a>
+          </li>
+          <li role="none">
+            <a href="/pages/apl-changes.html" data-nav="apl-changes" role="menuitem">
+              APL Investments
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <!-- Governance -->
+      <li>
+        <a href="/pages/governance.html" data-nav="governance">Governance</a>
+      </li>
+
+      <!-- Archive -->
+      <li>
+        <a href="/pages/archive.html" data-nav="archive">Archive</a>
+      </li>
+
+      <!-- Disclosures -->
+      <li>
+        <a href="/pages/disclosures.html" data-nav="disclosures">Disclosures</a>
+      </li>
+
+    </ul>
+  </nav><!-- /nav.primary -->
+
+</header><!-- /header.site -->

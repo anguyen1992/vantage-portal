@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APL Platforms — Vantage Wealth Management | Investment Data Portal</title>
+
+  <!-- ===== Page metadata (update as content is added) ===== -->
+  <meta name="last-updated" content="10 May 2026">
+  <meta name="owner"        content="Anthony Nguyen">
+  <meta name="source"       content="Vantage Wealth Management">
+  <meta name="as-at"        content="10 May 2026">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body data-page="apl-platforms" data-depth="1">
+
+  <!-- ===== PASSWORD GATE ===== -->
+  <div id="gate">
+    <div class="gate-inner">
+      <div class="gate-mark">VANTAGE</div>
+      <div class="gate-sub">Wealth Management</div>
+      <h1>Investment Data Portal</h1>
+      <p>This portal contains confidential investment research and performance data.<br>
+         Please enter your access password to continue.</p>
+      <input type="password" id="pwd-input" placeholder="Access password" autocomplete="off" autofocus>
+      <button id="pwd-btn">Enter Portal</button>
+      <div class="gate-error" id="pwd-error" role="alert"></div>
+    </div>
+  </div>
+
+  <!-- ===== MAIN APP ===== -->
+  <div id="app" class="hidden">
+
+    <div id="nav-placeholder"></div>
+
+    <main>
+
+      <!-- Page header -->
+      <div class="page-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/index.html">Overview</a>
+          <span class="sep">›</span>
+          <span>Models &amp; APL</span>
+          <span class="sep">›</span>
+          <span class="current">APL Platforms</span>
+        </nav>
+        <p class="page-eyebrow">Models &amp; APL</p>
+        <h1>APL Platforms</h1>
+        <div class="page-meta">
+          <span class="meta-item"><strong>As at:</strong> 10 May 2026</span>
+          <span class="meta-item"><strong>Last updated:</strong> 10 May 2026</span>
+          <span class="meta-item"><strong>Owner:</strong> Anthony Nguyen</span>
+          <span class="meta-item"><strong>Source:</strong> Vantage Wealth Management</span>
+        </div>
+      </div>
+
+      <style>
+        .apl-section { margin-bottom: 2.5rem; }
+        .apl-title { font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:500; color:var(--navy); margin-bottom:0.8rem; padding-bottom:0.5rem; border-bottom:1px solid var(--line); }
+        .apl-section table { table-layout: fixed; width: 100%; }
+        th.c { text-align: center; }
+        td.w { text-align: center; white-space:nowrap; font-size:0.82rem; }
+      </style>
+
+      <!-- Primary Platforms -->
+      <div class="apl-section">
+        <h2 class="apl-title">Primary</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Platform</th>
+                <th class="c">Date Added</th>
+                <th class="c">Last Review</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>HUB24 Super</td><td class="w">28-Mar-18</td><td class="w">28-Mar-18</td></tr>
+              <tr><td>HUB24 IDPS</td><td class="w">28-Mar-18</td><td class="w">28-Mar-18</td></tr>
+              <tr><td>Macquarie Investment Manager</td><td class="w">01-Sep-10</td><td class="w">Jul-13</td></tr>
+              <tr><td>Macquarie Super &amp; Pension Manager</td><td class="w">01-Sep-10</td><td class="w">Jul-13</td></tr>
+              <tr><td>Macquarie Accumulator</td><td class="w">01-Sep-10</td><td class="w">Jul-13</td></tr>
+              <tr><td>CFS Wholesale &amp; Retail</td><td class="w">01-Sep-10</td><td class="w">Jul-13</td></tr>
+              <tr><td>Netwealth Super &amp; Investment Acc.</td><td class="w">01-Jul-19</td><td class="w">Jul-19</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Secondary Platforms -->
+      <div class="apl-section">
+        <h2 class="apl-title">Secondary*</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Platform</th>
+                <th class="c">Date Added</th>
+                <th class="c">Last Review</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>AustralianSuper</td><td class="w">13-Apr-23</td><td class="w">Apr-23</td></tr>
+              <tr><td>Asgard Infinity</td><td class="w">21-Aug-13</td><td class="w">Dec-13</td></tr>
+              <tr><td>WestState Super (GESB)</td><td class="w">20-Jun-18</td><td class="w">20-Jun-18</td></tr>
+              <tr><td>CBH Super Fund</td><td class="w">20-Jun-18</td><td class="w">20-Jun-18</td></tr>
+              <tr><td>Fire &amp; Emergency Services Super Fund</td><td class="w">20-Jun-18</td><td class="w">20-Jun-18</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Margin Lending -->
+      <div class="apl-section">
+        <h2 class="apl-title">Margin Lending</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Platform</th>
+                <th class="c">Date Added</th>
+                <th class="c">Last Review</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Asgard Infinity</td><td class="w">25-May-16</td><td class="w">N/A</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Insurance Bonds -->
+      <div class="apl-section">
+        <h2 class="apl-title">Insurance Bonds</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Platform</th>
+                <th class="c">Date Added</th>
+                <th class="c">Last Review</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Generation Life</td><td class="w">17-May-17</td><td class="w">N/A</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <p style="font-size:0.78rem;color:var(--muted);">* Secondary platforms only to be used where a primary platform is not suitable and approval is given by a Responsible Manager of Vantage.</p>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+  </div><!-- /#app -->
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CFS Active Funds Performance — Vantage Wealth Management | Investment Data Portal</title>
+
+  <meta name="last-updated" content="10 May 2026">
+  <meta name="owner"        content="Anthony Nguyen">
+  <meta name="source"       content="CFS, Fund Manager Data, Lonsec, Morningstar">
+  <meta name="as-at"        content="30 Apr 2026">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <style>
+    /* Benchmark row styling */
+    tbody tr.benchmark-row td { color: var(--muted); font-style: italic; }
+    tbody tr.benchmark-row td:first-child {
+      padding-left: 1.8rem;
+      font-size: 0.8rem;
+    }
+
+    /* Asset class section spacing */
+    .asset-section { margin-bottom: 2.5rem; }
+    .asset-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 0.8rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--line);
+    }
+  </style>
+</head>
+
+<body data-page="managed-accounts-cfs" data-depth="1">
+
+  <!-- ===== PASSWORD GATE ===== -->
+  <div id="gate">
+    <div class="gate-inner">
+      <div class="gate-mark">VANTAGE</div>
+      <div class="gate-sub">Wealth Management</div>
+      <h1>Investment Data Portal</h1>
+      <p>This portal contains confidential investment research and performance data.<br>
+         Please enter your access password to continue.</p>
+      <input type="password" id="pwd-input" placeholder="Access password" autocomplete="off" autofocus>
+      <button id="pwd-btn">Enter Portal</button>
+      <div class="gate-error" id="pwd-error" role="alert"></div>
+    </div>
+  </div>
+
+  <!-- ===== MAIN APP ===== -->
+  <div id="app" class="hidden">
+
+    <div id="nav-placeholder"></div>
+
+    <main>
+
+      <!-- Page header -->
+      <div class="page-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/index.html">Overview</a>
+          <span class="sep">›</span>
+          <a href="./managed-accounts-cfs.html">CFS Managed Accounts</a>
+          <span class="sep">›</span>
+          <span class="current">Active Funds Performance</span>
+        </nav>
+        <p class="page-eyebrow">CFS Managed Accounts</p>
+        <h1>Active Funds Performance</h1>
+        <div class="page-meta">
+          <span class="meta-item"><strong>As at:</strong> 30 Apr 2026</span>
+          <span class="meta-item"><strong>Last updated:</strong> 10 May 2026</span>
+          <span class="meta-item"><strong>Owner:</strong> Anthony Nguyen</span>
+          <span class="meta-item"><strong>Source:</strong> CFS, Fund Manager Data, Lonsec, Morningstar</span>
+        </div>
+      </div>
+
+      <!-- ===== AUSTRALIAN SHARES ===== -->
+      <div class="asset-section">
+        <h2 class="asset-title">Australian Shares</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Fund</th>
+                <th class="numeric">3 Months</th>
+                <th class="numeric">6 Months</th>
+                <th class="numeric">1 Year</th>
+                <th class="numeric">3 Years p.a.</th>
+                <th class="numeric">5 Years p.a.</th>
+                <th class="numeric">10 Years p.a.</th>
+                <th class="numeric">FYTD</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>CFS Wholesale Index Australian Share</td>
+                <td class="numeric">-1.59%</td>
+                <td class="numeric">-1.20%</td>
+                <td class="numeric">9.83%</td>
+                <td class="numeric">9.25%</td>
+                <td class="numeric">7.84%</td>
+                <td class="numeric">8.88%</td>
+                <td class="numeric">4.05%</td>
+              </tr>
+              <tr>
+                <td>Airlie Australian Share Fund</td>
+                <td class="numeric">-1.70%</td>
+                <td class="numeric">-1.92%</td>
+                <td class="numeric">3.02%</td>
+                <td class="numeric">6.65%</td>
+                <td class="numeric">7.28%</td>
+                <td class="numeric muted">N/A</td>
+                <td class="numeric">-1.71%</td>
+              </tr>
+              <tr>
+                <td>DNR Capital Australian Equities High Conviction Fund</td>
+                <td class="numeric">-4.34%</td>
+                <td class="numeric">-4.69%</td>
+                <td class="numeric">0.40%</td>
+                <td class="numeric">2.79%</td>
+                <td class="numeric">5.58%</td>
+                <td class="numeric">8.47%</td>
+                <td class="numeric">-3.58%</td>
+              </tr>
+              <tr>
+                <td>First Sentier Concentrated Australian Share Fund</td>
+                <td class="numeric">-7.70%</td>
+                <td class="numeric">-15.87%</td>
+                <td class="numeric">-9.36%</td>
+                <td class="numeric">4.42%</td>
+                <td class="numeric">1.48%</td>
+                <td class="numeric">7.59%</td>
+                <td class="numeric">-15.99%</td>
+              </tr>
+              <tr>
+                <td>Vinva Australian Equity Fund</td>
+                <td class="numeric">-2.13%</td>
+                <td class="numeric">-2.25%</td>
+                <td class="numeric">12.32%</td>
+                <td class="numeric">11.49%</td>
+                <td class="numeric">8.87%</td>
+                <td class="numeric">10.05%</td>
+                <td class="numeric muted">N/A</td>
+              </tr>
+              <!-- Benchmark -->
+              <tr class="benchmark-row">
+                <td>↳ S&amp;P/ASX 300 Accumulation Index (benchmark)</td>
+                <td class="numeric">-1.52%</td>
+                <td class="numeric">-1.14%</td>
+                <td class="numeric">10.14%</td>
+                <td class="numeric">9.57%</td>
+                <td class="numeric">8.16%</td>
+                <td class="numeric">9.27%</td>
+                <td class="numeric">4.23%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ===== INTERNATIONAL SHARES ===== -->
+      <div class="asset-section">
+        <h2 class="asset-title">International Shares</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Fund</th>
+                <th class="numeric">3 Months</th>
+                <th class="numeric">6 Months</th>
+                <th class="numeric">1 Year</th>
+                <th class="numeric">3 Years p.a.</th>
+                <th class="numeric">5 Years p.a.</th>
+                <th class="numeric">10 Years p.a.</th>
+                <th class="numeric">FYTD</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>CFS Index Global Share Fund</td>
+                <td class="numeric">0.90%</td>
+                <td class="numeric">-2.08%</td>
+                <td class="numeric">16.34%</td>
+                <td class="numeric">16.32%</td>
+                <td class="numeric">12.53%</td>
+                <td class="numeric">12.99%</td>
+                <td class="numeric">7.91%</td>
+              </tr>
+              <tr>
+                <td>CFS Index Global Share Fund — Hedged</td>
+                <td class="numeric">3.42%</td>
+                <td class="numeric">6.71%</td>
+                <td class="numeric">29.94%</td>
+                <td class="numeric">18.70%</td>
+                <td class="numeric">10.52%</td>
+                <td class="numeric">11.98%</td>
+                <td class="numeric">18.44%</td>
+              </tr>
+              <tr>
+                <td>T. Rowe Price Global Equity Fund</td>
+                <td class="numeric">0.89%</td>
+                <td class="numeric">-4.37%</td>
+                <td class="numeric">12.18%</td>
+                <td class="numeric">14.40%</td>
+                <td class="numeric">6.60%</td>
+                <td class="numeric muted">N/A</td>
+                <td class="numeric">4.76%</td>
+              </tr>
+              <!-- Benchmark -->
+              <tr class="benchmark-row">
+                <td>↳ MSCI World Net Total Return Index ($A) (benchmark)</td>
+                <td class="numeric">0.72%</td>
+                <td class="numeric">-2.72%</td>
+                <td class="numeric">14.95%</td>
+                <td class="numeric">16.38%</td>
+                <td class="numeric">12.90%</td>
+                <td class="numeric">13.33%</td>
+                <td class="numeric">6.55%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ===== FIXED INTEREST ===== -->
+      <div class="asset-section">
+        <h2 class="asset-title">Fixed Interest</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Fund</th>
+                <th class="numeric">3 Months</th>
+                <th class="numeric">6 Months</th>
+                <th class="numeric">1 Year</th>
+                <th class="numeric">3 Years p.a.</th>
+                <th class="numeric">5 Years p.a.</th>
+                <th class="numeric">10 Years p.a.</th>
+                <th class="numeric">FYTD</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Bentham Global Income Fund</td>
+                <td class="numeric">-1.04%</td>
+                <td class="numeric">-1.57%</td>
+                <td class="numeric">-0.79%</td>
+                <td class="numeric">3.74%</td>
+                <td class="numeric">3.17%</td>
+                <td class="numeric">4.48%</td>
+                <td class="numeric">-0.67%</td>
+              </tr>
+              <tr>
+                <td>Perpetual Diversified Income</td>
+                <td class="numeric">1.20%</td>
+                <td class="numeric">2.23%</td>
+                <td class="numeric">6.54%</td>
+                <td class="numeric">6.73%</td>
+                <td class="numeric">4.56%</td>
+                <td class="numeric">4.13%</td>
+                <td class="numeric">4.83%</td>
+              </tr>
+              <tr>
+                <td>PIMCO Global Bond</td>
+                <td class="numeric">-1.43%</td>
+                <td class="numeric">-0.91%</td>
+                <td class="numeric">2.81%</td>
+                <td class="numeric">3.77%</td>
+                <td class="numeric">0.11%</td>
+                <td class="numeric">2.17%</td>
+                <td class="numeric">1.77%</td>
+              </tr>
+              <tr>
+                <td>Schroder Absolute Return Income</td>
+                <td class="numeric">0.33%</td>
+                <td class="numeric">1.69%</td>
+                <td class="numeric">4.60%</td>
+                <td class="numeric">5.59%</td>
+                <td class="numeric">3.46%</td>
+                <td class="numeric">3.48%</td>
+                <td class="numeric">3.69%</td>
+              </tr>
+              <!-- Benchmark -->
+              <tr class="benchmark-row">
+                <td>↳ BB AusBond Composite 0–3 Year (benchmark)</td>
+                <td class="numeric">0.33%</td>
+                <td class="numeric">0.46%</td>
+                <td class="numeric">2.02%</td>
+                <td class="numeric">3.36%</td>
+                <td class="numeric">1.95%</td>
+                <td class="numeric">2.06%</td>
+                <td class="numeric">1.27%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ===== PROPERTY & INFRASTRUCTURE ===== -->
+      <div class="asset-section">
+        <h2 class="asset-title">Property &amp; Infrastructure</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Fund</th>
+                <th class="numeric">3 Months</th>
+                <th class="numeric">6 Months</th>
+                <th class="numeric">1 Year</th>
+                <th class="numeric">3 Years p.a.</th>
+                <th class="numeric">5 Years p.a.</th>
+                <th class="numeric">10 Years p.a.</th>
+                <th class="numeric">FYTD</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Quay Global Real Estate Fund (Unhedged)</td>
+                <td class="numeric">-0.88%</td>
+                <td class="numeric">-3.81%</td>
+                <td class="numeric">-5.77%</td>
+                <td class="numeric">4.09%</td>
+                <td class="numeric">3.36%</td>
+                <td class="numeric">5.99%</td>
+                <td class="numeric">-10.31%</td>
+              </tr>
+              <!-- Benchmark for real estate -->
+              <tr class="benchmark-row">
+                <td>↳ FTSE/EPRA NAREIT Developed Index NR AUD Unhedged (benchmark)</td>
+                <td class="numeric">2.97%</td>
+                <td class="numeric">0.64%</td>
+                <td class="numeric">4.25%</td>
+                <td class="numeric">5.99%</td>
+                <td class="numeric">3.69%</td>
+                <td class="numeric">4.31%</td>
+                <td class="numeric">-0.05%</td>
+              </tr>
+              <tr>
+                <td>CFS Index Global Listed Infrastructure Fund — Hedged</td>
+                <td class="numeric">7.26%</td>
+                <td class="numeric">11.46%</td>
+                <td class="numeric">17.77%</td>
+                <td class="numeric">10.88%</td>
+                <td class="numeric">6.65%</td>
+                <td class="numeric muted">N/A</td>
+                <td class="numeric">16.17%</td>
+              </tr>
+              <!-- Benchmark for infrastructure -->
+              <tr class="benchmark-row">
+                <td>↳ FTSE Developed Core Infrastructure Index Net Hedged AUD (benchmark)</td>
+                <td class="numeric">9.81%</td>
+                <td class="numeric">14.68%</td>
+                <td class="numeric">21.01%</td>
+                <td class="numeric">11.90%</td>
+                <td class="numeric">7.72%</td>
+                <td class="numeric muted">N/A</td>
+                <td class="numeric">19.22%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <p style="font-size:0.78rem; color:var(--muted); margin-top:-1rem;">
+        Source: CFS, Fund Manager Data, Lonsec, Morningstar. Past performance is not a reliable indicator of future performance. N/A indicates data not available for the period.
+      </p>
+      <!-- ===== END CONTENT ===== -->
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+  </div><!-- /#app -->
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
