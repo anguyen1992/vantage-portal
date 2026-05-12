@@ -3,17 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Research — Vantage Wealth Management | Investment Data Portal</title>
+  <title>Monthly Market Updates — Vantage Wealth Management | Investment Data Portal</title>
 
   <meta name="last-updated" content="11 May 2026">
   <meta name="owner"        content="Anthony Nguyen">
   <meta name="source"       content="Internal">
-  <meta name="as-at"        content="11 May 2026">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/styles.css">
+  <style>
+    .doc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .doc-list li {
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .doc-list li:last-child {
+      border-bottom: none;
+    }
+    .doc-list a {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      padding: 0.95rem 0.2rem;
+      color: var(--navy);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+    .doc-list a:hover {
+      color: var(--gold);
+    }
+    .doc-list a::before {
+      content: "PDF";
+      display: inline-block;
+      background: var(--navy);
+      color: var(--cream);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 2px 6px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .doc-meta {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+      font-weight: 400;
+    }
+  </style>
 </head>
 
 <body data-page="research" data-depth="1">
@@ -44,42 +88,35 @@
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="/vantage-portal/">Overview</a>
           <span class="sep">›</span>
-          <span class="current">Research</span>
+          <a href="./research.html">Research</a>
+          <span class="sep">›</span>
+          <span class="current">Monthly Market Updates</span>
         </nav>
         <p class="page-eyebrow">Research</p>
-        <h1>Research</h1>
+        <h1>Monthly Market Updates</h1>
         <div class="page-meta">
           <span class="meta-item"><strong>Last updated:</strong> 11 May 2026</span>
           <span class="meta-item"><strong>Owner:</strong> Anthony Nguyen</span>
         </div>
       </div>
 
-      <!-- ===== SECTION CARDS ===== -->
-      <div class="home-grid">
+      <!-- ===== MONTHLY UPDATES ===== -->
+      <div class="block">
+        <p class="block-eyebrow">Monthly Updates</p>
+        <h2>Monthly Market Updates</h2>
+        <p class="block-meta">Monthly investment commentary and market updates.</p>
 
-        <a class="home-card" href="./research-manager.html">
-          <div class="card-num">01</div>
-          <h3>Investment Manager Research</h3>
-          <p>Manager meeting notes, due diligence checklists, and fund documents by asset class.</p>
-          <div class="card-footer">Last updated 11 May 2026</div>
-        </a>
-
-        <a class="home-card" href="./research-hoi-reports.html">
-          <div class="card-num">02</div>
-          <h3>Head of Investments Research Reports</h3>
-          <p>Internal research reports authored by the Head of Investments.</p>
-          <div class="card-footer">Last updated 11 May 2026</div>
-        </a>
-
-        <a class="home-card" href="./research-monthly-updates.html">
-          <div class="card-num">03</div>
-          <h3>Monthly Market Updates</h3>
-          <p>Monthly investment commentary and market updates.</p>
-          <div class="card-footer">Last updated 11 May 2026</div>
-        </a>
-
+        <ul class="doc-list">
+          <li>
+            <a href="https://vantagewm.com.au/wp-content/uploads/2026/05/Monthly-Update-April-2026.pdf" target="_blank" rel="noopener">
+              <span>
+                Monthly Update — April 2026
+                <div class="doc-meta">April 2026</div>
+              </span>
+            </a>
+          </li>
+        </ul>
       </div>
-      <!-- ===== END SECTION CARDS ===== -->
 
     </main>
 

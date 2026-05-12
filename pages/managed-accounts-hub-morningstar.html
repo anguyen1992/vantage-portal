@@ -3,90 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Research — Vantage Wealth Management | Investment Data Portal</title>
-
+  <title>HUB24 Monthly Morningstar Reports — Vantage Wealth Management | Investment Data Portal</title>
   <meta name="last-updated" content="11 May 2026">
   <meta name="owner"        content="Anthony Nguyen">
-  <meta name="source"       content="Internal">
-  <meta name="as-at"        content="11 May 2026">
-
+  <meta name="source"       content="HUB24 / Morningstar">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
-
-<body data-page="research" data-depth="1">
-
-  <!-- ===== PASSWORD GATE ===== -->
+<body data-page="managed-accounts-hub" data-depth="1">
   <div id="gate">
     <div class="gate-inner">
       <div class="gate-mark">VANTAGE</div>
       <div class="gate-sub">Wealth Management</div>
       <h1>Investment Data Portal</h1>
-      <p>This portal contains confidential investment research and performance data.<br>
-         Please enter your access password to continue.</p>
+      <p>This portal contains confidential investment research and performance data.<br>Please enter your access password to continue.</p>
       <input type="password" id="pwd-input" placeholder="Access password" autocomplete="off" autofocus>
       <button id="pwd-btn">Enter Portal</button>
       <div class="gate-error" id="pwd-error" role="alert"></div>
     </div>
   </div>
-
-  <!-- ===== MAIN APP ===== -->
   <div id="app" class="hidden">
-
     <div id="nav-placeholder"></div>
-
     <main>
-
-      <!-- Page header -->
       <div class="page-header">
         <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/vantage-portal/">Overview</a>
-          <span class="sep">›</span>
-          <span class="current">Research</span>
+          <a href="/vantage-portal/">Overview</a><span class="sep">›</span>
+          <a href="./managed-accounts-hub.html">HUB24 Managed Accounts</a><span class="sep">›</span>
+          <span class="current">Monthly Morningstar Reports</span>
         </nav>
-        <p class="page-eyebrow">Research</p>
-        <h1>Research</h1>
+        <p class="page-eyebrow">HUB24 Managed Accounts</p>
+        <h1>Monthly Morningstar Reports</h1>
         <div class="page-meta">
           <span class="meta-item"><strong>Last updated:</strong> 11 May 2026</span>
           <span class="meta-item"><strong>Owner:</strong> Anthony Nguyen</span>
+          <span class="meta-item"><strong>Source:</strong> HUB24 / Morningstar</span>
         </div>
       </div>
 
-      <!-- ===== SECTION CARDS ===== -->
+      <!-- ===== MONTH SELECTOR CARDS ===== -->
       <div class="home-grid">
 
-        <a class="home-card" href="./research-manager.html">
+        <a class="home-card" href="./managed-accounts-hub-morningstar-2026-03.html">
           <div class="card-num">01</div>
-          <h3>Investment Manager Research</h3>
-          <p>Manager meeting notes, due diligence checklists, and fund documents by asset class.</p>
-          <div class="card-footer">Last updated 11 May 2026</div>
+          <h3>March 2026</h3>
+          <p>Monthly Morningstar performance reports for HUB24 SMA and SAA strategies.</p>
+          <div class="card-footer">Period ending 31 March 2026</div>
         </a>
 
-        <a class="home-card" href="./research-hoi-reports.html">
+        <a class="home-card" href="./managed-accounts-hub-morningstar-2026-04.html">
           <div class="card-num">02</div>
-          <h3>Head of Investments Research Reports</h3>
-          <p>Internal research reports authored by the Head of Investments.</p>
-          <div class="card-footer">Last updated 11 May 2026</div>
-        </a>
-
-        <a class="home-card" href="./research-monthly-updates.html">
-          <div class="card-num">03</div>
-          <h3>Monthly Market Updates</h3>
-          <p>Monthly investment commentary and market updates.</p>
-          <div class="card-footer">Last updated 11 May 2026</div>
+          <h3>April 2026</h3>
+          <p>Monthly Morningstar performance reports for HUB24 SMA and SAA strategies.</p>
+          <div class="card-footer">Period ending 30 April 2026</div>
         </a>
 
       </div>
-      <!-- ===== END SECTION CARDS ===== -->
+      <!-- ===== END MONTH SELECTOR CARDS ===== -->
 
     </main>
-
     <div id="footer-placeholder"></div>
-
-  </div><!-- /#app -->
-
+  </div>
   <script src="../assets/js/main.js"></script>
 </body>
 </html>
