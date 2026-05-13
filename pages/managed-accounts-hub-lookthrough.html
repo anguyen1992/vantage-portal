@@ -1,54 +1,653 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HUB24 Quarterly Look-Through Analysis — Vantage Wealth Management | Investment Data Portal</title>
-  <meta name="last-updated" content="11 May 2026">
-  <meta name="owner"        content="Anthony Nguyen">
-  <meta name="source"       content="HUB24">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="last-updated" content="13 May 2026">
+<meta name="owner" content="Anthony Nguyen">
+<meta name="source" content="HUB24">
+<title>HUB24 Quarterly Look-Through Analysis — Vantage Wealth Management | Investment Data Portal</title>
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --navy-mid: #1a2e45;
+    --gold: #c8a96e;
+    --gold-light: #e8d5b0;
+    --text: #1a1a2e;
+    --text-secondary: #4a5568;
+    --text-muted: #718096;
+    --border: #e2e8f0;
+    --border-light: #f0f4f8;
+    --bg: #ffffff;
+    --bg-secondary: #f8fafc;
+    --bg-tertiary: #f0f4f8;
+    --pos: #276749;
+    --pos-bg: #f0fff4;
+    --neg: #9b2335;
+    --neg-bg: #fff5f5;
+    --radius: 6px;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Georgia', serif; color: var(--text); background: var(--bg); font-size: 14px; line-height: 1.6; }
+  a { color: var(--navy); text-decoration: none; }
+  a:hover { color: var(--gold); }
+
+  /* NAV */
+  .site-header { background: var(--navy); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px; position: sticky; top: 0; z-index: 100; }
+  .site-logo { color: var(--gold); font-size: 15px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; font-family: sans-serif; }
+  .site-logo span { color: rgba(255,255,255,0.55); font-weight: 400; font-size: 11px; display: block; letter-spacing: 0.2em; margin-top: -2px; }
+  .header-meta { font-family: sans-serif; font-size: 11px; color: rgba(255,255,255,0.45); text-align: right; line-height: 1.5; }
+
+  /* GATE */
+  .gate-overlay { display: none; position: fixed; inset: 0; background: rgba(13,27,42,0.92); z-index: 999; align-items: center; justify-content: center; }
+  .gate-overlay.active { display: flex; }
+  .gate-box { background: white; padding: 2.5rem; border-radius: 8px; width: 340px; text-align: center; }
+  .gate-box h2 { font-size: 16px; margin-bottom: 0.5rem; color: var(--navy); }
+  .gate-box p { font-size: 12px; color: var(--text-muted); margin-bottom: 1.5rem; font-family: sans-serif; }
+  .gate-box input { width: 100%; padding: 10px 14px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 14px; margin-bottom: 1rem; outline: none; }
+  .gate-box input:focus { border-color: var(--navy); }
+  .gate-box button { width: 100%; padding: 10px; background: var(--navy); color: white; border: none; border-radius: var(--radius); font-size: 13px; cursor: pointer; font-family: sans-serif; letter-spacing: 0.05em; }
+  .gate-box button:hover { background: var(--navy-mid); }
+  .gate-error { color: var(--neg); font-size: 12px; margin-top: 0.5rem; font-family: sans-serif; display: none; }
+
+  /* BREADCRUMB */
+  .breadcrumb { background: var(--bg-tertiary); padding: 0.6rem 2rem; font-family: sans-serif; font-size: 12px; color: var(--text-muted); border-bottom: 1px solid var(--border); }
+  .breadcrumb a { color: var(--text-muted); }
+  .breadcrumb a:hover { color: var(--navy); }
+
+  /* LAYOUT */
+  .page-wrap { max-width: 1200px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
+  .page-section-label { font-family: sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
+  .page-title { font-size: 26px; font-weight: 400; color: var(--navy); margin-bottom: 0.75rem; line-height: 1.2; }
+  .page-meta { display: flex; gap: 2rem; font-family: sans-serif; font-size: 12px; color: var(--text-muted); border-bottom: 1px solid var(--border); padding-bottom: 1.25rem; margin-bottom: 2rem; }
+  .page-meta strong { color: var(--text); font-weight: 600; }
+
+  /* TABS */
+  .tab-nav { display: flex; gap: 0; border-bottom: 2px solid var(--border); margin-bottom: 1.75rem; overflow-x: auto; }
+  .tab-btn { font-family: sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.65rem 1.25rem; border: none; background: none; cursor: pointer; color: var(--text-muted); border-bottom: 2px solid transparent; margin-bottom: -2px; white-space: nowrap; transition: all 0.15s; }
+  .tab-btn:hover { color: var(--navy); }
+  .tab-btn.active { color: var(--navy); border-bottom-color: var(--gold); }
+  .tab-pane { display: none; }
+  .tab-pane.active { display: block; }
+
+  /* SECTION HEADERS */
+  .section-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1rem; }
+  .section-title { font-size: 16px; font-weight: 400; color: var(--navy); }
+  .section-subtitle { font-family: sans-serif; font-size: 12px; color: var(--text-muted); }
+  .section-note { font-family: sans-serif; font-size: 11px; color: var(--text-muted); background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.6rem 1rem; margin-bottom: 1rem; line-height: 1.5; }
+
+  /* TABLES */
+  .tbl-wrap { overflow-x: auto; margin-bottom: 2.5rem; }
+  table { width: 100%; border-collapse: collapse; font-family: sans-serif; font-size: 12.5px; }
+  thead th { background: var(--navy); color: rgba(255,255,255,0.85); font-weight: 600; font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 10px; text-align: left; white-space: nowrap; }
+  thead th.r { text-align: right; }
+  tbody tr { border-bottom: 1px solid var(--border-light); }
+  tbody tr:hover { background: var(--bg-secondary); }
+  tbody td { padding: 6px 10px; color: var(--text); vertical-align: middle; }
+  tbody td.r { text-align: right; font-variant-numeric: tabular-nums; }
+  tbody td.code { font-weight: 600; color: var(--navy); font-size: 12px; width: 56px; }
+  tbody tr.subtotal td { background: var(--bg-tertiary); font-weight: 600; border-top: 1.5px solid var(--border); }
+  .bar-cell { width: 90px; }
+  .bar-outer { background: var(--bg-tertiary); border-radius: 2px; height: 5px; width: 80px; display: inline-block; vertical-align: middle; }
+  .bar-inner { height: 5px; border-radius: 2px; display: block; }
+  .pos-val { color: var(--pos); font-weight: 600; }
+  .neg-val { color: var(--neg); font-weight: 600; }
+  .pos-bg { background: var(--pos-bg); }
+  .neg-bg { background: var(--neg-bg); }
+  .badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 3px; letter-spacing: 0.04em; text-transform: uppercase; vertical-align: middle; margin-left: 6px; }
+  .badge-ow { background: #ebf8f0; color: var(--pos); }
+  .badge-uw { background: #fef2f2; color: var(--neg); }
+
+  /* METRICS ROW */
+  .metrics-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 2rem; }
+  .metric-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; }
+  .metric-label { font-family: sans-serif; font-size: 10.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 5px; }
+  .metric-val { font-size: 22px; font-weight: 400; color: var(--navy); font-family: Georgia, serif; }
+  .metric-sub { font-family: sans-serif; font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+  .metric-val.neg { color: var(--neg); }
+  .metric-val.pos { color: var(--pos); }
+
+  /* MAG7 */
+  .mag7-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; margin-bottom: 2rem; }
+  .mag7-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.85rem; }
+  .mag7-ticker { font-family: sans-serif; font-size: 11px; font-weight: 700; color: var(--navy); margin-bottom: 2px; letter-spacing: 0.04em; }
+  .mag7-name { font-family: sans-serif; font-size: 10px; color: var(--text-muted); margin-bottom: 8px; line-height: 1.3; }
+  .mag7-pw { font-size: 17px; color: var(--navy); font-weight: 400; }
+  .mag7-bw { font-family: sans-serif; font-size: 10px; color: var(--text-muted); margin-top: 1px; }
+  .mag7-aw { font-family: sans-serif; font-size: 12px; font-weight: 700; margin-top: 4px; }
+  .mag7-bar { height: 3px; border-radius: 2px; background: var(--border); margin-top: 8px; }
+  .mag7-bar-fill { height: 3px; border-radius: 2px; }
+
+  /* SOURCE NOTE */
+  .source-note { font-family: sans-serif; font-size: 11px; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 1rem; margin-top: 1.5rem; line-height: 1.6; }
+
+  @media (max-width: 768px) {
+    .metrics-row { grid-template-columns: repeat(2, 1fr); }
+    .mag7-grid { grid-template-columns: repeat(4, 1fr); }
+    .page-wrap { padding: 1.5rem 1rem 3rem; }
+  }
+</style>
 </head>
-<body data-page="managed-accounts-hub" data-depth="1">
-  <div id="gate">
-    <div class="gate-inner">
-      <div class="gate-mark">VANTAGE</div>
-      <div class="gate-sub">Wealth Management</div>
-      <h1>Investment Data Portal</h1>
-      <p>This portal contains confidential investment research and performance data.<br>Please enter your access password to continue.</p>
-      <input type="password" id="pwd-input" placeholder="Access password" autocomplete="off" autofocus>
-      <button id="pwd-btn">Enter Portal</button>
-      <div class="gate-error" id="pwd-error" role="alert"></div>
+<body>
+
+<!-- PASSWORD GATE -->
+<div class="gate-overlay active" id="gate">
+  <div class="gate-box">
+    <h2>Investment Data Portal</h2>
+    <p>This portal contains confidential investment research and performance data.<br>Please enter your access password to continue.</p>
+    <input type="password" id="pw-input" placeholder="Password" onkeydown="if(event.key==='Enter')checkPw()">
+    <button onclick="checkPw()">Enter Portal</button>
+    <div class="gate-error" id="pw-error">Incorrect password. Please try again.</div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="site-logo">Vantage<span>Wealth Management</span></div>
+  <div class="site-meta" style="color:rgba(255,255,255,0.5);font-family:sans-serif;font-size:11px;text-align:right">
+    Investment Data Portal
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <a href="https://anguyen1992.github.io/vantage-portal/">Overview</a> ›
+  <a href="https://anguyen1992.github.io/vantage-portal/pages/managed-accounts-hub.html">HUB24 Managed Accounts</a> ›
+  Quarterly Look-Through Analysis
+</div>
+
+<div class="page-wrap">
+  <div class="page-section-label">HUB24 Managed Accounts</div>
+  <h1 class="page-title">Quarterly Look-Through Analysis</h1>
+  <div class="page-meta">
+    <div><strong>As at:</strong> 31 Mar 2026</div>
+    <div><strong>Last updated:</strong> 13 May 2026</div>
+    <div><strong>Owner:</strong> Anthony Nguyen</div>
+    <div><strong>Source:</strong> HUB24 / Fund Managers</div>
+  </div>
+
+  <!-- TABS -->
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('aus')">Australian Equities</button>
+    <button class="tab-btn" onclick="switchTab('global')">Global Equities</button>
+  </div>
+
+  <!-- ======================== AUS EQUITIES TAB ======================== -->
+  <div class="tab-pane active" id="tab-aus">
+
+    <div class="metrics-row">
+      <div class="metric-card">
+        <div class="metric-label">Portfolio securities</div>
+        <div class="metric-val">27</div>
+        <div class="metric-sub">direct holdings + STW</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Index coverage</div>
+        <div class="metric-val">100%</div>
+        <div class="metric-sub">via STW (ASX 200) + direct</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Largest overweight</div>
+        <div class="metric-val pos">+3.22%</div>
+        <div class="metric-sub">ResMed (RMD)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Largest underweight</div>
+        <div class="metric-val neg">−3.62%</div>
+        <div class="metric-sub">Commonwealth Bank (CBA)</div>
+      </div>
     </div>
-  </div>
-  <div id="app" class="hidden">
-    <div id="nav-placeholder"></div>
-    <main>
-      <div class="page-header">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/vantage-portal/">Overview</a><span class="sep">›</span>
-          <a href="./managed-accounts-hub.html">HUB24 Managed Accounts</a><span class="sep">›</span>
-          <span class="current">Quarterly Look-Through Analysis</span>
-        </nav>
-        <p class="page-eyebrow">HUB24 Managed Accounts</p>
-        <h1>Quarterly Look-Through Analysis</h1>
-        <div class="page-meta">
-          <span class="meta-item"><strong>Last updated:</strong> 11 May 2026</span>
-          <span class="meta-item"><strong>Owner:</strong> Anthony Nguyen</span>
-          <span class="meta-item"><strong>Source:</strong> HUB24</span>
-        </div>
-      </div>
 
-      <div class="block">
-        <p class="block-meta">Coming soon.</p>
-      </div>
+    <div class="section-note">
+      Approx. weight = blended look-through combining direct SMA holdings and STW ETF index weight. Benchmark = S&P/ASX 300 (via STW). Relative = approx. weight minus STW weight.
+    </div>
 
-    </main>
-    <div id="footer-placeholder"></div>
+    <!-- AUS: Top 20 OW -->
+    <div class="section-header">
+      <div class="section-title">Top 20 overweight positions <span class="badge badge-ow">Active ↑</span></div>
+      <div class="section-subtitle">vs S&P/ASX 300 benchmark weight</div>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:28px">#</th>
+            <th>Code</th>
+            <th>Security</th>
+            <th class="r">Direct (HUB)</th>
+            <th class="r">STW weight</th>
+            <th class="r">Approx. weight</th>
+            <th class="r">Active weight</th>
+            <th class="r bar-cell">Bar</th>
+          </tr>
+        </thead>
+        <tbody id="aus-ow-body"></tbody>
+      </table>
+    </div>
+
+    <!-- AUS: Top 20 UW -->
+    <div class="section-header">
+      <div class="section-title">Top 20 underweight positions <span class="badge badge-uw">Active ↓</span></div>
+      <div class="section-subtitle">vs S&P/ASX 300 benchmark weight</div>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:28px">#</th>
+            <th>Code</th>
+            <th>Security</th>
+            <th class="r">Direct (HUB)</th>
+            <th class="r">STW weight</th>
+            <th class="r">Approx. weight</th>
+            <th class="r">Active weight</th>
+            <th class="r bar-cell">Bar</th>
+          </tr>
+        </thead>
+        <tbody id="aus-uw-body"></tbody>
+      </table>
+    </div>
+
+    <div class="source-note">Source: HUB24 / SPDR S&P/ASX 200 ETF (STW) holdings as at 31 Mar 2026. Direct weights from HUB24 SMA. Approx. weight = blended portfolio look-through combining direct holdings and STW proportional exposure. Active weight = approx. weight minus STW index weight. Past performance is not a reliable indicator of future performance.</div>
   </div>
-  <script src="../assets/js/main.js"></script>
+
+  <!-- ======================== GLOBAL EQUITIES TAB ======================== -->
+  <div class="tab-pane" id="tab-global">
+
+    <div class="metrics-row">
+      <div class="metric-card">
+        <div class="metric-label">Unique securities</div>
+        <div class="metric-val">2,028</div>
+        <div class="metric-sub">across 7 funds</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Look-through coverage</div>
+        <div class="metric-val">99.5%</div>
+        <div class="metric-sub">of portfolio weight</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Top 10 concentration</div>
+        <div class="metric-val">14.7%</div>
+        <div class="metric-sub">look-through weight</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Mag 7 active weight</div>
+        <div class="metric-val neg">−8.38%</div>
+        <div class="metric-sub">vs MSCI World ex-AU</div>
+      </div>
+    </div>
+
+    <div class="section-note">
+      Benchmark = MSCI World ex-Australia (VGS ETF used as index proxy). Arrowstreet Global Equity (33.8%) and Arrowstreet Small Companies (10.6%) top 10 holdings only disclosed — remaining fund weight is unidentified and not included in security-level active weights. All other funds (VGS, VVLU, Aoris, QUAL, T. Rowe) fully looked through.
+    </div>
+
+    <!-- GLOBAL: Top 100 -->
+    <div class="section-header">
+      <div class="section-title">Top 100 look-through holdings</div>
+      <div class="section-subtitle">by look-through portfolio weight</div>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:32px">#</th>
+            <th>Security</th>
+            <th class="r">Look-through weight</th>
+            <th class="r bar-cell">Bar</th>
+          </tr>
+        </thead>
+        <tbody id="global-top100-body"></tbody>
+      </table>
+    </div>
+
+    <!-- GLOBAL: Top 50 OW -->
+    <div class="section-header">
+      <div class="section-title">Top 50 overweight positions <span class="badge badge-ow">Active ↑</span></div>
+      <div class="section-subtitle">vs MSCI World ex-Australia benchmark</div>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:28px">#</th>
+            <th>Security</th>
+            <th class="r">Port. weight</th>
+            <th class="r">Bench. weight</th>
+            <th class="r">Active weight</th>
+            <th class="r bar-cell">Bar</th>
+          </tr>
+        </thead>
+        <tbody id="global-ow-body"></tbody>
+      </table>
+    </div>
+
+    <!-- GLOBAL: Bottom 50 UW -->
+    <div class="section-header">
+      <div class="section-title">Bottom 50 underweight positions <span class="badge badge-uw">Active ↓</span></div>
+      <div class="section-subtitle">vs MSCI World ex-Australia benchmark</div>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:28px">#</th>
+            <th>Security</th>
+            <th class="r">Port. weight</th>
+            <th class="r">Bench. weight</th>
+            <th class="r">Active weight</th>
+            <th class="r bar-cell">Bar</th>
+          </tr>
+        </thead>
+        <tbody id="global-uw-body"></tbody>
+      </table>
+    </div>
+
+    <!-- MAG 7 -->
+    <div class="section-header" style="margin-top:0.5rem">
+      <div class="section-title">Magnificent 7 — look-through analysis</div>
+    </div>
+    <div class="mag7-grid" id="mag7-grid"></div>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Security</th>
+            <th class="r">Port. weight</th>
+            <th class="r">Bench. weight</th>
+            <th class="r">Active weight</th>
+            <th>Contributing funds</th>
+          </tr>
+        </thead>
+        <tbody id="mag7-table-body"></tbody>
+      </table>
+    </div>
+
+    <div class="source-note">Source: Fund manager holdings disclosures as at 31 Mar 2026 — VGS (Vanguard, full), VVLU (Vanguard, full), T. Rowe Price Global Equity Fund (full, 223 holdings), Aoris International Fund (full, 15 holdings), VanEck MSCI World ex-AU Quality ETF QUAL (full, 105 holdings), Arrowstreet Global Equity Fund (top 10 only), Arrowstreet Global Small Companies Fund (top 10 only). Benchmark weights derived from VGS holdings as MSCI World ex-AU proxy. Active weight = portfolio look-through weight minus benchmark weight. Past performance is not a reliable indicator of future performance.</div>
+  </div>
+</div>
+
+<script>
+// ── PASSWORD GATE ──────────────────────────────────────────────
+const PASS = 'vantage2024';
+function checkPw() {
+  const v = document.getElementById('pw-input').value;
+  if (v === PASS) {
+    document.getElementById('gate').classList.remove('active');
+    sessionStorage.setItem('vp_auth', '1');
+  } else {
+    document.getElementById('pw-error').style.display = 'block';
+    document.getElementById('pw-input').value = '';
+    document.getElementById('pw-input').focus();
+  }
+}
+if (sessionStorage.getItem('vp_auth') === '1') {
+  document.getElementById('gate').classList.remove('active');
+}
+
+// ── TABS ──────────────────────────────────────────────────────
+function switchTab(id) {
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// ── HELPERS ───────────────────────────────────────────────────
+function pct(v, decimals=2) {
+  return v.toFixed(decimals) + '%';
+}
+function bar(v, max, color) {
+  const w = Math.min(100, Math.abs(v) / max * 100).toFixed(1);
+  return `<div class="bar-outer"><span class="bar-inner" style="width:${w}%;background:${color}"></span></div>`;
+}
+function posNegClass(v) { return v >= 0 ? 'pos-val' : 'neg-val'; }
+function signPct(v) { return (v >= 0 ? '+' : '') + pct(v); }
+
+// ── AUS EQUITIES DATA ─────────────────────────────────────────
+const ausData = [
+  ['BHP','BHP Group',7.39,9.92,11.98,2.06],
+  ['CBA','Commonwealth Bank',2.22,10.88,7.26,-3.62],
+  ['NAB','National Australia Bank',3.95,4.93,6.23,1.30],
+  ['ANZ','ANZ Banking Group',2.46,4.20,4.40,0.20],
+  ['MQG','Macquarie Group',2.77,2.78,4.06,1.28],
+  ['RMD','ResMed',3.60,0.72,3.93,3.22],
+  ['WDS','Woodside Energy',2.63,2.57,3.82,1.25],
+  ['RIO','Rio Tinto',2.45,2.34,3.53,1.20],
+  ['QBE','QBE Insurance',2.80,1.25,3.37,2.13],
+  ['ORG','Origin Energy',2.73,0.83,3.12,2.29],
+  ['WBC','Westpac Banking Corporation',0.00,5.25,2.43,-2.82],
+  ['NEM','Newmont',1.93,0.51,2.17,1.66],
+  ['SGP','Stockland',1.57,0.41,1.76,1.34],
+  ['ORI','Orica Limited',1.54,0.37,1.71,1.35],
+  ['AGL','AGL Energy',1.52,0.23,1.62,1.39],
+  ['COL','Coles Group',1.06,1.13,1.59,0.45],
+  ['HUB','HUB24',1.36,0.27,1.49,1.22],
+  ['WES','Wesfarmers',0.00,3.20,1.48,-1.72],
+  ['XRO','Xero',1.19,0.48,1.42,0.93],
+  ['TNE','Technology One',1.21,0.32,1.35,1.04],
+  ['CSL','CSL',0.00,2.65,1.23,-1.42],
+  ['NHF','NIB Holdings',1.17,0.12,1.23,1.11],
+  ['AMC','Amcor',1.08,0.26,1.20,0.95],
+  ['TPG','TPG Telecom',1.13,0.07,1.16,1.09],
+  ['CWY','Cleanaway Waste Management',1.02,0.20,1.11,0.91],
+  ['TLS','Telstra',0.00,2.35,1.09,-1.26],
+  ['BRG','Breville Group',1.00,0.11,1.05,0.94],
+  ['MND','Monadelphous Group',1.00,0.10,1.05,0.94],
+  ['CGF','Challenger',0.95,0.16,1.02,0.86],
+  ['GMG','Goodman Group',0.00,2.02,0.94,-1.08],
+  ['SDF','Steadfast Group',0.82,0.18,0.91,0.72],
+  ['WOW','Woolworths',0.00,1.73,0.80,-0.93],
+  ['TCL','Transurban',0.00,1.71,0.79,-0.92],
+  ['FMG','Fortescue Metals Group',0.00,1.31,0.61,-0.70],
+  ['BXB','Brambles Ltd',0.00,1.20,0.56,-0.64],
+  ['NST','Northern Star Resources',0.00,1.12,0.52,-0.60],
+  ['ALL','Aristocrat Leisure',0.00,1.09,0.50,-0.58],
+  ['EVN','Evolution Mining',0.00,1.00,0.46,-0.54],
+  ['STO','Santos Limited',0.00,1.00,0.46,-0.53],
+  ['S32','South32 Ltd',0.00,0.75,0.35,-0.40],
+];
+
+const ausOW = [...ausData].sort((a,b) => b[5]-a[5]).slice(0,20);
+const ausUW = [...ausData].sort((a,b) => a[5]-b[5]).slice(0,20);
+
+function renderAusRow(tbody, rows, isOW) {
+  rows.forEach((r, i) => {
+    const rel = r[5];
+    const color = isOW ? '#276749' : '#9b2335';
+    const max = isOW ? 3.5 : 3.7;
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td class="r" style="color:#a0aec0;font-size:11px">${i+1}</td>
+      <td class="code">${r[0]}</td>
+      <td>${r[1]}</td>
+      <td class="r">${pct(r[2])}</td>
+      <td class="r">${pct(r[3])}</td>
+      <td class="r">${pct(r[4])}</td>
+      <td class="r ${posNegClass(rel)}">${signPct(rel)}</td>
+      <td class="r">${bar(rel, max, color)}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+renderAusRow(document.getElementById('aus-ow-body'), ausOW, true);
+renderAusRow(document.getElementById('aus-uw-body'), ausUW, false);
+
+// ── GLOBAL EQUITIES DATA ──────────────────────────────────────
+const top100 = [
+  ['NVIDIA Corp',3.11],['Microsoft Corp',2.96],['Apple Inc',2.83],['Alphabet Inc',2.76],
+  ['Amazon.com Inc',1.75],['Broadcom Inc',1.28],['Visa Inc',1.00],['ASML Holding NV',0.98],
+  ['Diploma PLC',0.81],['Linde PLC',0.72],['Experian PLC',0.72],['Meta Platforms Inc',0.71],
+  ['RELX PLC',0.69],['Compass Group PLC',0.62],['Halma PLC',0.62],
+  ['InterContinental Hotels Group PLC',0.59],['Accenture PLC',0.58],['Adobe Inc',0.58],
+  ['Amphenol Corp',0.56],['Jack Henry & Associates Inc',0.53],['WW Grainger Inc',0.51],
+  ['TE Connectivity PLC',0.48],['Eli Lilly & Co',0.46],["L'Oreal SA",0.45],
+  ['Cintas Corp',0.39],['SAP SE',0.39],['Netflix Inc',0.29],['Tesla Inc',0.28],
+  ['Johnson & Johnson',0.26],['Walmart Inc',0.23],['Caterpillar Inc',0.22],
+  ['AstraZeneca PLC',0.21],['Costco Wholesale Corp',0.20],['JPMorgan Chase & Co',0.20],
+  ['Bank of America Corp',0.19],['Merck & Co Inc',0.19],['ConocoPhillips',0.19],
+  ['Mastercard Inc',0.19],['UnitedHealth Group Inc',0.18],['Chevron Corp',0.18],
+  ['Taiwan Semiconductor',0.17],['Exxon Mobil Corp',0.17],['Berkshire Hathaway Inc',0.17],
+  ['Sandisk Inc',0.17],['Lam Research Corp',0.17],['Advanced Micro Devices',0.17],
+  ['Chubb Ltd',0.15],['Citigroup Inc',0.15],['Cisco Systems Inc',0.14],
+  ['Roche Holding AG',0.14],['Ubiquiti Inc',0.13],['Novartis AG',0.13],
+  ['Gilead Sciences Inc',0.13],['Procter & Gamble Co',0.13],['Intuitive Surgical Inc',0.13],
+  ['AbbVie Inc',0.13],['Intel Corp',0.13],['KLA Corp',0.13],
+  ['Airbus SE',0.13],['SLB Ltd',0.13],['Morgan Stanley',0.12],
+  ['Verizon Communications Inc',0.12],['Applied Materials Inc',0.12],['GE Aerospace',0.12],
+  ['Arista Networks Inc',0.12],['Samsung Electronics Co Ltd',0.12],['Boeing Co',0.11],
+  ['AT&T Inc',0.11],['Alibaba Group Holding Ltd',0.11],['PepsiCo Inc',0.11],
+  ['Nestle SA',0.11],['NextEra Energy Inc',0.11],['Capital One Financial Corp',0.10],
+  ['Welltower Inc',0.10],['Intuit Inc',0.10],['Qualcomm Inc',0.10],
+  ['Franco-Nevada Corp',0.10],['Tencent Holdings Ltd',0.10],['Pfizer Inc',0.10],
+  ['Cognex Corp',0.10],['Bristol-Myers Squibb Co',0.10],['Micron Technology Inc',0.09],
+  ['Goldman Sachs Group Inc',0.09],['Tokyo Electron Ltd',0.09],['Jones Lang LaSalle Inc',0.09],
+  ['Shell PLC',0.09],['Comcast Corp',0.09],['Salesforce Inc',0.09],
+  ['Shopify Inc',0.09],['Rheinmetall AG',0.09],['Wells Fargo & Co',0.09],
+  ['Middleby Corp',0.08],['Walt Disney Co',0.08],['TotalEnergies SE',0.08],
+  ['Oracle Corp',0.08],['Abbott Laboratories',0.08],['Halozyme Therapeutics Inc',0.08],
+];
+
+const ow50 = [
+  ['Diploma PLC',0.81,0.00,0.81],['Experian PLC',0.72,0.04,0.68],
+  ['RELX PLC',0.69,0.08,0.62],['Halma PLC',0.62,0.02,0.60],
+  ['Compass Group PLC',0.62,0.06,0.57],['InterContinental Hotels Group PLC',0.59,0.02,0.56],
+  ['Jack Henry & Associates Inc',0.53,0.01,0.51],['TE Connectivity PLC',0.48,0.00,0.48],
+  ['WW Grainger Inc',0.51,0.06,0.45],['Adobe Inc',0.58,0.13,0.45],
+  ['Linde PLC',0.72,0.29,0.43],['Accenture PLC',0.58,0.15,0.43],
+  ['Amphenol Corp',0.56,0.20,0.36],['Visa Inc',1.00,0.65,0.35],
+  ['ASML Holding NV',0.98,0.63,0.34],["L'Oreal SA",0.45,0.12,0.33],
+  ['Cintas Corp',0.39,0.08,0.32],['Bank of America Corp',0.19,0.00,0.19],
+  ['ConocoPhillips',0.19,0.00,0.19],['Chevron Corp',0.18,0.00,0.18],
+  ['Taiwan Semiconductor',0.17,0.00,0.17],['Sandisk Inc',0.17,0.00,0.17],
+  ['Advanced Micro Devices',0.17,0.00,0.17],['SAP SE',0.39,0.22,0.17],
+  ['Chubb Ltd',0.15,0.00,0.15],['Citigroup Inc',0.15,0.00,0.15],
+  ['Ubiquiti Inc',0.13,0.00,0.13],['Gilead Sciences Inc',0.13,0.00,0.13],
+  ['Procter & Gamble Co',0.13,0.00,0.13],['AbbVie Inc',0.13,0.00,0.13],
+  ['Intel Corp',0.13,0.00,0.13],['Airbus SE',0.13,0.00,0.13],
+  ['SLB Ltd',0.13,0.00,0.13],['Morgan Stanley',0.12,0.00,0.12],
+  ['Verizon Communications Inc',0.12,0.00,0.12],['GE Aerospace',0.12,0.00,0.12],
+  ['Samsung Electronics Co Ltd',0.12,0.00,0.12],['Boeing Co',0.11,0.00,0.11],
+  ['AT&T Inc',0.11,0.00,0.11],['Alibaba Group Holding Ltd',0.11,0.00,0.11],
+  ['NextEra Energy Inc',0.11,0.00,0.11],['Capital One Financial Corp',0.10,0.00,0.10],
+  ['Welltower Inc',0.10,0.00,0.10],['Franco-Nevada Corp',0.10,0.00,0.10],
+  ['Tencent Holdings Ltd',0.10,0.00,0.10],['Pfizer Inc',0.10,0.00,0.10],
+  ['Cognex Corp',0.10,0.00,0.10],['Bristol-Myers Squibb Co',0.10,0.00,0.10],
+  ['Merck & Co Inc',0.19,0.10,0.09],['Caterpillar Inc',0.22,0.13,0.09],
+];
+
+const uw50 = [
+  ['NVIDIA Corp',3.11,5.37,-2.27],['Apple Inc',2.83,4.73,-1.90],
+  ['Alphabet Inc',2.76,3.89,-1.14],['Tesla Inc',0.28,1.33,-1.05],
+  ['Meta Platforms Inc',0.71,1.58,-0.87],['Amazon.com Inc',1.75,2.54,-0.80],
+  ['Exxon Mobil Corp',0.17,0.91,-0.73],['JPMorgan Chase & Co',0.20,0.89,-0.70],
+  ['Berkshire Hathaway Inc',0.17,0.84,-0.66],['Broadcom Inc',1.28,1.77,-0.49],
+  ['Johnson & Johnson',0.26,0.75,-0.49],['Eli Lilly & Co',0.46,0.94,-0.48],
+  ['Walmart Inc',0.23,0.69,-0.46],['Costco Wholesale Corp',0.20,0.56,-0.36],
+  ['Microsoft Corp',2.96,3.31,-0.36],['Mastercard Inc',0.19,0.54,-0.35],
+  ['Cisco Systems Inc',0.14,0.39,-0.24],['Netflix Inc',0.29,0.52,-0.23],
+  ['Novartis AG',0.13,0.36,-0.23],['Roche Holding AG',0.14,0.37,-0.22],
+  ['Applied Materials Inc',0.12,0.34,-0.22],['Nestle SA',0.11,0.32,-0.21],
+  ['Caterpillar Inc',0.22,0.42,-0.20],['Merck & Co Inc',0.19,0.38,-0.19],
+  ['Lam Research Corp',0.17,0.34,-0.17],['AstraZeneca PLC',0.21,0.38,-0.17],
+  ['PepsiCo Inc',0.11,0.27,-0.16],['Texas Instruments Inc',0.08,0.22,-0.15],
+  ['Abbott Laboratories',0.08,0.23,-0.14],['Allianz SE',0.07,0.20,-0.13],
+  ['UnitedHealth Group Inc',0.18,0.31,-0.13],['Honeywell International Inc',0.06,0.18,-0.12],
+  ['Union Pacific Corp',0.06,0.18,-0.12],['Eaton Corp PLC',0.06,0.18,-0.12],
+  ['KLA Corp',0.13,0.25,-0.12],['Uber Technologies Inc',0.06,0.18,-0.12],
+  ['Lockheed Martin Corp',0.05,0.16,-0.11],['Unilever PLC',0.06,0.15,-0.10],
+  ['Parker-Hannifin Corp',0.05,0.14,-0.10],['CME Group Inc',0.04,0.14,-0.09],
+  ['Novo Nordisk A/S',0.06,0.15,-0.09],['Vertex Pharmaceuticals Inc',0.06,0.14,-0.08],
+  ['Intuitive Surgical Inc',0.13,0.21,-0.08],['Qualcomm Inc',0.10,0.17,-0.07],
+  ['General Dynamics Corp',0.03,0.10,-0.07],['3M Co',0.03,0.10,-0.07],
+  ['Cadence Design Systems Inc',0.03,0.10,-0.06],
+  ['Automatic Data Processing Inc',0.04,0.10,-0.06],
+  ['Cummins Inc',0.03,0.09,-0.06],['Intuit Inc',0.10,0.15,-0.05],
+];
+
+const mag7 = [
+  {ticker:'NVDA',name:'NVIDIA',port:3.11,bench:5.37,active:-2.27,funds:'VGS · QUAL · Arrowstreet GE'},
+  {ticker:'MSFT',name:'Microsoft',port:2.96,bench:3.31,active:-0.36,funds:'VGS · QUAL · Arrowstreet GE · Aoris · T. Rowe'},
+  {ticker:'AAPL',name:'Apple',port:2.83,bench:4.73,active:-1.90,funds:'VGS · QUAL · Arrowstreet GE'},
+  {ticker:'GOOGL',name:'Alphabet',port:2.76,bench:3.89,active:-1.14,funds:'VGS · QUAL · Arrowstreet GE · T. Rowe'},
+  {ticker:'AMZN',name:'Amazon',port:1.75,bench:2.54,active:-0.80,funds:'VGS · QUAL · Arrowstreet GE · T. Rowe'},
+  {ticker:'META',name:'Meta',port:0.71,bench:1.58,active:-0.87,funds:'VGS · T. Rowe'},
+  {ticker:'TSLA',name:'Tesla',port:0.28,bench:1.33,active:-1.05,funds:'VGS · T. Rowe'},
+];
+
+// Render top 100
+const t100b = document.getElementById('global-top100-body');
+top100.forEach((r,i) => {
+  const tr = document.createElement('tr');
+  tr.innerHTML = `
+    <td class="r" style="color:#a0aec0;font-size:11px">${i+1}</td>
+    <td>${r[0]}</td>
+    <td class="r">${pct(r[1])}</td>
+    <td class="r">${bar(r[1],3.2,'#185fa5')}</td>
+  `;
+  t100b.appendChild(tr);
+});
+
+// Render OW50
+const owb = document.getElementById('global-ow-body');
+ow50.forEach((r,i) => {
+  const tr = document.createElement('tr');
+  tr.innerHTML = `
+    <td class="r" style="color:#a0aec0;font-size:11px">${i+1}</td>
+    <td>${r[0]}</td>
+    <td class="r">${pct(r[1])}</td>
+    <td class="r">${pct(r[2])}</td>
+    <td class="r pos-val">+${pct(r[3])}</td>
+    <td class="r">${bar(r[3],0.85,'#276749')}</td>
+  `;
+  owb.appendChild(tr);
+});
+
+// Render UW50
+const uwb = document.getElementById('global-uw-body');
+uw50.forEach((r,i) => {
+  const tr = document.createElement('tr');
+  tr.innerHTML = `
+    <td class="r" style="color:#a0aec0;font-size:11px">${i+1}</td>
+    <td>${r[0]}</td>
+    <td class="r">${pct(r[1])}</td>
+    <td class="r">${pct(r[2])}</td>
+    <td class="r neg-val">${pct(r[3])}</td>
+    <td class="r">${bar(r[3],2.3,'#9b2335')}</td>
+  `;
+  uwb.appendChild(tr);
+});
+
+// Render Mag 7 cards
+const mag7g = document.getElementById('mag7-grid');
+const mag7tb = document.getElementById('mag7-table-body');
+let totalPort=0, totalBench=0, totalActive=0;
+mag7.forEach(m => {
+  totalPort += m.port; totalBench += m.bench; totalActive += m.active;
+  const col = m.active < 0 ? '#9b2335' : '#276749';
+  const barW = (m.port / 5.5 * 100).toFixed(1);
+  mag7g.innerHTML += `<div class="mag7-card">
+    <div class="mag7-ticker">${m.ticker}</div>
+    <div class="mag7-name">${m.name}</div>
+    <div class="mag7-pw">${pct(m.port)}</div>
+    <div class="mag7-bw">Bench: ${pct(m.bench)}</div>
+    <div class="mag7-aw" style="color:${col}">${signPct(m.active)}</div>
+    <div class="mag7-bar"><div class="mag7-bar-fill" style="width:${barW}%;background:${col}"></div></div>
+  </div>`;
+  mag7tb.innerHTML += `<tr>
+    <td style="font-weight:600;color:#0d1b2a">${m.name} <span style="font-weight:400;color:#718096;font-size:11px">(${m.ticker})</span></td>
+    <td class="r">${pct(m.port)}</td>
+    <td class="r">${pct(m.bench)}</td>
+    <td class="r ${m.active<0?'neg-val':'pos-val'}">${signPct(m.active)}</td>
+    <td style="font-size:11px;color:#718096">${m.funds}</td>
+  </tr>`;
+});
+mag7tb.innerHTML += `<tr class="subtotal">
+  <td>Total Mag 7</td>
+  <td class="r">${pct(totalPort)}</td>
+  <td class="r">${pct(totalBench)}</td>
+  <td class="r neg-val">${pct(totalActive)}</td>
+  <td></td>
+</tr>`;
+</script>
 </body>
 </html>
