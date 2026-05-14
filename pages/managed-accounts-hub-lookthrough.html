@@ -265,6 +265,7 @@
       <div class="lk-panel active" id="panel-aus">
         <div class="lk-subtabs">
           <button class="lk-subtab active" data-sub="aus-sector">Sector Look-Through</button>
+          <button class="lk-subtab" data-sub="aus-banks">Banks</button>
           <button class="lk-subtab" data-sub="aus-holdings">Portfolio Look-Through Holdings</button>
         </div>
 
@@ -298,6 +299,52 @@
                   </table>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AUS Banks -->
+        <div class="lk-subpanel" id="sub-aus-banks">
+          <div class="lk-section">
+            <h2>Australian Equities — Banks Look-Through</h2>
+            <p class="lk-intro">Aggregate look-through exposure to the major Australian banks across the Aus Equities SMA. Benchmark = VAS (S&amp;P/ASX 300).</p>
+
+            <h3 style="margin-bottom:0.8rem;">Big 4 Banks + Macquarie</h3>
+            <div class="lk-table-wrap">
+              <table id="aus-banks-big5-tbl" style="max-width:860px;">
+                <thead>
+                  <tr>
+                    <th>Code</th>
+                    <th>Company</th>
+                    <th>Sector</th>
+                    <th class="num">Portfolio</th>
+                    <th class="num">Index (VAS)</th>
+                    <th class="num">OW / UW</th>
+                    <th class="num">Visual</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot><tr id="aus-banks-big5-totals"></tr></tfoot>
+              </table>
+            </div>
+
+            <h3 style="margin-top:2.4rem;margin-bottom:0.8rem;">Big 4 Banks</h3>
+            <div class="lk-table-wrap">
+              <table id="aus-banks-big4-tbl" style="max-width:860px;">
+                <thead>
+                  <tr>
+                    <th>Code</th>
+                    <th>Company</th>
+                    <th>Sector</th>
+                    <th class="num">Portfolio</th>
+                    <th class="num">Index (VAS)</th>
+                    <th class="num">OW / UW</th>
+                    <th class="num">Visual</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot><tr id="aus-banks-big4-totals"></tr></tfoot>
+              </table>
             </div>
           </div>
         </div>
@@ -631,6 +678,19 @@
       ["FedEx","Industrials",0.05,0.10],
       ["General Motors","Consumer Discretionary",0.05,0.10]
     ],
+    ausBanksBig5: [
+      ["CBA","Commonwealth Bank","Financials",7.26,10.88],
+      ["NAB","National Australia Bank","Financials",6.23,4.93],
+      ["ANZ","ANZ Banking Group","Financials",4.40,4.20],
+      ["MQG","Macquarie Group","Financials",4.06,2.78],
+      ["WBC","Westpac Banking Corporation","Financials",2.43,5.25]
+    ],
+    ausBanksBig4: [
+      ["CBA","Commonwealth Bank","Financials",7.26,10.88],
+      ["NAB","National Australia Bank","Financials",6.23,4.93],
+      ["ANZ","ANZ Banking Group","Financials",4.40,4.20],
+      ["WBC","Westpac Banking Corporation","Financials",2.43,5.25]
+    ],
     globalExtraUw: [
       ["Berkshire Hathaway","Financials",0.00,0.70],
       ["Walmart","Consumer Staples",0.00,0.60],
@@ -754,6 +814,34 @@
       <td class="num">${fmtSigned(totalP - totalI)}</td>
       <td>${deltaBar(totalP - totalI)}</td>`;
   })();
+
+  // ====== AUS Banks ======
+  function buildBanksTable(tblId, totalsRowId, rows) {
+    const tbody = document.querySelector(`#${tblId} tbody`);
+    let totalP = 0, totalI = 0;
+    tbody.innerHTML = rows.map(([code, name, sector, p, b]) => {
+      totalP += p; totalI += b;
+      const diff = p - b;
+      return `<tr>
+        <td><strong class="code-cell">${code}</strong></td>
+        <td>${name}</td>
+        <td>${sector}</td>
+        <td class="num">${p.toFixed(2)}%</td>
+        <td class="num">${b.toFixed(2)}%</td>
+        <td class="num">${fmtSigned(diff)}</td>
+        <td>${deltaBar(diff)}</td>
+      </tr>`;
+    }).join('');
+    const diff = totalP - totalI;
+    document.getElementById(totalsRowId).innerHTML = `
+      <td colspan="3">Total</td>
+      <td class="num">${totalP.toFixed(2)}%</td>
+      <td class="num">${totalI.toFixed(2)}%</td>
+      <td class="num">${fmtSigned(diff)}</td>
+      <td>${deltaBar(diff)}</td>`;
+  }
+  buildBanksTable('aus-banks-big5-tbl', 'aus-banks-big5-totals', data.ausBanksBig5);
+  buildBanksTable('aus-banks-big4-tbl', 'aus-banks-big4-totals', data.ausBanksBig4);
 
   // ====== AUS Holdings ======
   function ausHoldingsTable(rows) {
