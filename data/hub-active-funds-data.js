@@ -1,0 +1,281 @@
+/**
+ * HUB24 Active Fund Performance Data
+ * Vantage Wealth Management
+ *
+ * HOW TO ADD A NEW MONTH:
+ * 1. Copy an existing period block (e.g. "2026-05") and paste it below
+ * 2. Update the key to the new period (e.g. "2026-06")
+ * 3. Update label, asAt, lastUpdated
+ * 4. Update all performance figures and weights
+ * 5. Save and push to GitHub — the page dropdown will pick it up automatically
+ *
+ * Data structure per row:
+ *   type: "fund" | "benchmark" | "active" | "section"
+ *   name: display name
+ *   apir: APIR code or ticker (optional)
+ *   m1, m3, m6, y1, y3, y5, y10: returns as strings e.g. "2.15%" or "N/A"
+ *   inc: inception p.a. return (fund rows only, or "-")
+ *   weight: weight string e.g. "52.8%" (fund rows only, benchmark/active use "-")
+ */
+
+const FUND_DATA = {
+
+  /* ─────────────────────────────────────────────
+     APRIL 2026
+  ───────────────────────────────────────────── */
+  "2026-04": {
+    label: "30 Apr 2026",
+    asAt: "30 Apr 2026",
+    lastUpdated: "11 May 2026",
+    rows: [
+
+      // ── AUSTRALIAN SHARES ──────────────────────
+      { type: "section", name: "AUSTRALIAN SHARES" },
+
+      { type: "fund",      name: "VWM Direct Equities",              apir: "",          m1: "2.15%",   m3: "-3.09%",  m6: "-3.49%",  y1: "2.99%",   y3: "7.47%",   y5: "6.19%",   y10: "N/A",    inc: "9.67%",  weight: "52.8%" },
+      { type: "benchmark", name: "S&P/ASX 300 Accumulation Index",   apir: "",          m1: "2.25%",   m3: "-1.52%",  m6: "-1.14%",  y1: "10.14%",  y3: "9.57%",   y5: "8.16%",   y10: "9.27%",  inc: "8.65%",  weight: "-" },
+      { type: "active",    name: "Active Return",                    apir: "",          m1: "-0.09%",  m3: "-1.57%",  m6: "-2.35%",  y1: "-7.15%",  y3: "-2.10%",  y5: "-1.97%",  y10: "N/A",    inc: "1.02%",  weight: "-" },
+
+      { type: "fund",      name: "SPDR® S&P/ASX 200 ETF",           apir: "STW.ASX",   m1: "2.16%",   m3: "-1.23%",  m6: "-0.85%",  y1: "10.09%",  y3: "9.62%",   y5: "8.29%",   y10: "9.20%",  inc: "-",      weight: "46.6%" },
+      { type: "benchmark", name: "S&P/ASX 200 Accumulation Index",  apir: "",          m1: "2.18%",   m3: "-1.22%",  m6: "-0.87%",  y1: "10.12%",  y3: "9.66%",   y5: "8.36%",   y10: "9.31%",  inc: "-",      weight: "-" },
+      { type: "active",    name: "Active Return",                   apir: "",          m1: "-0.02%",  m3: "-0.01%",  m6: "0.01%",   y1: "-0.03%",  y3: "-0.04%",  y5: "-0.07%",  y10: "-0.11%", inc: "-",      weight: "-" },
+
+      // ── INTERNATIONAL SHARES ───────────────────
+      { type: "section", name: "INTERNATIONAL SHARES" },
+
+      { type: "fund",      name: "Aoris International Fund (B Class)",                         apir: "PIM0058AU", m1: "2.71%",   m3: "-3.47%",  m6: "-12.32%", y1: "-9.40%",  y3: "8.66%",   y5: "10.89%",  y10: "N/A",    inc: "-", weight: "8.2%" },
+      { type: "benchmark", name: "MSCI All Country World ex Australia Index (AUD)",             apir: "",          m1: "4.40%",   m3: "0.72%",   m6: "-2.72%",  y1: "14.95%",  y3: "16.38%",  y5: "12.90%",  y10: "N/A",    inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "-1.69%",  m3: "-4.19%",  m6: "-9.59%",  y1: "-24.34%", y3: "-7.72%",  y5: "-2.01%",  y10: "N/A",    inc: "-", weight: "-" },
+
+      { type: "fund",      name: "T. Rowe Price Global Equity Fund",                            apir: "ETL8482AU", m1: "5.95%",   m3: "0.89%",   m6: "-4.37%",  y1: "12.18%",  y3: "14.40%",  y5: "6.60%",   y10: "N/A",    inc: "-", weight: "12.9%" },
+      { type: "benchmark", name: "MSCI All Country World ex Australia Index (AUD)",             apir: "",          m1: "4.40%",   m3: "0.72%",   m6: "-2.72%",  y1: "14.95%",  y3: "16.38%",  y5: "12.90%",  y10: "N/A",    inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "1.55%",   m3: "0.18%",   m6: "-1.65%",  y1: "-2.77%",  y3: "-1.98%",  y5: "-6.30%",  y10: "N/A",    inc: "-", weight: "-" },
+
+      { type: "fund",      name: "Arrowstreet Global Small Companies Fund No. 2 I",             apir: "MAQ8493AU", m1: "4.33%",   m3: "2.70%",   m6: "8.00%",   y1: "25.75%",  y3: "N/A",     y5: "N/A",     y10: "N/A",    inc: "-", weight: "10.4%" },
+      { type: "benchmark", name: "MSCI World Small Cap NR AUD",                                 apir: "",          m1: "3.91%",   m3: "1.95%",   m6: "3.35%",   y1: "21.68%",  y3: "13.55%",  y5: "8.08%",   y10: "10.85%", inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "0.41%",   m3: "0.75%",   m6: "4.65%",   y1: "4.07%",   y3: "N/A",     y5: "N/A",     y10: "N/A",    inc: "-", weight: "-" },
+
+      { type: "fund",      name: "Arrowstreet Global Equity Fund No.2 (Hedged) I",              apir: "MAQ1878AU", m1: "11.13%",  m3: "4.95%",   m6: "12.60%",  y1: "37.45%",  y3: "23.11%",  y5: "13.93%",  y10: "N/A",    inc: "-", weight: "35.2%" },
+      { type: "benchmark", name: "MSCI All Country World ex Australia Index ($A Hedged)",       apir: "",          m1: "9.10%",   m3: "3.57%",   m6: "7.01%",   y1: "30.51%",  y3: "19.13%",  y5: "10.43%",  y10: "N/A",    inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "2.03%",   m3: "1.38%",   m6: "5.59%",   y1: "6.94%",   y3: "3.98%",   y5: "3.50%",   y10: "N/A",    inc: "-", weight: "-" },
+
+      { type: "fund",      name: "VanEck MSCI World ex Australia Quality ETF",                  apir: "QUAL",      m1: "3.68%",   m3: "-1.11%",  m6: "-2.76%",  y1: "11.00%",  y3: "15.82%",  y5: "13.02%",  y10: "14.94%", inc: "-", weight: "4.8%" },
+      { type: "benchmark", name: "MSCI World ex-Australian NR Index AUD",                       apir: "",          m1: "4.44%",   m3: "0.71%",   m6: "-2.78%",  y1: "15.06%",  y3: "16.52%",  y5: "12.98%",  y10: "13.41%", inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "-0.76%",  m3: "-1.82%",  m6: "0.02%",   y1: "-4.06%",  y3: "-0.70%",  y5: "0.04%",   y10: "1.53%",  inc: "-", weight: "-" },
+
+      { type: "fund",      name: "Vanguard Global Value Equity Active ETF",                     apir: "VVLU",      m1: "2.52%",   m3: "1.31%",   m6: "6.35%",   y1: "24.70%",  y3: "16.60%",  y5: "13.94%",  y10: "N/A",    inc: "-", weight: "9.1%" },
+      { type: "benchmark", name: "FTSE Developed All Cap NR",                                   apir: "",          m1: "4.81%",   m3: "1.18%",   m6: "-1.37%",  y1: "16.74%",  y3: "16.41%",  y5: "12.41%",  y10: "N/A",    inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "-2.29%",  m3: "0.13%",   m6: "7.72%",   y1: "7.96%",   y3: "0.19%",   y5: "1.53%",   y10: "N/A",    inc: "-", weight: "-" },
+
+      { type: "fund",      name: "Vanguard MSCI Intl ETF",                                      apir: "VGS",       m1: "4.45%",   m3: "0.73%",   m6: "-2.76%",  y1: "15.09%",  y3: "16.55%",  y5: "13.03%",  y10: "13.48%", inc: "-", weight: "18.8%" },
+      { type: "benchmark", name: "MSCI World NR Index AUD",                                     apir: "",          m1: "4.40%",   m3: "0.72%",   m6: "-2.72%",  y1: "14.95%",  y3: "16.38%",  y5: "12.90%",  y10: "13.33%", inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "0.05%",   m3: "0.01%",   m6: "-0.04%",  y1: "0.14%",   y3: "0.17%",   y5: "0.13%",   y10: "0.15%",  inc: "-", weight: "-" },
+
+      // ── PROPERTY & INFRASTRUCTURE ──────────────
+      { type: "section", name: "PROPERTY & INFRASTRUCTURE" },
+
+      { type: "fund",      name: "Ausbil Global Essential Infrastructure Fund - Hedged",        apir: "AAP3601AU", m1: "3.63%",   m3: "10.14%",  m6: "15.25%",  y1: "22.90%",  y3: "10.03%",  y5: "9.21%",   y10: "N/A",    inc: "-", weight: "28.9%" },
+      { type: "benchmark", name: "FTSE Developed Core Infrastructure 50/50 ($A Hedged) Index",  apir: "",          m1: "1.86%",   m3: "7.33%",   m6: "11.53%",  y1: "17.92%",  y3: "10.32%",  y5: "7.55%",   y10: "N/A",    inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "1.78%",   m3: "2.81%",   m6: "3.72%",   y1: "4.98%",   y3: "-0.29%",  y5: "1.66%",   y10: "N/A",    inc: "-", weight: "-" },
+
+      { type: "fund",      name: "ATLAS Infrastructure Australian Feeder Fund - Hedged",        apir: "PIM1961AU", m1: "3.86%",   m3: "9.32%",   m6: "18.03%",  y1: "28.49%",  y3: "10.84%",  y5: "10.92%",  y10: "N/A",    inc: "-", weight: "24.0%" },
+      { type: "benchmark", name: "FTSE Developed Core Infrastructure 50/50 ($A Hedged) Index",  apir: "",          m1: "1.86%",   m3: "7.33%",   m6: "11.53%",  y1: "17.92%",  y3: "10.32%",  y5: "7.55%",   y10: "N/A",    inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "2.00%",   m3: "1.99%",   m6: "6.51%",   y1: "10.58%",  y3: "0.52%",   y5: "3.37%",   y10: "N/A",    inc: "-", weight: "-" },
+
+      { type: "fund",      name: "VanEck FTSE International Property (Hedged) ETF",             apir: "REIT",      m1: "7.50%",   m3: "6.54%",   m6: "9.56%",   y1: "15.29%",  y3: "7.72%",   y5: "1.48%",   y10: "N/A",    inc: "-", weight: "14.5%" },
+      { type: "benchmark", name: "FTSE EPRA Nareit Developed ex Aus Rental in AUD Hedged Net Tax", apir: "",       m1: "7.57%",   m3: "6.79%",   m6: "10.03%",  y1: "16.29%",  y3: "8.64%",   y5: "2.44%",   y10: "N/A",    inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "-0.07%",  m3: "-0.25%",  m6: "-0.47%",  y1: "-1.00%",  y3: "-0.92%",  y5: "-0.96%",  y10: "N/A",    inc: "-", weight: "-" },
+
+      { type: "fund",      name: "VanEck FTSE Global Infrastructure (Hedged) ETF",              apir: "IFRA",      m1: "1.87%",   m3: "7.38%",   m6: "11.61%",  y1: "18.10%",  y3: "10.52%",  y5: "7.56%",   y10: "N/A",    inc: "-", weight: "7.7%" },
+      { type: "benchmark", name: "FTSE Developed Core Infrastructure 50/50 ($A Hedged) Index",  apir: "",          m1: "1.86%",   m3: "7.33%",   m6: "11.53%",  y1: "17.92%",  y3: "10.32%",  y5: "7.55%",   y10: "7.71%",  inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "0.01%",   m3: "0.05%",   m6: "0.08%",   y1: "0.18%",   y3: "0.20%",   y5: "0.01%",   y10: "N/A",    inc: "-", weight: "-" },
+
+      { type: "fund",      name: "Quay Global Real Estate Fund (Unhedged)",                     apir: "BFL0020AU", m1: "3.95%",   m3: "-0.88%",  m6: "-3.81%",  y1: "-5.77%",  y3: "4.09%",   y5: "3.36%",   y10: "5.99%",  inc: "-", weight: "24.5%" },
+      { type: "benchmark", name: "FTSE/EPRA NAREIT Developed Index Net TR AUD",                 apir: "",          m1: "3.38%",   m3: "2.97%",   m6: "0.64%",   y1: "4.25%",   y3: "5.99%",   y5: "3.69%",   y10: "4.31%",  inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "0.58%",   m3: "-3.85%",  m6: "-4.45%",  y1: "-10.01%", y3: "-1.90%",  y5: "-0.33%",  y10: "1.68%",  inc: "-", weight: "-" },
+
+      // ── FIXED INTEREST ─────────────────────────
+      { type: "section", name: "FIXED INTEREST" },
+
+      { type: "fund",      name: "Bentham Asset Backed Securities",                             apir: "HOW2852AU", m1: "0.08%",   m3: "-0.44%",  m6: "-1.55%",  y1: "0.03%",   y3: "4.28%",   y5: "3.51%",   y10: "N/A",    inc: "-", weight: "19.3%" },
+      { type: "benchmark", name: "Bloomberg AusBond Bank Bill Index",                           apir: "",          m1: "0.34%",   m3: "0.95%",   m6: "1.87%",   y1: "3.79%",   y3: "4.16%",   y5: "2.96%",   y10: "N/A",    inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "-0.26%",  m3: "-1.39%",  m6: "-3.42%",  y1: "-3.76%",  y3: "0.11%",   y5: "0.55%",   y10: "N/A",    inc: "-", weight: "-" },
+
+      { type: "fund",      name: "Bentham Global Income Fund",                                  apir: "CSA0038AU", m1: "-0.09%",  m3: "-1.04%",  m6: "-1.57%",  y1: "-0.79%",  y3: "3.74%",   y5: "3.17%",   y10: "4.48%",  inc: "-", weight: "14.0%" },
+      { type: "benchmark", name: "50/50 BB AusBond Bank Bill Index/BB Ausbond Composite Index", apir: "",          m1: "0.20%",   m3: "0.22%",   m6: "0.04%",   y1: "1.83%",   y3: "3.09%",   y5: "1.50%",   y10: "1.96%",  inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "-0.29%",  m3: "-1.27%",  m6: "-1.61%",  y1: "-2.61%",  y3: "0.65%",   y5: "1.67%",   y10: "2.51%",  inc: "-", weight: "-" },
+
+      { type: "fund",      name: "Macquarie Dynamic Bond Fund",                                 apir: "MAQ0274AU", m1: "0.18%",   m3: "-0.54%",  m6: "-0.36%",  y1: "2.33%",   y3: "3.17%",   y5: "0.62%",   y10: "2.36%",  inc: "-", weight: "25.8%" },
+      { type: "benchmark", name: "Bloomberg Barclays Global Aggregate Index (Hedged to AUD)",   apir: "",          m1: "0.34%",   m3: "-0.14%",  m6: "0.03%",   y1: "2.36%",   y3: "3.05%",   y5: "-0.11%",  y10: "1.56%",  inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "-0.16%",  m3: "-0.40%",  m6: "-0.39%",  y1: "-0.03%",  y3: "0.12%",   y5: "0.73%",   y10: "0.80%",  inc: "-", weight: "-" },
+
+      { type: "fund",      name: "Perpetual Diversified Income",                                apir: "PER0260AU", m1: "0.94%",   m3: "1.20%",   m6: "2.23%",   y1: "6.54%",   y3: "6.73%",   y5: "4.56%",   y10: "4.13%",  inc: "-", weight: "20.3%" },
+      { type: "benchmark", name: "Bloomberg AusBond Bank Bill Index",                           apir: "",          m1: "0.34%",   m3: "0.95%",   m6: "1.87%",   y1: "3.79%",   y3: "4.16%",   y5: "2.96%",   y10: "2.16%",  inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "0.60%",   m3: "0.25%",   m6: "0.36%",   y1: "2.75%",   y3: "2.57%",   y5: "1.60%",   y10: "1.97%",  inc: "-", weight: "-" },
+
+      { type: "fund",      name: "Coolabah Short Term Income Fund",                             apir: "SLT0052AU", m1: "0.52%",   m3: "0.82%",   m6: "1.94%",   y1: "4.89%",   y3: "5.45%",   y5: "3.52%",   y10: "3.32%",  inc: "-", weight: "20.1%" },
+      { type: "benchmark", name: "RBA Cash Rate",                                               apir: "",          m1: "0.34%",   m3: "0.99%",   m6: "1.92%",   y1: "3.90%",   y3: "4.24%",   y5: "3.03%",   y10: "2.08%",  inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "0.18%",   m3: "-0.17%",  m6: "0.02%",   y1: "0.99%",   y3: "1.22%",   y5: "0.49%",   y10: "1.24%",  inc: "-", weight: "-" },
+
+      // ── ALTERNATIVES ───────────────────────────
+      { type: "section", name: "ALTERNATIVES" },
+
+      { type: "fund",      name: "Janus Henderson Global Multi-Strategy",                       apir: "HGI4648AU", m1: "2.34%",   m3: "1.86%",   m6: "3.99%",   y1: "8.00%",   y3: "4.69%",   y5: "3.42%",   y10: "N/A",    inc: "-", weight: "16.5%" },
+      { type: "benchmark", name: "Bloomberg AusBond Bank Bill Index",                           apir: "",          m1: "0.34%",   m3: "0.95%",   m6: "1.87%",   y1: "3.79%",   y3: "4.16%",   y5: "2.96%",   y10: "N/A",    inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "2.00%",   m3: "0.92%",   m6: "2.12%",   y1: "4.21%",   y3: "0.53%",   y5: "0.45%",   y10: "N/A",    inc: "-", weight: "-" },
+
+      { type: "fund",      name: "Perpetual Pure Equity Alpha",                                 apir: "PER0668AU", m1: "0.44%",   m3: "0.05%",   m6: "2.23%",   y1: "8.37%",   y3: "5.89%",   y5: "6.19%",   y10: "N/A",    inc: "-", weight: "16.3%" },
+      { type: "benchmark", name: "RBA Cash Rate",                                               apir: "",          m1: "0.34%",   m3: "0.99%",   m6: "1.92%",   y1: "3.90%",   y3: "4.24%",   y5: "3.03%",   y10: "N/A",    inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "0.10%",   m3: "-0.93%",  m6: "0.31%",   y1: "4.47%",   y3: "1.65%",   y5: "3.16%",   y10: "N/A",    inc: "-", weight: "-" },
+
+      { type: "fund",      name: "VanEck 1-3 Month US Treasury Bond ETF",                       apir: "TBIL.ASX",  m1: "-4.46%",  m3: "-1.75%",  m6: "-7.36%",  y1: "-7.56%",  y3: "N/A",     y5: "N/A",     y10: "N/A",    inc: "-", weight: "15.7%" },
+      { type: "benchmark", name: "SPDR Bloomberg 1-3 Months T-Bill ETF (USD)",                  apir: "",          m1: "0.29%",   m3: "0.85%",   m6: "1.78%",   y1: "3.94%",   y3: "N/A",     y5: "N/A",     y10: "N/A",    inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "-4.75%",  m3: "-2.60%",  m6: "-9.13%",  y1: "-11.50%", y3: "N/A",     y5: "N/A",     y10: "N/A",    inc: "-", weight: "-" },
+
+      { type: "fund",      name: "iShares Asia 50 ETF (AU)",                                    apir: "IAA.ASX",   m1: "14.65%",  m3: "6.72%",   m6: "14.32%",  y1: "60.28%",  y3: "27.56%",  y5: "9.82%",   y10: "13.92%", inc: "-", weight: "18.3%" },
+      { type: "benchmark", name: "S&P Asia TR (USD)",                                           apir: "",          m1: "20.70%",  m3: "9.36%",   m6: "25.71%",  y1: "81.05%",  y3: "32.77%",  y5: "9.21%",   y10: "14.50%", inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "-6.04%",  m3: "-2.63%",  m6: "-11.39%", y1: "-20.77%", y3: "-5.20%",  y5: "0.61%",   y10: "-0.58%", inc: "-", weight: "-" },
+
+      { type: "fund",      name: "Colchester Emerging Markets Bond Fund I",                     apir: "ETL3065AU", m1: "-1.68%",  m3: "-4.19%",  m6: "-5.30%",  y1: "3.62%",   y3: "6.05%",   y5: "5.66%",   y10: "N/A",    inc: "-", weight: "16.1%" },
+      { type: "benchmark", name: "JPM GBI-EM & JPM EMBI 50/50",                                apir: "",          m1: "2.82%",   m3: "-0.40%",  m6: "3.04%",   y1: "12.54%",  y3: "8.93%",   y5: "2.41%",   y10: "N/A",    inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "-4.50%",  m3: "-3.79%",  m6: "-8.34%",  y1: "-8.92%",  y3: "-2.88%",  y5: "3.25%",   y10: "N/A",    inc: "-", weight: "-" },
+
+      { type: "fund",      name: "Aspect Absolute Return Fund — Class A",                       apir: "FSF3532AU", m1: "1.89%",   m3: "5.62%",   m6: "11.11%",  y1: "21.38%",  y3: "10.10%",  y5: "8.49%",   y10: "N/A",    inc: "-", weight: "16.6%" },
+      { type: "benchmark", name: "RBA Cash Rate",                                               apir: "",          m1: "0.34%",   m3: "0.99%",   m6: "1.92%",   y1: "3.90%",   y3: "4.24%",   y5: "3.03%",   y10: "N/A",    inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "1.54%",   m3: "4.63%",   m6: "9.19%",   y1: "17.48%",  y3: "5.86%",   y5: "5.46%",   y10: "N/A",    inc: "-", weight: "-" },
+    ]
+  },
+
+  /* ─────────────────────────────────────────────
+     MAY 2026
+  ───────────────────────────────────────────── */
+  "2026-05": {
+    label: "31 May 2026",
+    asAt: "31 May 2026",
+    lastUpdated: "10 Jun 2026",
+    rows: [
+
+      // ── AUSTRALIAN SHARES ──────────────────────
+      { type: "section", name: "AUSTRALIAN SHARES" },
+
+      { type: "fund",      name: "VWM Direct Equities",              apir: "",          m1: "1.95%",   m3: "-3.41%",  m6: "2.25%",   y1: "0.28%",   y3: "9.27%",   y5: "6.25%",   y10: "N/A",    inc: "10.11%", weight: "52.9%" },
+      { type: "benchmark", name: "S&P/ASX 300 Accumulation Index",   apir: "",          m1: "1.25%",   m3: "-4.03%",  m6: "2.80%",   y1: "7.02%",   y3: "10.97%",  y5: "7.93%",   y10: "9.07%",  inc: "8.73%",  weight: "-" },
+      { type: "active",    name: "Active Return",                    apir: "",          m1: "0.71%",   m3: "0.62%",   m6: "-0.55%",  y1: "-6.74%",  y3: "-1.70%",  y5: "-1.69%",  y10: "N/A",    inc: "1.38%",  weight: "-" },
+
+      { type: "fund",      name: "SPDR® S&P/ASX 200 ETF",           apir: "STW.ASX",   m1: "1.13%",   m3: "-4.05%",  m6: "3.01%",   y1: "6.84%",   y3: "10.98%",  y5: "8.03%",   y10: "8.99%",  inc: "-",      weight: "46.4%" },
+      { type: "benchmark", name: "S&P/ASX 200 Accumulation Index",  apir: "",          m1: "1.15%",   m3: "-4.03%",  m6: "3.01%",   y1: "6.89%",   y3: "11.02%",  y5: "8.10%",   y10: "9.10%",  inc: "-",      weight: "-" },
+      { type: "active",    name: "Active Return",                   apir: "",          m1: "-0.02%",  m3: "-0.02%",  m6: "0.01%",   y1: "-0.05%",  y3: "-0.04%",  y5: "-0.07%",  y10: "-0.11%", inc: "-",      weight: "-" },
+
+      // ── INTERNATIONAL SHARES ───────────────────
+      { type: "section", name: "INTERNATIONAL SHARES" },
+
+      { type: "fund",      name: "Aoris International Fund (B Class)",                         apir: "PIM0058AU", m1: "1.64%",   m3: "0.47%",   m6: "-10.03%", y1: "-12.12%", y3: "8.75%",   y5: "11.29%",  y10: "N/A",    inc: "-", weight: "7.9%" },
+      { type: "benchmark", name: "MSCI All Country World ex Australia Index (AUD)",             apir: "",          m1: "4.47%",   m3: "6.26%",   m6: "1.52%",   y1: "14.03%",  y3: "17.66%",  y5: "13.61%",  y10: "N/A",    inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "-2.84%",  m3: "-5.80%",  m6: "-11.55%", y1: "-26.15%", y3: "-8.91%",  y5: "-2.32%",  y10: "N/A",    inc: "-", weight: "-" },
+
+      { type: "fund",      name: "T. Rowe Price Global Equity Fund",                            apir: "ETL8482AU", m1: "5.99%",   m3: "8.45%",   m6: "2.94%",   y1: "13.39%",  y3: "15.62%",  y5: "7.78%",   y10: "N/A",    inc: "-", weight: "13.0%" },
+      { type: "benchmark", name: "MSCI All Country World ex Australia Index (AUD)",             apir: "",          m1: "4.47%",   m3: "6.26%",   m6: "1.52%",   y1: "14.03%",  y3: "17.66%",  y5: "13.61%",  y10: "N/A",    inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "1.52%",   m3: "2.19%",   m6: "1.42%",   y1: "-0.64%",  y3: "-2.04%",  y5: "-5.83%",  y10: "N/A",    inc: "-", weight: "-" },
+
+      { type: "fund",      name: "Arrowstreet Global Small Companies Fund No. 2 I",             apir: "MAQ8493AU", m1: "1.59%",   m3: "-0.28%",  m6: "9.38%",   y1: "21.50%",  y3: "N/A",     y5: "N/A",     y10: "N/A",    inc: "-", weight: "10.2%" },
+      { type: "benchmark", name: "MSCI World Small Cap NR AUD",                                 apir: "",          m1: "3.71%",   m3: "3.50%",   m6: "5.57%",   y1: "19.96%",  y3: "15.22%",  y5: "8.74%",   y10: "10.55%", inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "-2.12%",  m3: "-3.78%",  m6: "3.82%",   y1: "1.54%",   y3: "N/A",     y5: "N/A",     y10: "N/A",    inc: "-", weight: "-" },
+
+      { type: "fund",      name: "Arrowstreet Global Equity Fund No.2 (Hedged) I",              apir: "MAQ1878AU", m1: "7.51%",   m3: "10.93%",  m6: "21.01%",  y1: "39.39%",  y3: "26.20%",  y5: "15.28%",  y10: "N/A",    inc: "-", weight: "35.8%" },
+      { type: "benchmark", name: "MSCI All Country World ex Australia Index ($A Hedged)",       apir: "",          m1: "5.47%",   m3: "7.75%",   m6: "12.74%",  y1: "30.29%",  y3: "21.40%",  y5: "11.39%",  y10: "N/A",    inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "2.04%",   m3: "3.18%",   m6: "8.27%",   y1: "9.10%",   y3: "4.80%",   y5: "3.89%",   y10: "N/A",    inc: "-", weight: "-" },
+
+      { type: "fund",      name: "VanEck MSCI World ex Australia Quality ETF",                  apir: "QUAL",      m1: "3.55%",   m3: "2.96%",   m6: "-0.52%",  y1: "10.45%",  y3: "15.68%",  y5: "13.52%",  y10: "14.61%", inc: "-", weight: "4.8%" },
+      { type: "benchmark", name: "MSCI World ex-Australian NR Index AUD",                       apir: "",          m1: "4.53%",   m3: "6.44%",   m6: "1.46%",   y1: "14.18%",  y3: "17.79%",  y5: "13.72%",  y10: "13.25%", inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "-0.98%",  m3: "-3.48%",  m6: "-1.97%",  y1: "-3.73%",  y3: "-2.11%",  y5: "-0.19%",  y10: "1.36%",  inc: "-", weight: "-" },
+
+      { type: "fund",      name: "Vanguard Global Value Equity Active ETF",                     apir: "VVLU",      m1: "1.70%",   m3: "2.06%",   m6: "4.27%",   y1: "20.74%",  y3: "18.47%",  y5: "13.23%",  y10: "N/A",    inc: "-", weight: "9.0%" },
+      { type: "benchmark", name: "FTSE Developed All Cap NR",                                   apir: "",          m1: "5.02%",   m3: "6.51%",   m6: "3.41%",   y1: "16.47%",  y3: "17.94%",  y5: "13.25%",  y10: "N/A",    inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "-3.32%",  m3: "-4.45%",  m6: "0.86%",   y1: "4.27%",   y3: "0.53%",   y5: "-0.02%",  y10: "N/A",    inc: "-", weight: "-" },
+
+      { type: "fund",      name: "Vanguard MSCI Intl ETF",                                      apir: "VGS",       m1: "4.54%",   m3: "6.46%",   m6: "1.48%",   y1: "14.20%",  y3: "17.82%",  y5: "13.64%",  y10: "13.32%", inc: "-", weight: "18.9%" },
+      { type: "benchmark", name: "MSCI World NR Index AUD",                                     apir: "",          m1: "4.47%",   m3: "6.26%",   m6: "1.52%",   y1: "14.03%",  y3: "17.66%",  y5: "13.61%",  y10: "13.17%", inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "0.07%",   m3: "0.20%",   m6: "-0.04%",  y1: "0.17%",   y3: "0.16%",   y5: "0.03%",   y10: "0.15%",  inc: "-", weight: "-" },
+
+      // ── PROPERTY & INFRASTRUCTURE ──────────────
+      { type: "section", name: "PROPERTY & INFRASTRUCTURE" },
+
+      { type: "fund",      name: "Ausbil Global Essential Infrastructure Fund - Hedged",        apir: "AAP3601AU", m1: "-2.94%",  m3: "-1.96%",  m6: "9.73%",   y1: "17.43%",  y3: "10.71%",  y5: "8.51%",   y10: "N/A",    inc: "-", weight: "28.7%" },
+      { type: "benchmark", name: "FTSE Developed Core Infrastructure 50/50 ($A Hedged) Index",  apir: "",          m1: "-1.43%",  m3: "-2.65%",  m6: "6.79%",   y1: "14.71%",  y3: "11.57%",  y5: "7.36%",   y10: "N/A",    inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "-1.51%",  m3: "0.68%",   m6: "2.94%",   y1: "2.71%",   y3: "-0.87%",  y5: "1.16%",   y10: "N/A",    inc: "-", weight: "-" },
+
+      { type: "fund",      name: "ATLAS Infrastructure Australian Feeder Fund - Hedged",        apir: "PIM1961AU", m1: "-0.46%",  m3: "0.55%",   m6: "15.68%",  y1: "26.03%",  y3: "11.89%",  y5: "10.70%",  y10: "N/A",    inc: "-", weight: "24.2%" },
+      { type: "benchmark", name: "FTSE Developed Core Infrastructure 50/50 ($A Hedged) Index",  apir: "",          m1: "-1.43%",  m3: "-2.65%",  m6: "6.79%",   y1: "14.71%",  y3: "11.57%",  y5: "7.36%",   y10: "N/A",    inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "0.96%",   m3: "3.20%",   m6: "8.89%",   y1: "11.32%",  y3: "0.32%",   y5: "3.35%",   y10: "N/A",    inc: "-", weight: "-" },
+
+      { type: "fund",      name: "VanEck FTSE International Property (Hedged) ETF",             apir: "REIT",      m1: "-0.16%",  m3: "-0.50%",  m6: "7.35%",   y1: "12.49%",  y3: "9.10%",   y5: "1.20%",   y10: "N/A",    inc: "-", weight: "14.7%" },
+      { type: "benchmark", name: "FTSE EPRA Nareit Developed ex Aus Rental in AUD Hedged Net Tax", apir: "",       m1: "-0.09%",  m3: "-0.25%",  m6: "7.82%",   y1: "13.47%",  y3: "10.03%",  y5: "2.15%",   y10: "N/A",    inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "-0.06%",  m3: "-0.25%",  m6: "-0.47%",  y1: "-0.98%",  y3: "-0.93%",  y5: "-0.95%",  y10: "N/A",    inc: "-", weight: "-" },
+
+      { type: "fund",      name: "VanEck FTSE Global Infrastructure (Hedged) ETF",              apir: "IFRA",      m1: "-1.42%",  m3: "-2.63%",  m6: "6.87%",   y1: "14.87%",  y3: "11.78%",  y5: "7.37%",   y10: "N/A",    inc: "-", weight: "7.7%" },
+      { type: "benchmark", name: "FTSE Developed Core Infrastructure 50/50 ($A Hedged) Index",  apir: "",          m1: "-1.43%",  m3: "-2.65%",  m6: "6.79%",   y1: "14.71%",  y3: "11.57%",  y5: "7.36%",   y10: "7.43%",  inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "0.01%",   m3: "0.02%",   m6: "0.08%",   y1: "0.16%",   y3: "0.20%",   y5: "0.02%",   y10: "N/A",    inc: "-", weight: "-" },
+
+      { type: "fund",      name: "Quay Global Real Estate Fund (Unhedged)",                     apir: "BFL0020AU", m1: "-1.04%",  m3: "-3.98%",  m6: "-5.92%",  y1: "-8.91%",  y3: "4.74%",   y5: "2.59%",   y10: "5.08%",  inc: "-", weight: "24.3%" },
+      { type: "benchmark", name: "FTSE/EPRA NAREIT Developed Index Net TR AUD",                 apir: "",          m1: "-0.93%",  m3: "-3.03%",  m6: "-2.09%",  y1: "1.32%",   y3: "6.53%",   y5: "3.18%",   y10: "3.67%",  inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "-0.11%",  m3: "-0.95%",  m6: "-3.83%",  y1: "-10.23%", y3: "-1.80%",  y5: "-0.58%",  y10: "1.41%",  inc: "-", weight: "-" },
+
+      // ── FIXED INTEREST ─────────────────────────
+      { type: "section", name: "FIXED INTEREST" },
+
+      { type: "fund",      name: "Bentham Asset Backed Securities",                             apir: "HOW2852AU", m1: "1.49%",   m3: "0.23%",   m6: "0.56%",   y1: "1.41%",   y3: "5.00%",   y5: "3.76%",   y10: "N/A",    inc: "-", weight: "19.4%" },
+      { type: "benchmark", name: "Bloomberg AusBond Bank Bill Index",                           apir: "",          m1: "0.34%",   m3: "1.00%",   m6: "1.91%",   y1: "3.78%",   y3: "4.18%",   y5: "3.03%",   y10: "N/A",    inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "1.15%",   m3: "-0.77%",  m6: "-1.35%",  y1: "-2.37%",  y3: "0.83%",   y5: "0.73%",   y10: "N/A",    inc: "-", weight: "-" },
+
+      { type: "fund",      name: "Bentham Global Income Fund",                                  apir: "CSA0038AU", m1: "1.32%",   m3: "-0.79%",  m6: "-0.17%",  y1: "1.62%",   y3: "4.80%",   y5: "3.44%",   y10: "4.49%",  inc: "-", weight: "14.0%" },
+      { type: "benchmark", name: "50/50 BB AusBond Bank Bill Index/BB Ausbond Composite Index", apir: "",          m1: "0.98%",   m3: "0.61%",   m6: "1.30%",   y1: "2.55%",   y3: "3.57%",   y5: "1.67%",   y10: "1.99%",  inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "0.34%",   m3: "-1.40%",  m6: "-1.47%",  y1: "-0.93%",  y3: "1.22%",   y5: "1.76%",   y10: "2.51%",  inc: "-", weight: "-" },
+
+      { type: "fund",      name: "Macquarie Dynamic Bond Fund",                                 apir: "MAQ0274AU", m1: "0.79%",   m3: "-1.16%",  m6: "0.26%",   y1: "3.33%",   y3: "3.81%",   y5: "0.74%",   y10: "2.31%",  inc: "-", weight: "25.8%" },
+      { type: "benchmark", name: "Bloomberg Barclays Global Aggregate Index (Hedged to AUD)",   apir: "",          m1: "0.67%",   m3: "-0.85%",  m6: "0.53%",   y1: "3.42%",   y3: "3.47%",   y5: "-0.01%",  y10: "1.57%",  inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "0.11%",   m3: "-0.31%",  m6: "-0.26%",  y1: "-0.10%",  y3: "0.34%",   y5: "0.75%",   y10: "0.74%",  inc: "-", weight: "-" },
+
+      { type: "fund",      name: "Perpetual Diversified Income",                                apir: "PER0260AU", m1: "0.57%",   m3: "1.46%",   m6: "2.72%",   y1: "6.02%",   y3: "6.76%",   y5: "4.64%",   y10: "4.15%",  inc: "-", weight: "20.3%" },
+      { type: "benchmark", name: "Bloomberg AusBond Bank Bill Index",                           apir: "",          m1: "0.34%",   m3: "1.00%",   m6: "1.91%",   y1: "3.78%",   y3: "4.18%",   y5: "3.03%",   y10: "2.17%",  inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "0.23%",   m3: "0.46%",   m6: "0.81%",   y1: "2.24%",   y3: "2.58%",   y5: "1.61%",   y10: "1.98%",  inc: "-", weight: "-" },
+
+      { type: "fund",      name: "Coolabah Short Term Income Fund",                             apir: "SLT0052AU", m1: "0.39%",   m3: "1.04%",   m6: "2.10%",   y1: "4.58%",   y3: "5.46%",   y5: "3.59%",   y10: "3.29%",  inc: "-", weight: "20.1%" },
+      { type: "benchmark", name: "RBA Cash Rate",                                               apir: "",          m1: "0.37%",   m3: "1.06%",   m6: "1.99%",   y1: "3.93%",   y3: "4.25%",   y5: "3.11%",   y10: "2.11%",  inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "0.02%",   m3: "-0.02%",  m6: "0.11%",   y1: "0.66%",   y3: "1.21%",   y5: "0.48%",   y10: "1.19%",  inc: "-", weight: "-" },
+
+      // ── ALTERNATIVES ───────────────────────────
+      { type: "section", name: "ALTERNATIVES" },
+
+      { type: "fund",      name: "Janus Henderson Global Multi-Strategy",                       apir: "HGI4648AU", m1: "-0.74%",  m3: "1.38%",   m6: "2.50%",   y1: "6.10%",   y3: "5.02%",   y5: "3.26%",   y10: "N/A",    inc: "-", weight: "16.4%" },
+      { type: "benchmark", name: "Bloomberg AusBond Bank Bill Index",                           apir: "",          m1: "0.34%",   m3: "1.00%",   m6: "1.91%",   y1: "3.78%",   y3: "4.18%",   y5: "3.03%",   y10: "N/A",    inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "-1.08%",  m3: "0.38%",   m6: "0.59%",   y1: "2.32%",   y3: "0.84%",   y5: "0.23%",   y10: "N/A",    inc: "-", weight: "-" },
+
+      { type: "fund",      name: "Perpetual Pure Equity Alpha",                                 apir: "PER0668AU", m1: "0.28%",   m3: "1.13%",   m6: "1.53%",   y1: "6.84%",   y3: "6.03%",   y5: "6.34%",   y10: "N/A",    inc: "-", weight: "16.5%" },
+      { type: "benchmark", name: "RBA Cash Rate",                                               apir: "",          m1: "0.37%",   m3: "1.06%",   m6: "1.99%",   y1: "3.93%",   y3: "4.25%",   y5: "3.11%",   y10: "N/A",    inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "-0.09%",  m3: "0.08%",   m6: "-0.46%",  y1: "2.92%",   y3: "1.78%",   y5: "3.23%",   y10: "N/A",    inc: "-", weight: "-" },
+
+      { type: "fund",      name: "VanEck 1-3 Month US Treasury Bond ETF",                       apir: "TBIL.ASX",  m1: "0.22%",   m3: "-0.09%",  m6: "-7.25%",  y1: "-7.16%",  y3: "N/A",     y5: "N/A",     y10: "N/A",    inc: "-", weight: "14.9%" },
+      { type: "benchmark", name: "SPDR Bloomberg 1-3 Months T-Bill ETF (USD)",                  apir: "",          m1: "0.30%",   m3: "0.88%",   m6: "1.79%",   y1: "3.87%",   y3: "N/A",     y5: "N/A",     y10: "N/A",    inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "-0.08%",  m3: "-0.97%",  m6: "-9.04%",  y1: "-11.03%", y3: "N/A",     y5: "N/A",     y10: "N/A",    inc: "-", weight: "-" },
+
+      { type: "fund",      name: "iShares Asia 50 ETF (AU)",                                    apir: "IAA.ASX",   m1: "18.53%",  m3: "20.30%",  m6: "41.72%",  y1: "78.41%",  y3: "34.71%",  y5: "13.89%",  y10: "15.39%", inc: "-", weight: "19.4%" },
+      { type: "benchmark", name: "S&P Asia TR (USD)",                                           apir: "",          m1: "18.80%",  m3: "21.61%",  m6: "55.82%",  y1: "100.58%", y3: "40.90%",  y5: "13.14%",  y10: "16.60%", inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "-0.26%",  m3: "-1.32%",  m6: "-14.10%", y1: "-22.17%", y3: "-6.20%",  y5: "0.75%",   y10: "-1.21%", inc: "-", weight: "-" },
+
+      { type: "fund",      name: "Colchester Emerging Markets Bond Fund I",                     apir: "ETL3065AU", m1: "0.80%",   m3: "-2.97%",  m6: "-5.75%",  y1: "2.55%",   y3: "5.63%",   y5: "5.35%",   y10: "N/A",    inc: "-", weight: "15.7%" },
+      { type: "benchmark", name: "JPM GBI-EM & JPM EMBI 50/50",                                apir: "",          m1: "0.92%",   m3: "-0.81%",  m6: "3.08%",   y1: "12.16%",  y3: "9.66%",   y5: "2.24%",   y10: "N/A",    inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "-0.12%",  m3: "-2.16%",  m6: "-8.83%",  y1: "-9.61%",  y3: "-4.03%",  y5: "3.11%",   y10: "N/A",    inc: "-", weight: "-" },
+
+      { type: "fund",      name: "Aspect Absolute Return Fund — Class A",                       apir: "FSF3532AU", m1: "1.07%",   m3: "2.19%",   m6: "11.54%",  y1: "21.35%",  y3: "9.43%",   y5: "8.28%",   y10: "N/A",    inc: "-", weight: "16.5%" },
+      { type: "benchmark", name: "RBA Cash Rate",                                               apir: "",          m1: "0.37%",   m3: "1.06%",   m6: "1.99%",   y1: "3.93%",   y3: "4.25%",   y5: "3.11%",   y10: "N/A",    inc: "-", weight: "-" },
+      { type: "active",    name: "Active Return",                                               apir: "",          m1: "0.70%",   m3: "1.13%",   m6: "9.55%",   y1: "17.42%",  y3: "5.18%",   y5: "5.17%",   y10: "N/A",    inc: "-", weight: "-" },
+    ]
+  }
+
+  /* ─────────────────────────────────────────────
+     FUTURE MONTHS — paste new period block here
+     Copy the structure above and update:
+       key, label, asAt, lastUpdated, all figures
+  ───────────────────────────────────────────── */
+
+};
