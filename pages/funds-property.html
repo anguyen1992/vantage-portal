@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Property — Vantage Wealth Management | Investment Data Portal</title>
-  <meta name="last-updated" content="10 May 2026">
+  <meta name="last-updated" content="10 Jun 2026">
   <meta name="owner"        content="Anthony Nguyen">
   <meta name="source"       content="Morningstar">
-  <meta name="as-at"        content="30 Apr 2026">
+  <meta name="as-at"        content="31 May 2026">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -20,6 +20,13 @@
     td.w { white-space:nowrap; font-size:0.82rem; }
     tbody tr.benchmark-row td { color:var(--muted); font-style:italic; }
     tbody tr.benchmark-row td:first-child { padding-left:1.5rem; font-size:0.8rem; }
+    .period-selector-bar { display:flex; align-items:center; gap:10px; margin-bottom:20px; }
+    .period-selector-bar label { font-size:0.82rem; font-weight:600; color:var(--navy,#1a2e4a); text-transform:uppercase; letter-spacing:0.04em; }
+    .period-selector-bar select { font-size:0.82rem; font-weight:600; color:var(--navy,#1a2e4a); background:#fff; border:1.5px solid var(--gold,#b8952a); border-radius:4px; padding:5px 28px 5px 10px; cursor:pointer; appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23b8952a' d='M1 1l5 5 5-5'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 9px center; background-size:10px 7px; }
+    .period-selector-bar select:focus { outline:none; border-color:var(--navy,#1a2e4a); }
+    .period-panel { display:none; }
+    .period-panel.active { display:block; }
+    
   </style>
 </head>
 <body data-page="funds" data-depth="1">
@@ -48,14 +55,97 @@
         <p class="page-eyebrow">Funds</p>
         <h1>Property</h1>
         <div class="page-meta">
-          <span class="meta-item"><strong>As at:</strong> 30 Apr 2026</span>
-          <span class="meta-item"><strong>Last updated:</strong> 10 May 2026</span>
+          <span class="meta-item"><strong>As at:</strong> <span id="meta-asat">—</span></span>
+          <span class="meta-item"><strong>Last updated:</strong> <span id="meta-updated">—</span></span>
           <span class="meta-item"><strong>Owner:</strong> Anthony Nguyen</span>
           <span class="meta-item"><strong>Source:</strong> Morningstar</span>
         </div>
       </div>
 
-      <!-- A-REITs — Index -->
+      <div class="period-selector-bar">
+        <label for="period-select">Period:</label>
+        <select id="period-select">
+          <option value="may2026">31 May 2026</option>
+          <option value="apr2026">30 Apr 2026</option>
+        </select>
+      </div>
+      <div class="period-panel" id="panel-may2026">
+      <div class="asset-section">
+        <h2 class="asset-title">A-REITs — Index</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Fund</th><th>APIR</th>
+                <th class="numeric">1M</th><th class="numeric">3M</th><th class="numeric">6M</th>
+                <th class="numeric">1Y</th><th class="numeric">3Y</th><th class="numeric">5Y</th>
+                <th class="numeric">10Y</th><th class="numeric">15Y</th><th class="numeric">20Y</th>
+                <th>Inception</th><th class="numeric">IM Fee</th>
+                <th class="numeric">MS Rating</th><th>MS Medallist</th>
+                <th>APL Date</th><th>Checklist</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>First Sentier Property Securities</td><td class="apir">FSF0004AU</td><td class="r">3.19%</td><td class="r">0.39%</td><td class="r">-3.79%</td><td class="r">-3.26%</td><td class="r">10.31%</td><td class="r">6.32%</td><td class="r">6.01%</td><td class="r">9.31%</td><td class="r">3.53%</td><td class="w">07-Jul-94</td><td class="r">0.82%</td><td class="r">3</td><td>-</td><td class="w">15-Sep-10</td><td class="w">-</td></tr>
+              <tr><td>CFS Indexed Property Securities</td><td class="apir">FSF0655AU</td><td class="r">2.81%</td><td class="r">-0.91%</td><td class="r">-5.37%</td><td class="r">-2.73%</td><td class="r">10.44%</td><td class="r">6.07%</td><td class="r">5.60%</td><td class="r">9.20%</td><td class="r">4.48%</td><td class="w">13-Jul-04</td><td class="r">0.33%</td><td class="r">3</td><td>Silver</td><td class="w">15-Sep-10</td><td class="w">14-Oct-13</td></tr>
+              <tr><td>iShares Australian Listed Property Index Fund</td><td class="apir">BGL0108AU</td><td class="r">2.88%</td><td class="r">-0.87%</td><td class="r">-4.97%</td><td class="r">-2.06%</td><td class="r">10.52%</td><td class="r">6.27%</td><td class="r">5.96%</td><td class="r">9.54%</td><td class="r">4.84%</td><td class="w">16-Jul-01</td><td class="r">0.20%</td><td class="r">3</td><td>Gold</td><td class="w">16-Dec-13</td><td class="w">-</td></tr>
+              <tr><td>SPDR® S&amp;P/ASX 200 Listed Property ETF</td><td class="apir">SLF.ASX</td><td class="r">2.95%</td><td class="r">-0.71%</td><td class="r">-4.99%</td><td class="r">-2.25%</td><td class="r">10.65%</td><td class="r">6.17%</td><td class="r">5.63%</td><td class="r">9.17%</td><td class="r">4.42%</td><td class="w">15-Feb-02</td><td class="r">0.16%</td><td class="r">3</td><td>Gold</td><td class="w">20-Jun-12</td><td class="w">-</td></tr>
+              <tr class="benchmark-row"><td>S&amp;P/ASX 200 A-REIT Accumulation</td><td class="apir">XPJAI.ASX</td><td class="r">2.97%</td><td class="r">-0.73%</td><td class="r">-4.96%</td><td class="r">-2.15%</td><td class="r">10.92%</td><td class="r">6.45%</td><td class="r">5.92%</td><td class="r">9.52%</td><td class="r">4.62%</td><td class="w">N/A</td><td class="r">-</td><td class="r">-</td><td>-</td><td class="w">N/A</td><td class="w">N/A</td></tr>
+              <tr class="benchmark-row"><td>S&amp;P/ASX 300 A-REIT Accumulation</td><td class="apir">-</td><td class="r">2.90%</td><td class="r">-0.84%</td><td class="r">-4.86%</td><td class="r">-1.82%</td><td class="r">10.75%</td><td class="r">6.49%</td><td class="r">6.16%</td><td class="r">9.66%</td><td class="r">4.64%</td><td class="w">N/A</td><td class="r">-</td><td class="r">-</td><td>-</td><td class="w">-</td><td class="w">-</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="asset-section">
+        <h2 class="asset-title">G-REITs — Index</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Fund</th><th>APIR</th>
+                <th class="numeric">1M</th><th class="numeric">3M</th><th class="numeric">6M</th>
+                <th class="numeric">1Y</th><th class="numeric">3Y</th><th class="numeric">5Y</th>
+                <th class="numeric">10Y</th><th class="numeric">15Y</th><th class="numeric">20Y</th>
+                <th>Inception</th><th class="numeric">IM Fee</th>
+                <th class="numeric">MS Rating</th><th>MS Medallist</th>
+                <th>APL Date</th><th>Checklist</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>CFS Indexed Global Property Securities</td><td class="apir">FSF2891AU</td><td class="r">-0.19%</td><td class="r">-0.51%</td><td class="r">7.23%</td><td class="r">12.23%</td><td class="r">8.85%</td><td class="r">1.23%</td><td class="r">2.87%</td><td class="r">5.76%</td><td class="r">-</td><td class="w">01-Jun-09</td><td class="r">0.33%</td><td class="r">2</td><td>Bronze</td><td class="w">-</td><td class="w">-</td></tr>
+              <tr><td>VanEck FTSE International Property (Hedged) ETF</td><td class="apir">REIT</td><td class="r">-0.16%</td><td class="r">-0.50%</td><td class="r">7.35%</td><td class="r">12.49%</td><td class="r">9.10%</td><td class="r">1.20%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">29-Mar-19</td><td class="r">0.20%</td><td class="r">2</td><td>Bronze</td><td class="w">Watching</td><td class="w">-</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="asset-section">
+        <h2 class="asset-title">G-REITs — Active</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Fund</th><th>APIR</th>
+                <th class="numeric">1M</th><th class="numeric">3M</th><th class="numeric">6M</th>
+                <th class="numeric">1Y</th><th class="numeric">3Y</th><th class="numeric">5Y</th>
+                <th class="numeric">10Y</th><th class="numeric">15Y</th><th class="numeric">20Y</th>
+                <th>Inception</th><th class="numeric">IM Fee</th>
+                <th class="numeric">MS Rating</th><th>MS Medallist</th>
+                <th>APL Date</th><th>Checklist</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Quay Global Real Estate Fund (Hedged)</td><td class="apir">BFL3333AU</td><td class="r">-0.53%</td><td class="r">-2.72%</td><td class="r">2.25%</td><td class="r">1.18%</td><td class="r">6.46%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">01-Feb-22</td><td class="r">0.82%</td><td class="r">1</td><td>Bronze</td><td class="w">-</td><td class="w">28-Mar-25</td></tr>
+              <tr class="benchmark-row"><td>FTSE/EPRA NAREIT Developed Index NR AUD (Hedged)</td><td class="apir">-</td><td class="r">-0.56%</td><td class="r">-2.10%</td><td class="r">6.28%</td><td class="r">12.69%</td><td class="r">9.38%</td><td class="r">1.75%</td><td class="r">3.33%</td><td class="r">5.79%</td><td class="r">4.46%</td><td class="w">-</td><td class="r">-</td><td class="r">-</td><td>-</td><td class="w">-</td><td class="w">-</td></tr>
+              <tr><td>Quay Global Real Estate Fund (Unhedged)</td><td class="apir">BFL0020AU</td><td class="r">-1.04%</td><td class="r">-3.98%</td><td class="r">-5.92%</td><td class="r">-8.91%</td><td class="r">4.74%</td><td class="r">2.59%</td><td class="r">5.08%</td><td class="r">-</td><td class="r">-</td><td class="w">01-Jan-16</td><td class="r">0.82%</td><td class="r">4</td><td>Silver</td><td class="w">14-Nov-19</td><td class="w">28-Mar-25</td></tr>
+              <tr class="benchmark-row"><td>FTSE/EPRA NAREIT Developed Index NR AUD (Unhedged)</td><td class="apir">-</td><td class="r">-0.93%</td><td class="r">-3.03%</td><td class="r">-2.09%</td><td class="r">1.32%</td><td class="r">6.53%</td><td class="r">3.18%</td><td class="r">3.67%</td><td class="r">7.33%</td><td class="r">4.17%</td><td class="w">-</td><td class="r">-</td><td class="r">-</td><td>-</td><td class="w">-</td><td class="w">-</td></tr>
+              <tr class="benchmark-row"><td>FTSE EPRA Nareit Dv ExAUS Rtl TR Hgd AUD</td><td class="apir">-</td><td class="r">-0.09%</td><td class="r">-0.25%</td><td class="r">7.82%</td><td class="r">13.47%</td><td class="r">10.03%</td><td class="r">2.15%</td><td class="r">4.02%</td><td class="r">6.71%</td><td class="r">5.63%</td><td class="w">-</td><td class="r">-</td><td class="r">-</td><td>-</td><td class="w">-</td><td class="w">-</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+        <p style="font-size:0.78rem;color:var(--muted);">Source: Morningstar. Historical returns as at 31 May 2026. Past performance is not a reliable indicator of future performance.</p>
+      </div>
+      <div class="period-panel" id="panel-apr2026">
       <div class="asset-section">
         <h2 class="asset-title">A-REITs — Index</h2>
         <div class="table-wrap">
@@ -82,8 +172,6 @@
           </table>
         </div>
       </div>
-
-      <!-- G-REITs — Index -->
       <div class="asset-section">
         <h2 class="asset-title">G-REITs — Index</h2>
         <div class="table-wrap">
@@ -106,8 +194,6 @@
           </table>
         </div>
       </div>
-
-      <!-- G-REITs — Active -->
       <div class="asset-section">
         <h2 class="asset-title">G-REITs — Active</h2>
         <div class="table-wrap">
@@ -133,11 +219,31 @@
           </table>
         </div>
       </div>
+        <p style="font-size:0.78rem;color:var(--muted);">Source: Morningstar. Historical returns as at 30 April 2026. Past performance is not a reliable indicator of future performance.</p>
+      </div>
 
-      <p style="font-size:0.78rem;color:var(--muted);">Source: Morningstar. Historical returns as at 30 April 2026. Past performance is not a reliable indicator of future performance.</p>
     </main>
     <div id="footer-placeholder"></div>
   </div>
+
   <script src="../assets/js/main.js"></script>
+  <script>
+    (function() {{
+      var META = {{
+        'may2026': {{ asat: '31 May 2026', updated: '10 Jun 2026' }},
+        'apr2026': {{ asat: '30 Apr 2026', updated: '10 May 2026' }}
+      }};
+      function showPeriod(key) {{
+        document.querySelectorAll('.period-panel').forEach(function(p) {{ p.classList.remove('active'); }});
+        var panel = document.getElementById('panel-' + key);
+        if (panel) panel.classList.add('active');
+        document.getElementById('meta-asat').textContent = META[key].asat;
+        document.getElementById('meta-updated').textContent = META[key].updated;
+      }}
+      var sel = document.getElementById('period-select');
+      showPeriod(sel.value);
+      sel.addEventListener('change', function() {{ showPeriod(sel.value); }});
+    }})();
+  </script>
 </body>
 </html>

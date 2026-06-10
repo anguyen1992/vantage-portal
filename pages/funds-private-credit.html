@@ -1,13 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Private Credit — Vantage Wealth Management | Investment Data Portal</title>
-  <meta name="last-updated" content="10 May 2026">
+  <meta name="last-updated" content="10 Jun 2026">
   <meta name="owner"        content="Anthony Nguyen">
   <meta name="source"       content="Morningstar">
-  <meta name="as-at"        content="30 Apr 2026">
+  <meta name="as-at"        content="31 May 2026">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -18,6 +18,15 @@
     .apir { font-size:0.7rem; color:var(--muted); font-family:monospace; }
     td.r { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
     td.w { white-space:nowrap; font-size:0.82rem; }
+    tbody tr.benchmark-row td { color:var(--muted); font-style:italic; }
+    tbody tr.benchmark-row td:first-child { padding-left:1.5rem; font-size:0.8rem; }
+    .period-selector-bar { display:flex; align-items:center; gap:10px; margin-bottom:20px; }
+    .period-selector-bar label { font-size:0.82rem; font-weight:600; color:var(--navy,#1a2e4a); text-transform:uppercase; letter-spacing:0.04em; }
+    .period-selector-bar select { font-size:0.82rem; font-weight:600; color:var(--navy,#1a2e4a); background:#fff; border:1.5px solid var(--gold,#b8952a); border-radius:4px; padding:5px 28px 5px 10px; cursor:pointer; appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23b8952a' d='M1 1l5 5 5-5'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 9px center; background-size:10px 7px; }
+    .period-selector-bar select:focus { outline:none; border-color:var(--navy,#1a2e4a); }
+    .period-panel { display:none; }
+    .period-panel.active { display:block; }
+    
   </style>
 </head>
 <body data-page="funds" data-depth="1">
@@ -39,21 +48,56 @@
     <main>
       <div class="page-header">
         <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/index.html">Overview</a><span class="sep">&#x203A;</span>
-          <a href="./funds.html">Funds</a><span class="sep">&#x203A;</span>
+          <a href="/index.html">Overview</a><span class="sep">›</span>
+          <a href="./funds.html">Funds</a><span class="sep">›</span>
           <span class="current">Private Credit</span>
         </nav>
         <p class="page-eyebrow">Funds</p>
         <h1>Private Credit</h1>
         <div class="page-meta">
-          <span class="meta-item"><strong>As at:</strong> 30 Apr 2026</span>
-          <span class="meta-item"><strong>Last updated:</strong> 10 May 2026</span>
+          <span class="meta-item"><strong>As at:</strong> <span id="meta-asat">—</span></span>
+          <span class="meta-item"><strong>Last updated:</strong> <span id="meta-updated">—</span></span>
           <span class="meta-item"><strong>Owner:</strong> Anthony Nguyen</span>
           <span class="meta-item"><strong>Source:</strong> Morningstar</span>
         </div>
       </div>
 
-      <!-- Private Credit — Active -->
+      <div class="period-selector-bar">
+        <label for="period-select">Period:</label>
+        <select id="period-select">
+          <option value="may2026">31 May 2026</option>
+          <option value="apr2026">30 Apr 2026</option>
+        </select>
+      </div>
+      <div class="period-panel" id="panel-may2026">
+      <div class="asset-section">
+        <h2 class="asset-title">Private Credit — Active</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Fund</th><th>APIR</th>
+                <th class="numeric">1M</th><th class="numeric">3M</th><th class="numeric">6M</th>
+                <th class="numeric">1Y</th><th class="numeric">3Y</th><th class="numeric">5Y</th>
+                <th class="numeric">10Y</th><th class="numeric">15Y</th><th class="numeric">20Y</th>
+                <th>Inception</th><th class="numeric">IM Fee</th>
+                <th class="numeric">MS Rating</th><th>MS Medallist</th>
+                <th>APL Date</th><th>Checklist</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Revolution Wholesale Private Debt Fund II</td><td class="apir">CHN2868AU</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">31-Mar-20</td><td class="r">0.15%</td><td class="r">-</td><td>-</td><td class="w">-</td><td class="w">-</td></tr>
+              <tr><td>Realm Strategy Income Fund (Enduring Units)</td><td class="apir">OMF5868AU</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">21-Feb-20</td><td class="r">0.99%</td><td class="r">-</td><td>-</td><td class="w">-</td><td class="w">-</td></tr>
+              <tr><td>MA Priority Income Fund</td><td class="apir">MAA8010AU</td><td class="r">1.41%</td><td class="r">2.78%</td><td class="r">4.73%</td><td class="r">8.84%</td><td class="r">8.66%</td><td class="r">7.40%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">-</td><td class="r">-</td><td class="r">-</td><td>-</td><td class="w">-</td><td class="w">-</td></tr>
+              <tr><td>Ares Diversified Credit</td><td class="apir">HOW7354AU</td><td class="r">0.77%</td><td class="r">2.05%</td><td class="r">0.33%</td><td class="r">2.36%</td><td class="r">7.88%</td><td class="r">6.33%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">-</td><td class="r">-</td><td class="r">2.41%</td><td>-</td><td class="w">-</td><td class="w">-</td></tr>
+              <tr><td>Keyview Flagship Fund (Realside Capital Flagship Fund)</td><td class="apir">RSM8774AU</td><td class="r">0.99%</td><td class="r">3.01%</td><td class="r">5.81%</td><td class="r">10.40%</td><td class="r">9.93%</td><td class="r">10.99%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">-</td><td class="r">1.75%</td><td class="r">2.74%</td><td>-</td><td class="w">-</td><td class="w">-</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+        <p style="font-size:0.78rem;color:var(--muted);">Source: Morningstar. Historical returns as at 31 May 2026. Past performance is not a reliable indicator of future performance.</p>
+      </div>
+      <div class="period-panel" id="panel-apr2026">
       <div class="asset-section">
         <h2 class="asset-title">Private Credit — Active</h2>
         <div class="table-wrap">
@@ -79,11 +123,31 @@
           </table>
         </div>
       </div>
+        <p style="font-size:0.78rem;color:var(--muted);">Source: Morningstar. Historical returns as at 30 April 2026. Past performance is not a reliable indicator of future performance.</p>
+      </div>
 
-      <p style="font-size:0.78rem;color:var(--muted);">Source: Morningstar. Historical returns as at 30 April 2026. Past performance is not a reliable indicator of future performance.</p>
     </main>
     <div id="footer-placeholder"></div>
   </div>
+
   <script src="../assets/js/main.js"></script>
+  <script>
+    (function() {{
+      var META = {{
+        'may2026': {{ asat: '31 May 2026', updated: '10 Jun 2026' }},
+        'apr2026': {{ asat: '30 Apr 2026', updated: '10 May 2026' }}
+      }};
+      function showPeriod(key) {{
+        document.querySelectorAll('.period-panel').forEach(function(p) {{ p.classList.remove('active'); }});
+        var panel = document.getElementById('panel-' + key);
+        if (panel) panel.classList.add('active');
+        document.getElementById('meta-asat').textContent = META[key].asat;
+        document.getElementById('meta-updated').textContent = META[key].updated;
+      }}
+      var sel = document.getElementById('period-select');
+      showPeriod(sel.value);
+      sel.addEventListener('change', function() {{ showPeriod(sel.value); }});
+    }})();
+  </script>
 </body>
 </html>
