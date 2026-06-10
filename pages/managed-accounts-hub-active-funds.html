@@ -3,26 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="as-at" content="31 May 2026">
-  <meta name="last-updated" content="10 Jun 2026">
-  <meta name="owner" content="Anthony Nguyen">
-  <meta name="source" content="Fund manager data, Lonsec, Morningstar">
   <title>HUB24 Active Fund Performance — Vantage Wealth Management | Investment Data Portal</title>
 
-  <!-- ─── PORTAL STYLESHEET (shared) ─── -->
-  <link rel="stylesheet" href="../assets/css/portal.css">
+  <meta name="last-updated" content="10 Jun 2026">
+  <meta name="owner"        content="Anthony Nguyen">
+  <meta name="source"       content="Fund manager data, Lonsec, Morningstar">
+  <meta name="as-at"        content="31 May 2026">
 
-  <!-- ─── PAGE-SPECIFIC STYLES ─── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+
   <style>
-    /* ── Date selector control ── */
+    /* ── Period selector ── */
     .period-selector-bar {
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
     .period-selector-bar label {
-      font-family: 'Ebrima', 'Segoe UI', sans-serif;
       font-size: 0.82rem;
       font-weight: 600;
       color: var(--navy, #1a2e4a);
@@ -30,14 +31,13 @@
       letter-spacing: 0.04em;
     }
     .period-selector-bar select {
-      font-family: 'Ebrima', 'Segoe UI', sans-serif;
       font-size: 0.82rem;
       font-weight: 600;
       color: var(--navy, #1a2e4a);
       background: #fff;
       border: 1.5px solid var(--gold, #b8952a);
       border-radius: 4px;
-      padding: 4px 28px 4px 10px;
+      padding: 5px 28px 5px 10px;
       cursor: pointer;
       appearance: none;
       -webkit-appearance: none;
@@ -52,63 +52,47 @@
       box-shadow: 0 0 0 2px rgba(26,46,74,0.15);
     }
 
-    /* ── Meta row beneath the selector ── */
-    .meta-row {
-      font-family: 'Ebrima', 'Segoe UI', sans-serif;
-      font-size: 0.78rem;
-      color: #666;
-      margin-bottom: 18px;
-    }
-    .meta-row span {
-      margin-right: 20px;
-    }
-    .meta-row strong {
-      color: var(--navy, #1a2e4a);
-    }
-
-    /* ── Table ── */
-    .performance-table-wrap {
+    /* ── Table wrapper ── */
+    .fund-table-wrap {
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
+      margin-top: 16px;
     }
-    .performance-table {
+    .fund-table {
       width: 100%;
       border-collapse: collapse;
-      font-family: 'Ebrima', 'Segoe UI', sans-serif;
       font-size: 0.80rem;
+      font-family: inherit;
     }
-    .performance-table thead th {
+    .fund-table thead th {
       background: var(--navy, #1a2e4a);
       color: #fff;
       font-weight: 600;
       text-align: right;
-      padding: 8px 10px;
+      padding: 9px 10px;
       white-space: nowrap;
       border-bottom: 2px solid var(--gold, #b8952a);
     }
-    .performance-table thead th:first-child,
-    .performance-table thead th:nth-child(2) {
-      text-align: left;
-    }
-    .performance-table tbody td {
+    .fund-table thead th:first-child,
+    .fund-table thead th:nth-child(2) { text-align: left; }
+
+    .fund-table tbody td {
       padding: 5px 10px;
       border-bottom: 1px solid #e8edf2;
       text-align: right;
       white-space: nowrap;
       vertical-align: middle;
     }
-    .performance-table tbody td:first-child,
-    .performance-table tbody td:nth-child(2) {
-      text-align: left;
-    }
+    .fund-table tbody td:first-child,
+    .fund-table tbody td:nth-child(2) { text-align: left; }
 
     /* Row types */
     tr.row-section td {
       background: var(--navy, #1a2e4a);
       color: var(--gold, #b8952a);
       font-weight: 700;
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
+      font-size: 0.70rem;
+      letter-spacing: 0.09em;
       text-transform: uppercase;
       padding: 7px 10px;
       border: none;
@@ -122,109 +106,103 @@
       background: #f5f7fa;
       color: #555;
       font-style: italic;
-      font-size: 0.78rem;
+      font-size: 0.77rem;
     }
     tr.row-active td {
-      background: #f0f3f8;
+      background: #edf0f6;
       color: #444;
       font-size: 0.77rem;
     }
-    tr.row-active td:nth-child(n+3) {
-      font-weight: 600;
-    }
+    tr.row-active td:nth-child(n+3) { font-weight: 600; }
 
-    /* Positive / negative colouring on return cells */
+    /* Value colours */
     .val-pos { color: #1a7a4a; }
     .val-neg { color: #c0392b; }
-    .val-na  { color: #aaa; }
+    .val-na  { color: #bbb; }
 
-    /* Weight badge */
-    td.weight-cell {
-      font-weight: 700;
-      color: var(--navy, #1a2e4a);
-    }
+    /* Weight cell */
+    td.weight-cell { font-weight: 700; color: var(--navy, #1a2e4a); }
 
-    /* APIR code */
+    /* APIR label */
     .apir-code {
-      font-size: 0.70rem;
-      color: #888;
+      font-size: 0.68rem;
+      color: #999;
       font-weight: 400;
       display: block;
-      margin-top: 1px;
     }
 
-    /* Source footnote */
+    /* Source note */
     .source-note {
-      font-family: 'Ebrima', 'Segoe UI', sans-serif;
       font-size: 0.73rem;
-      color: #888;
+      color: #999;
       margin-top: 14px;
       font-style: italic;
     }
 
-    /* Fade-in on period switch */
-    @keyframes tableFadeIn {
-      from { opacity: 0; transform: translateY(4px); }
+    /* Fade on switch */
+    @keyframes tblFade {
+      from { opacity: 0; transform: translateY(3px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    .table-fade {
-      animation: tableFadeIn 0.25s ease;
-    }
+    .tbl-fade { animation: tblFade 0.2s ease; }
   </style>
 </head>
-<body>
 
-  <!-- ─── PASSWORD GATE (shared component) ─── -->
-  <div id="password-overlay" class="password-overlay">
-    <div class="password-box">
-      <div class="password-logo">
-        <span class="logo-v">VANTAGE</span>
-        <span class="logo-sub">Wealth Management</span>
-      </div>
-      <h2 class="portal-title">Investment Data Portal</h2>
-      <p class="portal-desc">This portal contains confidential investment research and performance data.<br>Please enter your access password to continue.</p>
-      <input type="password" id="portal-password" placeholder="Password" autocomplete="current-password">
-      <button id="portal-enter-btn">Enter Portal</button>
-      <p id="portal-error" class="portal-error" style="display:none;">Incorrect password. Please try again.</p>
+<body data-page="managed-accounts-hub-active-funds" data-depth="1">
+
+  <!-- ===== PASSWORD GATE ===== -->
+  <div id="gate">
+    <div class="gate-inner">
+      <div class="gate-mark">VANTAGE</div>
+      <div class="gate-sub">Wealth Management</div>
+      <h1>Investment Data Portal</h1>
+      <p>This portal contains confidential investment research and performance data.<br>
+         Please enter your access password to continue.</p>
+      <input type="password" id="pwd-input" placeholder="Access password" autocomplete="off" autofocus>
+      <button id="pwd-btn">Enter Portal</button>
+      <div class="gate-error" id="pwd-error" role="alert"></div>
     </div>
   </div>
 
-  <!-- ─── MAIN CONTENT ─── -->
-  <div id="portal-content" class="portal-content" style="display:none;">
+  <!-- ===== MAIN APP ===== -->
+  <div id="app" class="hidden">
 
-    <!-- Nav -->
-    <nav class="breadcrumb">
-      <a href="../index.html">Overview</a>
-      <span>›</span>
-      <a href="managed-accounts-hub.html">HUB24 Managed Accounts</a>
-      <span>›</span>
-      <span>Active Fund Performance</span>
-    </nav>
+    <div id="nav-placeholder"></div>
 
-    <div class="page-section">
-      <div class="section-header">
-        <h2 class="section-label">HUB24 Managed Accounts</h2>
-        <h1 class="page-title">Active Fund Performance</h1>
+    <main>
+
+      <!-- Page header -->
+      <div class="page-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/vantage-portal/">Overview</a>
+          <span class="sep">›</span>
+          <a href="managed-accounts-hub.html">HUB24 Managed Accounts</a>
+          <span class="sep">›</span>
+          <span class="current">Active Fund Performance</span>
+        </nav>
+        <p class="page-eyebrow">HUB24 Managed Accounts</p>
+        <h1>Active Fund Performance</h1>
+        <div class="page-meta">
+          <span class="meta-item"><strong>As at:</strong> <span id="meta-asat">—</span></span>
+          <span class="meta-item"><strong>Last updated:</strong> <span id="meta-updated">—</span></span>
+          <span class="meta-item"><strong>Owner:</strong> Anthony Nguyen</span>
+          <span class="meta-item"><strong>Source:</strong> Fund manager data, Lonsec, Morningstar</span>
+        </div>
       </div>
 
-      <!-- ── Period selector ── -->
+      <!-- Period selector -->
       <div class="period-selector-bar">
-        <label for="period-select">As at:</label>
+        <label for="period-select">Period:</label>
         <select id="period-select" aria-label="Select reporting period"></select>
       </div>
-      <div class="meta-row" id="meta-row">
-        <span><strong>Last updated:</strong> <span id="meta-updated">—</span></span>
-        <span><strong>Owner:</strong> Anthony Nguyen</span>
-        <span><strong>Source:</strong> Fund manager data, Lonsec, Morningstar</span>
-      </div>
 
-      <!-- ── Table ── -->
-      <div class="performance-table-wrap">
-        <table class="performance-table" id="perf-table">
+      <!-- Table -->
+      <div class="fund-table-wrap">
+        <table class="fund-table" id="fund-table">
           <thead>
             <tr>
-              <th style="width:44px;">APIR</th>
-              <th style="min-width:260px;">Fund Name</th>
+              <th style="width:80px;">APIR</th>
+              <th style="min-width:270px;">Fund Name</th>
               <th>1 Mth</th>
               <th>3 Mths</th>
               <th>6 Mths</th>
@@ -236,18 +214,21 @@
               <th>Weight</th>
             </tr>
           </thead>
-          <tbody id="perf-tbody"></tbody>
+          <tbody id="fund-tbody"></tbody>
         </table>
       </div>
 
       <p class="source-note" id="source-note">
         Source: Fund manager data, Lonsec, Morningstar. Past performance is not a reliable indicator of future performance.
       </p>
-    </div>
 
-  </div><!-- /portal-content -->
+    </main>
 
-  <!-- ─── FUND DATA (inlined) ─── -->
+    <div id="footer-placeholder"></div>
+
+  </div><!-- /#app -->
+
+  <!-- ===== FUND DATA (inlined) ===== -->
   <script>
 /**
  * HUB24 Active Fund Performance Data
@@ -530,30 +511,24 @@ const FUND_DATA = {
   ───────────────────────────────────────────── */
 
 };
-
   </script>
 
-  <!-- ─── PORTAL AUTH (shared) ─── -->
-  <script src="../assets/js/portal-auth.js"></script>
-
-  <!-- ─── TABLE RENDERING ─── -->
+  <!-- ===== TABLE RENDERING ===== -->
   <script>
     (function () {
-      /* ── Helpers ─────────────────────────────── */
       function pct(val) {
-        if (!val || val === '-' || val === 'N/A') return '<span class="val-na">N/A</span>';
-        const n = parseFloat(val);
+        if (!val || val === '-' || val === 'N/A') return '<span class="val-na">—</span>';
+        var n = parseFloat(val);
         if (isNaN(n)) return val;
-        const cls = n > 0 ? 'val-pos' : n < 0 ? 'val-neg' : '';
-        return cls ? `<span class="${cls}">${val}</span>` : val;
+        var cls = n > 0 ? 'val-pos' : n < 0 ? 'val-neg' : '';
+        return cls ? '<span class="' + cls + '">' + val + '</span>' : val;
       }
 
       function buildOptions() {
-        const sel = document.getElementById('period-select');
-        // Sort descending (most recent first)
-        const keys = Object.keys(FUND_DATA).sort().reverse();
-        keys.forEach(k => {
-          const opt = document.createElement('option');
+        var sel = document.getElementById('period-select');
+        var keys = Object.keys(FUND_DATA).sort().reverse();
+        keys.forEach(function(k) {
+          var opt = document.createElement('option');
           opt.value = k;
           opt.textContent = FUND_DATA[k].label;
           sel.appendChild(opt);
@@ -561,82 +536,85 @@ const FUND_DATA = {
       }
 
       function renderTable(periodKey) {
-        const period  = FUND_DATA[periodKey];
+        var period = FUND_DATA[periodKey];
         if (!period) return;
 
-        // Update meta
+        document.getElementById('meta-asat').textContent    = period.asAt;
         document.getElementById('meta-updated').textContent = period.lastUpdated;
-        document.getElementById('source-note').textContent =
-          `Source: Fund manager data, Lonsec, Morningstar. Historical returns as at ${period.asAt}. Past performance is not a reliable indicator of future performance.`;
+        document.getElementById('source-note').textContent  =
+          'Source: Fund manager data, Lonsec, Morningstar. Historical returns as at ' +
+          period.asAt + '. Past performance is not a reliable indicator of future performance.';
 
-        const tbody = document.getElementById('perf-tbody');
+        var tbody = document.getElementById('fund-tbody');
         tbody.innerHTML = '';
 
-        period.rows.forEach(row => {
-          const tr = document.createElement('tr');
+        period.rows.forEach(function(row) {
+          var tr = document.createElement('tr');
 
           if (row.type === 'section') {
             tr.className = 'row-section';
-            tr.innerHTML = `<td colspan="11">${row.name}</td>`;
+            tr.innerHTML = '<td colspan="11">' + row.name + '</td>';
             tbody.appendChild(tr);
             return;
           }
 
-          tr.className = `row-${row.type}`;
-          const apirHtml = row.apir
-            ? `<span class="apir-code">${row.apir}</span>`
-            : '';
+          tr.className = 'row-' + row.type;
 
-          const incHtml   = (row.type === 'benchmark') ? '-' : (row.inc && row.inc !== '-' ? pct(row.inc) : '-');
-          const weightHtml = (row.type === 'fund' && row.weight && row.weight !== '-')
-            ? `<td class="weight-cell">${row.weight}</td>`
-            : `<td style="color:#aaa;">-</td>`;
+          var apirHtml   = row.apir ? '<span class="apir-code">' + row.apir + '</span>' : '';
+          var incHtml    = (row.type === 'benchmark') ? '—' : (row.inc && row.inc !== '-' ? pct(row.inc) : '—');
+          var weightHtml = (row.type === 'fund' && row.weight && row.weight !== '-')
+            ? '<td class="weight-cell">' + row.weight + '</td>'
+            : '<td style="color:#ccc;">—</td>';
 
-          tr.innerHTML = `
-            <td>${apirHtml}</td>
-            <td>${row.name}</td>
-            <td>${pct(row.m1)}</td>
-            <td>${pct(row.m3)}</td>
-            <td>${pct(row.m6)}</td>
-            <td>${pct(row.y1)}</td>
-            <td>${pct(row.y3)}</td>
-            <td>${pct(row.y5)}</td>
-            <td>${pct(row.y10)}</td>
-            <td>${incHtml}</td>
-            ${weightHtml}
-          `;
+          tr.innerHTML =
+            '<td>' + apirHtml + '</td>' +
+            '<td>' + row.name + '</td>' +
+            '<td>' + pct(row.m1)  + '</td>' +
+            '<td>' + pct(row.m3)  + '</td>' +
+            '<td>' + pct(row.m6)  + '</td>' +
+            '<td>' + pct(row.y1)  + '</td>' +
+            '<td>' + pct(row.y3)  + '</td>' +
+            '<td>' + pct(row.y5)  + '</td>' +
+            '<td>' + pct(row.y10) + '</td>' +
+            '<td>' + incHtml      + '</td>' +
+            weightHtml;
+
           tbody.appendChild(tr);
         });
 
         // Fade animation
-        const tbl = document.getElementById('perf-table');
-        tbl.classList.remove('table-fade');
-        void tbl.offsetWidth; // reflow
-        tbl.classList.add('table-fade');
+        var tbl = document.getElementById('fund-table');
+        tbl.classList.remove('tbl-fade');
+        void tbl.offsetWidth;
+        tbl.classList.add('tbl-fade');
       }
 
-      /* ── Init ─────────────────────────────────── */
       function init() {
-        if (typeof FUND_DATA === 'undefined') {
-          console.error('FUND_DATA not loaded — check data file path');
-          return;
-        }
         buildOptions();
-        const sel = document.getElementById('period-select');
+        var sel = document.getElementById('period-select');
         renderTable(sel.value);
-        sel.addEventListener('change', () => renderTable(sel.value));
+        sel.addEventListener('change', function() { renderTable(sel.value); });
       }
 
-      // Wait for portal auth to reveal content, then init
-      // portal-auth.js sets display:block on #portal-content;
-      // we observe that or fall back to DOMContentLoaded
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
+      // main.js unlocks #app — we wait for it then init
+      // Use MutationObserver to detect when 'hidden' class is removed from #app
+      var app = document.getElementById('app');
+      if (app && app.classList.contains('hidden')) {
+        var observer = new MutationObserver(function(mutations) {
+          mutations.forEach(function(m) {
+            if (!app.classList.contains('hidden')) {
+              observer.disconnect();
+              init();
+            }
+          });
+        });
+        observer.observe(app, { attributes: true, attributeFilter: ['class'] });
       } else {
         init();
       }
     })();
   </script>
 
+  <script src="../assets/js/main.js"></script>
 </body>
 </html>
