@@ -116,9 +116,9 @@
     tr.row-active td:nth-child(n+3) { font-weight: 600; }
 
     /* Value colours */
-    .val-pos { color: #1a7a4a; }
-    .val-neg { color: #c0392b; }
-    .val-na  { color: #bbb; }
+
+
+
 
     /* Weight cell */
     td.weight-cell { font-weight: 700; color: var(--navy, #1a2e4a); }
@@ -517,11 +517,11 @@ const FUND_DATA = {
   <script>
     (function () {
       function pct(val) {
-        if (!val || val === '-' || val === 'N/A') return '<span class="val-na">—</span>';
+        if (!val || val === '-' || val === 'N/A') return '—';
         var n = parseFloat(val);
         if (isNaN(n)) return val;
-        var cls = n > 0 ? 'val-pos' : n < 0 ? 'val-neg' : '';
-        return cls ? '<span class="' + cls + '">' + val + '</span>' : val;
+
+        return val;
       }
 
       function buildOptions() {
