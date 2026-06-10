@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Benchmark Data — Vantage Wealth Management | Investment Data Portal</title>
 
-  <meta name="last-updated" content="10 May 2026">
+  <meta name="last-updated" content="10 Jun 2026">
   <meta name="owner"        content="Anthony Nguyen">
   <meta name="source"       content="Morgan Stanley">
-  <meta name="as-at"        content="30 Apr 2026">
+  <meta name="as-at"        content="31 May 2026">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,6 +33,41 @@
       color: var(--muted);
       line-height: 1.7;
       margin-top: 0.5rem;
+    }
+
+    /* Date switcher */
+    .date-switcher-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+      flex-wrap: wrap;
+    }
+    .date-switcher-bar label {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .date-switcher-bar select {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--navy);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 0.35rem 2rem 0.35rem 0.65rem;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.55rem center;
+      cursor: pointer;
+    }
+    .date-switcher-bar select:focus {
+      outline: none;
+      border-color: var(--navy);
     }
   </style>
 </head>
@@ -70,8 +105,8 @@
         <p class="page-eyebrow">Benchmarks</p>
         <h1>Benchmark Data</h1>
         <div class="page-meta">
-          <span class="meta-item"><strong>As at:</strong> 30 Apr 2026</span>
-          <span class="meta-item"><strong>Last updated:</strong> 10 May 2026</span>
+          <span class="meta-item"><strong>As at:</strong> <span id="meta-as-at">31 May 2026</span></span>
+          <span class="meta-item"><strong>Last updated:</strong> 10 Jun 2026</span>
           <span class="meta-item"><strong>Owner:</strong> Anthony Nguyen</span>
           <span class="meta-item"><strong>Source:</strong> Morgan Stanley</span>
         </div>
@@ -79,11 +114,20 @@
 
       <!-- ===== CONTENT AREA ===== -->
 
+      <!-- Date switcher -->
+      <div class="date-switcher-bar">
+        <label for="period-select">Viewing data as at:</label>
+        <select id="period-select" onchange="switchPeriod(this.value)">
+          <option value="may2026">31 May 2026</option>
+          <option value="apr2026">30 Apr 2026</option>
+        </select>
+      </div>
+
       <!-- Australian Equities -->
       <div class="bm-section">
         <h2 class="bm-title">Australian Equities</h2>
         <div class="table-wrap">
-          <table>
+          <table id="tbl-aus-eq">
             <thead>
               <tr>
                 <th>Index / Benchmark</th>
@@ -98,164 +142,7 @@
                 <th class="numeric">10 Yrs (p.a.)</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>S&amp;P/ASX 200 Accumulation Index</td>
-                <td class="numeric pos">2.2%</td>
-                <td class="numeric neg">-1.2%</td>
-                <td class="numeric neg">-0.9%</td>
-                <td class="numeric pos">4.2%</td>
-                <td class="numeric pos">0.5%</td>
-                <td class="numeric pos">10.1%</td>
-                <td class="numeric pos">9.7%</td>
-                <td class="numeric pos">8.4%</td>
-                <td class="numeric pos">9.3%</td>
-              </tr>
-              <tr>
-                <td>ASX 200 Materials (price return)</td>
-                <td class="numeric pos">4.3%</td>
-                <td class="numeric neg">-2.4%</td>
-                <td class="numeric pos">15.6%</td>
-                <td class="numeric pos">43.1%</td>
-                <td class="numeric pos">6.9%</td>
-                <td class="numeric pos">41.1%</td>
-                <td class="numeric pos">8.0%</td>
-                <td class="numeric pos">6.1%</td>
-                <td class="numeric pos">10.6%</td>
-              </tr>
-              <tr>
-                <td>ASX 200 Energy (price return)</td>
-                <td class="numeric neg">-2.7%</td>
-                <td class="numeric pos">18.7%</td>
-                <td class="numeric pos">28.1%</td>
-                <td class="numeric pos">27.5%</td>
-                <td class="numeric pos">31.3%</td>
-                <td class="numeric pos">51.0%</td>
-                <td class="numeric pos">1.4%</td>
-                <td class="numeric pos">7.0%</td>
-                <td class="numeric pos">2.8%</td>
-              </tr>
-              <tr>
-                <td>ASX 200 Industrials (price return)</td>
-                <td class="numeric pos">1.6%</td>
-                <td class="numeric neg">-4.8%</td>
-                <td class="numeric neg">-6.8%</td>
-                <td class="numeric neg">-3.9%</td>
-                <td class="numeric neg">-5.1%</td>
-                <td class="numeric pos">0.7%</td>
-                <td class="numeric pos">5.1%</td>
-                <td class="numeric pos">5.5%</td>
-                <td class="numeric pos">4.5%</td>
-              </tr>
-              <tr>
-                <td>ASX 200 Financials (price return)</td>
-                <td class="numeric pos">2.9%</td>
-                <td class="numeric pos">4.2%</td>
-                <td class="numeric neg">-1.6%</td>
-                <td class="numeric pos">0.3%</td>
-                <td class="numeric pos">2.7%</td>
-                <td class="numeric pos">8.7%</td>
-                <td class="numeric pos">14.7%</td>
-                <td class="numeric pos">8.9%</td>
-                <td class="numeric pos">5.0%</td>
-              </tr>
-              <tr>
-                <td>ASX 200 Info Technology (price return)</td>
-                <td class="numeric pos">13.3%</td>
-                <td class="numeric neg">-10.1%</td>
-                <td class="numeric neg">-34.3%</td>
-                <td class="numeric neg">-39.2%</td>
-                <td class="numeric neg">-18.5%</td>
-                <td class="numeric neg">-26.7%</td>
-                <td class="numeric pos">3.6%</td>
-                <td class="numeric neg">-3.7%</td>
-                <td class="numeric pos">8.5%</td>
-              </tr>
-              <tr>
-                <td>ASX 200 Cons Disc (price return)</td>
-                <td class="numeric pos">1.2%</td>
-                <td class="numeric neg">-13.9%</td>
-                <td class="numeric neg">-19.0%</td>
-                <td class="numeric neg">-17.8%</td>
-                <td class="numeric neg">-14.4%</td>
-                <td class="numeric neg">-14.8%</td>
-                <td class="numeric pos">3.4%</td>
-                <td class="numeric pos">1.2%</td>
-                <td class="numeric pos">5.7%</td>
-              </tr>
-              <tr>
-                <td>ASX 200 Consumer Staples (price return)</td>
-                <td class="numeric neg">-4.1%</td>
-                <td class="numeric pos">2.0%</td>
-                <td class="numeric pos">2.3%</td>
-                <td class="numeric neg">-0.7%</td>
-                <td class="numeric pos">3.7%</td>
-                <td class="numeric neg">-1.9%</td>
-                <td class="numeric neg">-3.9%</td>
-                <td class="numeric neg">-0.3%</td>
-                <td class="numeric pos">3.4%</td>
-              </tr>
-              <tr>
-                <td>ASX 200 A-REITs (price return)</td>
-                <td class="numeric pos">8.6%</td>
-                <td class="numeric neg">-7.5%</td>
-                <td class="numeric neg">-12.6%</td>
-                <td class="numeric neg">-8.6%</td>
-                <td class="numeric neg">-10.0%</td>
-                <td class="numeric neg">-3.4%</td>
-                <td class="numeric pos">5.3%</td>
-                <td class="numeric pos">2.2%</td>
-                <td class="numeric pos">1.6%</td>
-              </tr>
-              <tr>
-                <td>ASX 200 Healthcare (price return)</td>
-                <td class="numeric neg">-8.7%</td>
-                <td class="numeric neg">-26.5%</td>
-                <td class="numeric neg">-28.9%</td>
-                <td class="numeric neg">-39.1%</td>
-                <td class="numeric neg">-24.9%</td>
-                <td class="numeric neg">-38.8%</td>
-                <td class="numeric neg">-16.9%</td>
-                <td class="numeric neg">-9.6%</td>
-                <td class="numeric pos">2.4%</td>
-              </tr>
-              <tr>
-                <td>ASX 200 Telecoms (price return)</td>
-                <td class="numeric pos">1.8%</td>
-                <td class="numeric pos">0.7%</td>
-                <td class="numeric neg">-6.3%</td>
-                <td class="numeric neg">-7.0%</td>
-                <td class="numeric neg">-1.1%</td>
-                <td class="numeric neg">-0.4%</td>
-                <td class="numeric pos">3.1%</td>
-                <td class="numeric pos">4.3%</td>
-                <td class="numeric neg">-1.3%</td>
-              </tr>
-              <tr>
-                <td>ASX 200 Utilities (price return)</td>
-                <td class="numeric neg">-0.3%</td>
-                <td class="numeric pos">7.4%</td>
-                <td class="numeric pos">3.8%</td>
-                <td class="numeric pos">14.2%</td>
-                <td class="numeric pos">8.1%</td>
-                <td class="numeric pos">13.1%</td>
-                <td class="numeric pos">7.2%</td>
-                <td class="numeric pos">11.1%</td>
-                <td class="numeric pos">4.0%</td>
-              </tr>
-              <tr>
-                <td>S&amp;P Australian Small Cap Accumulation Index</td>
-                <td class="numeric pos">3.3%</td>
-                <td class="numeric neg">-10.4%</td>
-                <td class="numeric neg">-8.0%</td>
-                <td class="numeric pos">8.1%</td>
-                <td class="numeric neg">-7.9%</td>
-                <td class="numeric pos">15.3%</td>
-                <td class="numeric pos">8.7%</td>
-                <td class="numeric pos">3.7%</td>
-                <td class="numeric pos">7.3%</td>
-              </tr>
-            </tbody>
+            <tbody></tbody>
           </table>
         </div>
       </div>
@@ -264,7 +151,7 @@
       <div class="bm-section">
         <h2 class="bm-title">International Equities (AUD)</h2>
         <div class="table-wrap">
-          <table>
+          <table id="tbl-intl-aud">
             <thead>
               <tr>
                 <th>Index / Benchmark</th>
@@ -279,68 +166,7 @@
                 <th class="numeric">10 Yrs (p.a.)</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>MSCI All Countries World Index (Net)</td>
-                <td class="numeric pos">5.7%</td>
-                <td class="numeric pos">0.5%</td>
-                <td class="numeric neg">-2.0%</td>
-                <td class="numeric pos">8.6%</td>
-                <td class="numeric neg">-1.0%</td>
-                <td class="numeric pos">16.8%</td>
-                <td class="numeric pos">16.7%</td>
-                <td class="numeric pos">12.3%</td>
-                <td class="numeric pos">13.0%</td>
-              </tr>
-              <tr>
-                <td>MSCI World x Aus Index (Net)</td>
-                <td class="numeric pos">4.4%</td>
-                <td class="numeric pos">0.7%</td>
-                <td class="numeric neg">-2.8%</td>
-                <td class="numeric pos">6.6%</td>
-                <td class="numeric neg">-2.1%</td>
-                <td class="numeric pos">15.1%</td>
-                <td class="numeric pos">16.5%</td>
-                <td class="numeric pos">13.0%</td>
-                <td class="numeric pos">13.4%</td>
-              </tr>
-              <tr>
-                <td>MSCI World x Aus Index (Net, Hedged)</td>
-                <td class="numeric pos">8.6%</td>
-                <td class="numeric pos">3.2%</td>
-                <td class="numeric pos">5.9%</td>
-                <td class="numeric pos">16.9%</td>
-                <td class="numeric pos">5.0%</td>
-                <td class="numeric pos">28.5%</td>
-                <td class="numeric pos">18.9%</td>
-                <td class="numeric pos">11.0%</td>
-                <td class="numeric pos">12.4%</td>
-              </tr>
-              <tr>
-                <td>MSCI Emerging Markets (Net)</td>
-                <td class="numeric pos">10.0%</td>
-                <td class="numeric pos">2.1%</td>
-                <td class="numeric pos">4.8%</td>
-                <td class="numeric pos">21.5%</td>
-                <td class="numeric pos">6.4%</td>
-                <td class="numeric pos">30.6%</td>
-                <td class="numeric pos">17.4%</td>
-                <td class="numeric pos">7.6%</td>
-                <td class="numeric pos">9.9%</td>
-              </tr>
-              <tr>
-                <td>MSCI Asia x Japan (Net)</td>
-                <td class="numeric pos">11.5%</td>
-                <td class="numeric pos">3.1%</td>
-                <td class="numeric pos">4.4%</td>
-                <td class="numeric pos">21.5%</td>
-                <td class="numeric pos">6.8%</td>
-                <td class="numeric pos">32.0%</td>
-                <td class="numeric pos">17.6%</td>
-                <td class="numeric pos">7.1%</td>
-                <td class="numeric pos">10.6%</td>
-              </tr>
-            </tbody>
+            <tbody></tbody>
           </table>
         </div>
       </div>
@@ -349,7 +175,7 @@
       <div class="bm-section">
         <h2 class="bm-title">Developed Market Equities (AUD)</h2>
         <div class="table-wrap">
-          <table>
+          <table id="tbl-dev-aud">
             <thead>
               <tr>
                 <th>Index / Benchmark</th>
@@ -364,101 +190,16 @@
                 <th class="numeric">10 Yrs (p.a.)</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>US — S&amp;P 500</td>
-                <td class="numeric pos">5.9%</td>
-                <td class="numeric pos">1.1%</td>
-                <td class="numeric neg">-3.5%</td>
-                <td class="numeric pos">7.4%</td>
-                <td class="numeric neg">-1.8%</td>
-                <td class="numeric pos">16.7%</td>
-                <td class="numeric pos">18.4%</td>
-                <td class="numeric pos">14.8%</td>
-                <td class="numeric pos">15.9%</td>
-              </tr>
-              <tr>
-                <td>Japan — Nikkei 225</td>
-                <td class="numeric pos">13.0%</td>
-                <td class="numeric pos">7.2%</td>
-                <td class="numeric pos">2.2%</td>
-                <td class="numeric pos">25.4%</td>
-                <td class="numeric pos">10.6%</td>
-                <td class="numeric pos">35.8%</td>
-                <td class="numeric pos">20.2%</td>
-                <td class="numeric pos">11.2%</td>
-                <td class="numeric pos">12.3%</td>
-              </tr>
-              <tr>
-                <td>Europe — STOXX 50</td>
-                <td class="numeric pos">3.5%</td>
-                <td class="numeric neg">-4.4%</td>
-                <td class="numeric neg">-2.8%</td>
-                <td class="numeric pos">2.6%</td>
-                <td class="numeric neg">-4.9%</td>
-                <td class="numeric pos">7.4%</td>
-                <td class="numeric pos">12.4%</td>
-                <td class="numeric pos">11.8%</td>
-                <td class="numeric pos">10.4%</td>
-              </tr>
-              <tr>
-                <td>Europe — STOXX 600</td>
-                <td class="numeric pos">2.1%</td>
-                <td class="numeric neg">-4.1%</td>
-                <td class="numeric neg">-1.0%</td>
-                <td class="numeric pos">3.0%</td>
-                <td class="numeric neg">-4.2%</td>
-                <td class="numeric pos">6.6%</td>
-                <td class="numeric pos">8.7%</td>
-                <td class="numeric pos">7.9%</td>
-                <td class="numeric pos">6.9%</td>
-              </tr>
-              <tr>
-                <td>Germany — DAX (price return)</td>
-                <td class="numeric pos">4.3%</td>
-                <td class="numeric neg">-5.1%</td>
-                <td class="numeric neg">-6.1%</td>
-                <td class="numeric neg">-7.3%</td>
-                <td class="numeric neg">-7.7%</td>
-                <td class="numeric neg">-0.7%</td>
-                <td class="numeric pos">14.3%</td>
-                <td class="numeric pos">10.9%</td>
-                <td class="numeric pos">10.1%</td>
-              </tr>
-              <tr>
-                <td>UK — FTSE 100</td>
-                <td class="numeric pos">0.7%</td>
-                <td class="numeric neg">-1.2%</td>
-                <td class="numeric pos">2.2%</td>
-                <td class="numeric pos">10.1%</td>
-                <td class="numeric neg">-0.8%</td>
-                <td class="numeric pos">14.4%</td>
-                <td class="numeric pos">13.5%</td>
-                <td class="numeric pos">13.5%</td>
-                <td class="numeric pos">9.1%</td>
-              </tr>
-              <tr>
-                <td>Hong Kong — Hang Seng</td>
-                <td class="numeric neg">-0.2%</td>
-                <td class="numeric neg">-8.6%</td>
-                <td class="numeric neg">-9.5%</td>
-                <td class="numeric neg">-0.2%</td>
-                <td class="numeric neg">-6.8%</td>
-                <td class="numeric pos">5.7%</td>
-                <td class="numeric pos">10.2%</td>
-                <td class="numeric pos">2.5%</td>
-                <td class="numeric pos">6.1%</td>
-              </tr>
-            </tbody>
+            <tbody></tbody>
           </table>
         </div>
       </div>
 
-      <!-- Developed Market Equities (Local) -->
+      <!-- Developed Market Equities (Local Currency) -->
       <div class="bm-section">
         <h2 class="bm-title">Developed Market Equities (Local Currency)</h2>
         <div class="table-wrap">
-          <table>
+          <table id="tbl-dev-local">
             <thead>
               <tr>
                 <th>Index / Benchmark</th>
@@ -473,92 +214,7 @@
                 <th class="numeric">10 Yrs (p.a.)</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>US — S&amp;P 500</td>
-                <td class="numeric pos">10.5%</td>
-                <td class="numeric pos">4.2%</td>
-                <td class="numeric pos">6.0%</td>
-                <td class="numeric pos">17.3%</td>
-                <td class="numeric pos">5.7%</td>
-                <td class="numeric pos">31.1%</td>
-                <td class="numeric pos">21.7%</td>
-                <td class="numeric pos">13.1%</td>
-                <td class="numeric pos">15.3%</td>
-              </tr>
-              <tr>
-                <td>Japan — Nikkei 225</td>
-                <td class="numeric pos">16.1%</td>
-                <td class="numeric pos">12.0%</td>
-                <td class="numeric pos">14.1%</td>
-                <td class="numeric pos">48.8%</td>
-                <td class="numeric pos">18.6%</td>
-                <td class="numeric pos">67.4%</td>
-                <td class="numeric pos">29.5%</td>
-                <td class="numeric pos">17.8%</td>
-                <td class="numeric pos">15.8%</td>
-              </tr>
-              <tr>
-                <td>Europe — STOXX 50</td>
-                <td class="numeric pos">6.2%</td>
-                <td class="numeric neg">-0.3%</td>
-                <td class="numeric pos">5.0%</td>
-                <td class="numeric pos">12.4%</td>
-                <td class="numeric pos">2.4%</td>
-                <td class="numeric pos">16.8%</td>
-                <td class="numeric pos">13.2%</td>
-                <td class="numeric pos">10.8%</td>
-                <td class="numeric pos">9.5%</td>
-              </tr>
-              <tr>
-                <td>Europe — STOXX 600</td>
-                <td class="numeric pos">4.8%</td>
-                <td class="numeric">0.0%</td>
-                <td class="numeric pos">6.9%</td>
-                <td class="numeric pos">12.9%</td>
-                <td class="numeric pos">3.2%</td>
-                <td class="numeric pos">15.9%</td>
-                <td class="numeric pos">9.4%</td>
-                <td class="numeric pos">6.9%</td>
-                <td class="numeric pos">6.0%</td>
-              </tr>
-              <tr>
-                <td>Germany — DAX (price return)</td>
-                <td class="numeric pos">7.1%</td>
-                <td class="numeric neg">-1.0%</td>
-                <td class="numeric pos">1.4%</td>
-                <td class="numeric pos">1.6%</td>
-                <td class="numeric neg">-0.8%</td>
-                <td class="numeric pos">8.0%</td>
-                <td class="numeric pos">15.1%</td>
-                <td class="numeric pos">9.9%</td>
-                <td class="numeric pos">9.2%</td>
-              </tr>
-              <tr>
-                <td>UK — FTSE 100</td>
-                <td class="numeric pos">2.3%</td>
-                <td class="numeric pos">2.7%</td>
-                <td class="numeric pos">8.6%</td>
-                <td class="numeric pos">21.6%</td>
-                <td class="numeric pos">5.8%</td>
-                <td class="numeric pos">26.3%</td>
-                <td class="numeric pos">13.7%</td>
-                <td class="numeric pos">12.3%</td>
-                <td class="numeric pos">9.3%</td>
-              </tr>
-              <tr>
-                <td>Hong Kong — Hang Seng</td>
-                <td class="numeric pos">4.1%</td>
-                <td class="numeric neg">-5.5%</td>
-                <td class="numeric pos">0.2%</td>
-                <td class="numeric pos">8.8%</td>
-                <td class="numeric pos">1.0%</td>
-                <td class="numeric pos">19.9%</td>
-                <td class="numeric pos">13.2%</td>
-                <td class="numeric pos">1.2%</td>
-                <td class="numeric pos">5.6%</td>
-              </tr>
-            </tbody>
+            <tbody></tbody>
           </table>
         </div>
       </div>
@@ -567,7 +223,7 @@
       <div class="bm-section">
         <h2 class="bm-title">Morgan Stanley Research Referenced Indices</h2>
         <div class="table-wrap">
-          <table>
+          <table id="tbl-ms-ref">
             <thead>
               <tr>
                 <th>Index / Benchmark</th>
@@ -582,68 +238,7 @@
                 <th class="numeric">10 Yrs (p.a.)</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>S&amp;P 500 (USD) (price return)</td>
-                <td class="numeric pos">10.4%</td>
-                <td class="numeric pos">3.9%</td>
-                <td class="numeric pos">5.4%</td>
-                <td class="numeric pos">16.2%</td>
-                <td class="numeric pos">5.3%</td>
-                <td class="numeric pos">29.4%</td>
-                <td class="numeric pos">20.0%</td>
-                <td class="numeric pos">11.5%</td>
-                <td class="numeric pos">13.3%</td>
-              </tr>
-              <tr>
-                <td>MSCI Europe (Local) (price return)</td>
-                <td class="numeric pos">4.2%</td>
-                <td class="numeric">0.0%</td>
-                <td class="numeric pos">5.9%</td>
-                <td class="numeric pos">12.3%</td>
-                <td class="numeric pos">2.5%</td>
-                <td class="numeric pos">15.4%</td>
-                <td class="numeric pos">8.5%</td>
-                <td class="numeric pos">6.6%</td>
-                <td class="numeric pos">6.1%</td>
-              </tr>
-              <tr>
-                <td>TOPIX (JPY) (price return)</td>
-                <td class="numeric pos">6.6%</td>
-                <td class="numeric pos">4.5%</td>
-                <td class="numeric pos">11.9%</td>
-                <td class="numeric pos">30.6%</td>
-                <td class="numeric pos">9.3%</td>
-                <td class="numeric pos">39.7%</td>
-                <td class="numeric pos">21.9%</td>
-                <td class="numeric pos">14.4%</td>
-                <td class="numeric pos">10.8%</td>
-              </tr>
-              <tr>
-                <td>ASX 200 (AUD) (price return)</td>
-                <td class="numeric pos">2.2%</td>
-                <td class="numeric neg">-2.3%</td>
-                <td class="numeric neg">-2.4%</td>
-                <td class="numeric pos">1.4%</td>
-                <td class="numeric neg">-0.6%</td>
-                <td class="numeric pos">6.6%</td>
-                <td class="numeric pos">5.8%</td>
-                <td class="numeric pos">4.3%</td>
-                <td class="numeric pos">5.1%</td>
-              </tr>
-              <tr>
-                <td>MSCI Emerging Markets (USD) (price return)</td>
-                <td class="numeric pos">14.5%</td>
-                <td class="numeric pos">4.7%</td>
-                <td class="numeric pos">14.2%</td>
-                <td class="numeric pos">30.9%</td>
-                <td class="numeric pos">13.9%</td>
-                <td class="numeric pos">43.8%</td>
-                <td class="numeric pos">17.9%</td>
-                <td class="numeric pos">3.5%</td>
-                <td class="numeric pos">6.7%</td>
-              </tr>
-            </tbody>
+            <tbody></tbody>
           </table>
         </div>
       </div>
@@ -652,7 +247,7 @@
       <div class="bm-section">
         <h2 class="bm-title">Emerging Market Equities (AUD)</h2>
         <div class="table-wrap">
-          <table>
+          <table id="tbl-em-aud">
             <thead>
               <tr>
                 <th>Index / Benchmark</th>
@@ -667,41 +262,16 @@
                 <th class="numeric">10 Yrs (p.a.)</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>China — Shanghai Composite (price return)</td>
-                <td class="numeric pos">2.3%</td>
-                <td class="numeric neg">-1.3%</td>
-                <td class="numeric neg">-1.3%</td>
-                <td class="numeric pos">14.6%</td>
-                <td class="numeric neg">-1.5%</td>
-                <td class="numeric pos">18.9%</td>
-                <td class="numeric pos">4.9%</td>
-                <td class="numeric pos">4.0%</td>
-                <td class="numeric pos">3.5%</td>
-              </tr>
-              <tr>
-                <td>Korea — KOSPI (price return)</td>
-                <td class="numeric pos">28.5%</td>
-                <td class="numeric pos">20.1%</td>
-                <td class="numeric pos">41.5%</td>
-                <td class="numeric pos">80.1%</td>
-                <td class="numeric pos">42.5%</td>
-                <td class="numeric pos">121.7%</td>
-                <td class="numeric pos">30.1%</td>
-                <td class="numeric pos">11.2%</td>
-                <td class="numeric pos">10.5%</td>
-              </tr>
-            </tbody>
+            <tbody></tbody>
           </table>
         </div>
       </div>
 
-      <!-- Emerging Market Equities (Local) -->
+      <!-- Emerging Market Equities (Local Currency) -->
       <div class="bm-section">
         <h2 class="bm-title">Emerging Market Equities (Local Currency)</h2>
         <div class="table-wrap">
-          <table>
+          <table id="tbl-em-local">
             <thead>
               <tr>
                 <th>Index / Benchmark</th>
@@ -716,32 +286,7 @@
                 <th class="numeric">10 Yrs (p.a.)</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>China — Shanghai Composite (price return)</td>
-                <td class="numeric pos">5.7%</td>
-                <td class="numeric neg">-0.1%</td>
-                <td class="numeric pos">4.0%</td>
-                <td class="numeric pos">19.4%</td>
-                <td class="numeric pos">3.6%</td>
-                <td class="numeric pos">25.4%</td>
-                <td class="numeric pos">7.4%</td>
-                <td class="numeric pos">3.6%</td>
-                <td class="numeric pos">3.4%</td>
-              </tr>
-              <tr>
-                <td>Korea — KOSPI (price return)</td>
-                <td class="numeric pos">30.6%</td>
-                <td class="numeric pos">26.3%</td>
-                <td class="numeric pos">60.7%</td>
-                <td class="numeric pos">114.8%</td>
-                <td class="numeric pos">56.6%</td>
-                <td class="numeric pos">158.1%</td>
-                <td class="numeric pos">38.2%</td>
-                <td class="numeric pos">16.0%</td>
-                <td class="numeric pos">12.7%</td>
-              </tr>
-            </tbody>
+            <tbody></tbody>
           </table>
         </div>
       </div>
@@ -750,7 +295,7 @@
       <div class="bm-section">
         <h2 class="bm-title">Listed Property &amp; Infrastructure (AUD)</h2>
         <div class="table-wrap">
-          <table>
+          <table id="tbl-prop">
             <thead>
               <tr>
                 <th>Index / Benchmark</th>
@@ -765,80 +310,7 @@
                 <th class="numeric">10 Yrs (p.a.)</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>ASX 200 A-REITs</td>
-                <td class="numeric pos">8.6%</td>
-                <td class="numeric neg">-7.0%</td>
-                <td class="numeric neg">-11.3%</td>
-                <td class="numeric neg">-6.7%</td>
-                <td class="numeric neg">-9.5%</td>
-                <td class="numeric neg">-0.2%</td>
-                <td class="numeric pos">9.2%</td>
-                <td class="numeric pos">6.2%</td>
-                <td class="numeric pos">5.9%</td>
-              </tr>
-              <tr>
-                <td>FTSE EPRA/NAREIT Developed Markets (Net)</td>
-                <td class="numeric pos">4.0%</td>
-                <td class="numeric pos">2.6%</td>
-                <td class="numeric pos">0.6%</td>
-                <td class="numeric pos">3.7%</td>
-                <td class="numeric pos">1.9%</td>
-                <td class="numeric pos">4.3%</td>
-                <td class="numeric pos">6.1%</td>
-                <td class="numeric pos">3.7%</td>
-                <td class="numeric pos">4.3%</td>
-              </tr>
-              <tr>
-                <td>FTSE EPRA/NAREIT Index (Europe) (Net)</td>
-                <td class="numeric pos">2.3%</td>
-                <td class="numeric neg">-6.6%</td>
-                <td class="numeric neg">-6.2%</td>
-                <td class="numeric neg">-11.1%</td>
-                <td class="numeric neg">-6.8%</td>
-                <td class="numeric neg">-6.5%</td>
-                <td class="numeric pos">5.0%</td>
-                <td class="numeric neg">-2.4%</td>
-                <td class="numeric pos">1.0%</td>
-              </tr>
-              <tr>
-                <td>FTSE EPRA/NAREIT Index (North America) (Net)</td>
-                <td class="numeric pos">4.5%</td>
-                <td class="numeric pos">7.1%</td>
-                <td class="numeric pos">3.2%</td>
-                <td class="numeric pos">6.5%</td>
-                <td class="numeric pos">5.6%</td>
-                <td class="numeric pos">5.0%</td>
-                <td class="numeric pos">7.0%</td>
-                <td class="numeric pos">5.5%</td>
-                <td class="numeric pos">5.4%</td>
-              </tr>
-              <tr>
-                <td>FTSE EPRA/NAREIT Index (Asia) (Net)</td>
-                <td class="numeric pos">3.0%</td>
-                <td class="numeric neg">-4.5%</td>
-                <td class="numeric neg">-3.3%</td>
-                <td class="numeric pos">3.5%</td>
-                <td class="numeric neg">-4.2%</td>
-                <td class="numeric pos">7.3%</td>
-                <td class="numeric pos">3.4%</td>
-                <td class="numeric pos">2.0%</td>
-                <td class="numeric pos">3.1%</td>
-              </tr>
-              <tr>
-                <td>Global Listed Infrastructure — S&amp;P Global Infra (Hedged)</td>
-                <td class="numeric pos">1.5%</td>
-                <td class="numeric pos">6.0%</td>
-                <td class="numeric pos">12.0%</td>
-                <td class="numeric pos">16.8%</td>
-                <td class="numeric pos">10.0%</td>
-                <td class="numeric pos">22.7%</td>
-                <td class="numeric pos">14.0%</td>
-                <td class="numeric pos">11.1%</td>
-                <td class="numeric pos">8.4%</td>
-              </tr>
-            </tbody>
+            <tbody></tbody>
           </table>
         </div>
       </div>
@@ -847,7 +319,7 @@
       <div class="bm-section">
         <h2 class="bm-title">Fixed Income (AUD)</h2>
         <div class="table-wrap">
-          <table>
+          <table id="tbl-fi">
             <thead>
               <tr>
                 <th>Index / Benchmark</th>
@@ -862,128 +334,7 @@
                 <th class="numeric">10 Yrs (p.a.)</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>Bloomberg AusBond Composite Index</td>
-                <td class="numeric pos">0.1%</td>
-                <td class="numeric neg">-0.5%</td>
-                <td class="numeric neg">-1.8%</td>
-                <td class="numeric neg">-1.0%</td>
-                <td class="numeric neg">-0.3%</td>
-                <td class="numeric neg">-0.1%</td>
-                <td class="numeric pos">2.0%</td>
-                <td class="numeric">0.0%</td>
-                <td class="numeric pos">1.8%</td>
-              </tr>
-              <tr>
-                <td>Bloomberg AusBond Government Index</td>
-                <td class="numeric">0.0%</td>
-                <td class="numeric neg">-0.6%</td>
-                <td class="numeric neg">-2.1%</td>
-                <td class="numeric neg">-1.4%</td>
-                <td class="numeric neg">-0.4%</td>
-                <td class="numeric neg">-0.5%</td>
-                <td class="numeric pos">1.6%</td>
-                <td class="numeric neg">-0.3%</td>
-                <td class="numeric pos">1.6%</td>
-              </tr>
-              <tr>
-                <td>Bloomberg AusBond Credit Index</td>
-                <td class="numeric pos">0.2%</td>
-                <td class="numeric neg">-0.3%</td>
-                <td class="numeric neg">-0.7%</td>
-                <td class="numeric pos">0.5%</td>
-                <td class="numeric">0.0%</td>
-                <td class="numeric pos">1.7%</td>
-                <td class="numeric pos">4.2%</td>
-                <td class="numeric pos">1.7%</td>
-                <td class="numeric pos">3.0%</td>
-              </tr>
-              <tr>
-                <td>Bloomberg AusBond Credit Floating Rate Note Index</td>
-                <td class="numeric pos">0.5%</td>
-                <td class="numeric pos">1.0%</td>
-                <td class="numeric pos">2.2%</td>
-                <td class="numeric pos">3.9%</td>
-                <td class="numeric pos">1.5%</td>
-                <td class="numeric pos">5.0%</td>
-                <td class="numeric pos">5.2%</td>
-                <td class="numeric pos">3.7%</td>
-                <td class="numeric pos">3.1%</td>
-              </tr>
-              <tr>
-                <td>Solactive Australian Hybrid Securities (Gross)</td>
-                <td class="numeric pos">0.2%</td>
-                <td class="numeric pos">0.8%</td>
-                <td class="numeric pos">2.4%</td>
-                <td class="numeric pos">5.0%</td>
-                <td class="numeric pos">1.0%</td>
-                <td class="numeric pos">6.3%</td>
-                <td class="numeric pos">7.3%</td>
-                <td class="numeric pos">5.9%</td>
-                <td class="numeric pos">6.4%</td>
-              </tr>
-              <tr>
-                <td>Solactive Australian Hybrid Securities (Net)</td>
-                <td class="numeric pos">0.2%</td>
-                <td class="numeric pos">0.3%</td>
-                <td class="numeric pos">1.5%</td>
-                <td class="numeric pos">3.7%</td>
-                <td class="numeric pos">0.5%</td>
-                <td class="numeric pos">4.4%</td>
-                <td class="numeric pos">5.2%</td>
-                <td class="numeric pos">4.1%</td>
-                <td class="numeric pos">4.8%</td>
-              </tr>
-              <tr>
-                <td>Bloomberg Global Aggregate (Hedged)</td>
-                <td class="numeric pos">0.6%</td>
-                <td class="numeric neg">-0.1%</td>
-                <td class="numeric pos">0.5%</td>
-                <td class="numeric pos">2.7%</td>
-                <td class="numeric pos">0.4%</td>
-                <td class="numeric pos">3.9%</td>
-                <td class="numeric pos">4.3%</td>
-                <td class="numeric pos">0.6%</td>
-                <td class="numeric pos">2.3%</td>
-              </tr>
-              <tr>
-                <td>Bloomberg Global Treasury (Hedged)</td>
-                <td class="numeric pos">0.2%</td>
-                <td class="numeric neg">-0.2%</td>
-                <td class="numeric neg">-0.5%</td>
-                <td class="numeric pos">0.7%</td>
-                <td class="numeric neg">-0.2%</td>
-                <td class="numeric pos">0.9%</td>
-                <td class="numeric pos">2.2%</td>
-                <td class="numeric neg">-0.5%</td>
-                <td class="numeric pos">1.2%</td>
-              </tr>
-              <tr>
-                <td>Bloomberg Global Corporate Credit (Hedged)</td>
-                <td class="numeric pos">0.7%</td>
-                <td class="numeric neg">-0.4%</td>
-                <td class="numeric pos">0.3%</td>
-                <td class="numeric pos">2.9%</td>
-                <td class="numeric">0.0%</td>
-                <td class="numeric pos">4.5%</td>
-                <td class="numeric pos">4.2%</td>
-                <td class="numeric pos">0.1%</td>
-                <td class="numeric pos">2.3%</td>
-              </tr>
-              <tr>
-                <td>Bloomberg Global High Yield</td>
-                <td class="numeric pos">1.6%</td>
-                <td class="numeric pos">0.6%</td>
-                <td class="numeric pos">2.1%</td>
-                <td class="numeric pos">4.5%</td>
-                <td class="numeric pos">1.2%</td>
-                <td class="numeric pos">7.4%</td>
-                <td class="numeric pos">7.9%</td>
-                <td class="numeric pos">4.2%</td>
-                <td class="numeric pos">5.2%</td>
-              </tr>
-            </tbody>
+            <tbody></tbody>
           </table>
         </div>
       </div>
@@ -992,7 +343,7 @@
       <div class="bm-section">
         <h2 class="bm-title">Cash (AUD)</h2>
         <div class="table-wrap">
-          <table>
+          <table id="tbl-cash">
             <thead>
               <tr>
                 <th>Index / Benchmark</th>
@@ -1007,20 +358,7 @@
                 <th class="numeric">10 Yrs (p.a.)</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>Bloomberg AusBond Bank Bill Index</td>
-                <td class="numeric pos">0.3%</td>
-                <td class="numeric pos">0.9%</td>
-                <td class="numeric pos">1.9%</td>
-                <td class="numeric pos">3.1%</td>
-                <td class="numeric pos">1.3%</td>
-                <td class="numeric pos">3.8%</td>
-                <td class="numeric pos">4.2%</td>
-                <td class="numeric pos">3.0%</td>
-                <td class="numeric pos">2.2%</td>
-              </tr>
-            </tbody>
+            <tbody></tbody>
           </table>
         </div>
       </div>
@@ -1029,7 +367,7 @@
       <div class="bm-section">
         <h2 class="bm-title">Commodities (AUD)</h2>
         <div class="table-wrap">
-          <table>
+          <table id="tbl-comm">
             <thead>
               <tr>
                 <th>Index / Benchmark</th>
@@ -1044,68 +382,7 @@
                 <th class="numeric">10 Yrs (p.a.)</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>Commodities — S&amp;P GSCI</td>
-                <td class="numeric pos">2.0%</td>
-                <td class="numeric pos">31.7%</td>
-                <td class="numeric pos">35.1%</td>
-                <td class="numeric pos">43.3%</td>
-                <td class="numeric pos">38.4%</td>
-                <td class="numeric pos">48.0%</td>
-                <td class="numeric pos">17.7%</td>
-                <td class="numeric pos">20.9%</td>
-                <td class="numeric pos">10.2%</td>
-              </tr>
-              <tr>
-                <td>Oil — Brent (US$/barrel)</td>
-                <td class="numeric pos">14.8%</td>
-                <td class="numeric pos">63.4%</td>
-                <td class="numeric pos">73.4%</td>
-                <td class="numeric pos">70.5%</td>
-                <td class="numeric pos">83.3%</td>
-                <td class="numeric pos">80.5%</td>
-                <td class="numeric pos">16.1%</td>
-                <td class="numeric pos">14.1%</td>
-                <td class="numeric muted">N/A</td>
-              </tr>
-              <tr>
-                <td>Gold (US$/ounce)</td>
-                <td class="numeric neg">-1.1%</td>
-                <td class="numeric neg">-5.6%</td>
-                <td class="numeric pos">15.4%</td>
-                <td class="numeric pos">39.8%</td>
-                <td class="numeric pos">6.9%</td>
-                <td class="numeric pos">40.4%</td>
-                <td class="numeric pos">32.4%</td>
-                <td class="numeric pos">21.2%</td>
-                <td class="numeric pos">13.6%</td>
-              </tr>
-              <tr>
-                <td>Iron Ore — Dalian futures (CNY/tonne)</td>
-                <td class="numeric neg">-0.5%</td>
-                <td class="numeric pos">0.8%</td>
-                <td class="numeric neg">-0.5%</td>
-                <td class="numeric pos">12.6%</td>
-                <td class="numeric pos">0.9%</td>
-                <td class="numeric pos">7.0%</td>
-                <td class="numeric neg">-1.4%</td>
-                <td class="numeric neg">-8.0%</td>
-                <td class="numeric pos">4.2%</td>
-              </tr>
-              <tr>
-                <td>Thermal Coal — Newcastle (US$/tonne)</td>
-                <td class="numeric neg">-5.9%</td>
-                <td class="numeric pos">23.0%</td>
-                <td class="numeric pos">28.7%</td>
-                <td class="numeric pos">21.9%</td>
-                <td class="numeric pos">24.7%</td>
-                <td class="numeric pos">37.4%</td>
-                <td class="numeric neg">-10.9%</td>
-                <td class="numeric pos">7.5%</td>
-                <td class="numeric pos">10.2%</td>
-              </tr>
-            </tbody>
+            <tbody></tbody>
           </table>
         </div>
       </div>
@@ -1114,7 +391,7 @@
       <div class="bm-section">
         <h2 class="bm-title">Currencies</h2>
         <div class="table-wrap">
-          <table>
+          <table id="tbl-fx">
             <thead>
               <tr>
                 <th>Pair</th>
@@ -1129,74 +406,13 @@
                 <th class="numeric">10 Yrs (p.a.)</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>AUD/USD</td>
-                <td class="numeric pos">4.4%</td>
-                <td class="numeric pos">3.4%</td>
-                <td class="numeric pos">10.0%</td>
-                <td class="numeric pos">9.4%</td>
-                <td class="numeric pos">7.9%</td>
-                <td class="numeric pos">12.5%</td>
-                <td class="numeric pos">2.9%</td>
-                <td class="numeric neg">-1.4%</td>
-                <td class="numeric neg">-0.5%</td>
-              </tr>
-              <tr>
-                <td>AUD/GBP</td>
-                <td class="numeric pos">1.5%</td>
-                <td class="numeric pos">4.0%</td>
-                <td class="numeric pos">6.4%</td>
-                <td class="numeric pos">10.5%</td>
-                <td class="numeric pos">6.9%</td>
-                <td class="numeric pos">10.2%</td>
-                <td class="numeric pos">0.2%</td>
-                <td class="numeric neg">-1.1%</td>
-                <td class="numeric pos">0.2%</td>
-              </tr>
-              <tr>
-                <td>AUD/EUR</td>
-                <td class="numeric pos">2.8%</td>
-                <td class="numeric pos">4.5%</td>
-                <td class="numeric pos">8.2%</td>
-                <td class="numeric pos">9.9%</td>
-                <td class="numeric pos">8.0%</td>
-                <td class="numeric pos">8.6%</td>
-                <td class="numeric pos">0.7%</td>
-                <td class="numeric neg">-0.9%</td>
-                <td class="numeric neg">-0.8%</td>
-              </tr>
-              <tr>
-                <td>USD/JPY</td>
-                <td class="numeric neg">-1.3%</td>
-                <td class="numeric pos">1.2%</td>
-                <td class="numeric pos">1.7%</td>
-                <td class="numeric pos">8.7%</td>
-                <td class="numeric neg">-0.1%</td>
-                <td class="numeric pos">9.4%</td>
-                <td class="numeric pos">4.7%</td>
-                <td class="numeric pos">7.5%</td>
-                <td class="numeric pos">3.9%</td>
-              </tr>
-              <tr>
-                <td>EUR/USD</td>
-                <td class="numeric pos">1.5%</td>
-                <td class="numeric neg">-1.0%</td>
-                <td class="numeric pos">1.7%</td>
-                <td class="numeric neg">-0.5%</td>
-                <td class="numeric neg">-0.1%</td>
-                <td class="numeric pos">3.6%</td>
-                <td class="numeric pos">2.1%</td>
-                <td class="numeric neg">-0.5%</td>
-                <td class="numeric pos">0.2%</td>
-              </tr>
-            </tbody>
+            <tbody></tbody>
           </table>
         </div>
       </div>
 
       <!-- Notes -->
-      <div class="bm-note">
+      <div class="bm-note" id="bm-note-text">
         All returns in AUD terms unless otherwise stated. Total return unless otherwise stated.
         Net = after deduction of withholding taxes.
         FYTD = from 30 June 2025. CYTD = from 31 December 2025.
@@ -1210,5 +426,247 @@
   </div><!-- /#app -->
 
   <script src="../assets/js/main.js"></script>
+  <script>
+  // ─── DATA STORE ───────────────────────────────────────────────────────────
+  // Each row: [label, 1M, 3M, 6M, FYTD, CYTD, 1Yr, 3Yr, 5Yr, 10Yr]
+  // null = N/A
+
+  const PERIODS = {
+
+    may2026: {
+      label: '31 May 2026',
+      note: 'All returns in AUD terms unless otherwise stated. Total return unless otherwise stated. Net = after deduction of withholding taxes. FYTD = from 30 June 2025. CYTD = from 31 December 2025. Returns calculated using month-end prices. Source: Bloomberg.',
+      tables: {
+        'tbl-aus-eq': [
+          ['S&P/ASX 200 Accumulation Index',           1.1, -4.0,  3.0,  5.4,  1.7,  6.9, 11.0,  8.1,  9.1],
+          ['ASX 200 Materials (price return)',         10.5, -1.0, 25.9, 58.1, 18.1, 53.2, 13.4,  7.9, 12.1],
+          ['ASX 200 Energy (price return)',            -5.9,  8.6, 21.2, 20.0, 23.5, 30.8, -0.7,  6.1,  2.4],
+          ['ASX 200 Industrials (price return)',        2.0, -5.5, -5.1, -1.9, -3.2, -1.6,  6.1,  6.2,  4.4],
+          ['ASX 200 Financials (price return)',        -3.9, -7.7,  2.2, -3.6, -1.2,  0.5, 15.1,  7.1,  4.2],
+          ['ASX 200 Info Technology (price return)',    0.6, -0.5,-25.2,-38.9,-18.1,-38.4,  0.1, -1.6,  7.9],
+          ['ASX 200 Cons Disc (price return)',          4.6, -3.6,-12.9,-14.0,-10.5,-12.7,  7.2,  1.4,  5.6],
+          ['ASX 200 Consumer Staples (price return)',  -1.9, -5.6, -1.1, -2.6,  1.8, -4.8, -3.0, -1.2,  3.3],
+          ['ASX 200 A-REITs (price return)',            3.0, -0.9, -6.4, -5.9, -7.3, -5.2,  7.0,  2.5,  1.6],
+          ['ASX 200 Healthcare (price return)',        -9.2,-23.0,-36.7,-44.7,-31.8,-45.3,-19.6,-11.9,  0.5],
+          ['ASX 200 Telecoms (price return)',          -4.2, -3.7, -8.2,-10.9, -5.2, -9.5,  2.1,  3.0, -2.3],
+          ['ASX 200 Utilities (price return)',         -7.6, -4.7, -2.2,  5.5, -0.2,  4.1,  4.0, 11.0,  2.9],
+          ['S&P Australian Small Cap Accumulation Index', 2.0, -6.1, -4.7, 10.3, -6.0, 11.2, 10.6,  4.0,  7.1],
+        ],
+        'tbl-intl-aud': [
+          ['MSCI All Countries World Index (Net)',  5.1,  6.6,  3.2, 14.1,  4.1, 16.6, 18.2, 13.2, 12.9],
+          ['MSCI World x Aus Index (Net)',          4.5,  6.4,  1.5, 11.4,  2.4, 14.2, 17.8, 13.7, 13.3],
+          ['MSCI World x Aus Index (Net, Hedged)',  4.9,  7.3, 10.7, 22.6, 10.1, 27.2, 20.9, 11.8, 12.7],
+          ['MSCI Emerging Markets (Net)',           9.6,  8.3, 17.9, 33.1, 16.6, 37.9, 20.8,  9.1, 10.7],
+          ['MSCI Asia x Japan (Net)',              11.1, 10.5, 19.7, 35.0, 18.7, 40.0, 21.6,  9.2, 11.4],
+        ],
+        'tbl-dev-aud': [
+          ['US — S&P 500',           5.2,  9.4,  1.5, 12.9,  3.3, 16.0, 19.3, 15.8, 15.7],
+          ['Japan — Nikkei 225',     9.9, 10.1, 19.0, 37.9, 21.5, 43.7, 21.4, 13.4, 12.6],
+          ['Europe — STOXX 50',      3.1, -2.2, -0.5,  5.7, -2.0,  5.9, 14.9, 11.7, 10.3],
+          ['Europe — STOXX 600',     1.8, -3.4, -0.4,  4.9, -2.4,  4.9, 11.0,  7.6,  6.6],
+          ['Germany — DAX (price return)', 2.8, -2.9, -3.5, -4.7, -5.1, -3.9, 16.5, 10.8,  9.9],
+          ['UK — FTSE 100',         -0.2, -4.3,  1.0,  9.9, -1.0,  9.5, 15.1, 12.6,  8.6],
+          ['Hong Kong — Hang Seng', -1.9, -5.7,-10.8, -2.1, -8.6, -0.5, 11.6,  1.8,  5.4],
+        ],
+        'tbl-dev-local': [
+          ['US — S&P 500',           5.3, 10.5, 11.3, 23.5, 11.3, 29.8, 23.6, 14.1, 15.6],
+          ['Japan — Nikkei 225',    11.9, 13.5, 33.1, 66.5, 32.7, 77.8, 31.4, 20.4, 16.7],
+          ['Europe — STOXX 50',      3.7,  0.0,  8.5, 16.5,  6.2, 15.2, 15.4, 11.1,  9.7],
+          ['Europe — STOXX 600',     2.4, -1.2,  8.6, 15.6,  5.7, 14.1, 11.5,  7.0,  6.1],
+          ['Germany — DAX (price return)', 3.3, -0.7,  5.3,  5.0,  2.5,  4.6, 17.0, 10.2,  9.4],
+          ['UK — FTSE 100',         -3.3,  9.0,  0.0, 22.5,  0.7, 15.9, 12.2,  9.3,  null],
+          ['Hong Kong — Hang Seng', -1.8, -4.6, -1.4,  6.9, -0.8, 11.2, 15.6,  0.5,  5.4],
+        ],
+        'tbl-ms-ref': [
+          ['S&P 500 (USD) (price return)',                  5.1, 10.2, 10.7, 22.2, 10.7, 28.2, 21.9, 12.5, 13.7],
+          ['MSCI Europe (Local) (price return)',            2.5, -1.6,  7.7, 15.1,  5.1, 14.2, 10.8,  6.7,  6.2],
+          ['TOPIX (JPY) (price return)',                    6.2,  0.5, 17.1, 38.7, 16.1, 41.2, 22.9, 15.5, 11.1],
+          ['ASX 200 (AUD) (price return)',                  0.8, -5.1,  1.4,  2.2,  0.2,  3.5,  7.2,  4.0,  5.0],
+          ['MSCI Emerging Markets (USD) (price return)',    9.5,  8.8, 28.2, 43.3, 24.8, 51.4, 22.3,  4.9,  8.1],
+        ],
+        'tbl-em-aud': [
+          ['China — Shanghai Composite (price return)', -0.2, -1.9, -0.3, 14.3, -1.7, 15.6,  6.3,  2.7,  3.2],
+          ['Korea — KOSPI (price return)',              26.0, 28.6, 91.9,127.0, 79.6,158.0, 37.7, 16.0, 13.0],
+        ],
+        'tbl-em-local': [
+          ['China — Shanghai Composite (price return)', -1.1, -2.3,  4.6, 18.1,  2.5, 21.5,  8.3,  2.4,  3.4],
+          ['Korea — KOSPI (price return)',              28.4, 35.7,115.9,175.9,101.1,214.2, 48.7, 21.5, 15.6],
+        ],
+        'tbl-prop': [
+          ['ASX 200 A-REITs',                               3.0, -0.7, -5.0, -3.9, -6.8, -2.2, 10.9,  6.4,  5.9],
+          ['FTSE EPRA/NAREIT Developed Markets (Net)',      -1.0, -3.1, -2.1,  2.7,  0.9,  1.2,  6.5,  3.2,  3.7],
+          ['FTSE EPRA/NAREIT Index (Europe) (Net)',          0.3,-10.4, -7.1,-10.8, -6.5, -9.0,  8.4, -3.3,  0.5],
+          ['FTSE EPRA/NAREIT Index (North America) (Net)', -0.3,  1.2,  0.9,  6.2,  5.3,  3.0,  7.2,  5.3,  4.7],
+          ['FTSE EPRA/NAREIT Index (Asia) (Net)',           -3.7,-11.3, -8.4, -0.3, -7.7,  1.0,  3.0,  1.1,  2.6],
+          ['Global Listed Infrastructure — S&P Global Infra (Hedged)', -2.2, -3.5,  6.3, 14.2,  7.6, 15.1, 15.0, 10.7,  8.0],
+        ],
+        'tbl-fi': [
+          ['Bloomberg AusBond Composite Index',                1.6,  0.2,  0.7,  0.6,  1.3,  1.3,  3.0,  0.3,  1.8],
+          ['Bloomberg AusBond Government Index',               1.7,  0.2,  0.6,  0.3,  1.3,  1.1,  2.6,  0.0,  1.6],
+          ['Bloomberg AusBond Credit Index',                   1.4,  0.4,  1.1,  1.8,  1.4,  2.5,  4.8,  1.9,  3.1],
+          ['Bloomberg AusBond Credit Floating Rate Note Index',0.5,  1.2,  2.4,  4.4,  2.0,  4.8,  5.3,  3.8,  3.1],
+          ['Solactive Australian Hybrid Securities (Gross)',   0.9,  1.2,  3.3,  6.0,  1.9,  7.1,  7.9,  6.1,  6.4],
+          ['Solactive Australian Hybrid Securities (Net)',     0.9,  0.8,  2.4,  4.6,  1.4,  5.3,  5.9,  4.3,  4.9],
+          ['Bloomberg Global Aggregate (Hedged)',              0.9, -0.2,  1.2,  3.7,  1.3,  4.7,  4.8,  0.7,  2.4],
+          ['Bloomberg Global Treasury (Hedged)',               0.6, -1.2,  0.0,  1.3,  0.4,  2.1,  2.6, -0.4,  1.2],
+          ['Bloomberg Global Corporate Credit (Hedged)',       0.9, -0.5,  0.8,  3.8,  0.9,  5.2,  4.9,  0.2,  2.4],
+          ['Bloomberg Global High Yield',                      0.7,  1.2,  2.4,  5.2,  1.9,  6.5,  8.2,  4.3,  5.1],
+        ],
+        'tbl-cash': [
+          ['Bloomberg AusBond Bank Bill Index', 0.3, 1.0, 1.9, 3.5, 1.6, 3.8, 4.2, 3.0, 2.2],
+        ],
+        'tbl-comm': [
+          ['Commodities — S&P GSCI',                     -7.7, 21.2, 25.1, 32.3, 27.8, 35.1, 16.1, 18.4,  8.6],
+          ['Oil — Brent (US$/barrel)',                  -11.9, 28.6, 47.9, 40.7, 51.4, 46.3, 11.0,  9.5,  null],
+          ['Gold (US$/ounce)',                           -1.7,-14.0,  7.1, 37.5,  5.1, 38.0, 32.3, 18.9, 14.1],
+          ['Iron Ore — Dalian futures (CNY/tonne)',      -2.6,  2.7, -1.7,  9.7, -1.7,  5.5,  0.6, -7.7,  6.2],
+          ['Thermal Coal — Newcastle (US$/tonne)',       -2.1, 13.3, 18.1, 19.4, 22.1, 30.2, -0.9,  2.0,  9.4],
+        ],
+        'tbl-fx': [
+          ['AUD/USD', -0.2,  0.9,  9.7,  9.2,  7.7, 11.7,  3.4, -1.5, -0.1],
+          ['AUD/GBP',  0.9,  1.2,  7.9, 11.5,  7.8, 11.8,  0.7, -0.4,  0.7],
+          ['AUD/EUR',  0.4,  2.3,  9.1, 10.4,  8.4,  8.7,  0.4, -0.5, -0.5],
+          ['USD/JPY',  1.7,  2.1,  2.0, 10.6,  1.6, 10.6,  4.6,  7.8,  3.7],
+          ['EUR/USD', -0.6, -1.3,  0.5, -1.1, -0.7,  2.7,  2.9, -0.9,  0.5],
+        ],
+      }
+    },
+
+    apr2026: {
+      label: '30 Apr 2026',
+      note: 'All returns in AUD terms unless otherwise stated. Total return unless otherwise stated. Net = after deduction of withholding taxes. FYTD = from 30 June 2025. CYTD = from 31 December 2025. Returns calculated using month-end prices. Source: Bloomberg.',
+      tables: {
+        'tbl-aus-eq': [
+          ['S&P/ASX 200 Accumulation Index',           2.2, -1.2, -0.9,  4.2,  0.5, 10.1,  9.7,  8.4,  9.3],
+          ['ASX 200 Materials (price return)',          4.3, -2.4, 15.6, 43.1,  6.9, 41.1,  8.0,  6.1, 10.6],
+          ['ASX 200 Energy (price return)',            -2.7, 18.7, 28.1, 27.5, 31.3, 51.0,  1.4,  7.0,  2.8],
+          ['ASX 200 Industrials (price return)',        1.6, -4.8, -6.8, -3.9, -5.1,  0.7,  5.1,  5.5,  4.5],
+          ['ASX 200 Financials (price return)',         2.9,  4.2, -1.6,  0.3,  2.7,  8.7, 14.7,  8.9,  5.0],
+          ['ASX 200 Info Technology (price return)',   13.3,-10.1,-34.3,-39.2,-18.5,-26.7,  3.6, -3.7,  8.5],
+          ['ASX 200 Cons Disc (price return)',          1.2,-13.9,-19.0,-17.8,-14.4,-14.8,  3.4,  1.2,  5.7],
+          ['ASX 200 Consumer Staples (price return)',  -4.1,  2.0,  2.3, -0.7,  3.7, -1.9, -3.9, -0.3,  3.4],
+          ['ASX 200 A-REITs (price return)',            8.6, -7.5,-12.6, -8.6,-10.0, -3.4,  5.3,  2.2,  1.6],
+          ['ASX 200 Healthcare (price return)',        -8.7,-26.5,-28.9,-39.1,-24.9,-38.8,-16.9, -9.6,  2.4],
+          ['ASX 200 Telecoms (price return)',           1.8,  0.7, -6.3, -7.0, -1.1, -0.4,  3.1,  4.3, -1.3],
+          ['ASX 200 Utilities (price return)',         -0.3,  7.4,  3.8, 14.2,  8.1, 13.1,  7.2, 11.1,  4.0],
+          ['S&P Australian Small Cap Accumulation Index', 3.3,-10.4, -8.0,  8.1, -7.9, 15.3,  8.7,  3.7,  7.3],
+        ],
+        'tbl-intl-aud': [
+          ['MSCI All Countries World Index (Net)',  5.7,  0.5, -2.0,  8.6, -1.0, 16.8, 16.7, 12.3, 13.0],
+          ['MSCI World x Aus Index (Net)',          4.4,  0.7, -2.8,  6.6, -2.1, 15.1, 16.5, 13.0, 13.4],
+          ['MSCI World x Aus Index (Net, Hedged)',  8.6,  3.2,  5.9, 16.9,  5.0, 28.5, 18.9, 11.0, 12.4],
+          ['MSCI Emerging Markets (Net)',          10.0,  2.1,  4.8, 21.5,  6.4, 30.6, 17.4,  7.6,  9.9],
+          ['MSCI Asia x Japan (Net)',              11.5,  3.1,  4.4, 21.5,  6.8, 32.0, 17.6,  7.1, 10.6],
+        ],
+        'tbl-dev-aud': [
+          ['US — S&P 500',           5.9,  1.1, -3.5,  7.4, -1.8, 16.7, 18.4, 14.8, 15.9],
+          ['Japan — Nikkei 225',    13.0,  7.2,  2.2, 25.4, 10.6, 37.6, 18.3, 12.7, 12.3],
+          ['Europe — STOXX 50',      3.8, -4.7, -3.9,  2.6, -3.7, 10.1, 14.6, 11.1, 10.4],
+          ['Europe — STOXX 600',     2.6, -5.3, -3.0,  3.1, -3.7,  7.9, 10.4,  7.5,  6.9],
+          ['Germany — DAX (price return)', 4.3, -5.1, -6.1, -7.3, -7.7, -0.7, 14.3, 10.9, 10.1],
+          ['UK — FTSE 100',          0.7, -1.2,  2.2, 10.1, -0.8, 14.4, 13.5, 13.5,  9.1],
+          ['Hong Kong — Hang Seng', -0.2, -8.6, -9.5, -0.2, -6.8,  5.7, 10.2,  2.5,  6.1],
+        ],
+        'tbl-dev-local': [
+          ['US — S&P 500',          10.5,  4.2,  6.0, 17.3,  5.7, 31.1, 21.7, 13.1, 15.3],
+          ['Japan — Nikkei 225',    16.1, 12.0, 14.1, 48.8, 18.6, 67.4, 29.5, 17.8, 15.8],
+          ['Europe — STOXX 50',      6.2, -0.3,  5.0, 12.4,  2.4, 16.8, 13.2, 10.8,  9.5],
+          ['Europe — STOXX 600',     4.8,  0.0,  6.9, 12.9,  3.2, 15.9,  9.4,  6.9,  6.0],
+          ['Germany — DAX (price return)', 7.1, -1.0,  1.4,  1.6, -0.8,  8.0, 15.1,  9.9,  9.2],
+          ['UK — FTSE 100',          2.3,  2.7,  8.6, 21.6,  5.8, 26.3, 13.7, 12.3,  9.3],
+          ['Hong Kong — Hang Seng',  4.1, -5.5,  0.2,  8.8,  1.0, 19.9, 13.2,  1.2,  5.6],
+        ],
+        'tbl-ms-ref': [
+          ['S&P 500 (USD) (price return)',                 10.4,  3.9,  5.4, 16.2,  5.3, 29.4, 20.0, 11.5, 13.3],
+          ['MSCI Europe (Local) (price return)',            4.2,  0.0,  5.9, 12.3,  2.5, 15.4,  8.5,  6.6,  6.1],
+          ['TOPIX (JPY) (price return)',                    6.6,  4.5, 11.9, 30.6,  9.3, 39.7, 21.9, 14.4, 10.8],
+          ['ASX 200 (AUD) (price return)',                  2.2, -2.3, -2.4,  1.4, -0.6,  6.6,  5.8,  4.3,  5.1],
+          ['MSCI Emerging Markets (USD) (price return)',   14.5,  4.7, 14.2, 30.9, 13.9, 43.8, 17.9,  3.5,  6.7],
+        ],
+        'tbl-em-aud': [
+          ['China — Shanghai Composite (price return)',  2.3, -1.3, -1.3, 14.6, -1.5, 18.9,  4.9,  4.0,  3.5],
+          ['Korea — KOSPI (price return)',              28.5, 20.1, 41.5, 80.1, 42.5,121.7, 30.1, 11.2, 10.5],
+        ],
+        'tbl-em-local': [
+          ['China — Shanghai Composite (price return)',  5.7, -0.1,  4.0, 19.4,  3.6, 25.4,  7.4,  3.6,  3.4],
+          ['Korea — KOSPI (price return)',              30.6, 26.3, 60.7,114.8, 56.6,158.1, 38.2, 16.0, 12.7],
+        ],
+        'tbl-prop': [
+          ['ASX 200 A-REITs',                               8.6, -7.0,-11.3, -6.7, -9.5, -0.2,  9.2,  6.2,  5.9],
+          ['FTSE EPRA/NAREIT Developed Markets (Net)',       4.0,  2.6,  0.6,  3.7,  1.9,  4.3,  6.1,  3.7,  4.3],
+          ['FTSE EPRA/NAREIT Index (Europe) (Net)',          2.3, -6.6, -6.2,-11.1, -6.8, -6.5,  5.0, -2.4,  1.0],
+          ['FTSE EPRA/NAREIT Index (North America) (Net)',   4.5,  7.1,  3.2,  6.5,  5.6,  5.0,  7.0,  5.5,  5.4],
+          ['FTSE EPRA/NAREIT Index (Asia) (Net)',            3.0, -4.5, -3.3,  3.5, -4.2,  7.3,  3.4,  2.0,  3.1],
+          ['Global Listed Infrastructure — S&P Global Infra (Hedged)', 6.0, 12.0, 16.8, 10.0, 22.7, 14.0, 11.1,  8.4, null],
+        ],
+        'tbl-fi': [
+          ['Bloomberg AusBond Composite Index',                0.1, -0.5, -1.8, -1.0, -0.3, -0.1,  2.0,  0.0,  1.8],
+          ['Bloomberg AusBond Government Index',               0.0, -0.6, -2.1, -1.4, -0.4, -0.5,  1.6, -0.3,  1.6],
+          ['Bloomberg AusBond Credit Index',                   0.2, -0.3, -0.7,  0.5,  0.0,  1.7,  4.2,  1.7,  3.0],
+          ['Bloomberg AusBond Credit Floating Rate Note Index',0.5,  1.0,  2.2,  3.9,  1.5,  5.0,  5.2,  3.7,  3.1],
+          ['Solactive Australian Hybrid Securities (Gross)',   0.2,  0.8,  2.4,  5.0,  1.0,  6.3,  7.3,  5.9,  6.4],
+          ['Solactive Australian Hybrid Securities (Net)',     0.2,  0.3,  1.5,  3.7,  0.5,  4.4,  5.2,  4.1,  4.8],
+          ['Bloomberg Global Aggregate (Hedged)',              0.6, -0.1,  0.5,  2.7,  0.4,  3.9,  4.3,  0.6,  2.3],
+          ['Bloomberg Global Treasury (Hedged)',               0.2, -0.2, -0.5,  0.7, -0.2,  0.9,  2.2, -0.5,  1.2],
+          ['Bloomberg Global Corporate Credit (Hedged)',       0.7, -0.4,  0.3,  2.9,  0.0,  4.5,  4.2,  0.1,  2.3],
+          ['Bloomberg Global High Yield',                      1.6,  0.6,  2.1,  4.5,  1.2,  7.4,  7.9,  4.2,  5.2],
+        ],
+        'tbl-cash': [
+          ['Bloomberg AusBond Bank Bill Index', 0.3, 0.9, 1.9, 3.1, 1.3, 3.8, 4.2, 3.0, 2.2],
+        ],
+        'tbl-comm': [
+          ['Commodities — S&P GSCI',                      2.0, 31.7, 35.1, 43.3, 38.4, 48.0, 17.7, 20.9, 10.2],
+          ['Oil — Brent (US$/barrel)',                    14.8, 63.4, 73.4, 70.5, 83.3, 80.5, 16.1, 14.1,  null],
+          ['Gold (US$/ounce)',                            -1.1, -5.6, 15.4, 39.8,  6.9, 40.4, 32.4, 21.2, 13.6],
+          ['Iron Ore — Dalian futures (CNY/tonne)',       -0.5,  0.8, -0.5, 12.6,  0.9,  7.0, -1.4, -8.0,  4.2],
+          ['Thermal Coal — Newcastle (US$/tonne)',        -5.9, 23.0, 28.7, 21.9, 24.7, 37.4,-10.9,  7.5, 10.2],
+        ],
+        'tbl-fx': [
+          ['AUD/USD',  4.4,  3.4, 10.0,  9.4,  7.9, 12.5,  2.9, -1.4, -0.5],
+          ['AUD/GBP',  1.5,  4.0,  6.4, 10.5,  6.9, 10.2,  0.2, -1.1,  0.2],
+          ['AUD/EUR',  2.8,  4.5,  8.2,  9.9,  8.0,  8.6,  0.7, -0.9, -0.8],
+          ['USD/JPY', -1.3,  1.2,  1.7,  8.7, -0.1,  9.4,  4.7,  7.5,  3.9],
+          ['EUR/USD',  1.5, -1.0,  1.7, -0.5, -0.1,  3.6,  2.1, -0.5,  0.2],
+        ],
+      }
+    }
+
+  };
+
+  // ─── RENDER ───────────────────────────────────────────────────────────────
+
+  function fmt(v) {
+    if (v === null) return '<td class="numeric muted">N/A</td>';
+    const cls = v > 0 ? 'pos' : v < 0 ? 'neg' : '';
+    const sign = v > 0 ? '' : '';
+    return `<td class="numeric ${cls}">${v.toFixed(1)}%</td>`;
+  }
+
+  function renderTable(tableId, rows) {
+    const tbody = document.querySelector(`#${tableId} tbody`);
+    if (!tbody) return;
+    tbody.innerHTML = rows.map(row => {
+      const [label, ...vals] = row;
+      return `<tr><td>${label}</td>${vals.map(fmt).join('')}</tr>`;
+    }).join('');
+  }
+
+  function switchPeriod(key) {
+    const period = PERIODS[key];
+    if (!period) return;
+
+    // update meta tag display
+    document.getElementById('meta-as-at').textContent = period.label;
+    document.getElementById('bm-note-text').textContent = period.note;
+
+    // render all tables
+    Object.entries(period.tables).forEach(([id, rows]) => renderTable(id, rows));
+  }
+
+  // ─── INIT: default to latest (may2026) ────────────────────────────────────
+  document.addEventListener('DOMContentLoaded', function() {
+    switchPeriod('may2026');
+  });
+  </script>
 </body>
 </html>
