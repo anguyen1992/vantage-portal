@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CFS Portfolio Performance — Vantage Wealth Management | Investment Data Portal</title>
+  <title>CFS Portfolio Performance &mdash; Vantage Wealth Management | Investment Data Portal</title>
 
-  <meta name="last-updated" content="10 May 2026">
+  <meta name="last-updated" content="11 Jun 2026">
   <meta name="owner"        content="Anthony Nguyen">
   <meta name="source"       content="FE Precision Plus, CFS">
-  <meta name="as-at"        content="30 Apr 2026">
+  <meta name="as-at"        content="31 May 2026">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/styles.css">
   <style>
-    /* Strategy section label */
+    /* Strategy section header row */
     .strategy-label td {
       background: var(--navy);
       color: var(--cream);
@@ -26,16 +26,32 @@
       padding: 9px 14px;
     }
 
-    /* Pension / Super row label */
-    td.account-type {
+    /* Benchmark row (Morningstar) */
+    tbody tr.benchmark-row td {
       color: var(--muted);
-      font-size: 0.78rem;
-      padding-left: 2rem;
+      font-style: italic;
+      font-size: 0.8rem;
     }
+    tbody tr.benchmark-row td:first-child { padding-left: 1.8rem; }
 
-    /* Benchmark vs performance comparison table */
-    .vs-table td.label { font-weight: 600; color: var(--navy); }
-    .vs-table tr.value-added td { font-style: italic; }
+    /* Date selector */
+    .date-selector-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .date-selector-wrap select {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--navy);
+      background: transparent;
+      border: 1px solid var(--navy);
+      border-radius: 3px;
+      padding: 2px 6px;
+      cursor: pointer;
+    }
+    .date-selector-wrap select:focus { outline: none; box-shadow: 0 0 0 2px rgba(0,0,0,0.12); }
   </style>
 </head>
 
@@ -66,18 +82,26 @@
       <div class="page-header">
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="/index.html">Overview</a>
-          <span class="sep">›</span>
+          <span class="sep">&rsaquo;</span>
           <a href="./managed-accounts-cfs.html">CFS Managed Accounts</a>
-          <span class="sep">›</span>
+          <span class="sep">&rsaquo;</span>
           <span class="current">Portfolio Performance</span>
         </nav>
         <p class="page-eyebrow">CFS Managed Accounts</p>
         <h1>Portfolio Performance</h1>
         <div class="page-meta">
-          <span class="meta-item"><strong>As at:</strong> 30 Apr 2026</span>
-          <span class="meta-item"><strong>FYTD period:</strong> 1 Jul 2025 – 30 Apr 2026</span>
+          <span class="meta-item">
+            <span class="date-selector-wrap">
+              <strong>As at:</strong>
+              <select id="date-selector" onchange="renderData(this.value)">
+                <option value="31 May 2026">31 May 2026</option>
+                <option value="30 Apr 2026">30 Apr 2026</option>
+              </select>
+            </span>
+          </span>
+          <span class="meta-item" id="meta-fytd-period"><strong>FYTD period:</strong> 1 Jul 2025 &ndash; 31 May 2026</span>
           <span class="meta-item"><strong>Inception:</strong> 28 Jun 2019</span>
-          <span class="meta-item"><strong>Last updated:</strong> 10 May 2026</span>
+          <span class="meta-item"><strong>Last updated:</strong> 11 Jun 2026</span>
           <span class="meta-item"><strong>Owner:</strong> Anthony Nguyen</span>
           <span class="meta-item"><strong>Source:</strong> FE Precision Plus, CFS</span>
         </div>
@@ -86,7 +110,7 @@
       <!-- ===== PORTFOLIO PERFORMANCE TABLE ===== -->
       <div class="block">
         <p class="block-eyebrow">Returns</p>
-        <h2>CFS Managed Accounts — Strategy Returns</h2>
+        <h2>CFS Managed Accounts &mdash; Strategy Returns</h2>
         <p class="block-meta">Net of investment manager fees. Since inception 28 June 2019.</p>
 
         <div class="table-wrap">
@@ -104,198 +128,13 @@
                 <th class="numeric">Inc. p.a.</th>
               </tr>
             </thead>
-            <tbody>
-
-              <!-- AGGRESSIVE -->
-              <tr class="strategy-label">
-                <td colspan="9">Aggressive</td>
-              </tr>
-              <tr>
-                <td class="account-type">Pension</td>
-                <td class="numeric">3.91%</td>
-                <td class="numeric">4.58%</td>
-                <td class="numeric">-0.16%</td>
-                <td class="numeric">-1.44%</td>
-                <td class="numeric">9.89%</td>
-                <td class="numeric">10.24%</td>
-                <td class="numeric">7.17%</td>
-                <td class="numeric">7.43%</td>
-              </tr>
-              <tr>
-                <td class="account-type">Super</td>
-                <td class="numeric">3.58%</td>
-                <td class="numeric">4.09%</td>
-                <td class="numeric">-0.15%</td>
-                <td class="numeric">-1.27%</td>
-                <td class="numeric">8.89%</td>
-                <td class="numeric">9.20%</td>
-                <td class="numeric">6.44%</td>
-                <td class="numeric">6.69%</td>
-              </tr>
-
-              <!-- HIGH GROWTH -->
-              <tr class="strategy-label">
-                <td colspan="9">High Growth</td>
-              </tr>
-              <tr>
-                <td class="account-type">Pension</td>
-                <td class="numeric">3.40%</td>
-                <td class="numeric">3.88%</td>
-                <td class="numeric">-0.21%</td>
-                <td class="numeric">-1.19%</td>
-                <td class="numeric">8.63%</td>
-                <td class="numeric">9.37%</td>
-                <td class="numeric">6.63%</td>
-                <td class="numeric">6.77%</td>
-              </tr>
-              <tr>
-                <td class="account-type">Super</td>
-                <td class="numeric">3.10%</td>
-                <td class="numeric">3.47%</td>
-                <td class="numeric">-0.20%</td>
-                <td class="numeric">-1.06%</td>
-                <td class="numeric">7.74%</td>
-                <td class="numeric">8.41%</td>
-                <td class="numeric">5.93%</td>
-                <td class="numeric">6.08%</td>
-              </tr>
-
-              <!-- GROWTH -->
-              <tr class="strategy-label">
-                <td colspan="9">Growth</td>
-              </tr>
-              <tr>
-                <td class="account-type">Pension</td>
-                <td class="numeric">3.25%</td>
-                <td class="numeric">3.28%</td>
-                <td class="numeric">-0.13%</td>
-                <td class="numeric">-0.86%</td>
-                <td class="numeric">7.64%</td>
-                <td class="numeric">8.54%</td>
-                <td class="numeric">5.95%</td>
-                <td class="numeric">6.04%</td>
-              </tr>
-              <tr>
-                <td class="account-type">Super</td>
-                <td class="numeric">2.92%</td>
-                <td class="numeric">2.93%</td>
-                <td class="numeric">-0.14%</td>
-                <td class="numeric">-0.78%</td>
-                <td class="numeric">6.83%</td>
-                <td class="numeric">7.64%</td>
-                <td class="numeric">5.30%</td>
-                <td class="numeric">5.40%</td>
-              </tr>
-
-              <!-- MODERATE -->
-              <tr class="strategy-label">
-                <td colspan="9">Moderate</td>
-              </tr>
-              <tr>
-                <td class="account-type">Pension</td>
-                <td class="numeric">3.03%</td>
-                <td class="numeric">2.64%</td>
-                <td class="numeric">-0.04%</td>
-                <td class="numeric">-0.49%</td>
-                <td class="numeric">6.67%</td>
-                <td class="numeric">7.66%</td>
-                <td class="numeric">5.31%</td>
-                <td class="numeric">5.32%</td>
-              </tr>
-              <tr>
-                <td class="account-type">Super</td>
-                <td class="numeric">2.72%</td>
-                <td class="numeric">2.37%</td>
-                <td class="numeric">-0.07%</td>
-                <td class="numeric">-0.46%</td>
-                <td class="numeric">5.93%</td>
-                <td class="numeric">6.82%</td>
-                <td class="numeric">4.71%</td>
-                <td class="numeric">4.73%</td>
-              </tr>
-
-              <!-- CONSERVATIVE -->
-              <tr class="strategy-label">
-                <td colspan="9">Conservative</td>
-              </tr>
-              <tr>
-                <td class="account-type">Pension</td>
-                <td class="numeric">2.63%</td>
-                <td class="numeric">1.90%</td>
-                <td class="numeric">-0.03%</td>
-                <td class="numeric">-0.17%</td>
-                <td class="numeric">5.27%</td>
-                <td class="numeric">6.64%</td>
-                <td class="numeric">4.41%</td>
-                <td class="numeric">4.30%</td>
-              </tr>
-              <tr>
-                <td class="account-type">Super</td>
-                <td class="numeric">2.32%</td>
-                <td class="numeric">1.71%</td>
-                <td class="numeric">-0.07%</td>
-                <td class="numeric">-0.20%</td>
-                <td class="numeric">4.66%</td>
-                <td class="numeric">5.88%</td>
-                <td class="numeric">3.88%</td>
-                <td class="numeric">3.79%</td>
-              </tr>
-
-            </tbody>
+            <tbody id="tbody-performance"></tbody>
           </table>
-        </div><!-- /.table-wrap -->
+        </div>
 
-        <p style="font-size:0.78rem; color:var(--muted); margin-top:0.5rem;">
+        <p id="perf-footnote" style="font-size:0.78rem; color:var(--muted); margin-top:0.5rem;">
           Source: FE Precision Plus, CFS. Net of investment manager fees. Past performance is not a reliable indicator of future performance.
         </p>
-      </div><!-- /.block -->
-
-      <!-- ===== FYTD VERSUS BENCHMARK ===== -->
-      <div class="block">
-        <p class="block-eyebrow">Attribution</p>
-        <h2>FYTD Performance vs Benchmark</h2>
-        <p class="block-meta">Period: 1 Jul 2025 – 30 Apr 2026. Pension figures shown.</p>
-
-        <div class="table-wrap">
-          <table class="vs-table">
-            <thead>
-              <tr>
-                <th></th>
-                <th class="numeric">Conservative</th>
-                <th class="numeric">Moderate</th>
-                <th class="numeric">Growth</th>
-                <th class="numeric">High Growth</th>
-                <th class="numeric">Aggressive</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="label">FYTD Performance</td>
-                <td class="numeric">2.63%</td>
-                <td class="numeric">3.03%</td>
-                <td class="numeric">3.25%</td>
-                <td class="numeric">3.40%</td>
-                <td class="numeric">3.91%</td>
-              </tr>
-              <tr>
-                <td class="label">Benchmark</td>
-                <td class="numeric">3.64%</td>
-                <td class="numeric">4.28%</td>
-                <td class="numeric">4.86%</td>
-                <td class="numeric">5.51%</td>
-                <td class="numeric">6.12%</td>
-              </tr>
-              <tr class="value-added">
-                <td class="label">Value Added</td>
-                <td class="numeric">-1.01%</td>
-                <td class="numeric">-1.24%</td>
-                <td class="numeric">-1.61%</td>
-                <td class="numeric">-2.11%</td>
-                <td class="numeric">-2.21%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div><!-- /.table-wrap -->
       </div><!-- /.block -->
       <!-- ===== END CONTENT ===== -->
 
@@ -306,5 +145,106 @@
   </div><!-- /#app -->
 
   <script src="../assets/js/main.js"></script>
+
+  <script>
+    /* ============================================================
+       Portfolio Performance data &mdash; keyed by "as at" date
+       Columns: fytd, m1, m3, m6, y1, y3, y5, inc
+       null = N/A
+       bm:true = Morningstar benchmark row (italic/muted, indented)
+       strategy: label for the navy header row (shown once per group)
+    ============================================================ */
+    const PERF_DATA = {
+
+      '31 May 2026': {
+        fytdPeriod: '1 Jul 2025 &ndash; 31 May 2026',
+        rows: [
+          // ---- Aggressive ----
+          {strategy:'AGGRESSIVE', name:'Vantage CFS Aggressive Strategy &mdash; Pension', fytd:'7.38%', m1:'3.34%', m3:'2.07%', m6:'3.24%', y1:'9.52%',  y3:'11.85%', y5:'7.72%', inc:'7.88%'},
+          {                        name:'Vantage CFS Aggressive Strategy &mdash; Super',   fytd:'6.67%', m1:'2.98%', m3:'1.87%', m6:'2.92%', y1:'8.58%',  y3:'10.63%', y5:'6.92%', inc:'7.09%'},
+          {                        name:'Morningstar Aus Multisector Aggressive (&gt;80 Growth)', fytd:'8.92%', m1:'2.75%', m3:'0.75%', m6:'3.07%', y1:'11.08%', y3:'12.85%', y5:'8.34%', inc:'8.36%', bm:true},
+          // ---- High Growth ----
+          {strategy:'HIGH GROWTH', name:'Vantage CFS High Growth Strategy &mdash; Pension', fytd:'6.32%', m1:'2.83%', m3:'1.37%', m6:'2.80%', y1:'8.25%',  y3:'10.81%', y5:'7.08%', inc:'7.15%'},
+          {                         name:'Vantage CFS High Growth Strategy &mdash; Super',   fytd:'5.71%', m1:'2.53%', m3:'1.23%', m6:'2.50%', y1:'7.42%',  y3:'9.68%',  y5:'6.33%', inc:'6.41%'},
+          {                         name:'Morningstar Aus Multisector Aggressive (&gt;80 Growth)', fytd:'8.92%', m1:'2.75%', m3:'0.75%', m6:'3.07%', y1:'11.08%', y3:'12.85%', y5:'8.34%', inc:'8.36%', bm:true},
+          // ---- Growth ----
+          {strategy:'GROWTH',     name:'Vantage CFS Growth Strategy &mdash; Pension', fytd:'5.84%', m1:'2.50%', m3:'1.24%', m6:'2.55%', y1:'7.58%',  y3:'9.79%',  y5:'6.36%', inc:'6.37%'},
+          {                        name:'Vantage CFS Growth Strategy &mdash; Super',   fytd:'5.23%', m1:'2.24%', m3:'1.10%', m6:'2.27%', y1:'6.79%',  y3:'8.74%',  y5:'5.66%', inc:'5.69%'},
+          {                        name:'Morningstar Aus Fund Multisector Growth (61&ndash;80 Growth)', fytd:'7.30%', m1:'2.27%', m3:'0.51%', m6:'2.72%', y1:'8.85%',  y3:'9.99%',  y5:'6.38%', inc:'6.67%', bm:true},
+          // ---- Moderate ----
+          {strategy:'MODERATE',   name:'Vantage CFS Moderate Strategy &mdash; Pension', fytd:'5.22%', m1:'2.12%', m3:'1.09%', m6:'2.30%', y1:'6.84%',  y3:'8.70%',  y5:'5.67%', inc:'5.60%'},
+          {                        name:'Vantage CFS Moderate Strategy &mdash; Super',   fytd:'4.67%', m1:'1.90%', m3:'0.95%', m6:'2.02%', y1:'6.09%',  y3:'7.74%',  y5:'5.02%', inc:'4.98%'},
+          {                        name:'Morningstar Aus Fund Multisector Balanced (41&ndash;60 Growth)', fytd:'6.94%', m1:'2.01%', m3:'0.53%', m6:'2.77%', y1:'8.44%',  y3:'8.69%',  y5:'5.16%', inc:'5.74%', bm:true},
+          // ---- Conservative ----
+          {strategy:'CONSERVATIVE', name:'Vantage CFS Conservative Strategy &mdash; Pension', fytd:'4.29%', m1:'1.62%', m3:'0.56%', m6:'1.80%', y1:'5.66%',  y3:'7.48%',  y5:'4.69%', inc:'4.51%'},
+          {                          name:'Vantage CFS Conservative Strategy &mdash; Super',   fytd:'3.80%', m1:'1.45%', m3:'0.46%', m6:'1.56%', y1:'5.01%',  y3:'6.62%',  y5:'4.13%', inc:'3.98%'},
+          {                          name:'Morningstar Aus Fund Multisector Moderate (21&ndash;40 Growth)', fytd:null, m1:'1.43%', m3:'0.43%', m6:'2.14%', y1:'6.03%',  y3:'6.43%',  y5:'3.69%', inc:'4.02%', bm:true},
+        ]
+      },
+
+      '30 Apr 2026': {
+        fytdPeriod: '1 Jul 2025 &ndash; 30 Apr 2026',
+        rows: [
+          // ---- Aggressive ----
+          {strategy:'AGGRESSIVE',  name:'Vantage CFS Aggressive Strategy &mdash; Pension', fytd:'3.91%', m1:'4.58%', m3:'-0.16%', m6:'-1.44%', y1:'9.89%', y3:'10.24%', y5:'7.17%', inc:'7.43%'},
+          {                         name:'Vantage CFS Aggressive Strategy &mdash; Super',   fytd:'3.58%', m1:'4.09%', m3:'-0.15%', m6:'-1.27%', y1:'8.89%', y3:'9.20%',  y5:'6.44%', inc:'6.69%'},
+          // ---- High Growth ----
+          {strategy:'HIGH GROWTH', name:'Vantage CFS High Growth Strategy &mdash; Pension', fytd:'3.40%', m1:'3.88%', m3:'-0.21%', m6:'-1.19%', y1:'8.63%', y3:'9.37%',  y5:'6.63%', inc:'6.77%'},
+          {                         name:'Vantage CFS High Growth Strategy &mdash; Super',   fytd:'3.10%', m1:'3.47%', m3:'-0.20%', m6:'-1.06%', y1:'7.74%', y3:'8.41%',  y5:'5.93%', inc:'6.08%'},
+          // ---- Growth ----
+          {strategy:'GROWTH',      name:'Vantage CFS Growth Strategy &mdash; Pension', fytd:'3.25%', m1:'3.28%', m3:'-0.13%', m6:'-0.86%', y1:'7.64%', y3:'8.54%',  y5:'5.95%', inc:'6.04%'},
+          {                         name:'Vantage CFS Growth Strategy &mdash; Super',   fytd:'2.92%', m1:'2.93%', m3:'-0.14%', m6:'-0.78%', y1:'6.83%', y3:'7.64%',  y5:'5.30%', inc:'5.40%'},
+          // ---- Moderate ----
+          {strategy:'MODERATE',    name:'Vantage CFS Moderate Strategy &mdash; Pension', fytd:'3.03%', m1:'2.64%', m3:'-0.04%', m6:'-0.49%', y1:'6.67%', y3:'7.66%',  y5:'5.31%', inc:'5.32%'},
+          {                         name:'Vantage CFS Moderate Strategy &mdash; Super',   fytd:'2.72%', m1:'2.37%', m3:'-0.07%', m6:'-0.46%', y1:'5.93%', y3:'6.82%',  y5:'4.71%', inc:'4.73%'},
+          // ---- Conservative ----
+          {strategy:'CONSERVATIVE', name:'Vantage CFS Conservative Strategy &mdash; Pension', fytd:'2.63%', m1:'1.90%', m3:'-0.03%', m6:'-0.17%', y1:'5.27%', y3:'6.64%', y5:'4.41%', inc:'4.30%'},
+          {                          name:'Vantage CFS Conservative Strategy &mdash; Super',   fytd:'2.32%', m1:'1.71%', m3:'-0.07%', m6:'-0.20%', y1:'4.66%', y3:'5.88%', y5:'3.88%', inc:'3.79%'},
+        ]
+      }
+
+    };
+
+    function cell(val) {
+      if (val === null || val === undefined) return '<td class="numeric muted">N/A</td>';
+      return '<td class="numeric">' + val + '</td>';
+    }
+
+    function renderData(date) {
+      const d = PERF_DATA[date];
+      if (!d) return;
+
+      // Update FYTD period meta
+      var meta = document.getElementById('meta-fytd-period');
+      if (meta) meta.innerHTML = '<strong>FYTD period:</strong> ' + d.fytdPeriod;
+
+      // Build tbody rows
+      var html = '';
+      var lastStrategy = null;
+      var colCount = 9; // Strategy/Name + FYTD + 1M + 3M + 6M + 1Y + 3Y + 5Y + Inc
+
+      d.rows.forEach(function(r) {
+        // Insert navy strategy header when strategy group changes
+        if (r.strategy && r.strategy !== lastStrategy) {
+          lastStrategy = r.strategy;
+          html += '<tr class="strategy-label"><td colspan="' + colCount + '">' + r.strategy + '</td></tr>\n';
+        }
+        // Row class
+        var cls = r.bm ? ' class="benchmark-row"' : '';
+        html += '<tr' + cls + '>' +
+          '<td>' + r.name + '</td>' +
+          cell(r.fytd) + cell(r.m1) + cell(r.m3) + cell(r.m6) +
+          cell(r.y1)   + cell(r.y3) + cell(r.y5) + cell(r.inc) +
+          '</tr>\n';
+      });
+
+      document.getElementById('tbody-performance').innerHTML = html;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      renderData('31 May 2026');
+    });
+  </script>
+
 </body>
 </html>
