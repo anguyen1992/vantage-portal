@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monthly Advisor Investment Brief — Vantage Wealth Management | Investment Data Portal</title>
+
+  <meta name="last-updated" content="12 June 2026">
+  <meta name="owner"        content="Anthony Nguyen">
+  <meta name="source"       content="Internal">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <style>
+    .doc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .doc-list li {
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .doc-list li:last-child {
+      border-bottom: none;
+    }
+    .doc-list a {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      padding: 0.95rem 0.2rem;
+      color: var(--navy);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+    .doc-list a:hover {
+      color: var(--gold);
+    }
+    .doc-list a::before {
+      content: "HTML";
+      display: inline-block;
+      background: var(--navy);
+      color: var(--cream);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 2px 6px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .doc-meta {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+      font-weight: 400;
+    }
+  </style>
+</head>
+
+<body data-page="research" data-depth="1">
+
+  <!-- ===== PASSWORD GATE ===== -->
+  <div id="gate">
+    <div class="gate-inner">
+      <div class="gate-mark">VANTAGE</div>
+      <div class="gate-sub">Wealth Management</div>
+      <h1>Investment Data Portal</h1>
+      <p>This portal contains confidential investment research and performance data.<br>
+         Please enter your access password to continue.</p>
+      <input type="password" id="pwd-input" placeholder="Access password" autocomplete="off" autofocus>
+      <button id="pwd-btn">Enter Portal</button>
+      <div class="gate-error" id="pwd-error" role="alert"></div>
+    </div>
+  </div>
+
+  <!-- ===== MAIN APP ===== -->
+  <div id="app" class="hidden">
+
+    <div id="nav-placeholder"></div>
+
+    <main>
+
+      <!-- Page header -->
+      <div class="page-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/vantage-portal/">Overview</a>
+          <span class="sep">›</span>
+          <a href="./research.html">Research</a>
+          <span class="sep">›</span>
+          <span class="current">Monthly Advisor Investment Brief</span>
+        </nav>
+        <p class="page-eyebrow">Research</p>
+        <h1>Monthly Advisor Investment Brief</h1>
+        <div class="page-meta">
+          <span class="meta-item"><strong>Last updated:</strong> 12 June 2026</span>
+          <span class="meta-item"><strong>Owner:</strong> Anthony Nguyen</span>
+        </div>
+      </div>
+
+      <!-- ===== BRIEF LIST ===== -->
+      <div class="block">
+        <p class="block-eyebrow">Editions</p>
+        <h2>Monthly Advisor Investment Brief</h2>
+        <p class="block-meta">Monthly investment brief for advisers covering macro market drivers, multi-sector and single-asset class portfolio performance, and manager attribution.</p>
+
+        <ul class="doc-list">
+          <li>
+            <a href="./research-monthly-advisor-brief-may-2026.html" target="_blank" rel="noopener">
+              <span>
+                Monthly Advisor Investment Brief — May 2026
+                <div class="doc-meta">Published June 2026 &middot; Macro &middot; Portfolio performance &middot; Manager attribution</div>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+  </div><!-- /#app -->
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
