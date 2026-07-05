@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Private Equity — Vantage Wealth Management | Investment Data Portal</title>
+  <meta name="last-updated" content="05 Jul 2026">
+  <meta name="owner"        content="Anthony Nguyen">
+  <meta name="source"       content="Morningstar">
+  <meta name="as-at"        content="30 Jun 2026">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <style>
+    .asset-section { margin-bottom: 3rem; }
+    .asset-title { font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:500; color:var(--navy); margin-bottom:0.8rem; padding-bottom:0.5rem; border-bottom:1px solid var(--line); }
+    .apir { font-size:0.7rem; color:var(--muted); font-family:monospace; }
+    td.r { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+    td.w { white-space:nowrap; font-size:0.82rem; }
+    tbody tr.benchmark-row td { color:var(--muted); font-style:italic; }
+    tbody tr.benchmark-row td:first-child { padding-left:1.5rem; font-size:0.8rem; }
+    .period-selector-bar { display:flex; align-items:center; gap:10px; margin-bottom:20px; }
+    .period-selector-bar label { font-size:0.82rem; font-weight:600; color:var(--navy,#1a2e4a); text-transform:uppercase; letter-spacing:0.04em; }
+    .period-selector-bar select { font-size:0.82rem; font-weight:600; color:var(--navy,#1a2e4a); background:#fff; border:1.5px solid var(--gold,#b8952a); border-radius:4px; padding:5px 28px 5px 10px; cursor:pointer; appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23b8952a' d='M1 1l5 5 5-5'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 9px center; background-size:10px 7px; }
+    .period-selector-bar select:focus { outline:none; border-color:var(--navy,#1a2e4a); }
+    .period-panel { display:none; }
+    .period-panel.active { display:block; }
+    
+  </style>
+</head>
+<body data-page="funds" data-depth="1">
+
+  <div id="gate">
+    <div class="gate-inner">
+      <div class="gate-mark">VANTAGE</div>
+      <div class="gate-sub">Wealth Management</div>
+      <h1>Investment Data Portal</h1>
+      <p>This portal contains confidential investment research and performance data.<br>Please enter your access password to continue.</p>
+      <input type="password" id="pwd-input" placeholder="Access password" autocomplete="off" autofocus>
+      <button id="pwd-btn">Enter Portal</button>
+      <div class="gate-error" id="pwd-error" role="alert"></div>
+    </div>
+  </div>
+
+  <div id="app" class="hidden">
+    <div id="nav-placeholder"></div>
+    <main>
+      <div class="page-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/index.html">Overview</a><span class="sep">›</span>
+          <a href="./funds.html">Funds</a><span class="sep">›</span>
+          <span class="current">Private Equity</span>
+        </nav>
+        <p class="page-eyebrow">Funds</p>
+        <h1>Private Equity</h1>
+        <div class="page-meta">
+          <span class="meta-item"><strong>As at:</strong> <span id="meta-asat">—</span></span>
+          <span class="meta-item"><strong>Last updated:</strong> <span id="meta-updated">—</span></span>
+          <span class="meta-item"><strong>Owner:</strong> Anthony Nguyen</span>
+          <span class="meta-item"><strong>Source:</strong> Morningstar</span>
+        </div>
+      </div>
+
+      <div class="period-selector-bar">
+        <label for="period-select">Period:</label>
+        <select id="period-select">
+          <option value="jun2026">30 Jun 2026</option>
+        </select>
+      </div>
+      <div class="period-panel" id="panel-jun2026">
+      <div class="asset-section">
+        <h2 class="asset-title">Private Equity — Active</h2>
+        <div class="notice"><strong>Note:</strong> Performance as at 30 April 2026. Scarcity GP Access (Feeder) as at 31 March 2026.</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Fund</th><th>APIR</th>
+                <th class="numeric">CYTD</th>
+                <th class="numeric">1M</th><th class="numeric">3M</th><th class="numeric">6M</th>
+                <th class="numeric">1Y</th><th class="numeric">3Y</th><th class="numeric">5Y</th>
+                <th class="numeric">10Y</th><th class="numeric">15Y</th><th class="numeric">20Y</th>
+                <th>Inception</th><th class="numeric">IM Fee</th>
+                <th class="numeric">MS Rating</th><th>MS Medallist</th>
+                <th>APL Date</th><th>Checklist</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>PEP Gateway Vintages (Access Fund) - 2025</td><td class="apir">PEP8930AU</td><td class="r">-0.13%</td><td class="r">-2.81%</td><td class="r">3.37%</td><td class="r">1.99%</td><td class="r">8.27%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">TBC</td><td class="r">TBC</td><td class="r">TBC</td><td>TBC</td><td class="w">TBC</td><td class="w">TBC</td></tr>
+              <tr><td>PEP Gateway Vintages (Access Fund) 2026</td><td class="apir">PEP3009AU</td><td class="r">15.12%</td><td class="r">-2.21%</td><td class="r">15.74%</td><td class="r">14.83%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">TBC</td><td class="r">TBC</td><td class="r">TBC</td><td>TBC</td><td class="w">TBC</td><td class="w">TBC</td></tr>
+              <tr><td>PEP Gateway Evergreen (Access Fund)</td><td class="apir">PEP3457AU</td><td class="r">0.48%</td><td class="r">-1.77%</td><td class="r">4.15%</td><td class="r">2.33%</td><td class="r">6.42%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">TBC</td><td class="r">TBC</td><td class="r">TBC</td><td>TBC</td><td class="w">TBC</td><td class="w">TBC</td></tr>
+              <tr><td>Scarcity GP Access (Feeder)</td><td class="apir">SCR6020AU</td><td class="r">0.12%</td><td class="r">0.24%</td><td class="r">1.37%</td><td class="r">-0.32%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">TBC</td><td class="r">TBC</td><td class="r">TBC</td><td>TBC</td><td class="w">TBC</td><td class="w">TBC</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+        <p style="font-size:0.78rem;color:var(--muted);">Source: Morningstar. Private equity performance as at 30 April 2026 (Scarcity GP Access as at 31 March 2026). Past performance is not a reliable indicator of future performance.</p>
+      </div>
+
+    </main>
+    <div id="footer-placeholder"></div>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+  <script>
+    (function() {
+      var META = {
+        'jun2026': { asat: '30 Jun 2026', updated: '05 Jul 2026' }
+      };
+      function showPeriod(key) {
+        document.querySelectorAll('.period-panel').forEach(function(p) { p.classList.remove('active'); });
+        var panel = document.getElementById('panel-' + key);
+        if (panel) panel.classList.add('active');
+        document.getElementById('meta-asat').textContent = META[key].asat;
+        document.getElementById('meta-updated').textContent = META[key].updated;
+      }
+      var sel = document.getElementById('period-select');
+      showPeriod(sel.value);
+      sel.addEventListener('change', function() { showPeriod(sel.value); });
+    })();
+  </script>
+</body>
+</html>

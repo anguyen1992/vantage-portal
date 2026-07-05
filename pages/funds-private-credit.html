@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Private Credit — Vantage Wealth Management | Investment Data Portal</title>
-  <meta name="last-updated" content="10 Jun 2026">
+  <meta name="last-updated" content="05 Jul 2026">
   <meta name="owner"        content="Anthony Nguyen">
   <meta name="source"       content="Morningstar">
-  <meta name="as-at"        content="31 May 2026">
+  <meta name="as-at"        content="30 Jun 2026">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -65,9 +65,39 @@
       <div class="period-selector-bar">
         <label for="period-select">Period:</label>
         <select id="period-select">
+          <option value="jun2026">30 Jun 2026</option>
           <option value="may2026">31 May 2026</option>
           <option value="apr2026">30 Apr 2026</option>
         </select>
+      </div>
+      <div class="period-panel" id="panel-jun2026">
+      <div class="asset-section">
+        <h2 class="asset-title">Private Credit — Active</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Fund</th><th>APIR</th>
+                <th class="numeric">CYTD</th>
+                <th class="numeric">1M</th><th class="numeric">3M</th><th class="numeric">6M</th>
+                <th class="numeric">1Y</th><th class="numeric">3Y</th><th class="numeric">5Y</th>
+                <th class="numeric">10Y</th><th class="numeric">15Y</th><th class="numeric">20Y</th>
+                <th>Inception</th><th class="numeric">IM Fee</th>
+                <th class="numeric">MS Rating</th><th>MS Medallist</th>
+                <th>APL Date</th><th>Checklist</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Revolution Wholesale Private Debt Fund II</td><td class="apir">CHN2868AU</td><td class="r">3.30%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">31-Mar-20</td><td class="r">0.15%</td><td class="r">-</td><td>-</td><td class="w">-</td><td class="w">-</td></tr>
+              <tr><td>Realm Strategy Income Fund (Enduring Units)</td><td class="apir">OMF5868AU</td><td class="r">0.75%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">21-Feb-20</td><td class="r">0.99%</td><td class="r">-</td><td>-</td><td class="w">-</td><td class="w">-</td></tr>
+              <tr><td>MA Priority Income Fund</td><td class="apir">MAA8010AU</td><td class="r">4.75%</td><td class="r">0.66%</td><td class="r">2.76%</td><td class="r">4.75%</td><td class="r">8.86%</td><td class="r">8.66%</td><td class="r">7.47%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">-</td><td class="r">-</td><td class="r">-</td><td>-</td><td class="w">-</td><td class="w">-</td></tr>
+              <tr><td>Ares Diversified Credit</td><td class="apir">HOW7354AU</td><td class="r">0.25%</td><td class="r">0.77%</td><td class="r">2.05%</td><td class="r">0.33%</td><td class="r">2.36%</td><td class="r">7.88%</td><td class="r">6.33%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">-</td><td class="r">-</td><td class="r">2.41%</td><td>-</td><td class="w">-</td><td class="w">-</td></tr>
+              <tr><td>Keyview Flagship Fund (Realside Capital Flagship Fund)</td><td class="apir">RSM8774AU</td><td class="r">4.97%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">-</td><td class="r">1.75%</td><td class="r">2.74%</td><td>-</td><td class="w">-</td><td class="w">-</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+        <p style="font-size:0.78rem;color:var(--muted);">Source: Morningstar. Historical returns as at 30 June 2026. Past performance is not a reliable indicator of future performance.</p>
       </div>
       <div class="period-panel" id="panel-may2026">
       <div class="asset-section">
@@ -134,6 +164,7 @@
   <script>
     (function() {
       var META = {
+        'jun2026': { asat: '30 Jun 2026', updated: '05 Jul 2026' },
         'may2026': { asat: '31 May 2026', updated: '10 Jun 2026' },
         'apr2026': { asat: '30 Apr 2026', updated: '10 May 2026' }
       };
