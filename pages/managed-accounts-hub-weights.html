@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HUB24 Portfolio Weights — Vantage Wealth Management | Investment Data Portal</title>
 
-  <meta name="last-updated" content="10 Jun 2026">
+  <meta name="last-updated" content="6 Jul 2026">
   <meta name="owner"        content="Anthony Nguyen">
   <meta name="source"       content="HUB24">
 
@@ -104,6 +104,20 @@
       cursor: pointer;
     }
     .date-switcher-bar select:focus { outline: none; border-color: var(--navy); }
+    .date-switcher-bar #csv-download-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--paper);
+      background: var(--navy);
+      border: 1px solid var(--navy);
+      border-radius: 4px;
+      padding: 0.4rem 0.9rem;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .date-switcher-bar #csv-download-btn:hover { opacity: 0.85; }
   </style>
 </head>
 
@@ -137,8 +151,8 @@
         <p class="page-eyebrow">HUB24 Managed Accounts</p>
         <h1>HUB24 Model Portfolio Weights</h1>
         <div class="page-meta">
-          <span class="meta-item"><strong>As at:</strong> <span id="meta-as-at">31 May 2026</span></span>
-          <span class="meta-item"><strong>Last updated:</strong> 10 Jun 2026</span>
+          <span class="meta-item"><strong>As at:</strong> <span id="meta-as-at">30 Jun 2026</span></span>
+          <span class="meta-item"><strong>Last updated:</strong> 6 Jul 2026</span>
           <span class="meta-item"><strong>Owner:</strong> Anthony Nguyen</span>
           <span class="meta-item"><strong>Source:</strong> HUB24</span>
         </div>
@@ -148,9 +162,11 @@
       <div class="date-switcher-bar">
         <label for="period-select">Viewing data as at:</label>
         <select id="period-select" onchange="switchPeriod(this.value)">
+          <option value="jun2026">30 Jun 2026</option>
           <option value="may2026">31 May 2026</option>
           <option value="apr2026">30 Apr 2026</option>
         </select>
+        <button id="csv-download-btn" onclick="downloadCSV()" type="button">Download CSV (all portfolios)</button>
       </div>
 
       <!-- Tab bar -->
@@ -301,6 +317,254 @@
   //   { type:'total', alloc }        — total row
 
   const PERIODS = {
+    // ════════════════════════════════════════════════════════════════════════
+    jun2026: {
+      label: '30 Jun 2026',
+      tables: {
+
+        'tbl-aus-eq': [
+          {type:'row', code:'AGL',     name:'AGL Energy',                      cls:'Utilities',              alloc:'1.24%', mer:null},
+          {type:'row', code:'AMC',     name:'Amcor',                           cls:'Materials',              alloc:'1.16%', mer:null},
+          {type:'row', code:'ANZ',     name:'ANZ Banking Group',               cls:'Financials',             alloc:'2.33%', mer:null},
+          {type:'row', code:'BHP',     name:'BHP Group',                       cls:'Resources',              alloc:'8.41%', mer:null},
+          {type:'row', code:'BRG',     name:'Breville Group',                  cls:'Consumer Discretionary', alloc:'1.19%', mer:null},
+          {type:'row', code:'CBA',     name:'Commonwealth Bank',               cls:'Financials',             alloc:'2.10%', mer:null},
+          {type:'row', code:'CGF',     name:'Challenger',                      cls:'Financials',             alloc:'1.11%', mer:null},
+          {type:'row', code:'COL',     name:'Coles',                           cls:'Consumer Staples',       alloc:'1.14%', mer:null},
+          {type:'row', code:'CWY',     name:'Cleanaway Waste Management',      cls:'Industrials',            alloc:'1.02%', mer:null},
+          {type:'row', code:'HUB',     name:'HUB24',                           cls:'Financials',             alloc:'1.17%', mer:null},
+          {type:'row', code:'MND',     name:'Monadelphous Group',              cls:'Industrials',            alloc:'1.10%', mer:null},
+          {type:'row', code:'MQG',     name:'Macquarie Group',                 cls:'Financials',             alloc:'3.32%', mer:null},
+          {type:'row', code:'NAB',     name:'National Australia Bank',         cls:'Financials',             alloc:'3.49%', mer:null},
+          {type:'row', code:'NEM',     name:'Newmont',                         cls:'Materials',              alloc:'1.66%', mer:null},
+          {type:'row', code:'NHF',     name:'NIB Holdings',                    cls:'Financials',             alloc:'1.26%', mer:null},
+          {type:'row', code:'ORG',     name:'Origin Energy',                   cls:'Utilities',              alloc:'2.34%', mer:null},
+          {type:'row', code:'ORI',     name:'Orica',                           cls:'Materials',              alloc:'1.76%', mer:null},
+          {type:'row', code:'QBE',     name:'QBE Insurance',                   cls:'Financials',             alloc:'3.21%', mer:null},
+          {type:'row', code:'RMD',     name:'ResMed CDI',                      cls:'Health Care',            alloc:'2.13%', mer:null},
+          {type:'row', code:'RIO',     name:'Rio Tinto',                       cls:'Resources',              alloc:'3.72%', mer:null},
+          {type:'row', code:'SDF',     name:'Steadfast Group',                 cls:'Financials',             alloc:'0.95%', mer:null},
+          {type:'row', code:'SGP',     name:'Stockland',                       cls:'Real Estate',            alloc:'1.43%', mer:null},
+          {type:'row', code:'STW.ASX', name:'SPDR S&P/ASX 200 ETF',           cls:'Index ETF',              alloc:'46.09%', mer:'0.05%'},
+          {type:'row', code:'TNE',     name:'Technology One',                  cls:'Information Technology', alloc:'1.28%', mer:null},
+          {type:'row', code:'TPG',     name:'TPG Telecom',                     cls:'Communication Services', alloc:'0.97%', mer:null},
+          {type:'row', code:'WDS',     name:'Woodside Energy',                 cls:'Energy',                 alloc:'2.05%', mer:null},
+          {type:'row', code:'XRO',     name:'Xero',                            cls:'Information Technology', alloc:'1.11%', mer:null},
+          {type:'row', code:'CASH',    name:'Cash &amp; Reserves',             cls:'Cash',                   alloc:'1.27%', mer:null},
+          {type:'total', alloc:'100.0%', mer:'0.023%'},
+        ],
+
+        'tbl-global-eq': [
+          {type:'row', code:'ETL8482AU', name:'T. Rowe Price Global Equity Fund — M Class',             cls:'Large Cap Core Growth', alloc:'12.99%', mer:'0.70%'},
+          {type:'row', code:'MAQ1878AU', name:'Arrowstreet Global Equity Fund No. 2 — Hedged',         cls:'Large Cap Blend',       alloc:'35.25%', mer:'0.75%'},
+          {type:'row', code:'MAQ8493AU', name:'Arrowstreet Global Small Companies No. 2 Fund — Cl. I', cls:'Small Cap Value',       alloc:'10.55%', mer:'0.90%'},
+          {type:'row', code:'PIM0058AU', name:'Aoris International Fund — Class B',                    cls:'Mid Cap Growth',        alloc:'7.82%', mer:'1.34%'},
+          {type:'row', code:'QUAL.ASX',  name:'VanEck MSCI World ex Australia Quality ETF',            cls:'Factor ETF',            alloc:'4.84%', mer:'0.42%'},
+          {type:'row', code:'VGS.ASX',   name:'Vanguard MSCI Index International Shares ETF',         cls:'Index ETF',             alloc:'18.95%', mer:'0.18%'},
+          {type:'row', code:'VVLU.ASX',  name:'Vanguard Global Value Equity Active ETF',               cls:'Factor ETF',            alloc:'9.14%', mer:'0.28%'},
+          {type:'row', code:'CASH',      name:'Cash &amp; Reserves',                                   cls:'Cash',                  alloc:'0.46%', mer:null},
+          {type:'total', alloc:'100.00%', mer:'0.635%'},
+        ],
+
+        'tbl-prop-infra': [
+          {type:'row', code:'AAP3601AU', name:'Ausbil Global Essential Infrastructure Fund — Hedged', cls:'Core Infrastructure',    alloc:'28.43%', mer:'0.65%'},
+          {type:'row', code:'BFL0020AU', name:'Quay Global Real Estate Fund — Unhedged',              cls:'Global REITs',           alloc:'24.93%', mer:'1.13%'},
+          {type:'row', code:'IFRA',      name:'VanEck FTSE Global Infrastructure (Hedged) ETF',      cls:'Infrastructure Index ETF',alloc:'7.75%', mer:'0.20%'},
+          {type:'row', code:'PIM1961AU', name:'ATLAS Infrastructure Australian Feeder Fund — Hedged', cls:'Core Infrastructure',    alloc:'23.77%', mer:'0.95%'},
+          {type:'row', code:'REIT',      name:'VanEck FTSE International Property (Hedged) ETF',     cls:'Global REITs ETF',       alloc:'14.72%', mer:'0.20%'},
+          {type:'row', code:'CASH',      name:'Cash &amp; Reserves',                                  cls:'Cash',                   alloc:'0.41%', mer:null},
+          {type:'total', alloc:'100.0%', mer:'0.737%'},
+        ],
+
+        'tbl-fixed-int': [
+          {type:'row', code:'CSA0038AU', name:'Bentham Global Income Fund',            cls:'Global Credit',   alloc:'14.03%', mer:'0.52%'},
+          {type:'row', code:'HOW2852AU', name:'Bentham Asset Backed Securities Fund',  cls:'Global ABS',      alloc:'19.36%', mer:'0.25%'},
+          {type:'row', code:'MAQ0274AU', name:'Macquarie Dynamic Bond Fund',           cls:'Global Credit',   alloc:'25.91%', mer:'0.49%'},
+          {type:'row', code:'PER0260AU', name:'Perpetual Diversified Income Fund',     cls:'Domestic Credit', alloc:'20.22%', mer:'0.40%'},
+          {type:'row', code:'SLT0052AU', name:'Coolabah Short Term Income Fund',       cls:'Domestic Credit', alloc:'20.03%', mer:'0.80%'},
+          {type:'row', code:'CASH',      name:'Cash &amp; Reserves',                   cls:'Cash',            alloc:'0.46%', mer:null},
+          {type:'total', alloc:'100.0%', mer:'0.489%'},
+        ],
+
+        'tbl-alts': [
+          {type:'row', code:'ETL3065AU', name:'Colchester EM Bond Fund',               alloc:'15.95%', mer:'0.77%'},
+          {type:'row', code:'FSF3532AU', name:'Aspect Absolute Return Fund',           alloc:'16.04%', mer:'0.98%'},
+          {type:'row', code:'HGI1794AU', name:'Janus Henderson Global Multi-Strategy', alloc:'16.12%', mer:'-0.29%'},
+          {type:'row', code:'IAA.ASX',   name:'iShares Asia 50 ETF',                   alloc:'19.85%', mer:'0.29%'},
+          {type:'row', code:'PER0668AU', name:'Perpetual Pure Equity Alpha Fund',      alloc:'16.18%', mer:'2.39%'},
+          {type:'row', code:'TBIL.ASX',  name:'VanEck 1–3m U.S. Treasury Bond ETF',   alloc:'15.17%', mer:'0.22%'},
+          {type:'row', code:'CASH',      name:'Cash &amp; Reserves',                   alloc:'0.70%', mer:null},
+          {type:'total', alloc:'100.0%', mer:'0.711%'},
+        ],
+
+        'tbl-high-growth': [
+          {type:'sub', label:'Australian Equities'},
+          {type:'row', code:'AGL',     name:'AGL Energy',                      alloc:'0.40%', mer:null},
+          {type:'row', code:'AMC',     name:'Amcor',                           alloc:'0.37%', mer:null},
+          {type:'row', code:'ANZ',     name:'ANZ Banking Group',               alloc:'0.74%', mer:null},
+          {type:'row', code:'BHP',     name:'BHP Group',                       alloc:'2.73%', mer:null},
+          {type:'row', code:'BRG',     name:'Breville Group',                  alloc:'0.38%', mer:null},
+          {type:'row', code:'CBA',     name:'Commonwealth Bank',               alloc:'0.35%', mer:null},
+          {type:'row', code:'CGF',     name:'Challenger',                      alloc:'0.37%', mer:null},
+          {type:'row', code:'COL',     name:'Coles',                           alloc:'0.69%', mer:null},
+          {type:'row', code:'CWY',     name:'Cleanaway Waste Management',      alloc:'0.33%', mer:null},
+          {type:'row', code:'HUB',     name:'HUB24',                           alloc:'0.38%', mer:null},
+          {type:'row', code:'MND',     name:'Monadelphous Group',              alloc:'1.07%', mer:null},
+          {type:'row', code:'MQG',     name:'Macquarie Group',                 alloc:'0.36%', mer:null},
+          {type:'row', code:'NAB',     name:'National Australia Bank',         alloc:'1.11%', mer:null},
+          {type:'row', code:'NEM',     name:'Newmont',                         alloc:'0.54%', mer:null},
+          {type:'row', code:'NHF',     name:'NIB Holdings',                    alloc:'0.40%', mer:null},
+          {type:'row', code:'ORG',     name:'Origin Energy',                   alloc:'0.73%', mer:null},
+          {type:'row', code:'ORI',     name:'Orica',                           alloc:'0.57%', mer:null},
+          {type:'row', code:'QBE',     name:'QBE Insurance Group',             alloc:'1.02%', mer:null},
+          {type:'row', code:'RMD',     name:'ResMed CDI',                      alloc:'0.69%', mer:null},
+          {type:'row', code:'RIO',     name:'Rio Tinto',                       alloc:'1.20%', mer:null},
+          {type:'row', code:'SDF',     name:'Steadfast Group',                 alloc:'0.30%', mer:null},
+          {type:'row', code:'SGP',     name:'Stockland',                       alloc:'0.46%', mer:null},
+          {type:'row', code:'STW.ASX', name:'SPDR S&P/ASX 200 ETF',           alloc:'14.91%', mer:'0.05%'},
+          {type:'row', code:'TNE',     name:'Technology One',                  alloc:'0.41%', mer:null},
+          {type:'row', code:'TPG',     name:'TPG Telecom',                     alloc:'0.31%', mer:null},
+          {type:'row', code:'WDS',     name:'Woodside Energy',                 alloc:'0.68%', mer:null},
+          {type:'row', code:'XRO',     name:'Xero',                            alloc:'0.36%', mer:null},
+          {type:'sub', label:'Global Equities'},
+          {type:'row', code:'ETL8482AU', name:'T. Rowe Price Global Equity Fund — M Class',             alloc:'5.65%', mer:'0.70%'},
+          {type:'row', code:'MAQ1878AU', name:'Arrowstreet Global Equity Fund No. 2 — Hedged',         alloc:'15.00%', mer:'0.75%'},
+          {type:'row', code:'MAQ8493AU', name:'Arrowstreet Global Small Companies No. 2 Fund — Cl. I', alloc:'4.69%', mer:'0.90%'},
+          {type:'row', code:'PIM0058AU', name:'Aoris International Fund — Class B',                    alloc:'3.44%', mer:'1.34%'},
+          {type:'row', code:'QUAL.ASX',  name:'VanEck MSCI World ex Australia Quality ETF',            alloc:'2.07%', mer:'0.42%'},
+          {type:'row', code:'VGS.ASX',   name:'Vanguard MSCI Index International Shares ETF',         alloc:'8.47%', mer:'0.18%'},
+          {type:'row', code:'VVLU.ASX',  name:'Vanguard Global Value Equity Active ETF',               alloc:'4.07%', mer:'0.28%'},
+          {type:'sub', label:'Property / Infrastructure'},
+          {type:'row', code:'AAP3601AU', name:'Ausbil Global Essential Infrastructure Fund — Hedged',  alloc:'2.89%', mer:'0.65%'},
+          {type:'row', code:'BFL0020AU', name:'Quay Global Real Estate Fund — Unhedged',               alloc:'2.68%', mer:'1.13%'},
+          {type:'row', code:'IFRA',      name:'VanEck FTSE Global Infrastructure (Hedged) ETF',        alloc:'0.79%', mer:'0.20%'},
+          {type:'row', code:'PIM1961AU', name:'ATLAS Infrastructure Australian Feeder Fund — Hedged',  alloc:'2.42%', mer:'0.95%'},
+          {type:'row', code:'REIT',      name:'VanEck FTSE International Property (Hedged) ETF',       alloc:'1.51%', mer:'0.20%'},
+          {type:'sub', label:'Fixed Interest'},
+          {type:'row', code:'CSA0038AU', name:'Bentham Global Income Fund',            alloc:'1.54%', mer:'0.52%'},
+          {type:'row', code:'HOW2852AU', name:'Bentham Asset Backed Securities Fund',  alloc:'2.13%', mer:'0.25%'},
+          {type:'row', code:'MAQ0274AU', name:'Macquarie Dynamic Bond Fund',           alloc:'2.86%', mer:'0.49%'},
+          {type:'row', code:'PER0260AU', name:'Perpetual Diversified Income Fund',     alloc:'2.24%', mer:'0.40%'},
+          {type:'row', code:'SLT0052AU', name:'Coolabah Short Term Income Fund',       alloc:'2.19%', mer:'0.80%'},
+          {type:'sub', label:'Cash'},
+          {type:'row', code:'ISEC',  name:'iShares Enhanced Cash ETF',  alloc:'2.65%', mer:'0.12%'},
+          {type:'row', code:'CASH',  name:'Cash &amp; Reserves',         alloc:'0.83%', mer:null},
+          {type:'total', alloc:'100.0%', mer:'0.417%'},
+        ],
+
+        'tbl-growth': [
+          {type:'sub', label:'Australian Equities'},
+          {type:'row', code:'AGL',     name:'AGL Energy',                      alloc:'0.32%', mer:null},
+          {type:'row', code:'AMC',     name:'Amcor',                           alloc:'0.30%', mer:null},
+          {type:'row', code:'ANZ',     name:'ANZ Banking Group',               alloc:'0.59%', mer:null},
+          {type:'row', code:'BHP',     name:'BHP Group',                       alloc:'2.17%', mer:null},
+          {type:'row', code:'BRG',     name:'Breville Group',                  alloc:'0.30%', mer:null},
+          {type:'row', code:'CBA',     name:'Commonwealth Bank',               alloc:'0.28%', mer:null},
+          {type:'row', code:'CGF',     name:'Challenger',                      alloc:'0.29%', mer:null},
+          {type:'row', code:'COL',     name:'Coles',                           alloc:'0.53%', mer:null},
+          {type:'row', code:'CWY',     name:'Cleanaway Waste Management',      alloc:'0.26%', mer:null},
+          {type:'row', code:'HUB',     name:'HUB24',                           alloc:'0.30%', mer:null},
+          {type:'row', code:'MND',     name:'Monadelphous Group',              alloc:'0.85%', mer:null},
+          {type:'row', code:'MQG',     name:'Macquarie Group',                 alloc:'0.29%', mer:null},
+          {type:'row', code:'NAB',     name:'National Australia Bank',         alloc:'0.88%', mer:null},
+          {type:'row', code:'NEM',     name:'Newmont',                         alloc:'0.43%', mer:null},
+          {type:'row', code:'NHF',     name:'NIB Holdings',                    alloc:'0.32%', mer:null},
+          {type:'row', code:'ORG',     name:'Origin Energy',                   alloc:'0.58%', mer:null},
+          {type:'row', code:'ORI',     name:'Orica',                           alloc:'0.45%', mer:null},
+          {type:'row', code:'QBE',     name:'QBE Insurance Group',             alloc:'0.81%', mer:null},
+          {type:'row', code:'RMD',     name:'ResMed CDI',                      alloc:'0.55%', mer:null},
+          {type:'row', code:'RIO',     name:'Rio Tinto',                       alloc:'0.96%', mer:null},
+          {type:'row', code:'SDF',     name:'Steadfast Group',                 alloc:'0.24%', mer:null},
+          {type:'row', code:'SGP',     name:'Stockland',                       alloc:'0.37%', mer:null},
+          {type:'row', code:'STW.ASX', name:'SPDR S&P/ASX 200 ETF',           alloc:'11.86%', mer:'0.05%'},
+          {type:'row', code:'TNE',     name:'Technology One',                  alloc:'0.33%', mer:null},
+          {type:'row', code:'TPG',     name:'TPG Telecom',                     alloc:'0.24%', mer:null},
+          {type:'row', code:'WDS',     name:'Woodside Energy',                 alloc:'0.58%', mer:null},
+          {type:'row', code:'XRO',     name:'Xero',                            alloc:'0.28%', mer:null},
+          {type:'sub', label:'Global Equities'},
+          {type:'row', code:'ETL8482AU', name:'T. Rowe Price Global Equity Fund — M Class',             alloc:'4.86%', mer:'0.70%'},
+          {type:'row', code:'MAQ1878AU', name:'Arrowstreet Global Equity Fund No. 2 — Hedged',         alloc:'12.91%', mer:'0.75%'},
+          {type:'row', code:'MAQ8493AU', name:'Arrowstreet Global Small Companies No. 2 Fund — Cl. I', alloc:'4.04%', mer:'0.90%'},
+          {type:'row', code:'PIM0058AU', name:'Aoris International Fund — Class B',                    alloc:'2.96%', mer:'1.34%'},
+          {type:'row', code:'QUAL.ASX',  name:'VanEck MSCI World ex Australia Quality ETF',            alloc:'1.85%', mer:'0.40%'},
+          {type:'row', code:'VGS.ASX',   name:'Vanguard MSCI Index International Shares ETF',         alloc:'7.29%', mer:'0.18%'},
+          {type:'row', code:'VVLU.ASX',  name:'Vanguard Global Value Equity Active ETF',               alloc:'3.45%', mer:'0.28%'},
+          {type:'sub', label:'Property / Infrastructure'},
+          {type:'row', code:'AAP3601AU', name:'Ausbil Global Essential Infrastructure Fund — Hedged',  alloc:'2.49%', mer:'0.65%'},
+          {type:'row', code:'BFL0020AU', name:'Quay Global Real Estate Fund — Unhedged',               alloc:'2.31%', mer:'1.13%'},
+          {type:'row', code:'IFRA',      name:'VanEck FTSE Global Infrastructure (Hedged) ETF',        alloc:'0.68%', mer:'0.20%'},
+          {type:'row', code:'PIM1961AU', name:'ATLAS Infrastructure Australian Feeder Fund — Hedged',  alloc:'2.08%', mer:'0.95%'},
+          {type:'row', code:'REIT',      name:'VanEck FTSE International Property (Hedged) ETF',       alloc:'1.30%', mer:'0.20%'},
+          {type:'sub', label:'Fixed Interest'},
+          {type:'row', code:'CSA0038AU', name:'Bentham Global Income Fund',            alloc:'3.26%', mer:'0.52%'},
+          {type:'row', code:'HOW2852AU', name:'Bentham Asset Backed Securities Fund',  alloc:'4.49%', mer:'0.25%'},
+          {type:'row', code:'MAQ0274AU', name:'Macquarie Dynamic Bond Fund',           alloc:'6.04%', mer:'0.49%'},
+          {type:'row', code:'PER0260AU', name:'Perpetual Diversified Income Fund',     alloc:'4.73%', mer:'0.40%'},
+          {type:'row', code:'SLT0052AU', name:'Coolabah Short Term Income Fund',       alloc:'4.63%', mer:'0.80%'},
+          {type:'sub', label:'Cash'},
+          {type:'row', code:'ISEC',  name:'iShares Enhanced Cash ETF',  alloc:'4.58%', mer:'0.12%'},
+          {type:'row', code:'CASH',  name:'Cash &amp; Reserves',         alloc:'0.72%', mer:null},
+          {type:'total', alloc:'100.00%', mer:'0.428%'},
+        ],
+
+        'tbl-mod-growth': [
+          {type:'sub', label:'Australian Equities'},
+          {type:'row', code:'AGL',     name:'AGL Energy',                      alloc:'0.23%', mer:null},
+          {type:'row', code:'AMC',     name:'Amcor',                           alloc:'0.22%', mer:null},
+          {type:'row', code:'ANZ',     name:'ANZ Banking Group',               alloc:'0.44%', mer:null},
+          {type:'row', code:'BHP',     name:'BHP Group',                       alloc:'1.57%', mer:null},
+          {type:'row', code:'BRG',     name:'Breville Group',                  alloc:'0.32%', mer:null},
+          {type:'row', code:'CBA',     name:'Commonwealth Bank',               alloc:'0.21%', mer:null},
+          {type:'row', code:'CGF',     name:'Challenger',                      alloc:'0.21%', mer:null},
+          {type:'row', code:'COL',     name:'Coles',                           alloc:'0.40%', mer:null},
+          {type:'row', code:'CWY',     name:'Cleanaway Waste Management',      alloc:'0.19%', mer:null},
+          {type:'row', code:'HUB',     name:'HUB24',                           alloc:'0.22%', mer:null},
+          {type:'row', code:'MND',     name:'Monadelphous Group',              alloc:'0.63%', mer:null},
+          {type:'row', code:'MQG',     name:'Macquarie Group',                 alloc:'0.21%', mer:null},
+          {type:'row', code:'NAB',     name:'National Australia Bank',         alloc:'0.65%', mer:null},
+          {type:'row', code:'NEM',     name:'Newmont',                         alloc:'0.32%', mer:null},
+          {type:'row', code:'NHF',     name:'NIB Holdings',                    alloc:'0.23%', mer:null},
+          {type:'row', code:'ORG',     name:'Origin Energy',                   alloc:'0.43%', mer:null},
+          {type:'row', code:'ORI',     name:'Orica',                           alloc:'0.33%', mer:null},
+          {type:'row', code:'QBE',     name:'QBE Insurance Group',             alloc:'0.60%', mer:null},
+          {type:'row', code:'RMD',     name:'ResMed CDI',                      alloc:'0.40%', mer:null},
+          {type:'row', code:'RIO',     name:'Rio Tinto',                       alloc:'0.70%', mer:null},
+          {type:'row', code:'SDF',     name:'Steadfast Group',                 alloc:'0.18%', mer:null},
+          {type:'row', code:'SGP',     name:'Stockland',                       alloc:'0.27%', mer:null},
+          {type:'row', code:'STW.ASX', name:'SPDR S&P/ASX 200 ETF',           alloc:'8.43%', mer:'0.05%'},
+          {type:'row', code:'TNE',     name:'Technology One',                  alloc:'0.34%', mer:null},
+          {type:'row', code:'TPG',     name:'TPG Telecom',                     alloc:'0.18%', mer:null},
+          {type:'row', code:'WDS',     name:'Woodside Energy',                 alloc:'0.38%', mer:null},
+          {type:'row', code:'XRO',     name:'Xero',                            alloc:'0.21%', mer:null},
+          {type:'sub', label:'Global Equities'},
+          {type:'row', code:'ETL8482AU', name:'T. Rowe Price Global Equity Fund — M Class',             alloc:'3.98%', mer:'0.70%'},
+          {type:'row', code:'MAQ1878AU', name:'Arrowstreet Global Equity Fund No. 2 — Hedged',         alloc:'10.57%', mer:'0.75%'},
+          {type:'row', code:'MAQ8493AU', name:'Arrowstreet Global Small Companies No. 2 Fund — Cl. I', alloc:'3.30%', mer:'0.90%'},
+          {type:'row', code:'PIM0058AU', name:'Aoris International Fund — Class B',                    alloc:'2.43%', mer:'1.34%'},
+          {type:'row', code:'QUAL.ASX',  name:'VanEck MSCI World ex Australia Quality ETF',            alloc:'1.47%', mer:'0.42%'},
+          {type:'row', code:'VGS.ASX',   name:'Vanguard MSCI Index International Shares ETF',         alloc:'5.97%', mer:'0.18%'},
+          {type:'row', code:'VVLU.ASX',  name:'Vanguard Global Value Equity Active ETF',               alloc:'2.89%', mer:'0.28%'},
+          {type:'sub', label:'Property / Infrastructure'},
+          {type:'row', code:'AAP3601AU', name:'Ausbil Global Essential Infrastructure Fund — Hedged',  alloc:'2.22%', mer:'0.65%'},
+          {type:'row', code:'BFL0020AU', name:'Quay Global Real Estate Fund — Unhedged',               alloc:'2.06%', mer:'1.13%'},
+          {type:'row', code:'IFRA',      name:'VanEck FTSE Global Infrastructure (Hedged) ETF',        alloc:'0.61%', mer:'0.20%'},
+          {type:'row', code:'PIM1961AU', name:'ATLAS Infrastructure Australian Feeder Fund — Hedged',  alloc:'1.86%', mer:'0.95%'},
+          {type:'row', code:'REIT',      name:'VanEck FTSE International Property (Hedged) ETF',       alloc:'1.16%', mer:'0.20%'},
+          {type:'sub', label:'Fixed Interest'},
+          {type:'row', code:'CSA0038AU', name:'Bentham Global Income Fund',            alloc:'4.62%', mer:'0.52%'},
+          {type:'row', code:'HOW2852AU', name:'Bentham Asset Backed Securities Fund',  alloc:'6.37%', mer:'0.25%'},
+          {type:'row', code:'MAQ0274AU', name:'Macquarie Dynamic Bond Fund',           alloc:'8.56%', mer:'0.49%'},
+          {type:'row', code:'PER0260AU', name:'Perpetual Diversified Income Fund',     alloc:'6.71%', mer:'0.40%'},
+          {type:'row', code:'SLT0052AU', name:'Coolabah Short Term Income Fund',       alloc:'6.56%', mer:'0.80%'},
+          {type:'sub', label:'Cash'},
+          {type:'row', code:'ISEC',  name:'iShares Enhanced Cash ETF',  alloc:'9.54%', mer:'0.12%'},
+          {type:'row', code:'CASH',  name:'Cash &amp; Reserves',         alloc:'0.65%', mer:null},
+          {type:'total', alloc:'100.0%', mer:'0.430%'},
+        ],
+      }
+    },
+
+    // ════════════════════════════════════════════════════════════════════════
 
     // ════════════════════════════════════════════════════════════════════════
     may2026: {
@@ -839,6 +1103,62 @@
     }).join('');
   }
 
+  // ─── CSV EXPORT ─────────────────────────────────────────────────────────
+  const TABLE_LABELS = {
+    'tbl-aus-eq':      'Australian Equities',
+    'tbl-global-eq':   'Global Equities',
+    'tbl-prop-infra':  'Property / Infrastructure',
+    'tbl-fixed-int':   'Fixed Interest',
+    'tbl-alts':        'Alternatives',
+    'tbl-high-growth': 'High Growth',
+    'tbl-growth':      'Growth',
+    'tbl-mod-growth':  'Moderate Growth',
+  };
+
+  function csvEscape(value) {
+    if (value === null || value === undefined) return '';
+    const s = String(value);
+    if (/[",\n]/.test(s)) return '"' + s.replace(/"/g, '""') + '"';
+    return s;
+  }
+
+  function downloadCSV() {
+    const periodKey = document.getElementById('period-select').value;
+    const period = PERIODS[periodKey];
+    if (!period) return;
+
+    const header = ['Portfolio', 'Asset Class / Section', 'Code', 'Security', 'Classification', 'Allocation', 'SMA MER'];
+    const csvRows = [header];
+
+    Object.entries(period.tables).forEach(([tableId, rows]) => {
+      const portfolio = TABLE_LABELS[tableId] || tableId;
+      let section = '';
+      rows.forEach(r => {
+        if (r.type === 'sub') {
+          section = r.label;
+          return;
+        }
+        if (r.type === 'total') {
+          csvRows.push([portfolio, section, '', 'Total / Weighted Average', '', r.alloc || '', r.mer || '']);
+          return;
+        }
+        const name = (r.name || '').replace(/&amp;/g, '&');
+        csvRows.push([portfolio, section, r.code || '', name, r.cls || '', r.alloc || '', r.mer || '']);
+      });
+    });
+
+    const csvContent = csvRows.map(row => row.map(csvEscape).join(',')).join('\r\n');
+    const blob = new Blob(['\ufeff' + csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `hub24-portfolio-weights-${period.label.replace(/\s+/g, '-')}.csv`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
   function switchPeriod(key) {
     const period = PERIODS[key];
     if (!period) return;
@@ -853,7 +1173,7 @@
     document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
   }
 
-  document.addEventListener('DOMContentLoaded', () => switchPeriod('may2026'));
+  document.addEventListener('DOMContentLoaded', () => switchPeriod('jun2026'));
   </script>
 </body>
 </html>
