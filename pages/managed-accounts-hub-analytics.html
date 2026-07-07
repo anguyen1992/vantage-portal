@@ -182,6 +182,18 @@
       line-height: 1.5;
     }
 
+    /* Period selector */
+    .period-selector-bar { display:flex; align-items:center; gap:10px; margin-bottom:1.6rem; }
+    .period-selector-bar label { font-size:0.82rem; font-weight:600; color:var(--navy); text-transform:uppercase; letter-spacing:0.04em; }
+    .period-selector-bar select {
+      font-size:0.82rem; font-weight:600; color:var(--navy); background:#fff;
+      border:1.5px solid var(--gold); border-radius:4px; padding:5px 28px 5px 10px; cursor:pointer;
+      appearance:none; -webkit-appearance:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23b8952a' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+      background-repeat:no-repeat; background-position:right 9px center; background-size:10px 7px;
+    }
+    .period-selector-bar select:focus { outline:none; border-color:var(--navy); }
+
     /* Error state */
     .load-error {
       background: #fff5f5;
@@ -240,6 +252,15 @@
       <div class="cowork-badge">
         <span class="dot"></span>
         Refreshed weekly by Claude Cowork
+      </div>
+
+      <!-- Period selector -->
+      <div class="period-selector-bar">
+        <label for="period-select">Period:</label>
+        <select id="period-select">
+          <option value="jun2026">30 Jun 2026</option>
+          <option value="may2026">31 May 2026</option>
+        </select>
       </div>
 
       <!-- Load error -->
@@ -422,7 +443,7 @@
             <tbody id="fi-tbody"></tbody>
           </table>
         </div>
-        <p class="table-note">Benchmarks: Bentham ABS &amp; Perpetual vs AAA (bank bill proxy) · Bentham Global Income vs 50% AAA + 50% IAF · Macquarie Dynamic Bond vs VAGB (Global Agg hedged AUD) · Coolabah vs AAA/BILL (RBA cash rate proxy).</p>
+        <p class="table-note">Benchmarks: Bentham ABS &amp; Perpetual vs AAA (bank bill proxy) · Bentham Global Income vs 50% AAA + 50% IAF · Macquarie Dynamic Bond vs VAGB or VBND (Global Agg hedged AUD, ticker varies by period) · Coolabah vs AAA/BILL (RBA cash rate proxy).</p>
       </section>
 
     </main>
@@ -514,6 +535,9 @@
     PER0260AU: { key:'AAA',     label:'AAA (Bank Bill proxy)' },
     SLT0052AU: { key:'AAA',     label:'AAA / BILL (Cash Rate proxy)' },
   };
+  /* Per-holding bmark_key/bmark_label in the JSON (if present) override the
+     static FI_BMARKS mapping above, so the benchmark proxy can change between
+     periods (e.g. VAGB -> VBND) without breaking older, already-published months. */
 
   /* ── Helpers ── */
   function pct(v, decimals=2) {
@@ -545,17 +569,10 @@
   }
 
   /* ── Main render ── */
-  async function loadAndRender() {
-    let d;
-    try {
-      const res = await fetch('../assets/data/analytics.json?v=' + Date.now());
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      d = await res.json();
-    } catch(e) {
-      console.error('Failed to load analytics.json:', e);
-      document.getElementById('load-error').style.display = 'block';
-      return;
-    }
+  let ALL_PERIODS = null;
+
+  function renderPeriod(d) {
+    if (!d) return;
 
     /* Meta */
     setEl('meta-period', `${d._meta.period_start} – ${d._meta.period_end}`);
@@ -682,16 +699,21 @@
     const aaaRet  = fiBm['AAA']  ?? null;
     const iafRet  = fiBm['IAF']  ?? null;
     const vagbRet = fiBm['VAGB'] ?? null;
+    const vbndRet = fiBm['VBND'] ?? null;
 
     setStrong('fi-port', fiPort);
     if (aaaRet!==null) { setStrong('fi-comp', aaaRet); setStrong('fi-active', fiPort - aaaRet); }
 
     document.getElementById('fi-tbody').innerHTML = d.fi_holdings.map(h => {
-      const bm = FI_BMARKS[h.code] || {};
+      const staticBm = FI_BMARKS[h.code] || {};
+      const bmKey   = h.bmark_key   || staticBm.key;
+      const bmLabel = h.bmark_label || staticBm.label;
       let bmRet = null;
-      if (bm.key==='VAGB')    bmRet = vagbRet;
-      else if (bm.key==='AAA+IAF') bmRet = (aaaRet!==null&&iafRet!==null) ? (aaaRet+iafRet)/2 : null;
-      else                    bmRet = aaaRet;
+      if (bmKey==='VAGB')          bmRet = vagbRet;
+      else if (bmKey==='VBND')     bmRet = vbndRet;
+      else if (bmKey==='AAA+IAF')  bmRet = (aaaRet!==null&&iafRet!==null) ? (aaaRet+iafRet)/2 : null;
+      else                         bmRet = aaaRet;
+      const bm = { label: bmLabel };
       return `<tr>
         <td>
           <span class="code-tag">${h.code}</span>
@@ -715,7 +737,23 @@
     }).join('');
   }
 
-  document.addEventListener('DOMContentLoaded', loadAndRender);
+  async function loadAll() {
+    try {
+      const res = await fetch('../assets/data/analytics.json?v=' + Date.now());
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      ALL_PERIODS = await res.json();
+    } catch(e) {
+      console.error('Failed to load analytics.json:', e);
+      document.getElementById('load-error').style.display = 'block';
+      return;
+    }
+
+    const select = document.getElementById('period-select');
+    select.addEventListener('change', () => renderPeriod(ALL_PERIODS[select.value]));
+    renderPeriod(ALL_PERIODS[select.value]);
+  }
+
+  document.addEventListener('DOMContentLoaded', loadAll);
   </script>
 
   <script src="../assets/js/main.js"></script>
