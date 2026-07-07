@@ -1,98 +1,660 @@
 {
-  "_meta": {
-    "period_start": "01/05/2026",
-    "period_end": "31/05/2026",
-    "generated": "9 June 2026",
-    "source": "HUB24 Shadow Portfolio Performance Report + Claude Cowork",
-    "data_notes": "Portfolio and holding returns extracted from the HUB24 Shadow Portfolio Performance Report for 01/05/2026 to 31/05/2026 (single-strategy summaries struck to 29/05/2026). S&P/ASX 300 (TR) and the IFRA, REIT, VGS, QUAL and VVLU holding returns are from the report. ASX 200 sector index returns (1-month, price return) are sourced from the Morgan Stanley Weekly Asset Class Performance Sheet as at 29 May 2026; XIJ is mapped to Industrials and XTJ to Information Technology to match the dashboard's stock-to-sector groupings. VGAD (+6.16%), VISM (+5.62%), AAA (0.00%) and IAF (+1.54%) are adviser-supplied ETF returns; VAGB (+0.90%) is shown as the Bloomberg Global Aggregate (Hedged) index proxy as no ETF figure was supplied. Note the Morgan Stanley AusBond Bank Bill index returned +0.30% for the month."
-  },
-  "portfolio_returns": {
-    "aus": 1.48,
-    "ge": 5.30,
-    "pi": -0.78,
-    "fi": 0.88
-  },
-  "benchmarks": {
-    "asx300": 1.25,
-    "sectors": {
-      "XFJ": -3.90,
-      "XMJ": 10.50,
-      "XEJ": -5.90,
-      "XHJ": -9.20,
-      "XIJ": 2.00,
-      "XSJ": -1.90,
-      "XDJ": 4.60,
-      "XTJ": 0.60,
-      "XPJ": 3.00,
-      "XUJ": -7.60
+  "jun2026": {
+    "_meta": {
+      "period_start": "01/06/2026",
+      "period_end": "30/06/2026",
+      "generated": "7 July 2026",
+      "source": "HUB24 Shadow Portfolio Performance Report + Morgan Stanley Weekly Asset Class Performance Sheet + Claude Cowork",
+      "data_notes": "Portfolio and holding returns extracted from the HUB24 Shadow Portfolio Performance Report for 01/06/2026 to 30/06/2026. S&P/ASX 300 (TR) is from the report. ASX 200 sector index returns (1-month, price return) are sourced from the Morgan Stanley Weekly Asset Class Performance Sheet as at 30 Jun 2026 (report dated 3 Jul 2026); XIJ is mapped to Industrials and XTJ to Information Technology to match the dashboard's stock-to-sector groupings. XPJ (Property) uses the Listed Property & Infrastructure section's ASX 200 A-REITs figure, as the Australian Equities section's A-REIT row was not available for the month. QUAL, VGS, VVLU, IFRA and REIT holding returns are from the report. VGAD (-0.41%), VISM (+5.66%), AAA (-0.02%) and IAF (+1.09%) are adviser-supplied ETF returns; VBND (Vanguard Global Aggregate Bond Index, Hedged, ETF, +0.81%) is used this period in place of VAGB as the Macquarie Dynamic Bond benchmark proxy."
     },
-    "ge": {
-      "VGS": 5.60,
-      "VGAD": 6.16,
-      "QUAL": 5.03,
-      "VISM": 5.62,
-      "VVLU": 3.14
+    "portfolio_returns": {
+      "aus": 0.43,
+      "ge": 3.01,
+      "pi": 3.01,
+      "fi": 0.71
     },
-    "pi": {
-      "IFRA": 0.88,
-      "REIT": 2.44
+    "benchmarks": {
+      "asx300": 0.6,
+      "sectors": {
+        "XFJ": 1.8,
+        "XMJ": 7.4,
+        "XEJ": -8.9,
+        "XHJ": 13.3,
+        "XIJ": 3.7,
+        "XSJ": 13.0,
+        "XDJ": 12.2,
+        "XTJ": 2.7,
+        "XPJ": 1.7,
+        "XUJ": 0.4
+      },
+      "ge": {
+        "VGS": 3.06,
+        "VGAD": -0.41,
+        "QUAL": 3.63,
+        "VISM": 5.66,
+        "VVLU": 4.67
+      },
+      "pi": {
+        "IFRA": 2.89,
+        "REIT": 2.86
+      },
+      "fi": {
+        "AAA": -0.02,
+        "IAF": 1.09,
+        "VBND": 0.81
+      }
     },
-    "fi": {
-      "AAA": 0.00,
-      "IAF": 1.54,
-      "VAGB": 0.90
-    }
+    "aus_holdings": [
+      {
+        "code": "AGL",
+        "ret": -2.45,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "No material news in the period; shares underperformed the broadly flat Utilities sector index."
+      },
+      {
+        "code": "AMC",
+        "ret": 13.87,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "No single company catalyst identified; shares tracked a strong Materials-sector month and continued to feature in income-investor commentary on Amcor's dividend yield."
+      },
+      {
+        "code": "ANZ",
+        "ret": 0.43,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "No material news in the period."
+      },
+      {
+        "code": "BHP",
+        "ret": -4.67,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "Iron ore eased from ~US$108/t to ~US$100/t and copper also slipped over the month; FY26 Stage 2 potash investment estimate increased to US$6.9bn from US$4.9bn with first production delayed to FY2031; June also marked Mike Henry's final month as CEO ahead of Brandon Craig's 1 July start."
+      },
+      {
+        "code": "BRG",
+        "ret": 11.47,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "No distinct company catalyst identified; shares tracked the ASX 200 Consumer Discretionary sector's strong +12.2% June return."
+      },
+      {
+        "code": "CBA",
+        "ret": -0.24,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "No material news in the period."
+      },
+      {
+        "code": "CGF",
+        "ret": 12.87,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "Bank of Queensland announced a strategic loan sale and capital partnership with Challenger during the period, extending the momentum from May's Investor Day and Capital Notes 3 redemption."
+      },
+      {
+        "code": "COL",
+        "ret": 12.2,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "Jefferies upgraded Coles to Buy with a $23 price target, citing healthy volume growth, strong margins and progress on non-food initiatives."
+      },
+      {
+        "code": "CWY",
+        "ret": 2.62,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "No material news in the period."
+      },
+      {
+        "code": "HUB",
+        "ret": -12.49,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "Q3 FY26 trading update revealed a one-off institutional mandate outflow that weighed on net flows; shares fell to 52-week lows amid the ongoing APRA/HTFS trustee licence-conditions overhang."
+      },
+      {
+        "code": "MND",
+        "ret": -0.23,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "No material news in the period."
+      },
+      {
+        "code": "MQG",
+        "ret": 4.92,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "Continued momentum from the record FY26 result (net profit +30% to $4.85bn) and a mid-June broker price-target upgrade; Macquarie's comparatively small exposure to Australian mortgage lending versus the major banks was viewed favourably given ongoing housing-sector headwinds."
+      },
+      {
+        "code": "NAB",
+        "ret": 1.42,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "No material news in the period."
+      },
+      {
+        "code": "NEM",
+        "ret": -11.07,
+        "dividend": true,
+        "trade_flag": false,
+        "news": "Gold entered a bear market in June, falling around 25% from January's all-time high on US rate/USD strength; Newmont's 2026 guidance for lower production and higher all-in sustaining costs left the stock particularly exposed to the pullback."
+      },
+      {
+        "code": "NHF",
+        "ret": 5.69,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "The government-approved 4.41% industry-wide private health premium increase (effective 1 April; nib approved at 5.5%) continued to support margins through the period."
+      },
+      {
+        "code": "ORG",
+        "ret": 1.01,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "No material news in the period."
+      },
+      {
+        "code": "ORI",
+        "ret": 3.45,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "No material news in the period."
+      },
+      {
+        "code": "QBE",
+        "ret": 11.26,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "Shares reached decade highs; QBE completed a €500m subordinated debt refinancing on 17 June (redeeming US$524m of legacy notes), alongside its ongoing $450m buyback and reaffirmed FY26 targets."
+      },
+      {
+        "code": "RIO",
+        "ret": -7.07,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "Iron ore and copper prices eased over the month in tandem with BHP; shares fell in sympathy with the broader miners' pullback."
+      },
+      {
+        "code": "RMD",
+        "ret": 0.45,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "No material news in the period."
+      },
+      {
+        "code": "SDF",
+        "ret": 25.0,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "Steadfast entered a Process Deed on 10 June following a conditional, non-binding takeover approach, after a trading halt and pause in trading; shares rallied sharply on the news."
+      },
+      {
+        "code": "SGP",
+        "ret": 3.46,
+        "dividend": true,
+        "trade_flag": false,
+        "news": "No material news in the period."
+      },
+      {
+        "code": "STW",
+        "ret": 0.82,
+        "dividend": true,
+        "trade_flag": false,
+        "news": "SPDR S&P/ASX 200 ETF; return tracks the broad Australian market's modest gain over the period."
+      },
+      {
+        "code": "TNE",
+        "ret": -1.24,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "No material news in the period."
+      },
+      {
+        "code": "TPG",
+        "ret": -7.69,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "Shares weighed down by the government's proposed spectrum pricing (up to $7.3bn, ~$2.3bn above initial estimates), which TPG's CEO publicly criticised as ‘hard-coding’ price increases."
+      },
+      {
+        "code": "WDS",
+        "ret": -7.99,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "Shares ran up on a Bloomberg report that Exxon was exploring an acquisition, then fell sharply on 15 June after Woodside denied the talks; a ~5% Brent pullback on US-Iran de-escalation news added further pressure."
+      },
+      {
+        "code": "XRO",
+        "ret": -3.92,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "No material news in the period."
+      }
+    ],
+    "ge_holdings": [
+      {
+        "code": "ETL8482AU",
+        "ret": 4.04,
+        "commentary": "T. Rowe Price Global Equity returned +4.04%, ahead of both the VGS portfolio benchmark (+3.06%) and the QUAL quality factor (+3.63%). The fund's growth-oriented global stock selection continued to add value in a month of broad-based developed-market gains."
+      },
+      {
+        "code": "MAQ1878AU",
+        "ret": 1.23,
+        "commentary": "Arrowstreet Global Equity (Hedged) returned +1.23%, comfortably ahead of the AUD-hedged VGAD factor benchmark (-0.41%), which was dragged down by adverse currency-hedging effects during the month. The manager's quantitative multi-factor process delivered a resilient result despite the divergence between hedged and unhedged benchmarks."
+      },
+      {
+        "code": "MAQ8493AU",
+        "ret": 7.62,
+        "commentary": "Arrowstreet Global Small Companies returned +7.62%, well ahead of both the VGS benchmark (+3.06%) and the VISM small-companies factor benchmark (+5.66%). International small-caps rallied strongly over the period, and the manager's stock and country selection added meaningfully on top of that broader tailwind."
+      },
+      {
+        "code": "PIM0058AU",
+        "ret": 1.36,
+        "commentary": "Aoris International returned +1.36%, behind both the VGS benchmark (+3.06%) and the QUAL quality factor (+3.63%). The fund's concentrated portfolio of around fifteen quality global businesses lagged the broader market this period, reflecting stock-specific divergence within its narrow holding base."
+      },
+      {
+        "code": "QUAL",
+        "ret": 3.63,
+        "commentary": "VanEck MSCI International Quality ETF returned +3.63%, modestly ahead of the broad VGS benchmark (+3.06%). It continues to serve as both a core passive holding and the quality-factor reference benchmark for the portfolio's active global managers."
+      },
+      {
+        "code": "VGS",
+        "ret": 3.06,
+        "commentary": "Vanguard MSCI International Shares ETF returned +3.06%, reflecting broad global developed-market equity gains in unhedged Australian dollar terms over the month. VGS is the portfolio-level benchmark for the Global Equities sleeve and a core passive holding."
+      },
+      {
+        "code": "VVLU",
+        "ret": 4.67,
+        "commentary": "Vanguard Global Value Equity Active ETF returned +4.67%, ahead of the broad VGS benchmark (+3.06%). The value factor outperformed growth and quality over the period, making this value-tilted ETF the strongest global equity holding in the sleeve this month."
+      }
+    ],
+    "pi_holdings": [
+      {
+        "code": "AAP3601AU",
+        "ret": 1.85,
+        "commentary": "Ausbil Global Essential Infrastructure (Hedged) returned +1.85%, behind the IFRA benchmark (+2.89%). Security selection within regulated utilities and transport assets detracted modestly against the passive infrastructure index over the period."
+      },
+      {
+        "code": "BFL0020AU",
+        "ret": 5.89,
+        "commentary": "Quay Global Real Estate (Unhedged) returned +5.89%, well ahead of the hedged REIT benchmark (+2.86%), making it the sleeve's strongest performer this period. The gap partly reflects the unhedged currency position against a hedged benchmark, alongside the manager's residential and essential-needs property selection."
+      },
+      {
+        "code": "PIM1961AU",
+        "ret": 1.69,
+        "commentary": "ATLAS Infrastructure (Hedged) returned +1.69%, behind the IFRA benchmark (+2.89%). The concentrated, currency-hedged portfolio of core listed infrastructure modestly underperformed the passive index, with security selection the main detractor."
+      },
+      {
+        "code": "IFRA",
+        "ret": 2.89,
+        "commentary": "VanEck FTSE Global Infrastructure (Hedged) ETF returned +2.89%, reflecting a solid month for listed infrastructure markets. IFRA is the portfolio benchmark for the active infrastructure funds and a core passive holding in the sleeve."
+      },
+      {
+        "code": "REIT",
+        "ret": 2.86,
+        "commentary": "VanEck FTSE International Property (Hedged) ETF returned +2.86%, a broadly similar result to the infrastructure sleeve, reflecting steady gains across global listed real estate. REIT serves as the portfolio benchmark for the Quay global property allocation."
+      }
+    ],
+    "fi_holdings": [
+      {
+        "code": "CSA0038AU",
+        "ret": 0.94,
+        "commentary": "Bentham Global Income returned +0.94%, ahead of the blended 50% AAA / 50% IAF benchmark (+0.54%). The fund's credit-focused allocation across global high yield and syndicated loans generated solid income over the period."
+      },
+      {
+        "code": "HOW2852AU",
+        "ret": 0.97,
+        "commentary": "Bentham Asset Backed Securities returned +0.97%, comfortably ahead of the AAA bank-bill proxy (-0.02%). The floating-rate, asset-backed portfolio continued to generate steady income with minimal interest-rate duration."
+      },
+      {
+        "code": "MAQ0274AU",
+        "ret": 0.71,
+        "commentary": "Macquarie Dynamic Bond returned +0.71%, marginally behind the VBND (Vanguard Global Aggregate Bond, Hedged) benchmark (+0.81%), which is used this period in place of the prior VAGB proxy. The fund's active duration and sector positioning captured most of the broader global bond rally.",
+        "bmark_key": "VBND",
+        "bmark_label": "VBND (Vanguard Global Agg Bond Hdg AUD)"
+      },
+      {
+        "code": "PER0260AU",
+        "ret": 0.53,
+        "commentary": "Perpetual Diversified Income returned +0.53%, ahead of the AAA bank-bill proxy (-0.02%), consistent with its cash-plus objective. The fund's short-duration, investment-grade credit positioning delivered steady income with low volatility."
+      },
+      {
+        "code": "SLT0052AU",
+        "ret": 0.45,
+        "commentary": "Coolabah Short Term Income returned +0.45%, ahead of the AAA/cash-rate proxy (-0.02%). The fund's very short duration and high-grade floating-rate credit holdings continued to produce a stable, cash-like return."
+      }
+    ]
   },
-  "aus_holdings": [
-    { "code": "AGL", "ret": -10.65, "dividend": false, "trade_flag": false, "news": "No material news in the period; shares fell with the broader energy sector." },
-    { "code": "AMC", "ret": 4.73, "dividend": true, "trade_flag": false, "news": "Q3 FY26 result (6 May): net sales US$5.9bn, adjusted EPS US$0.96; FY26 guidance lifted on Berry synergies." },
-    { "code": "ANZ", "ret": -1.69, "dividend": true, "trade_flag": false, "news": "HY26 result (May): cash profit $3.78bn; interim dividend 83cps with franking lifted to 75%." },
-    { "code": "BHP", "ret": 15.99, "dividend": false, "trade_flag": false, "news": "Shares rallied to record highs on China stimulus optimism; raised FY26 copper guidance and record WAIO iron ore output." },
-    { "code": "BRG", "ret": -3.34, "dividend": false, "trade_flag": false, "news": "Presented at Macquarie Australia Conference (May); flagged 35% larger addressable market and reduced US-China tariff exposure via supply-chain diversification." },
-    { "code": "CBA", "ret": -4.98, "dividend": false, "trade_flag": false, "news": "Q3 FY26 update (13 May): cash NPAT ~$2.7bn, +4%; $200m provision top-up; operating income flat." },
-    { "code": "CGF", "ret": 3.75, "dividend": false, "trade_flag": false, "news": "May Investor Day; APRA finalised longevity capital rules; Capital Notes 3 to be redeemed." },
-    { "code": "COL", "ret": -1.76, "dividend": false, "trade_flag": false, "news": "Q3 FY26 sales (1 May): group revenue +3.1%; supermarkets +4.0%, ecommerce +24.8%; liquor down 3.9%." },
-    { "code": "CWY", "ret": 3.15, "dividend": false, "trade_flag": false, "news": "No material news in the period." },
-    { "code": "HUB", "ret": -0.28, "dividend": false, "trade_flag": false, "news": "APRA imposed extra licence conditions (29 May) on its HTFS super trustee, requiring an independent expert review of investment governance." },
-    { "code": "MND", "ret": 11.09, "dividend": false, "trade_flag": false, "news": "Won ~$120m of new contracts (22 May), including a Fortescue Cloudbreak battery storage build and Port Waratah maintenance panel." },
-    { "code": "MQG", "ret": 3.26, "dividend": true, "trade_flag": false, "news": "FY26 result (May): net profit $4,847m, +30%; record second half; final dividend $4.20 (35% franked)." },
-    { "code": "NAB", "ret": -4.26, "dividend": true, "trade_flag": false, "news": "HY26 result (4 May): cash earnings $3,558m; interim dividend 85cps; net interest margin up 3bps to 1.81%." },
-    { "code": "NEM", "ret": 0.84, "dividend": true, "trade_flag": false, "news": "No material news in the period." },
-    { "code": "NHF", "ret": 0.45, "dividend": false, "trade_flag": false, "news": "April industry premium rise of 4.41% (largest since 2017) supports margins; FY26 underlying operating profit guidance $257-260m." },
-    { "code": "ORG", "ret": -10.17, "dividend": false, "trade_flag": false, "news": "Cut FY26 Octopus Energy earnings guidance on UK regulatory headwinds; Q3 revenue fell 12% on lower LNG volumes; shares slid." },
-    { "code": "ORI", "ret": 10.30, "dividend": true, "trade_flag": false, "news": "HY26 result (7 May): record EBIT $512m; interim dividend lifted 14% to 28.5cps; acquisitions announced." },
-    { "code": "QBE", "ret": 1.34, "dividend": false, "trade_flag": false, "news": "Q1 update (8 May): gross written premium +11% to $9.2bn; combined ratio guidance held ~92.5%; $450m buyback." },
-    { "code": "RIO", "ret": 10.89, "dividend": false, "trade_flag": false, "news": "Shares rose with the iron ore rally; Q1 output strong (Pilbara iron ore +12%, copper +9%)." },
-    { "code": "RMD", "ret": -3.22, "dividend": true, "trade_flag": false, "news": "Q3 FY26 result (30 April): revenue +11% to $1.43bn; gross margin expanded 290bps; shares drifted lower." },
-    { "code": "SDF", "ret": -3.77, "dividend": false, "trade_flag": false, "news": "No material news in the period." },
-    { "code": "SGP", "ret": 1.23, "dividend": false, "trade_flag": false, "news": "No material news in the period." },
-    { "code": "STW", "ret": 0.96, "dividend": false, "trade_flag": false, "news": "SPDR S&P/ASX 200 ETF; return tracks the broad Australian market's modest gain over the period." },
-    { "code": "TNE", "ret": 6.90, "dividend": true, "trade_flag": false, "news": "HY26 result (May): annual recurring revenue +17% to $598m; profit before tax +9%; interim dividend lifted 21%." },
-    { "code": "TPG", "ret": -6.92, "dividend": false, "trade_flag": false, "news": "No material news in the period." },
-    { "code": "WDS", "ret": -8.61, "dividend": false, "trade_flag": false, "news": "No material news in the period; shares fell with the broader energy sector." },
-    { "code": "XRO", "ret": -6.08, "dividend": false, "trade_flag": false, "news": "FY26 result (14 May): revenue +31% to NZ$2.75bn; profit fell on Melio acquisition costs; shares dropped." }
-  ],
-  "ge_holdings": [
-    { "code": "ETL8482AU", "ret": 5.99, "commentary": "T. Rowe Price Global Equity returned +5.99%, ahead of the VGS portfolio benchmark (+5.60%) and the QUAL quality factor (+5.03%). The fund's active, growth-oriented selection across global developed markets added value during a strong period for international equities, with stock picking the principal contributor." },
-    { "code": "MAQ1878AU", "ret": 7.51, "commentary": "Arrowstreet Global Equity (Hedged) returned +7.51%, ahead of both the unhedged VGS benchmark (+5.60%) and the AUD-hedged VGAD factor benchmark (+6.16%). Currency hedging removed translation drag, while the manager's quantitative multi-factor process added further value through effective stock and sector selection across developed markets." },
-    { "code": "MAQ8493AU", "ret": 1.59, "commentary": "Arrowstreet Global Small Companies returned +1.59%, well behind the VISM small-companies factor benchmark (+5.62%). International small-caps rallied strongly over the period, so the shortfall reflects stock and country selection within the manager's quantitative process rather than the asset class, making it the sleeve's largest relative detractor." },
-    { "code": "PIM0058AU", "ret": 1.64, "commentary": "Aoris International returned +1.64%, behind both the VGS benchmark (+5.60%) and the QUAL quality factor (+5.03%). The fund runs a concentrated portfolio of around fifteen quality global businesses; its lag this period reflects stock-specific divergence within that narrow holding base rather than broad market direction." },
-    { "code": "QUAL", "ret": 5.03, "commentary": "VanEck MSCI International Quality ETF returned +5.03%, tracking the global quality factor across developed markets. It serves as both a core passive holding and the quality-factor reference benchmark for the portfolio's active global managers." },
-    { "code": "VGS", "ret": 5.60, "commentary": "Vanguard MSCI International Shares ETF returned +5.60%, reflecting broad global developed-market equity gains in unhedged Australian dollar terms. VGS is the portfolio-level benchmark for the Global Equities sleeve and a core passive holding." },
-    { "code": "VVLU", "ret": 3.14, "commentary": "Vanguard Global Value Equity Active ETF returned +3.14%, behind the broad VGS benchmark (+5.60%). The value factor lagged growth and quality over the period, leaving this value-tilted ETF as the sleeve's weakest global equity holding." }
-  ],
-  "pi_holdings": [
-    { "code": "AAP3601AU", "ret": -2.94, "commentary": "Ausbil Global Essential Infrastructure (Hedged) returned -2.94%, well behind the IFRA benchmark (+0.88%). Listed infrastructure was broadly soft; the currency-hedged fund's larger decline points to security selection within regulated utilities and transport assets detracting against the passive infrastructure index over the period." },
-    { "code": "BFL0020AU", "ret": -1.04, "commentary": "Quay Global Real Estate (Unhedged) returned -1.04%, behind the hedged REIT benchmark (+2.44%). The gap reflects both currency and selection, as Quay is unhedged against a hedged benchmark; its focus on residential and essential-needs property also shaped the period's relative result." },
-    { "code": "PIM1961AU", "ret": -0.39, "commentary": "ATLAS Infrastructure (Hedged) returned -0.39%, behind the IFRA benchmark (+0.88%) but the strongest of the sleeve's active infrastructure funds. The currency-hedged, concentrated portfolio of core listed infrastructure modestly underperformed amid soft sector conditions, with security selection the main detractor over the period." },
-    { "code": "IFRA", "ret": 0.88, "commentary": "VanEck FTSE Global Infrastructure (Hedged) ETF returned +0.88%, a slim gain reflecting broadly flat listed-infrastructure markets. IFRA is the portfolio benchmark for the active infrastructure funds and a core passive holding in the sleeve." },
-    { "code": "REIT", "ret": 2.44, "commentary": "VanEck FTSE International Property (Hedged) ETF returned +2.44%, the strongest result in the sleeve, reflecting modest gains across global listed real estate. REIT serves as the portfolio benchmark for the Quay global property allocation." }
-  ],
-  "fi_holdings": [
-    { "code": "CSA0038AU", "ret": 1.32, "commentary": "Bentham Global Income returned +1.32%. The fund's credit-focused allocation across global high yield and syndicated loans generated solid income, though it trailed the AusBond Composite benchmark (+1.62%) as longer-duration government bonds rallied harder than credit; a respectable but slightly benchmark-lagging result for the period." },
-    { "code": "HOW2852AU", "ret": 1.49, "commentary": "Bentham Asset Backed Securities returned +1.49%, a strong result for a floating-rate strategy. Its portfolio of asset-backed and mortgage-backed securities delivered steady income with minimal interest-rate duration, benefiting from stable structured-credit spreads, and nearly matched the AusBond Composite (+1.62%) despite carrying far less rate risk." },
-    { "code": "MAQ0274AU", "ret": 0.79, "commentary": "Macquarie Dynamic Bond returned +0.79%, behind the AusBond Composite benchmark (+1.62%). As an actively managed fund with flexible duration positioning, it captured only part of the government-bond rally that lifted the index, with its duration and sector tilts leaving it short of the benchmark." },
-    { "code": "PER0260AU", "ret": 0.57, "commentary": "Perpetual Diversified Income returned +0.57%, behind the AusBond Composite (+1.62%) but consistent with its bank-bill objective. The fund's short-duration, investment-grade credit positioning delivered steady income with low volatility, by design missing the longer-duration government-bond rally that drove the broader index higher." },
-    { "code": "SLT0052AU", "ret": 0.39, "commentary": "Coolabah Short Term Income returned +0.39%, consistent with its RBA cash-rate objective. The fund's very short duration and high-grade floating-rate credit holdings produced a stable, cash-like return, contributing low-risk income without exposure to the duration-driven moves that shaped longer-dated fixed-interest returns this period." }
-  ]
+  "may2026": {
+    "_meta": {
+      "period_start": "01/05/2026",
+      "period_end": "31/05/2026",
+      "generated": "9 June 2026",
+      "source": "HUB24 Shadow Portfolio Performance Report + Claude Cowork",
+      "data_notes": "Portfolio and holding returns extracted from the HUB24 Shadow Portfolio Performance Report for 01/05/2026 to 31/05/2026 (single-strategy summaries struck to 29/05/2026). S&P/ASX 300 (TR) and the IFRA, REIT, VGS, QUAL and VVLU holding returns are from the report. ASX 200 sector index returns (1-month, price return) are sourced from the Morgan Stanley Weekly Asset Class Performance Sheet as at 29 May 2026; XIJ is mapped to Industrials and XTJ to Information Technology to match the dashboard's stock-to-sector groupings. VGAD (+6.16%), VISM (+5.62%), AAA (0.00%) and IAF (+1.54%) are adviser-supplied ETF returns; VAGB (+0.90%) is shown as the Bloomberg Global Aggregate (Hedged) index proxy as no ETF figure was supplied. Note the Morgan Stanley AusBond Bank Bill index returned +0.30% for the month."
+    },
+    "portfolio_returns": {
+      "aus": 1.48,
+      "ge": 5.3,
+      "pi": -0.78,
+      "fi": 0.88
+    },
+    "benchmarks": {
+      "asx300": 1.25,
+      "sectors": {
+        "XFJ": -3.9,
+        "XMJ": 10.5,
+        "XEJ": -5.9,
+        "XHJ": -9.2,
+        "XIJ": 2.0,
+        "XSJ": -1.9,
+        "XDJ": 4.6,
+        "XTJ": 0.6,
+        "XPJ": 3.0,
+        "XUJ": -7.6
+      },
+      "ge": {
+        "VGS": 5.6,
+        "VGAD": 6.16,
+        "QUAL": 5.03,
+        "VISM": 5.62,
+        "VVLU": 3.14
+      },
+      "pi": {
+        "IFRA": 0.88,
+        "REIT": 2.44
+      },
+      "fi": {
+        "AAA": 0.0,
+        "IAF": 1.54,
+        "VAGB": 0.9
+      }
+    },
+    "aus_holdings": [
+      {
+        "code": "AGL",
+        "ret": -10.65,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "No material news in the period; shares fell with the broader energy sector."
+      },
+      {
+        "code": "AMC",
+        "ret": 4.73,
+        "dividend": true,
+        "trade_flag": false,
+        "news": "Q3 FY26 result (6 May): net sales US$5.9bn, adjusted EPS US$0.96; FY26 guidance lifted on Berry synergies."
+      },
+      {
+        "code": "ANZ",
+        "ret": -1.69,
+        "dividend": true,
+        "trade_flag": false,
+        "news": "HY26 result (May): cash profit $3.78bn; interim dividend 83cps with franking lifted to 75%."
+      },
+      {
+        "code": "BHP",
+        "ret": 15.99,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "Shares rallied to record highs on China stimulus optimism; raised FY26 copper guidance and record WAIO iron ore output."
+      },
+      {
+        "code": "BRG",
+        "ret": -3.34,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "Presented at Macquarie Australia Conference (May); flagged 35% larger addressable market and reduced US-China tariff exposure via supply-chain diversification."
+      },
+      {
+        "code": "CBA",
+        "ret": -4.98,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "Q3 FY26 update (13 May): cash NPAT ~$2.7bn, +4%; $200m provision top-up; operating income flat."
+      },
+      {
+        "code": "CGF",
+        "ret": 3.75,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "May Investor Day; APRA finalised longevity capital rules; Capital Notes 3 to be redeemed."
+      },
+      {
+        "code": "COL",
+        "ret": -1.76,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "Q3 FY26 sales (1 May): group revenue +3.1%; supermarkets +4.0%, ecommerce +24.8%; liquor down 3.9%."
+      },
+      {
+        "code": "CWY",
+        "ret": 3.15,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "No material news in the period."
+      },
+      {
+        "code": "HUB",
+        "ret": -0.28,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "APRA imposed extra licence conditions (29 May) on its HTFS super trustee, requiring an independent expert review of investment governance."
+      },
+      {
+        "code": "MND",
+        "ret": 11.09,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "Won ~$120m of new contracts (22 May), including a Fortescue Cloudbreak battery storage build and Port Waratah maintenance panel."
+      },
+      {
+        "code": "MQG",
+        "ret": 3.26,
+        "dividend": true,
+        "trade_flag": false,
+        "news": "FY26 result (May): net profit $4,847m, +30%; record second half; final dividend $4.20 (35% franked)."
+      },
+      {
+        "code": "NAB",
+        "ret": -4.26,
+        "dividend": true,
+        "trade_flag": false,
+        "news": "HY26 result (4 May): cash earnings $3,558m; interim dividend 85cps; net interest margin up 3bps to 1.81%."
+      },
+      {
+        "code": "NEM",
+        "ret": 0.84,
+        "dividend": true,
+        "trade_flag": false,
+        "news": "No material news in the period."
+      },
+      {
+        "code": "NHF",
+        "ret": 0.45,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "April industry premium rise of 4.41% (largest since 2017) supports margins; FY26 underlying operating profit guidance $257-260m."
+      },
+      {
+        "code": "ORG",
+        "ret": -10.17,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "Cut FY26 Octopus Energy earnings guidance on UK regulatory headwinds; Q3 revenue fell 12% on lower LNG volumes; shares slid."
+      },
+      {
+        "code": "ORI",
+        "ret": 10.3,
+        "dividend": true,
+        "trade_flag": false,
+        "news": "HY26 result (7 May): record EBIT $512m; interim dividend lifted 14% to 28.5cps; acquisitions announced."
+      },
+      {
+        "code": "QBE",
+        "ret": 1.34,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "Q1 update (8 May): gross written premium +11% to $9.2bn; combined ratio guidance held ~92.5%; $450m buyback."
+      },
+      {
+        "code": "RIO",
+        "ret": 10.89,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "Shares rose with the iron ore rally; Q1 output strong (Pilbara iron ore +12%, copper +9%)."
+      },
+      {
+        "code": "RMD",
+        "ret": -3.22,
+        "dividend": true,
+        "trade_flag": false,
+        "news": "Q3 FY26 result (30 April): revenue +11% to $1.43bn; gross margin expanded 290bps; shares drifted lower."
+      },
+      {
+        "code": "SDF",
+        "ret": -3.77,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "No material news in the period."
+      },
+      {
+        "code": "SGP",
+        "ret": 1.23,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "No material news in the period."
+      },
+      {
+        "code": "STW",
+        "ret": 0.96,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "SPDR S&P/ASX 200 ETF; return tracks the broad Australian market's modest gain over the period."
+      },
+      {
+        "code": "TNE",
+        "ret": 6.9,
+        "dividend": true,
+        "trade_flag": false,
+        "news": "HY26 result (May): annual recurring revenue +17% to $598m; profit before tax +9%; interim dividend lifted 21%."
+      },
+      {
+        "code": "TPG",
+        "ret": -6.92,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "No material news in the period."
+      },
+      {
+        "code": "WDS",
+        "ret": -8.61,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "No material news in the period; shares fell with the broader energy sector."
+      },
+      {
+        "code": "XRO",
+        "ret": -6.08,
+        "dividend": false,
+        "trade_flag": false,
+        "news": "FY26 result (14 May): revenue +31% to NZ$2.75bn; profit fell on Melio acquisition costs; shares dropped."
+      }
+    ],
+    "ge_holdings": [
+      {
+        "code": "ETL8482AU",
+        "ret": 5.99,
+        "commentary": "T. Rowe Price Global Equity returned +5.99%, ahead of the VGS portfolio benchmark (+5.60%) and the QUAL quality factor (+5.03%). The fund's active, growth-oriented selection across global developed markets added value during a strong period for international equities, with stock picking the principal contributor."
+      },
+      {
+        "code": "MAQ1878AU",
+        "ret": 7.51,
+        "commentary": "Arrowstreet Global Equity (Hedged) returned +7.51%, ahead of both the unhedged VGS benchmark (+5.60%) and the AUD-hedged VGAD factor benchmark (+6.16%). Currency hedging removed translation drag, while the manager's quantitative multi-factor process added further value through effective stock and sector selection across developed markets."
+      },
+      {
+        "code": "MAQ8493AU",
+        "ret": 1.59,
+        "commentary": "Arrowstreet Global Small Companies returned +1.59%, well behind the VISM small-companies factor benchmark (+5.62%). International small-caps rallied strongly over the period, so the shortfall reflects stock and country selection within the manager's quantitative process rather than the asset class, making it the sleeve's largest relative detractor."
+      },
+      {
+        "code": "PIM0058AU",
+        "ret": 1.64,
+        "commentary": "Aoris International returned +1.64%, behind both the VGS benchmark (+5.60%) and the QUAL quality factor (+5.03%). The fund runs a concentrated portfolio of around fifteen quality global businesses; its lag this period reflects stock-specific divergence within that narrow holding base rather than broad market direction."
+      },
+      {
+        "code": "QUAL",
+        "ret": 5.03,
+        "commentary": "VanEck MSCI International Quality ETF returned +5.03%, tracking the global quality factor across developed markets. It serves as both a core passive holding and the quality-factor reference benchmark for the portfolio's active global managers."
+      },
+      {
+        "code": "VGS",
+        "ret": 5.6,
+        "commentary": "Vanguard MSCI International Shares ETF returned +5.60%, reflecting broad global developed-market equity gains in unhedged Australian dollar terms. VGS is the portfolio-level benchmark for the Global Equities sleeve and a core passive holding."
+      },
+      {
+        "code": "VVLU",
+        "ret": 3.14,
+        "commentary": "Vanguard Global Value Equity Active ETF returned +3.14%, behind the broad VGS benchmark (+5.60%). The value factor lagged growth and quality over the period, leaving this value-tilted ETF as the sleeve's weakest global equity holding."
+      }
+    ],
+    "pi_holdings": [
+      {
+        "code": "AAP3601AU",
+        "ret": -2.94,
+        "commentary": "Ausbil Global Essential Infrastructure (Hedged) returned -2.94%, well behind the IFRA benchmark (+0.88%). Listed infrastructure was broadly soft; the currency-hedged fund's larger decline points to security selection within regulated utilities and transport assets detracting against the passive infrastructure index over the period."
+      },
+      {
+        "code": "BFL0020AU",
+        "ret": -1.04,
+        "commentary": "Quay Global Real Estate (Unhedged) returned -1.04%, behind the hedged REIT benchmark (+2.44%). The gap reflects both currency and selection, as Quay is unhedged against a hedged benchmark; its focus on residential and essential-needs property also shaped the period's relative result."
+      },
+      {
+        "code": "PIM1961AU",
+        "ret": -0.39,
+        "commentary": "ATLAS Infrastructure (Hedged) returned -0.39%, behind the IFRA benchmark (+0.88%) but the strongest of the sleeve's active infrastructure funds. The currency-hedged, concentrated portfolio of core listed infrastructure modestly underperformed amid soft sector conditions, with security selection the main detractor over the period."
+      },
+      {
+        "code": "IFRA",
+        "ret": 0.88,
+        "commentary": "VanEck FTSE Global Infrastructure (Hedged) ETF returned +0.88%, a slim gain reflecting broadly flat listed-infrastructure markets. IFRA is the portfolio benchmark for the active infrastructure funds and a core passive holding in the sleeve."
+      },
+      {
+        "code": "REIT",
+        "ret": 2.44,
+        "commentary": "VanEck FTSE International Property (Hedged) ETF returned +2.44%, the strongest result in the sleeve, reflecting modest gains across global listed real estate. REIT serves as the portfolio benchmark for the Quay global property allocation."
+      }
+    ],
+    "fi_holdings": [
+      {
+        "code": "CSA0038AU",
+        "ret": 1.32,
+        "commentary": "Bentham Global Income returned +1.32%. The fund's credit-focused allocation across global high yield and syndicated loans generated solid income, though it trailed the AusBond Composite benchmark (+1.62%) as longer-duration government bonds rallied harder than credit; a respectable but slightly benchmark-lagging result for the period."
+      },
+      {
+        "code": "HOW2852AU",
+        "ret": 1.49,
+        "commentary": "Bentham Asset Backed Securities returned +1.49%, a strong result for a floating-rate strategy. Its portfolio of asset-backed and mortgage-backed securities delivered steady income with minimal interest-rate duration, benefiting from stable structured-credit spreads, and nearly matched the AusBond Composite (+1.62%) despite carrying far less rate risk."
+      },
+      {
+        "code": "MAQ0274AU",
+        "ret": 0.79,
+        "commentary": "Macquarie Dynamic Bond returned +0.79%, behind the AusBond Composite benchmark (+1.62%). As an actively managed fund with flexible duration positioning, it captured only part of the government-bond rally that lifted the index, with its duration and sector tilts leaving it short of the benchmark."
+      },
+      {
+        "code": "PER0260AU",
+        "ret": 0.57,
+        "commentary": "Perpetual Diversified Income returned +0.57%, behind the AusBond Composite (+1.62%) but consistent with its bank-bill objective. The fund's short-duration, investment-grade credit positioning delivered steady income with low volatility, by design missing the longer-duration government-bond rally that drove the broader index higher."
+      },
+      {
+        "code": "SLT0052AU",
+        "ret": 0.39,
+        "commentary": "Coolabah Short Term Income returned +0.39%, consistent with its RBA cash-rate objective. The fund's very short duration and high-grade floating-rate credit holdings produced a stable, cash-like return, contributing low-risk income without exposure to the duration-driven moves that shaped longer-dated fixed-interest returns this period."
+      }
+    ]
+  }
 }
