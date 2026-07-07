@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CFS Portfolio Performance &mdash; Vantage Wealth Management | Investment Data Portal</title>
 
-  <meta name="last-updated" content="11 Jun 2026">
+  <meta name="last-updated" content="30 Jun 2026">
   <meta name="owner"        content="Anthony Nguyen">
   <meta name="source"       content="FE Precision Plus, CFS">
-  <meta name="as-at"        content="31 May 2026">
+  <meta name="as-at"        content="30 Jun 2026">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -94,14 +94,15 @@
             <span class="date-selector-wrap">
               <strong>As at:</strong>
               <select id="date-selector" onchange="renderData(this.value)">
+                <option value="30 Jun 2026">30 Jun 2026</option>
                 <option value="31 May 2026">31 May 2026</option>
                 <option value="30 Apr 2026">30 Apr 2026</option>
               </select>
             </span>
           </span>
-          <span class="meta-item" id="meta-fytd-period"><strong>FYTD period:</strong> 1 Jul 2025 &ndash; 31 May 2026</span>
+          <span class="meta-item" id="meta-fytd-period"><strong>FYTD period:</strong> 1 Jul 2025 &ndash; 30 Jun 2026</span>
           <span class="meta-item"><strong>Inception:</strong> 28 Jun 2019</span>
-          <span class="meta-item"><strong>Last updated:</strong> 11 Jun 2026</span>
+          <span class="meta-item"><strong>Last updated:</strong> 30 Jun 2026</span>
           <span class="meta-item"><strong>Owner:</strong> Anthony Nguyen</span>
           <span class="meta-item"><strong>Source:</strong> FE Precision Plus, CFS</span>
         </div>
@@ -155,6 +156,32 @@
        strategy: label for the navy header row (shown once per group)
     ============================================================ */
     const PERF_DATA = {
+
+      '30 Jun 2026': {
+        fytdPeriod: '1 Jul 2025 &ndash; 30 Jun 2026',
+        rows: [
+          // ---- Aggressive ----
+          {strategy:'AGGRESSIVE', name:'Vantage CFS Aggressive Strategy &mdash; Pension', fytd:'9.62%', m1:'1.72%', m3:'10.19%', m6:'5.41%', y1:'9.62%',  y3:'11.75%', y5:'7.39%', inc:'8.04%'},
+          {                        name:'Vantage CFS Aggressive Strategy &mdash; Super',   fytd:'8.67%', m1:'1.55%', m3:'9.08%',  m6:'4.87%', y1:'8.67%',  y3:'10.54%', y5:'6.64%', inc:'7.24%'},
+          {                        name:'Morningstar Aus Multisector Aggressive (&gt;80 Growth)', fytd:null, m1:null, m3:null, m6:null, y1:null, y3:null, y5:null, inc:null, bm:true},
+          // ---- High Growth ----
+          {strategy:'HIGH GROWTH', name:'Vantage CFS High Growth Strategy &mdash; Pension', fytd:'8.34%', m1:'1.55%', m3:'8.70%', m6:'4.75%', y1:'8.34%',  y3:'10.73%', y5:'6.81%', inc:'7.30%'},
+          {                         name:'Vantage CFS High Growth Strategy &mdash; Super',   fytd:'7.50%', m1:'1.40%', m3:'7.76%', m6:'4.26%', y1:'7.50%',  y3:'9.61%',  y5:'6.10%', inc:'6.54%'},
+          {                         name:'Morningstar Aus Multisector Aggressive (&gt;80 Growth)', fytd:null, m1:null, m3:null, m6:null, y1:null, y3:null, y5:null, inc:null, bm:true},
+          // ---- Growth ----
+          {strategy:'GROWTH',     name:'Vantage CFS Growth Strategy &mdash; Pension', fytd:'7.64%', m1:'1.39%', m3:'7.54%', m6:'4.30%', y1:'7.64%',  y3:'9.75%',  y5:'6.15%', inc:'6.50%'},
+          {                        name:'Vantage CFS Growth Strategy &mdash; Super',   fytd:'6.85%', m1:'1.25%', m3:'6.73%', m6:'3.84%', y1:'6.85%',  y3:'8.71%',  y5:'5.48%', inc:'5.81%'},
+          {                        name:'Morningstar Aus Fund Multisector Growth (61&ndash;80 Growth)', fytd:null, m1:null, m3:null, m6:null, y1:null, y3:null, y5:null, inc:null, bm:true},
+          // ---- Moderate ----
+          {strategy:'MODERATE',   name:'Vantage CFS Moderate Strategy &mdash; Pension', fytd:'6.91%', m1:'1.22%', m3:'6.31%', m6:'3.83%', y1:'6.91%',  y3:'8.70%',  y5:'5.53%', inc:'5.72%'},
+          {                        name:'Vantage CFS Moderate Strategy &mdash; Super',   fytd:'6.16%', m1:'1.10%', m3:'5.64%', m6:'3.41%', y1:'6.16%',  y3:'7.74%',  y5:'4.90%', inc:'5.08%'},
+          {                        name:'Morningstar Aus Fund Multisector Balanced (41&ndash;60 Growth)', fytd:null, m1:null, m3:null, m6:null, y1:null, y3:null, y5:null, inc:null, bm:true},
+          // ---- Conservative ----
+          {strategy:'CONSERVATIVE', name:'Vantage CFS Conservative Strategy &mdash; Pension', fytd:'5.77%', m1:'1.08%', m3:'4.84%', m6:'3.18%', y1:'5.77%',  y3:'7.53%',  y5:'4.64%', inc:'4.62%'},
+          {                          name:'Vantage CFS Conservative Strategy &mdash; Super',   fytd:'5.11%', m1:'0.97%', m3:'4.33%', m6:'2.81%', y1:'5.11%',  y3:'6.68%',  y5:'4.09%', inc:'4.08%'},
+          {                          name:'Morningstar Aus Fund Multisector Moderate (21&ndash;40 Growth)', fytd:null, m1:null, m3:null, m6:null, y1:null, y3:null, y5:null, inc:null, bm:true},
+        ]
+      },
 
       '31 May 2026': {
         fytdPeriod: '1 Jul 2025 &ndash; 31 May 2026',
@@ -242,7 +269,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-      renderData('31 May 2026');
+      renderData('30 Jun 2026');
     });
   </script>
 
