@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HUB24 Portfolio Performance — Vantage Wealth Management | Investment Data Portal</title>
 
-  <meta name="last-updated" content="10 Jun 2026">
+  <meta name="last-updated" content="7 Jul 2026">
   <meta name="owner"        content="Anthony Nguyen">
   <meta name="source"       content="HUB24">
-  <meta name="as-at"        content="31 May 2026">
+  <meta name="as-at"        content="30 Jun 2026">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -151,15 +151,16 @@
       <div class="period-selector-bar">
         <label for="period-select">Period:</label>
         <select id="period-select">
+          <option value="jun2026">30 Jun 2026</option>
           <option value="may2026">31 May 2026</option>
           <option value="apr2026">30 Apr 2026</option>
         </select>
       </div>
 
       <!-- ═══════════════════════════════════════════
-           MAY 2026
+           JUNE 2026
       ════════════════════════════════════════════ -->
-      <div class="period-panel active" id="panel-may2026">
+      <div class="period-panel active" id="panel-jun2026">
 
         <!-- MULTI-ASSET PORTFOLIOS -->
         <div class="block">
@@ -169,37 +170,346 @@
           <div class="table-wrap">
             <table class="perf-table">
               <colgroup>
-                <col style="width:34%"><col style="width:11%"><col style="width:11%">
-                <col style="width:11%"><col style="width:11%"><col style="width:11%"><col style="width:11%">
+                <col style="width:30%"><col style="width:14%">
+                <col style="width:14%"><col style="width:14%"><col style="width:14%"><col style="width:14%">
               </colgroup>
               <thead>
                 <tr>
                   <th>Strategy / Benchmark</th>
-                  <th>CYTD</th><th>FYTD</th><th>1 Month</th>
+                  <th>CYTD</th><th>1 Month</th>
                   <th>3 Months</th><th>6 Months</th><th>Inc. p.a.</th>
                 </tr>
               </thead>
               <tbody>
-                <tr class="strategy-label"><td>Moderate Growth</td><td class="col-hdr">CYTD</td><td class="col-hdr">FYTD</td><td class="col-hdr">1 Month</td><td class="col-hdr">3 Months</td><td class="col-hdr">6 Months</td><td class="col-hdr">Inc. p.a.</td></tr>
-                <tr><td>Vantage Moderate Growth Portfolio</td><td>3.67%</td><td class="na">N/A</td><td>2.11%</td><td>1.13%</td><td>3.77%</td><td>6.51%</td></tr>
-                <tr class="bench-row"><td>Morningstar Aus Fund Multisector Balanced (41&ndash;60 Growth)</td><td>2.59%</td><td>6.94%</td><td>2.01%</td><td>0.53%</td><td>2.77%</td><td>5.74%</td></tr>
-                <tr class="diff-row"><td>Diff</td><td>1.08%</td><td class="na">N/A</td><td>0.10%</td><td>0.60%</td><td>1.00%</td><td>0.77%</td></tr>
-                <tr class="bench-row"><td>CPI + 2%</td><td>2.16%</td><td class="na">N/A</td><td>0.44%</td><td>1.32%</td><td>2.55%</td><td>4.42%</td></tr>
-                <tr class="diff-row"><td>Diff</td><td>1.51%</td><td class="na">N/A</td><td>1.67%</td><td>-0.19%</td><td>1.22%</td><td>2.09%</td></tr>
+                <tr class="strategy-label"><td>Moderate Growth</td><td class="col-hdr">CYTD</td><td class="col-hdr">1 Month</td><td class="col-hdr">3 Months</td><td class="col-hdr">6 Months</td><td class="col-hdr">Inc. p.a.</td></tr>
+                <tr><td>Vantage Moderate Growth Portfolio</td><td>5.25%</td><td>1.52%</td><td>6.52%</td><td>5.25%</td><td>8.13%</td></tr>
+                <tr class="bench-row"><td>Morningstar Aus Fund Multisector Balanced (41&ndash;60 Growth)</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td></tr>
+                <tr class="diff-row"><td>Diff</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td></tr>
+                <tr class="bench-row"><td>CPI + 2%</td><td>2.60%</td><td>0.43%</td><td>1.31%</td><td>2.60%</td><td>4.87%</td></tr>
+                <tr class="diff-row"><td>Diff</td><td>2.65%</td><td>1.09%</td><td>5.21%</td><td>2.65%</td><td>3.26%</td></tr>
 
-                <tr class="strategy-label"><td>Growth</td><td class="col-hdr">CYTD</td><td class="col-hdr">FYTD</td><td class="col-hdr">1 Month</td><td class="col-hdr">3 Months</td><td class="col-hdr">6 Months</td><td class="col-hdr">Inc. p.a.</td></tr>
-                <tr><td>Vantage Growth Portfolio</td><td>4.18%</td><td class="na">N/A</td><td>2.45%</td><td>1.19%</td><td>4.33%</td><td>7.30%</td></tr>
-                <tr class="bench-row"><td>Morningstar Aus Fund Multisector Growth (61&ndash;80 Growth)</td><td>2.58%</td><td>7.30%</td><td>2.27%</td><td>0.51%</td><td>2.72%</td><td>6.67%</td></tr>
-                <tr class="diff-row"><td>Diff</td><td>1.60%</td><td class="na">N/A</td><td>0.18%</td><td>0.68%</td><td>1.61%</td><td>0.63%</td></tr>
-                <tr class="bench-row"><td>CPI + 3%</td><td>2.56%</td><td class="na">N/A</td><td>0.52%</td><td>1.57%</td><td>3.04%</td><td>5.30%</td></tr>
-                <tr class="diff-row"><td>Diff</td><td>1.62%</td><td class="na">N/A</td><td>1.93%</td><td>-0.38%</td><td>1.29%</td><td>2.00%</td></tr>
+                <tr class="strategy-label"><td>Growth</td><td class="col-hdr">CYTD</td><td class="col-hdr">1 Month</td><td class="col-hdr">3 Months</td><td class="col-hdr">6 Months</td><td class="col-hdr">Inc. p.a.</td></tr>
+                <tr><td>Vantage Growth Portfolio</td><td>5.94%</td><td>1.68%</td><td>7.64%</td><td>5.94%</td><td>9.10%</td></tr>
+                <tr class="bench-row"><td>Morningstar Aus Fund Multisector Growth (61&ndash;80 Growth)</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td></tr>
+                <tr class="diff-row"><td>Diff</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td></tr>
+                <tr class="bench-row"><td>CPI + 3%</td><td>3.08%</td><td>0.51%</td><td>1.55%</td><td>3.08%</td><td>5.83%</td></tr>
+                <tr class="diff-row"><td>Diff</td><td>2.86%</td><td>1.17%</td><td>6.09%</td><td>2.86%</td><td>3.27%</td></tr>
 
-                <tr class="strategy-label"><td>High Growth</td><td class="col-hdr">CYTD</td><td class="col-hdr">FYTD</td><td class="col-hdr">1 Month</td><td class="col-hdr">3 Months</td><td class="col-hdr">6 Months</td><td class="col-hdr">Inc. p.a.</td></tr>
-                <tr><td>Vantage High Growth Portfolio</td><td>4.68%</td><td class="na">N/A</td><td>2.75%</td><td>1.24%</td><td>4.87%</td><td>8.04%</td></tr>
-                <tr class="bench-row"><td>Morningstar Aus Fund Multisector Aggressive (&gt;80 Growth)</td><td>2.71%</td><td>8.92%</td><td>2.75%</td><td>0.75%</td><td>3.07%</td><td>8.36%</td></tr>
-                <tr class="diff-row"><td>Diff</td><td>1.97%</td><td class="na">N/A</td><td>0.00%</td><td>0.49%</td><td>1.80%</td><td>-0.32%</td></tr>
-                <tr class="bench-row"><td>CPI + 3.5%</td><td>2.76%</td><td class="na">N/A</td><td>0.56%</td><td>1.69%</td><td>3.28%</td><td>5.73%</td></tr>
-                <tr class="diff-row"><td>Diff</td><td>1.92%</td><td class="na">N/A</td><td>2.19%</td><td>-0.45%</td><td>1.59%</td><td>2.31%</td></tr>
+                <tr class="strategy-label"><td>High Growth</td><td class="col-hdr">CYTD</td><td class="col-hdr">1 Month</td><td class="col-hdr">3 Months</td><td class="col-hdr">6 Months</td><td class="col-hdr">Inc. p.a.</td></tr>
+                <tr><td>Vantage High Growth Portfolio</td><td>6.62%</td><td>1.85%</td><td>8.72%</td><td>6.62%</td><td>10.04%</td></tr>
+                <tr class="bench-row"><td>Morningstar Aus Fund Multisector Aggressive (&gt;80 Growth)</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td></tr>
+                <tr class="diff-row"><td>Diff</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td></tr>
+                <tr class="bench-row"><td>CPI + 3.5%</td><td>3.32%</td><td>0.55%</td><td>1.67%</td><td>3.32%</td><td>6.31%</td></tr>
+                <tr class="diff-row"><td>Diff</td><td>3.30%</td><td>1.30%</td><td>7.05%</td><td>3.30%</td><td>3.73%</td></tr>
+
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:0.78rem; color:var(--muted); margin-top:0.5rem;">
+            Source: HUB24, Morningstar. Net of investment manager fees. Inception 14 Jul 2025. Morningstar peer data not yet available for this period, shown as &minus;. Past performance is not a reliable indicator of future performance.
+          </p>
+        </div>
+
+        <!-- BACKTESTED PERFORMANCE -->
+        <div class="block">
+          <p class="block-eyebrow">Simulated Returns</p>
+          <h2>Multi-Asset Portfolios &mdash; Backtested Performance (since Mar 2018)</h2>
+          <p class="block-meta">The following simulated returns represent the Standalone Vantage portfolios combined using Vantage&rsquo;s Strategic Asset Allocations (SAAs), rebalanced to target weights on 1 July each year, since inception 20 March 2018. Performance figures are based on model portfolio data generated through Morningstar, using the historical constituents of the Vantage Australian Equities, Vantage Global Equities, Vantage Fixed Interest, and Vantage Property &amp; Infrastructure portfolios, rebalanced annually to their respective risk profile asset allocations within the Morningstar framework. Prior to the commencement of the Vantage Fixed Interest Portfolio in 2019, the fixed income allocation was invested in the Coolbah Short Term Income Fund.</p>
+          <div class="table-wrap">
+            <table class="perf-table">
+              <colgroup>
+                <col style="width:22%">
+                <col style="width:8.7%"><col style="width:8.7%"><col style="width:8.7%">
+                <col style="width:8.7%"><col style="width:8.7%"><col style="width:8.7%">
+                <col style="width:8.7%"><col style="width:8.7%"><col style="width:8.7%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>Strategy / Benchmark</th>
+                  <th>CYTD</th><th>FYTD</th><th>1 Month</th><th>3 Months</th>
+                  <th>6 Months</th><th>1 Year</th><th>3 Yrs p.a.</th><th>5 Yrs p.a.</th><th>Inc. p.a.</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="strategy-label"><td>Moderate Growth</td><td class="col-hdr">CYTD</td><td class="col-hdr">FYTD</td><td class="col-hdr">1 Month</td><td class="col-hdr">3 Months</td><td class="col-hdr">6 Months</td><td class="col-hdr">1 Year</td><td class="col-hdr">3 Yrs p.a.</td><td class="col-hdr">5 Yrs p.a.</td><td class="col-hdr">Inc. p.a.</td></tr>
+                <tr><td>Vantage Moderate Growth Portfolio</td><td>5.22%</td><td>8.63%</td><td>1.48%</td><td>6.43%</td><td>5.22%</td><td>8.63%</td><td>9.55%</td><td>5.83%</td><td>6.62%</td></tr>
+                <tr class="bench-row"><td>Morningstar Aus Fund Multisector Balanced (41&ndash;60 Growth)</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td></tr>
+                <tr class="diff-row"><td>Diff</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td></tr>
+
+                <tr class="strategy-label"><td>Growth</td><td class="col-hdr">CYTD</td><td class="col-hdr">FYTD</td><td class="col-hdr">1 Month</td><td class="col-hdr">3 Months</td><td class="col-hdr">6 Months</td><td class="col-hdr">1 Year</td><td class="col-hdr">3 Yrs p.a.</td><td class="col-hdr">5 Yrs p.a.</td><td class="col-hdr">Inc. p.a.</td></tr>
+                <tr><td>Vantage Growth Portfolio</td><td>5.92%</td><td>9.72%</td><td>1.66%</td><td>7.59%</td><td>5.92%</td><td>9.72%</td><td>10.78%</td><td>6.41%</td><td>7.59%</td></tr>
+                <tr class="bench-row"><td>Morningstar Aus Fund Multisector Growth (61&ndash;80 Growth)</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td></tr>
+                <tr class="diff-row"><td>Diff</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td></tr>
+
+                <tr class="strategy-label"><td>High Growth</td><td class="col-hdr">CYTD</td><td class="col-hdr">FYTD</td><td class="col-hdr">1 Month</td><td class="col-hdr">3 Months</td><td class="col-hdr">6 Months</td><td class="col-hdr">1 Year</td><td class="col-hdr">3 Yrs p.a.</td><td class="col-hdr">5 Yrs p.a.</td><td class="col-hdr">Inc. p.a.</td></tr>
+                <tr><td>Vantage High Growth Portfolio</td><td>6.62%</td><td>10.10%</td><td>1.81%</td><td>7.67%</td><td>6.62%</td><td>10.10%</td><td>11.69%</td><td>6.81%</td><td>8.40%</td></tr>
+                <tr class="bench-row"><td>Morningstar Aus Fund Multisector Aggressive (&gt;80 Growth)</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td></tr>
+                <tr class="diff-row"><td>Diff</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td><td>&minus;</td></tr>
+
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:0.78rem; color:var(--muted); margin-top:0.5rem;">
+            Source: Morningstar, Vantage Wealth Management. Simulated/backtested returns. Inception 20 Mar 2018. Morningstar peer data not yet available for this period, shown as &minus;. Past performance is not a reliable indicator of future performance.
+          </p>
+          <div style="margin-top:1rem; padding:0.8rem 1rem; border:1px solid var(--line); border-radius:4px; background:rgba(0,0,0,0.02);">
+            <p style="font-size:0.74rem; color:var(--muted); margin:0; line-height:1.65;">
+              <strong>Disclaimer:</strong> The above performance figures are based on model portfolio data generated through Morningstar, using the historical constituents of the underlying Vantage Australian Equities, Vantage Global Equities, Vantage Fixed Interest, and Vantage Property &amp; Infrastructure portfolios. The portfolios are constructed using these historical holdings and are assumed to be rebalanced annually to their respective risk profile asset allocations within the Morningstar framework.
+            </p>
+            <p style="font-size:0.74rem; color:var(--muted); margin:0.5rem 0 0; line-height:1.65;">
+              This analysis is based on simulated, back-tested data and does not represent actual investor returns. As such, it is provided for illustrative purposes only and should not be relied upon as an indication of future performance. Actual returns may differ due to factors such as fees, tax, the timing of investments, and rebalancing.
+            </p>
+          </div>
+        </div>
+
+        <!-- STANDALONE SMA -->
+        <div class="block">
+          <p class="block-eyebrow">Returns</p>
+          <h2>Standalone SMA — Strategy Returns</h2>
+          <p class="block-meta">Net of investment manager fees. Active return shown vs composite benchmark.</p>
+
+          <div class="table-wrap">
+            <table class="perf-table">
+              <colgroup>
+                <col style="width:22%">
+                <col style="width:7%">
+                <col style="width:7%">
+                <col style="width:7%">
+                <col style="width:7%">
+                <col style="width:7%">
+                <col style="width:7%">
+                <col style="width:7%">
+                <col style="width:7%">
+                <col style="width:7%">
+                <col style="width:7%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>Strategy / Benchmark</th>
+                  <th>CYTD</th>
+                  <th>FYTD</th>
+                  <th>1 Month</th>
+                  <th>3 Months</th>
+                  <th>6 Months</th>
+                  <th>1 Year</th>
+                  <th>2 Yrs p.a.</th>
+                  <th>3 Yrs p.a.</th>
+                  <th>5 Yrs p.a.</th>
+                  <th>Inc. p.a.</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <!-- AUSTRALIAN EQUITIES -->
+                <tr class="strategy-label">
+                  <td>Australian Equities</td>
+                  <td class="col-hdr">CYTD</td><td class="col-hdr">FYTD</td>
+                  <td class="col-hdr">1 Month</td><td class="col-hdr">3 Months</td>
+                  <td class="col-hdr">6 Months</td><td class="col-hdr">1 Year</td>
+                  <td class="col-hdr">2 Yrs p.a.</td><td class="col-hdr">3 Yrs p.a.</td>
+                  <td class="col-hdr">5 Yrs p.a.</td><td class="col-hdr">Inc. p.a.</td>
+                </tr>
+                <tr>
+                  <td>Vantage Australian Equities Portfolio</td>
+                  <td>2.09%</td><td>2.74%</td><td>0.43%</td><td>4.06%</td><td>2.09%</td>
+                  <td>2.74%</td><td>7.87%</td><td>9.76%</td><td>5.14%</td><td>7.88%</td>
+                </tr>
+                <tr class="bench-row">
+                  <td>S&amp;P/ASX 300 Accumulation Index</td>
+                  <td>2.02%</td><td>6.16%</td><td>0.60%</td><td>4.14%</td><td>2.02%</td>
+                  <td>6.16%</td><td>9.88%</td><td>10.55%</td><td>7.58%</td><td>8.71%</td>
+                </tr>
+                <tr class="diff-row">
+                  <td>Active return</td>
+                  <td>0.07%</td><td>−3.42%</td><td>−0.17%</td><td>−0.08%</td><td>0.07%</td>
+                  <td>−3.42%</td><td>−2.01%</td><td>−0.79%</td><td>−2.44%</td><td>−0.83%</td>
+                </tr>
+
+                <!-- GLOBAL EQUITIES -->
+                <tr class="strategy-label">
+                  <td>Global Equities</td>
+                  <td class="col-hdr">CYTD</td><td class="col-hdr">FYTD</td>
+                  <td class="col-hdr">1 Month</td><td class="col-hdr">3 Months</td>
+                  <td class="col-hdr">6 Months</td><td class="col-hdr">1 Year</td>
+                  <td class="col-hdr">2 Yrs p.a.</td><td class="col-hdr">3 Yrs p.a.</td>
+                  <td class="col-hdr">5 Yrs p.a.</td><td class="col-hdr">Inc. p.a.</td>
+                </tr>
+                <tr>
+                  <td>Vantage Global Equities Portfolio</td>
+                  <td>10.94%</td><td>19.63%</td><td>3.01%</td><td>15.74%</td><td>10.94%</td>
+                  <td>19.63%</td><td>19.06%</td><td>17.37%</td><td>9.74%</td><td>11.40%</td>
+                </tr>
+                <tr class="bench-row">
+                  <td>MSCI World ex-Australia Index</td>
+                  <td>5.60%</td><td>14.95%</td><td>3.14%</td><td>12.61%</td><td>5.60%</td>
+                  <td>14.95%</td><td>16.75%</td><td>17.78%</td><td>13.37%</td><td>13.82%</td>
+                </tr>
+                <tr class="bench-row">
+                  <td>MSCI World ex-Australia Index (Hedged)</td>
+                  <td>10.19%</td><td>22.66%</td><td>0.03%</td><td>13.96%</td><td>10.19%</td>
+                  <td>22.66%</td><td>17.95%</td><td>18.71%</td><td>11.32%</td><td>11.89%</td>
+                </tr>
+                <tr class="bench-row">
+                  <td>70/30 Composite</td>
+                  <td>6.98%</td><td>17.26%</td><td>2.21%</td><td>13.01%</td><td>6.98%</td>
+                  <td>17.26%</td><td>17.11%</td><td>18.06%</td><td>12.75%</td><td>13.24%</td>
+                </tr>
+                <tr class="diff-row">
+                  <td>Active return (vs 70/30 Composite)</td>
+                  <td>3.96%</td><td>2.37%</td><td>0.80%</td><td>2.73%</td><td>3.96%</td>
+                  <td>2.37%</td><td>1.95%</td><td>−0.69%</td><td>−3.01%</td><td>−1.84%</td>
+                </tr>
+
+                <!-- PROPERTY & INFRASTRUCTURE -->
+                <tr class="strategy-label">
+                  <td>Property &amp; Infrastructure</td>
+                  <td class="col-hdr">CYTD</td><td class="col-hdr">FYTD</td>
+                  <td class="col-hdr">1 Month</td><td class="col-hdr">3 Months</td>
+                  <td class="col-hdr">6 Months</td><td class="col-hdr">1 Year</td>
+                  <td class="col-hdr">2 Yrs p.a.</td><td class="col-hdr">3 Yrs p.a.</td>
+                  <td class="col-hdr">5 Yrs p.a.</td><td class="col-hdr">Inc. p.a.</td>
+                </tr>
+                <tr>
+                  <td>Vantage Property and Infrastructure Portfolio</td>
+                  <td>11.06%</td><td>13.12%</td><td>3.01%</td><td>6.05%</td><td>11.06%</td>
+                  <td>13.12%</td><td>14.92%</td><td>10.53%</td><td>6.52%</td><td>7.32%</td>
+                </tr>
+                <tr class="bench-row">
+                  <td>FTSE EPRA Nareit Developed Index Net TRI AUD (Hedged)</td>
+                  <td>9.83%</td><td>14.33%</td><td>1.87%</td><td>8.79%</td><td>9.83%</td>
+                  <td>14.33%</td><td>11.34%</td><td>9.05%</td><td>1.77%</td><td>3.72%</td>
+                </tr>
+                <tr class="bench-row">
+                  <td>FTSE Developed Core Infrastructure 50/50 ($A Hedged) Index</td>
+                  <td>11.85%</td><td>17.17%</td><td>2.20%</td><td>2.61%</td><td>11.85%</td>
+                  <td>17.17%</td><td>16.71%</td><td>11.81%</td><td>7.90%</td><td>7.72%</td>
+                </tr>
+                <tr class="bench-row">
+                  <td>50/50 Composite</td>
+                  <td>10.84%</td><td>15.75%</td><td>2.03%</td><td>5.70%</td><td>10.84%</td>
+                  <td>15.75%</td><td>14.03%</td><td>10.43%</td><td>4.84%</td><td>5.72%</td>
+                </tr>
+                <tr class="diff-row">
+                  <td>Active return (vs 50/50 Composite)</td>
+                  <td>0.22%</td><td>−2.63%</td><td>0.98%</td><td>0.35%</td><td>0.22%</td>
+                  <td>−2.63%</td><td>0.89%</td><td>0.10%</td><td>1.68%</td><td>1.60%</td>
+                </tr>
+
+                <!-- FIXED INCOME -->
+                <tr class="strategy-label">
+                  <td>Fixed Income</td>
+                  <td class="col-hdr">CYTD</td><td class="col-hdr">FYTD</td>
+                  <td class="col-hdr">1 Month</td><td class="col-hdr">3 Months</td>
+                  <td class="col-hdr">6 Months</td><td class="col-hdr">1 Year</td>
+                  <td class="col-hdr">2 Yrs p.a.</td><td class="col-hdr">3 Yrs p.a.</td>
+                  <td class="col-hdr">5 Yrs p.a.</td><td class="col-hdr">Inc. p.a.</td>
+                </tr>
+                <tr>
+                  <td>Vantage Fixed Interest Portfolio</td>
+                  <td>1.89%</td><td>3.52%</td><td>0.71%</td><td>1.95%</td><td>1.89%</td>
+                  <td>3.52%</td><td>4.87%</td><td>5.61%</td><td>3.68%</td><td>3.51%</td>
+                </tr>
+                <tr class="bench-row">
+                  <td>Bloomberg AusBond Composite 0+ Yr</td>
+                  <td>2.30%</td><td>1.53%</td><td>0.96%</td><td>2.65%</td><td>2.30%</td>
+                  <td>1.53%</td><td>4.14%</td><td>3.98%</td><td>0.37%</td><td>0.62%</td>
+                </tr>
+                <tr class="bench-row">
+                  <td>Bloomberg Global Aggregate (Hedged AUD)</td>
+                  <td>1.14%</td><td>2.88%</td><td>0.43%</td><td>1.40%</td><td>1.14%</td>
+                  <td>2.88%</td><td>4.15%</td><td>3.66%</td><td>−0.04%</td><td>1.44%</td>
+                </tr>
+                <tr class="bench-row">
+                  <td>60/40 Composite</td>
+                  <td>1.83%</td><td>2.07%</td><td>0.75%</td><td>2.15%</td><td>1.83%</td>
+                  <td>2.07%</td><td>4.14%</td><td>3.85%</td><td>0.21%</td><td>0.95%</td>
+                </tr>
+                <tr class="diff-row">
+                  <td>Active return (vs 60/40 Composite)</td>
+                  <td>0.06%</td><td>1.45%</td><td>−0.04%</td><td>−0.20%</td><td>0.06%</td>
+                  <td>1.45%</td><td>0.73%</td><td>1.76%</td><td>3.47%</td><td>2.56%</td>
+                </tr>
+
+                <!-- ALTERNATIVES -->
+                <tr class="strategy-label">
+                  <td>Alternatives</td>
+                  <td class="col-hdr">CYTD</td><td class="col-hdr">FYTD</td>
+                  <td class="col-hdr">1 Month</td><td class="col-hdr">3 Months</td>
+                  <td class="col-hdr">6 Months</td><td class="col-hdr">1 Year</td>
+                  <td class="col-hdr">2 Yrs p.a.</td><td class="col-hdr">3 Yrs p.a.</td>
+                  <td class="col-hdr">5 Yrs p.a.</td><td class="col-hdr">Inc. p.a.</td>
+                </tr>
+                <tr>
+                  <td>Vantage Alternative Portfolio</td>
+                  <td>8.42%</td><td class="na">N/A</td><td>2.30%</td><td>9.18%</td><td>8.42%</td>
+                  <td class="na">N/A</td><td class="na">N/A</td><td class="na">N/A</td><td class="na">N/A</td><td>16.85%</td>
+                </tr>
+                <tr class="bench-row">
+                  <td>Cash + 2%</td>
+                  <td>2.91%</td><td class="na">N/A</td><td>0.49%</td><td>1.49%</td><td>2.91%</td>
+                  <td class="na">N/A</td><td class="na">N/A</td><td class="na">N/A</td><td class="na">N/A</td><td>5.59%</td>
+                </tr>
+                <tr class="diff-row">
+                  <td>Active return</td>
+                  <td>5.51%</td><td class="na">N/A</td><td>1.81%</td><td>7.69%</td><td>5.51%</td>
+                  <td class="na">N/A</td><td class="na">N/A</td><td class="na">N/A</td><td class="na">N/A</td><td>11.26%</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:0.78rem; color:var(--muted); margin-top:0.5rem;">
+            Source: HUB24, Morningstar, IRESS. Net of investment manager fees. Inception dates: AE / GE / PI 20 Mar 2018; FI 23 Jul 2019; Alternatives 14 Jul 2025. Past performance is not a reliable indicator of future performance.
+          </p>
+        </div>
+
+      </div><!-- /panel-jun2026 -->
+
+
+      <!-- ═══════════════════════════════════════════
+           MAY 2026
+      ════════════════════════════════════════════ -->
+      <div class="period-panel" id="panel-may2026">
+
+        <!-- MULTI-ASSET PORTFOLIOS -->
+        <div class="block">
+          <p class="block-eyebrow">Returns</p>
+          <h2>Multi-Asset Portfolios &mdash; Strategy Returns</h2>
+          <p class="block-meta">Net of investment manager fees. Inception 14 July 2025. Periods beyond available history shown as N/A.</p>
+          <div class="table-wrap">
+            <table class="perf-table">
+              <colgroup>
+                <col style="width:30%"><col style="width:14%">
+                <col style="width:14%"><col style="width:14%"><col style="width:14%"><col style="width:14%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>Strategy / Benchmark</th>
+                  <th>CYTD</th><th>1 Month</th>
+                  <th>3 Months</th><th>6 Months</th><th>Inc. p.a.</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="strategy-label"><td>Moderate Growth</td><td class="col-hdr">CYTD</td><td class="col-hdr">1 Month</td><td class="col-hdr">3 Months</td><td class="col-hdr">6 Months</td><td class="col-hdr">Inc. p.a.</td></tr>
+                <tr><td>Vantage Moderate Growth Portfolio</td><td>3.67%</td><td>2.11%</td><td>1.13%</td><td>3.77%</td><td>6.51%</td></tr>
+                <tr class="bench-row"><td>Morningstar Aus Fund Multisector Balanced (41&ndash;60 Growth)</td><td>2.59%</td><td>2.01%</td><td>0.53%</td><td>2.77%</td><td>5.74%</td></tr>
+                <tr class="diff-row"><td>Diff</td><td>1.08%</td><td>0.10%</td><td>0.60%</td><td>1.00%</td><td>0.77%</td></tr>
+                <tr class="bench-row"><td>CPI + 2%</td><td>2.16%</td><td>0.44%</td><td>1.32%</td><td>2.55%</td><td>4.42%</td></tr>
+                <tr class="diff-row"><td>Diff</td><td>1.51%</td><td>1.67%</td><td>-0.19%</td><td>1.22%</td><td>2.09%</td></tr>
+
+                <tr class="strategy-label"><td>Growth</td><td class="col-hdr">CYTD</td><td class="col-hdr">1 Month</td><td class="col-hdr">3 Months</td><td class="col-hdr">6 Months</td><td class="col-hdr">Inc. p.a.</td></tr>
+                <tr><td>Vantage Growth Portfolio</td><td>4.18%</td><td>2.45%</td><td>1.19%</td><td>4.33%</td><td>7.30%</td></tr>
+                <tr class="bench-row"><td>Morningstar Aus Fund Multisector Growth (61&ndash;80 Growth)</td><td>2.58%</td><td>2.27%</td><td>0.51%</td><td>2.72%</td><td>6.67%</td></tr>
+                <tr class="diff-row"><td>Diff</td><td>1.60%</td><td>0.18%</td><td>0.68%</td><td>1.61%</td><td>0.63%</td></tr>
+                <tr class="bench-row"><td>CPI + 3%</td><td>2.56%</td><td>0.52%</td><td>1.57%</td><td>3.04%</td><td>5.30%</td></tr>
+                <tr class="diff-row"><td>Diff</td><td>1.62%</td><td>1.93%</td><td>-0.38%</td><td>1.29%</td><td>2.00%</td></tr>
+
+                <tr class="strategy-label"><td>High Growth</td><td class="col-hdr">CYTD</td><td class="col-hdr">1 Month</td><td class="col-hdr">3 Months</td><td class="col-hdr">6 Months</td><td class="col-hdr">Inc. p.a.</td></tr>
+                <tr><td>Vantage High Growth Portfolio</td><td>4.68%</td><td>2.75%</td><td>1.24%</td><td>4.87%</td><td>8.04%</td></tr>
+                <tr class="bench-row"><td>Morningstar Aus Fund Multisector Aggressive (&gt;80 Growth)</td><td>2.71%</td><td>2.75%</td><td>0.75%</td><td>3.07%</td><td>8.36%</td></tr>
+                <tr class="diff-row"><td>Diff</td><td>1.97%</td><td>0.00%</td><td>0.49%</td><td>1.80%</td><td>-0.32%</td></tr>
+                <tr class="bench-row"><td>CPI + 3.5%</td><td>2.76%</td><td>0.56%</td><td>1.69%</td><td>3.28%</td><td>5.73%</td></tr>
+                <tr class="diff-row"><td>Diff</td><td>1.92%</td><td>2.19%</td><td>-0.45%</td><td>1.59%</td><td>2.31%</td></tr>
 
               </tbody>
             </table>
@@ -478,31 +788,31 @@
           <div class="table-wrap">
             <table class="perf-table">
               <colgroup>
-                <col style="width:34%"><col style="width:11%"><col style="width:11%">
-                <col style="width:11%"><col style="width:11%"><col style="width:11%"><col style="width:11%">
+                <col style="width:30%"><col style="width:14%">
+                <col style="width:14%"><col style="width:14%"><col style="width:14%"><col style="width:14%">
               </colgroup>
               <thead>
                 <tr>
                   <th>Strategy / Benchmark</th>
-                  <th>CYTD</th><th>FYTD</th><th>1 Month</th>
+                  <th>CYTD</th><th>1 Month</th>
                   <th>3 Months</th><th>6 Months</th><th>Inc. p.a.</th>
                 </tr>
               </thead>
               <tbody>
-                <tr class="strategy-label"><td>Moderate Growth</td><td class="col-hdr">CYTD</td><td class="col-hdr">FYTD</td><td class="col-hdr">1 Month</td><td class="col-hdr">3 Months</td><td class="col-hdr">6 Months</td><td class="col-hdr">Inc. p.a.</td></tr>
-                <tr><td>Vantage Moderate Growth Portfolio</td><td>1.53%</td><td class="na">N/A</td><td>2.75%</td><td>0.58%</td><td>1.12%</td><td>4.31%</td></tr>
-                <tr class="bench-row"><td>CPI + 2%</td><td>1.71%</td><td class="na">N/A</td><td>0.43%</td><td>1.27%</td><td>2.49%</td><td>3.96%</td></tr>
-                <tr class="diff-row"><td>Active return</td><td>-0.18%</td><td class="na">N/A</td><td>2.32%</td><td>-0.69%</td><td>-1.37%</td><td>0.35%</td></tr>
+                <tr class="strategy-label"><td>Moderate Growth</td><td class="col-hdr">CYTD</td><td class="col-hdr">1 Month</td><td class="col-hdr">3 Months</td><td class="col-hdr">6 Months</td><td class="col-hdr">Inc. p.a.</td></tr>
+                <tr><td>Vantage Moderate Growth Portfolio</td><td>1.53%</td><td>2.75%</td><td>0.58%</td><td>1.12%</td><td>4.31%</td></tr>
+                <tr class="bench-row"><td>CPI + 2%</td><td>1.71%</td><td>0.43%</td><td>1.27%</td><td>2.49%</td><td>3.96%</td></tr>
+                <tr class="diff-row"><td>Active return</td><td>-0.18%</td><td>2.32%</td><td>-0.69%</td><td>-1.37%</td><td>0.35%</td></tr>
 
-                <tr class="strategy-label"><td>Growth</td><td class="col-hdr">CYTD</td><td class="col-hdr">FYTD</td><td class="col-hdr">1 Month</td><td class="col-hdr">3 Months</td><td class="col-hdr">6 Months</td><td class="col-hdr">Inc. p.a.</td></tr>
-                <tr><td>Vantage Growth Portfolio</td><td>1.69%</td><td class="na">N/A</td><td>3.32%</td><td>0.54%</td><td>1.07%</td><td>4.73%</td></tr>
-                <tr class="bench-row"><td>CPI + 3%</td><td>2.02%</td><td class="na">N/A</td><td>0.51%</td><td>1.51%</td><td>2.97%</td><td>4.75%</td></tr>
-                <tr class="diff-row"><td>Active return</td><td>-0.33%</td><td class="na">N/A</td><td>2.81%</td><td>-0.97%</td><td>-1.90%</td><td>-0.02%</td></tr>
+                <tr class="strategy-label"><td>Growth</td><td class="col-hdr">CYTD</td><td class="col-hdr">1 Month</td><td class="col-hdr">3 Months</td><td class="col-hdr">6 Months</td><td class="col-hdr">Inc. p.a.</td></tr>
+                <tr><td>Vantage Growth Portfolio</td><td>1.69%</td><td>3.32%</td><td>0.54%</td><td>1.07%</td><td>4.73%</td></tr>
+                <tr class="bench-row"><td>CPI + 3%</td><td>2.02%</td><td>0.51%</td><td>1.51%</td><td>2.97%</td><td>4.75%</td></tr>
+                <tr class="diff-row"><td>Active return</td><td>-0.33%</td><td>2.81%</td><td>-0.97%</td><td>-1.90%</td><td>-0.02%</td></tr>
 
-                <tr class="strategy-label"><td>High Growth</td><td class="col-hdr">CYTD</td><td class="col-hdr">FYTD</td><td class="col-hdr">1 Month</td><td class="col-hdr">3 Months</td><td class="col-hdr">6 Months</td><td class="col-hdr">Inc. p.a.</td></tr>
-                <tr><td>Vantage High Growth Portfolio</td><td>1.88%</td><td class="na">N/A</td><td>3.89%</td><td>0.53%</td><td>1.08%</td><td>5.15%</td></tr>
-                <tr class="bench-row"><td>CPI + 3.5%</td><td>2.18%</td><td class="na">N/A</td><td>0.55%</td><td>1.62%</td><td>3.21%</td><td>5.14%</td></tr>
-                <tr class="diff-row"><td>Active return</td><td>-0.30%</td><td class="na">N/A</td><td>3.34%</td><td>-1.09%</td><td>-2.13%</td><td>0.01%</td></tr>
+                <tr class="strategy-label"><td>High Growth</td><td class="col-hdr">CYTD</td><td class="col-hdr">1 Month</td><td class="col-hdr">3 Months</td><td class="col-hdr">6 Months</td><td class="col-hdr">Inc. p.a.</td></tr>
+                <tr><td>Vantage High Growth Portfolio</td><td>1.88%</td><td>3.89%</td><td>0.53%</td><td>1.08%</td><td>5.15%</td></tr>
+                <tr class="bench-row"><td>CPI + 3.5%</td><td>2.18%</td><td>0.55%</td><td>1.62%</td><td>3.21%</td><td>5.14%</td></tr>
+                <tr class="diff-row"><td>Active return</td><td>-0.30%</td><td>3.34%</td><td>-1.09%</td><td>-2.13%</td><td>0.01%</td></tr>
 
               </tbody>
             </table>
@@ -725,6 +1035,7 @@
   <script>
     (function () {
       var META = {
+        'jun2026': { asat: '30 Jun 2026', updated: '7 Jul 2026' },
         'may2026': { asat: '31 May 2026', updated: '10 Jun 2026' },
         'apr2026': { asat: '30 Apr 2026', updated: '11 May 2026' }
       };
