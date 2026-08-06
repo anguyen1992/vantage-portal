@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HUB24 Quarterly Look-Through Analysis — Vantage Wealth Management | Investment Data Portal</title>
-  <meta name="last-updated" content="11 May 2026">
-  <meta name="as-at"        content="31 Mar 2026">
+  <meta name="last-updated" content="6 Aug 2026">
+  <meta name="as-at"        content="30 Jun 2026">
   <meta name="owner"        content="Anthony Nguyen">
   <meta name="source"       content="HUB24 / Macquarie / Vanguard / VanEck / T.Rowe Price">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -214,6 +214,70 @@
     .bar-fill.pos-bar { background: var(--green); left: 50%; }
     .bar-fill.neg-bar { background: var(--red);   right: 50%; }
 
+    /* ── Period selector ── */
+    .lk-period {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin: 0 0 1.8rem;
+    }
+    .lk-period-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.66rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .lk-period-btns {
+      display: inline-flex;
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .lk-period-btns button {
+      background: var(--paper);
+      border: none;
+      padding: 9px 22px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.18s;
+    }
+    .lk-period-btns button + button { border-left: 1px solid var(--line); }
+    .lk-period-btns button:hover { background: var(--cream); color: var(--ink); }
+    .lk-period-btns button.active { background: var(--navy); color: var(--cream); }
+
+    /* ── Fixed Interest tables — fixed layout, centred data, single header row ── */
+    .fi-table { table-layout: fixed; width: 100%; }
+    #fi-tbl, #fi-proposed-tbl { min-width: 880px; }
+    #fi-credit-tbl { min-width: 900px; }
+    .fi-table thead th {
+      white-space: normal;
+      line-height: 1.35;
+      padding: 11px 8px;
+      text-align: center !important;
+      vertical-align: bottom;
+    }
+    .fi-table thead th.left { text-align: left !important; }
+    .fi-table tbody td,
+    .fi-table tfoot td { text-align: center !important; padding: 9px 8px; }
+    .fi-table tbody td.left,
+    .fi-table tfoot td.left { text-align: left !important; }
+    .fi-table tbody td.code { font-family: 'Courier New', monospace; font-size: 0.74rem; color: var(--ink-soft); }
+    .fi-note {
+      font-size: 0.8rem;
+      color: var(--ink-soft);
+      line-height: 1.65;
+      margin: 0.2rem 0 0;
+      max-width: 860px;
+    }
+
     /* Print */
     @media print {
       .lk-tabs, .lk-subtabs, .lk-toggle { display: none; }
@@ -241,17 +305,20 @@
         <p class="page-eyebrow">HUB24 Managed Accounts</p>
         <h1>Quarterly Look-Through Analysis</h1>
         <div class="page-meta">
-          <span class="meta-item"><strong>As at:</strong> 31 Mar 2026</span>
-          <span class="meta-item"><strong>Last updated:</strong> 11 May 2026</span>
+          <span class="meta-item"><strong>As at:</strong> <span id="meta-as-at">30 Jun 2026</span></span>
+          <span class="meta-item"><strong>Last updated:</strong> 6 Aug 2026</span>
           <span class="meta-item"><strong>Owner:</strong> Anthony Nguyen</span>
           <span class="meta-item"><strong>Source:</strong> HUB24 / Underlying Fund Reports</span>
         </div>
       </div>
 
-      <!-- Methodology notice -->
-      <div class="notice">
-        <strong>Methodology — </strong>
-        Look-through positions aggregate the underlying holdings of each SMA constituent — direct equity positions plus the top reported holdings of each managed fund and ETF — weighted by their share of the SMA. Benchmarks: VAS (S&amp;P/ASX 300) for Australian Equities; VGS (MSCI World ex-Australia) for Global Equities. Stock-level totals reflect top reported holdings and may understate the true portfolio weight where underlying fund disclosure is limited to top 10. Sector and regional figures are computed from full sector/regional breakdowns disclosed by each underlying fund.
+      <!-- Period selector -->
+      <div class="lk-period">
+        <span class="lk-period-label">Reporting Period</span>
+        <div class="lk-period-btns" id="period-toggle">
+          <button class="active" data-period="jun2026">30 Jun 2026</button>
+          <button data-period="mar2026">31 Mar 2026</button>
+        </div>
       </div>
 
       <!-- ===== TOP-LEVEL TABS ===== -->
@@ -482,27 +549,14 @@
       <!-- ===== FIXED INTEREST PANEL ===== -->
       <div class="lk-panel" id="panel-fi">
         <div class="lk-section">
-          <h2>Fixed Interest — Portfolio Holdings &amp; Credit Look-Through</h2>
-          <p class="lk-intro">Underlying fund holdings of the Fixed Interest SMA with allocation by domicile and credit-rating breakdown.</p>
+          <h2>Fixed Interest &mdash; Portfolio Holdings &amp; Credit Look-Through</h2>
+          <p class="lk-intro">Underlying fund holdings of the Fixed Interest SMA with allocation by domicile and credit rating breakdown. The Aus FI, Global ex-Aus FI and Cash columns show each fund's own allocation by domicile.</p>
 
-          <h3>Portfolio Holdings — Fixed Interest SMA</h3>
+          <h3>Portfolio Holdings &mdash; Fixed Interest SMA</h3>
           <div class="lk-table-wrap">
-            <table id="fi-tbl">
-              <thead>
-                <tr>
-                  <th rowspan="2">Code</th>
-                  <th rowspan="2">Security</th>
-                  <th class="num" rowspan="2">Port. Wt.</th>
-                  <th class="num" colspan="3" style="text-align:center;">Allocation</th>
-                  <th class="num" rowspan="2">Duration</th>
-                  <th class="num" rowspan="2">Running Yield</th>
-                </tr>
-                <tr>
-                  <th class="num">Aus FI</th>
-                  <th class="num">Global Ex-Aus FI</th>
-                  <th class="num">Cash</th>
-                </tr>
-              </thead>
+            <table id="fi-tbl" class="fi-table">
+              <colgroup id="fi-cols"></colgroup>
+              <thead id="fi-head"></thead>
               <tbody></tbody>
               <tfoot></tfoot>
             </table>
@@ -510,19 +564,24 @@
 
           <h3 style="margin-top:2.2rem;">Credit Rating Breakdown</h3>
           <div class="lk-table-wrap">
-            <table id="fi-credit-tbl">
+            <table id="fi-credit-tbl" class="fi-table">
+              <colgroup>
+                <col style="width:12%"><col style="width:26%">
+                <col style="width:7.75%"><col style="width:7.75%"><col style="width:7.75%"><col style="width:7.75%">
+                <col style="width:7.75%"><col style="width:7.75%"><col style="width:7.75%"><col style="width:7.75%">
+              </colgroup>
               <thead>
                 <tr>
-                  <th>Code</th>
-                  <th>Security</th>
-                  <th class="num">AAA</th>
-                  <th class="num">AA</th>
-                  <th class="num">A</th>
-                  <th class="num">BBB</th>
-                  <th class="num">BB</th>
-                  <th class="num">B</th>
-                  <th class="num">Not Rated</th>
-                  <th class="num">Cash</th>
+                  <th class="left">Code</th>
+                  <th class="left">Security</th>
+                  <th>AAA</th>
+                  <th>AA</th>
+                  <th>A</th>
+                  <th>BBB</th>
+                  <th>BB</th>
+                  <th>B</th>
+                  <th>Not Rated</th>
+                  <th>Cash</th>
                 </tr>
               </thead>
               <tbody></tbody>
@@ -530,6 +589,45 @@
             </table>
           </div>
         </div>
+
+        <!-- Proposed portfolio (30 Jun 2026 view only) -->
+        <div class="lk-section" id="fi-proposed-section">
+          <h2>Fixed Interest SMA: Proposed Portfolio</h2>
+          <p class="lk-intro">Changes to the Fixed Interest SMA were agreed by the Vantage Investment Committee in late July 2026 and are currently being implemented. The holdings and metrics shown above reflect the portfolio as at 30 June 2026, prior to those changes. The table below sets out the proposed portfolio.</p>
+
+          <h3>Proposed Portfolio Holdings</h3>
+          <div class="lk-table-wrap">
+            <table id="fi-proposed-tbl" class="fi-table">
+              <colgroup>
+                <col style="width:12%"><col style="width:24%"><col style="width:9%">
+                <col style="width:9%"><col style="width:12%"><col style="width:8%">
+                <col style="width:9%"><col style="width:9%"><col style="width:8%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th class="left">Code</th>
+                  <th class="left">Security</th>
+                  <th>Port. Weight</th>
+                  <th>Aus FI</th>
+                  <th>Global ex-Aus FI</th>
+                  <th>Cash</th>
+                  <th>Credit Duration</th>
+                  <th>Interest Rate Duration</th>
+                  <th>Running Yield Estimate</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+              <tfoot></tfoot>
+            </table>
+          </div>
+          <p class="fi-note">The Bentham Asset Backed Securities Fund (19.4%) and the Coolabah Short Term Income Fund (20.0%) are removed in full, the Realm Short Term Income Fund is added at 29.75%, and Perpetual Diversified Income moves from 20.2% to 29.75%. Relative to the 30 June portfolio, credit duration lengthens from 2.19 to 2.54 years, interest rate duration shortens from 3.04 to 2.22 years and the running yield estimate rises from 5.51% to 5.82%. A credit rating breakdown for the proposed portfolio will be published once the Realm rating profile is available, and the APIR code for the Realm Short Term Income Fund is to be confirmed.</p>
+        </div>
+      </div>
+
+      <!-- Methodology notice -->
+      <div class="notice" style="margin-top:1rem;">
+        <strong>Methodology &mdash; </strong>
+        <span id="methodology-text"></span>
       </div>
 
     </main>
@@ -541,7 +639,357 @@
   <script src="../assets/js/main.js"></script>
   <script>
   // ====== DATA ======
-  const data = {
+  const PERIODS = {
+  jun2026: {
+    asAt: '30 Jun 2026',
+    glHasRegion: true,
+    methodology: 'Look-through positions aggregate the underlying holdings of each SMA constituent, being direct equity positions plus the reported holdings of each managed fund and ETF, weighted by their share of the SMA. The Australian Equities SMA holds a 52.65% direct equity sleeve across 26 positions, 46.09% in the SPDR S&amp;P/ASX 200 ETF (STW) and 1.27% cash at IMA level, so each stock weight equals the direct weight plus the STW constituent weight multiplied by 46.09%. The Global Equities SMA holds Arrowstreet Global Equity No. 2 Hedged at 35.2%, Vanguard MSCI Index International Shares ETF at 19.0%, T. Rowe Price Global Equity M Class at 13.0%, Arrowstreet Global Small Companies No. 2 at 10.6%, Vanguard Global Value Equity Active ETF at 9.1%, Aoris International Class B at 7.8%, VanEck MSCI World ex-Australia Quality ETF at 4.8% and 0.5% cash. Benchmarks are VAS (S&amp;P/ASX 300) for Australian Equities, normalised to 100% because Vanguard reports physical holdings only, and VGS (MSCI World ex-Australia) for Global Equities. Sector and regional figures are computed from the full sector and regional breakdowns disclosed by each underlying fund, and share classes are aggregated at company level where identified.',
+    ausSectors: [
+      ["Financials",34.25,32.63],
+      ["Materials",28.53,25.5],
+      ["Industrials",5.57,7.58],
+      ["Health Care",4.69,5.62],
+      ["Energy",3.93,4],
+      ["Utilities",4.22,1.36],
+      ["Real Estate",4.19,6.12],
+      ["Consumer Discretionary",4.55,7.32],
+      ["Information Technology",3.37,2.38],
+      ["Communication Services",2.55,3.38],
+      ["Consumer Staples",2.91,3.92],
+      ["Cash",1.27,0]
+    ],
+    ausTop: [
+      ["BHP","BHP Group Ltd","Materials",13.62,10.99],
+      ["CBA","Commonwealth Bank of Australia","Financials",6.86,10.03],
+      ["NAB","National Australia Bank Ltd","Financials",5.45,4.23],
+      ["MQG","Macquarie Group Ltd","Financials",4.85,3.23],
+      ["RIO","Rio Tinto Ltd","Materials",4.83,2.34],
+      ["ANZ","ANZ Group Holdings Ltd","Financials",4.17,3.88],
+      ["QBE","QBE Insurance Group Ltd","Financials",3.86,1.37],
+      ["WDS","Woodside Energy Group Ltd","Energy",2.98,1.95],
+      ["ORG","Origin Energy Ltd","Utilities",2.67,0.69],
+      ["RMD","ResMed Inc","Health Care",2.42,0.6],
+      ["WBC","Westpac Banking Corp","Financials",2.08,4.39],
+      ["ORI","Orica Ltd","Materials",1.95,0.4],
+      ["NEM","Newmont Corp","Materials",1.84,0.39],
+      ["WES","Wesfarmers Ltd","Consumer Discretionary",1.77,3.74],
+      ["COL","Coles Group Ltd","Consumer Staples",1.71,1.19],
+      ["SGP","Stockland","Real Estate",1.6,0.36],
+      ["TNE","Technology One Ltd","Information Technology",1.44,0.33],
+      ["AGL","AGL Energy Ltd","Utilities",1.33,0.18],
+      ["NHF","nib holdings Ltd/Australia","Financials",1.32,0.13],
+      ["XRO","Xero Ltd","Information Technology",1.32,0.45],
+      ["AMC","Amcor PLC","Materials",1.29,0.29],
+      ["HUB","HUB24 Ltd","Financials",1.28,0.22],
+      ["BRG","Breville Group Ltd","Consumer Discretionary",1.25,0.12],
+      ["CGF","Challenger Ltd","Financials",1.2,0.2],
+      ["MND","Monadelphous Group Ltd","Industrials",1.15,0.11],
+      ["CWY","Cleanaway Waste Management Ltd","Industrials",1.11,0.19],
+      ["GMG","Goodman Group","Real Estate",1.1,2.32],
+      ["SDF","Steadfast Group Ltd","Financials",1.05,0.21],
+      ["TPG","TPG Telecom Ltd","Communication Services",1,0.06],
+      ["TLS","Telstra Group Ltd","Communication Services",0.99,2.07],
+      ["CSL","CSL Ltd","Health Care",0.96,2.03],
+      ["WOW","Woolworths Group Ltd","Consumer Staples",0.84,1.78],
+      ["TCL","Transurban Group","Industrials",0.79,1.63],
+      ["ALL","Aristocrat Leisure Ltd","Consumer Discretionary",0.64,1.35],
+      ["FMG","Fortescue Ltd","Materials",0.55,1.16],
+      ["NST","Northern Star Resources Ltd","Materials",0.47,0.99],
+      ["BXB","Brambles Ltd","Industrials",0.46,0.96],
+      ["EVN","Evolution Mining Ltd","Materials",0.41,0.87],
+      ["STO","Santos Ltd","Energy",0.41,0.85],
+      ["SUN","Suncorp Group Ltd","Financials",0.36,0.76],
+      ["CPU","Computershare Ltd","Industrials",0.36,0.76],
+      ["SCG","Scentre Group","Real Estate",0.35,0.73],
+      ["IAG","Insurance Australia Group Ltd","Financials",0.33,0.69],
+      ["S32","South32 Ltd","Materials",0.3,0.64],
+      ["SOL","Washington H Soul Pattinson & Co Ltd","Financials",0.29,0.6],
+      ["LYC","Lynas Rare Earths Ltd","Materials",0.29,0.61],
+      ["QAN","Qantas Airways Ltd","Industrials",0.28,0.59],
+      ["SIG","Sigma Healthcare Ltd","Health Care",0.28,0.58],
+      ["PLS","PLS Group Ltd","Materials",0.26,0.56],
+      ["MPL","Medibank Pvt Ltd","Financials",0.24,0.5]
+    ],
+    ausBanksBig5: [
+      ["CBA","Commonwealth Bank of Australia","Financials",6.86,10.03],
+      ["NAB","National Australia Bank Ltd","Financials",5.45,4.23],
+      ["MQG","Macquarie Group Ltd","Financials",4.85,3.23],
+      ["ANZ","ANZ Group Holdings Ltd","Financials",4.17,3.88],
+      ["WBC","Westpac Banking Corp","Financials",2.08,4.39]
+    ],
+    ausBanksBig4: [
+      ["CBA","Commonwealth Bank of Australia","Financials",6.86,10.03],
+      ["NAB","National Australia Bank Ltd","Financials",5.45,4.23],
+      ["ANZ","ANZ Group Holdings Ltd","Financials",4.17,3.88],
+      ["WBC","Westpac Banking Corp","Financials",2.08,4.39]
+    ],
+    globalRegions: [
+      ["North America",63.62,76.77],
+      ["Europe ex UK",9.13,12.29],
+      ["Emerging Markets",5.8,0],
+      ["Japan",5.95,5.79],
+      ["United Kingdom",6.09,3.45],
+      ["Asia ex Japan",4.24,0.76],
+      ["Cash",3.59,0],
+      ["Other",1.58,0.93]
+    ],
+    globalSectors: [
+      ["Information Technology",33.95,30.79],
+      ["Financials",16.06,15.27],
+      ["Industrials",10.6,11.75],
+      ["Health Care",9.24,9.31],
+      ["Consumer Discretionary",9.17,10.61],
+      ["Materials",3.58,2.82],
+      ["Communication Services",5.51,8.22],
+      ["Energy",3.39,3.61],
+      ["Consumer Staples",2.14,3.36],
+      ["Cash",3.59,0],
+      ["Utilities",0.93,2.46],
+      ["Real Estate",0.94,1.01],
+      ["Other",0.87,0.71]
+    ],
+    globalMag7: [
+      ["NVIDIA",2.64,5.28],
+      ["Apple",3.46,4.86],
+      ["Alphabet",2.86,4.25],
+      ["Microsoft",3.18,3.01],
+      ["Amazon.com",1.88,2.64],
+      ["Meta Platforms",0.65,1.41],
+      ["Tesla",0.28,1.35]
+    ],
+    globalTop: [
+      ["Cash","Cash","Cash",3.59,0],
+      ["Apple Inc","Information Technology","North America",3.46,4.86],
+      ["Microsoft Corp","Information Technology","North America",3.18,3.01],
+      ["Alphabet Inc","Communication Services","North America",2.86,4.25],
+      ["NVIDIA Corp","Information Technology","North America",2.64,5.28],
+      ["Amazon.com Inc","Consumer Discretionary","North America",1.88,2.64],
+      ["ASML Holding NV","Information Technology","Europe ex UK",1.2,0.87],
+      ["Sandisk Corp","Information Technology","North America",1.18,0],
+      ["Broadcom Inc","Information Technology","North America",1.06,1.94],
+      ["Lam Research Corp","Information Technology","North America",1.05,0.62],
+      ["Visa Inc","Financials","North America",0.96,0.66],
+      ["Amphenol Corp","Information Technology","North America",0.94,0.25],
+      ["Miscellaneous Securities","Other","Other",0.87,0],
+      ["Mastercard Inc","Financials","North America",0.8,0.48],
+      ["Samsung Electronics","Information Technology","Asia ex Japan",0.78,0],
+      ["Kioxia Hldgs Corp","Information Technology","Japan",0.78,0],
+      ["Medtronic PLC","Health Care","North America",0.76,0.11],
+      ["Sk Hynix Inc","Information Technology","Asia ex Japan",0.71,0],
+      ["Compass Group PLC","Consumer Discretionary","United Kingdom",0.69,0.06],
+      ["InterContinental Hotels Group PLC","Consumer Discretionary","United Kingdom",0.68,0.03],
+      ["Diploma PLC","Industrials","United Kingdom",0.65,0],
+      ["Meta Platforms Inc","Communication Services","North America",0.65,1.41],
+      ["Experian PLC","Industrials","United Kingdom",0.63,0.03],
+      ["Relx Plc","Industrials","United Kingdom",0.58,0.06],
+      ["Eoptolink Technolo","Information Technology","Emerging Markets",0.56,0],
+      ["Eli Lilly & Co","Health Care","North America",0.54,1.1],
+      ["Halma PLC","Information Technology","United Kingdom",0.53,0.02],
+      ["Cintas Corp","Industrials","North America",0.52,0.07],
+      ["Linde PLC","Materials","North America",0.52,0.27],
+      ["Jack Henry & Associates Inc","Information Technology","North America",0.5,0],
+      ["Aon PLC","Financials","North America",0.49,0.08],
+      ["Cisco Systems Inc","Information Technology","North America",0.49,0.53],
+      ["Taiwan Semiconductor Manufacturing","Information Technology","Asia ex Japan",0.47,0],
+      ["Advanced Micro Devices Inc","Information Technology","North America",0.46,1.08],
+      ["WW Grainger Inc","Industrials","North America",0.44,0.07],
+      ["Saputo Inc","Information Technology","Europe ex UK",0.43,0.01],
+      ["Seagate Technology Holdings PLC","Information Technology","North America",0.42,0.24],
+      ["Micron Technology Inc","Information Technology","North America",0.42,1.49],
+      ["Adobe Inc","Information Technology","North America",0.41,0.09],
+      ["Intuitive Surgical Inc","Health Care","North America",0.4,0.16],
+      ["Te Connectivity Plc","Information Technology","North America",0.38,0.07],
+      ["KLA Corp","Information Technology","North America",0.37,0.45],
+      ["TJX Cos Inc/The","Consumer Discretionary","North America",0.36,0.19],
+      ["Palantir Technolog Inc","Information Technology","North America",0.35,0],
+      ["Moody's Corp","Financials","North America",0.34,0.08],
+      ["UnitedHealth Group Inc","Health Care","North America",0.33,0.43],
+      ["Salesforce Inc","Information Technology","North America",0.32,0.14],
+      ["Chubb Ltd","Financials","North America",0.32,0.14],
+      ["Travelers Cos Inc/The","Financials","North America",0.32,0.08],
+      ["BNP Paribas SA","Financials","Europe ex UK",0.3,0.13],
+      ["McKesson Corp","Health Care","North America",0.3,0.11],
+      ["Walt Disney Co/The","Communication Services","North America",0.29,0.19],
+      ["Arch Capital Group Ltd","Financials","North America",0.29,0.04],
+      ["Bentley Systems Inc","Information Technology","North America",0.29,0],
+      ["Roper Technologies Inc","Health Care","Europe ex UK",0.29,0.04],
+      ["Tesla Inc","Consumer Discretionary","North America",0.28,1.35],
+      ["Caterpillar Inc","Industrials","North America",0.27,0.57],
+      ["Intel Corp","Information Technology","North America",0.27,0.7],
+      ["AstraZeneca PLC","Health Care","United Kingdom",0.26,0.32],
+      ["Fortinet Inc","Information Technology","North America",0.26,0.11],
+      ["Shell PLC","Energy","United Kingdom",0.26,0.25],
+      ["Stryker Corp","Health Care","North America",0.25,0.12],
+      ["T-Mobile US Inc","Communication Services","North America",0.25,0.1],
+      ["Tokyo Electron Ltd","Information Technology","Japan",0.25,0.24],
+      ["HCA Healthcare Inc","Health Care","North America",0.24,0.07],
+      ["Johnson & Johnson","Health Care","North America",0.23,0.7],
+      ["Bank of America Corp","Financials","North America",0.23,0.44],
+      ["Applied Materials Inc","Information Technology","North America",0.23,0.66],
+      ["Taiwan Semiconductor Manufac","Information Technology","Asia ex Japan",0.21,0],
+      ["Boston Scientific Corp","Health Care","North America",0.21,0.07],
+      ["Wells Fargo & Co","Financials","North America",0.21,0.29],
+      ["Intuit Inc","Information Technology","North America",0.21,0.08],
+      ["Arista Networks Inc","Information Technology","North America",0.21,0.21],
+      ["Banco Bilbao Vizca","Financials","Europe ex UK",0.2,0],
+      ["Costco Wholesale Corp","Consumer Discretionary","North America",0.2,0.47],
+      ["Hilton Worldwide Holdings Inc","Consumer Discretionary","North America",0.19,0.09],
+      ["Equinor ASA","Energy","Europe ex UK",0.19,0.03],
+      ["Netflix Inc","Communication Services","North America",0.19,0.34],
+      ["Advantest Corp","Information Technology","Japan",0.19,0.17],
+      ["JPMorgan Chase & Co","Financials","North America",0.18,0.84],
+      ["UBS Group AG","Financials","Europe ex UK",0.18,0.18],
+      ["Walmart Inc","Consumer Discretionary","North America",0.18,0.57],
+      ["Axis Capital Holdings Ltd","Financials","North America",0.17,0],
+      ["Merck KGaA","Health Care","North America",0.17,0.02],
+      ["Barrick Mining Corp","Materials","North America",0.17,0.07],
+      ["Delta Electronic","Information Technology","Asia ex Japan",0.16,0],
+      ["Procter & Gamble Co/The","Consumer Staples","North America",0.16,0.39],
+      ["Berkshire Hathaway Inc","Financials","North America",0.16,0.8],
+      ["Taiwan Semiconductor-Sp Adr","Information Technology","Asia ex Japan",0.16,0],
+      ["Cigna Group/The","Health Care","North America",0.16,0.08],
+      ["Chevron Corp","Energy","North America",0.16,0.35],
+      ["PepsiCo Inc","Consumer Staples","North America",0.16,0.21],
+      ["Airbus SE","Industrials","Europe ex UK",0.16,0.15],
+      ["Poste Italiane SpA","Financials","Europe ex UK",0.15,0.02],
+      ["O'Reilly Automotive Inc","Consumer Discretionary","North America",0.15,0.09],
+      ["Citigroup Inc","Financials","North America",0.15,0.23],
+      ["Abbott Laboratories","Health Care","North America",0.15,0.18],
+      ["Suncor Energy Inc","Industrials","Europe ex UK",0.15,0.07],
+      ["ExxonMobil Holdings Corp","Energy","North America",0.15,0.65],
+      ["ConocoPhillips","Energy","North America",0.15,0.15]
+    ],
+    globalTopOW: [
+      ["Cash","Cash","Cash",3.59,0],
+      ["Sandisk Corp","Information Technology","North America",1.18,0],
+      ["Miscellaneous Securities","Other","Other",0.87,0],
+      ["Samsung Electronics","Information Technology","Asia ex Japan",0.78,0],
+      ["Kioxia Hldgs Corp","Information Technology","Japan",0.78,0],
+      ["Sk Hynix Inc","Information Technology","Asia ex Japan",0.71,0],
+      ["Amphenol Corp","Information Technology","North America",0.94,0.25],
+      ["Diploma PLC","Industrials","United Kingdom",0.65,0],
+      ["Medtronic PLC","Health Care","North America",0.76,0.11],
+      ["InterContinental Hotels Group PLC","Consumer Discretionary","United Kingdom",0.68,0.03],
+      ["Compass Group PLC","Consumer Discretionary","United Kingdom",0.69,0.06],
+      ["Experian PLC","Industrials","United Kingdom",0.63,0.03],
+      ["Eoptolink Technolo","Information Technology","Emerging Markets",0.56,0],
+      ["Relx Plc","Industrials","United Kingdom",0.58,0.06],
+      ["Halma PLC","Information Technology","United Kingdom",0.53,0.02],
+      ["Jack Henry & Associates Inc","Information Technology","North America",0.5,0],
+      ["Taiwan Semiconductor Manufacturing","Information Technology","Asia ex Japan",0.47,0],
+      ["Cintas Corp","Industrials","North America",0.52,0.07],
+      ["Lam Research Corp","Information Technology","North America",1.05,0.62],
+      ["Saputo Inc","Information Technology","Europe ex UK",0.43,0.01],
+      ["Aon PLC","Financials","North America",0.49,0.08],
+      ["WW Grainger Inc","Industrials","North America",0.44,0.07],
+      ["Palantir Technolog Inc","Information Technology","North America",0.35,0],
+      ["ASML Holding NV","Information Technology","Europe ex UK",1.2,0.87],
+      ["Adobe Inc","Information Technology","North America",0.41,0.09],
+      ["Mastercard Inc","Financials","North America",0.8,0.48],
+      ["Te Connectivity Plc","Information Technology","North America",0.38,0.07],
+      ["Visa Inc","Financials","North America",0.96,0.66],
+      ["Bentley Systems Inc","Information Technology","North America",0.29,0],
+      ["Moody's Corp","Financials","North America",0.34,0.08],
+      ["Arch Capital Group Ltd","Financials","North America",0.29,0.04],
+      ["Roper Technologies Inc","Health Care","Europe ex UK",0.29,0.04],
+      ["Linde PLC","Materials","North America",0.52,0.27],
+      ["Travelers Cos Inc/The","Financials","North America",0.32,0.08],
+      ["Intuitive Surgical Inc","Health Care","North America",0.4,0.16],
+      ["Taiwan Semiconductor Manufac","Information Technology","Asia ex Japan",0.21,0],
+      ["Banco Bilbao Vizca","Financials","Europe ex UK",0.2,0],
+      ["McKesson Corp","Health Care","North America",0.3,0.11],
+      ["Chubb Ltd","Financials","North America",0.32,0.14],
+      ["Seagate Technology Holdings PLC","Information Technology","North America",0.42,0.24],
+      ["Salesforce Inc","Information Technology","North America",0.32,0.14],
+      ["HCA Healthcare Inc","Health Care","North America",0.24,0.07],
+      ["Microsoft Corp","Information Technology","North America",3.18,3.01],
+      ["TJX Cos Inc/The","Consumer Discretionary","North America",0.36,0.19],
+      ["Axis Capital Holdings Ltd","Financials","North America",0.17,0],
+      ["BNP Paribas SA","Financials","Europe ex UK",0.3,0.13],
+      ["Delta Electronic","Information Technology","Asia ex Japan",0.16,0],
+      ["Taiwan Semiconductor-Sp Adr","Information Technology","Asia ex Japan",0.16,0],
+      ["Equinor ASA","Energy","Europe ex UK",0.19,0.03],
+      ["T-Mobile US Inc","Communication Services","North America",0.25,0.1]
+    ],
+    globalTopUW: [
+      ["NVIDIA Corp","Information Technology","North America",2.64,5.28],
+      ["Apple Inc","Information Technology","North America",3.46,4.86],
+      ["Alphabet Inc","Communication Services","North America",2.86,4.25],
+      ["Micron Technology Inc","Information Technology","North America",0.42,1.49],
+      ["Tesla Inc","Consumer Discretionary","North America",0.28,1.35],
+      ["Broadcom Inc","Information Technology","North America",1.06,1.94],
+      ["Meta Platforms Inc","Communication Services","North America",0.65,1.41],
+      ["Amazon.com Inc","Consumer Discretionary","North America",1.88,2.64],
+      ["JPMorgan Chase & Co","Financials","North America",0.18,0.84],
+      ["Berkshire Hathaway Inc","Financials","North America",0.16,0.8],
+      ["Advanced Micro Devices Inc","Information Technology","North America",0.46,1.08],
+      ["Eli Lilly & Co","Health Care","North America",0.54,1.1],
+      ["ExxonMobil Holdings Corp","Energy","North America",0.15,0.65],
+      ["Johnson & Johnson","Health Care","North America",0.23,0.7],
+      ["Intel Corp","Information Technology","North America",0.27,0.7],
+      ["Applied Materials Inc","Information Technology","North America",0.23,0.66],
+      ["AbbVie Inc","Health Care","North America",0.11,0.51],
+      ["Walmart Inc","Consumer Discretionary","North America",0.18,0.57],
+      ["Roche Holding AG","Health Care","Europe ex UK",0.01,0.35],
+      ["Home Depot Inc/The","Consumer Discretionary","North America",0.08,0.4],
+      ["General Electric Co","Industrials","North America",0.14,0.45],
+      ["Caterpillar Inc","Industrials","North America",0.27,0.57],
+      ["HSBC Holdings PLC","Financials","United Kingdom",0.08,0.37],
+      ["GE Vernova Inc","Industrials","North America",0.07,0.36],
+      ["Costco Wholesale Corp","Consumer Discretionary","North America",0.2,0.47],
+      ["Royal Bank of Canada","Financials","North America",0.06,0.33],
+      ["Philip Morris International Inc","Consumer Staples","North America",0.06,0.32],
+      ["Merck & Co Inc","Health Care","North America",0.1,0.36],
+      ["Palo Alto Networks Inc","Information Technology","North America",0.06,0.32],
+      ["Coca-Cola Co/The","Consumer Staples","North America",0.12,0.36],
+      ["RTX Corp","Industrials","North America",0.06,0.29],
+      ["International Business Machines Corp","Information Technology","North America",0.07,0.3],
+      ["Procter & Gamble Co/The","Consumer Staples","North America",0.16,0.39],
+      ["Novartis AG","Health Care","Europe ex UK",0.11,0.33],
+      ["Oracle Corp","Information Technology","North America",0.07,0.29],
+      ["Bank of America Corp","Financials","North America",0.23,0.44],
+      ["Texas Instruments Inc","Information Technology","North America",0.1,0.31],
+      ["Nestle SA","Consumer Staples","Europe ex UK",0.09,0.3],
+      ["Palantir Technologies Inc","Information Technology","North America",0.09,0.29],
+      ["Mitsubishi UFJ Financial Group Inc","Financials","Japan",0.05,0.24],
+      ["Chevron Corp","Energy","North America",0.16,0.35],
+      ["Corning Inc","Information Technology","North America",0.04,0.23],
+      ["Marvell Technology Inc","Information Technology","North America",0.1,0.29],
+      ["Toronto-Dominion Bank/The","Financials","North America",0.05,0.23],
+      ["Analog Devices Inc","Information Technology","North America",0.04,0.22],
+      ["Crowdstrike Holdings Inc","Information Technology","North America",0.04,0.22],
+      ["Western Digital Corp","Information Technology","North America",0.08,0.25],
+      ["Schneider Electric Se","Industrials","Europe ex UK",0.04,0.2],
+      ["Amgen Inc","Health Care","North America",0.06,0.22],
+      ["SoftBank Group Corp","Communication Services","Japan",0.04,0.2]
+    ],
+    fi: {
+      dual: true,
+      rows: [
+        ["CSA0038AU","Bentham Global Income Fund",14.0,26.0,39.0,35.0,2.6,6.0,5.6,20.0,15.0,11.0,7.0,4.0,0.0,8.0,35.0],
+        ["HOW2852AU","Bentham Asset Backed Securities Fund",19.4,55.0,30.0,15.0,2.1,4.3,5.1,66.0,18.0,1.0,0.0,0.0,0.0,0.0,15.0],
+        ["MAQ0274AU","Macquarie Dynamic Bond Fund",25.9,23.1,76.9,0.0,2.9,5.3,5.9,18.0,19.2,30.6,28.4,2.4,1.2,0.2,0.0],
+        ["PER0260AU","Perpetual Diversified Income Fund",20.2,68.8,20.5,10.7,3.3,-0.1,5.8,22.7,7.8,16.6,37.2,4.4,0.0,0.6,10.7],
+        ["SLT0052AU","Coolabah Short Term Income Fund",20.0,96.8,0.0,3.2,0.0,0.1,5.1,0.0,96.8,0.0,0.0,0.0,0.0,0.0,3.2],
+        ["CASH","Cash + Reserves",0.5,null,null,100.0,null,null,null,0.0,0.0,0.0,0.0,0.0,0.0,0.0,100.0]
+      ],
+      totals: ["TOTAL",100.0,53.58,35.35,11.06,2.19,3.04,5.51,24.8,31.5,13.0,15.9,2.1,0.3,1.3,11.1]
+    },
+    fiProposed: {
+      rows: [
+        ["CSA0038AU","Bentham Global Income Fund",15.0,26.0,39.0,35.0,2.6,6.0,5.6],
+        ["MAQ0274AU","Macquarie Dynamic Bond Fund",25.0,23.1,76.9,0.0,2.9,5.3,5.9],
+        ["PER0260AU","Perpetual Diversified Income Fund",29.75,68.8,20.5,10.7,3.3,-0.1,5.8],
+        [null,"Realm Short Term Income Fund",29.75,96.8,0.0,3.2,1.5,0.1,5.9],
+        ["CASH","Cash + Reserves",0.5,null,null,100.0,null,null,null]
+      ],
+      totals: ["TOTAL",100.0,58.94,31.17,9.87,2.54,2.22,5.82]
+    }
+  },
+  mar2026: {
+    asAt: '31 Mar 2026',
+    glHasRegion: false,
+    methodology: 'Look-through positions aggregate the underlying holdings of each SMA constituent, being direct equity positions plus the top reported holdings of each managed fund and ETF, weighted by their share of the SMA. Benchmarks are VAS (S&amp;P/ASX 300) for Australian Equities and VGS (MSCI World ex-Australia) for Global Equities. Stock level totals reflect top reported holdings and may understate the true portfolio weight where underlying fund disclosure is limited to the top 10. Sector and regional figures are computed from the full sector and regional breakdowns disclosed by each underlying fund.',
     ausSectors: [
       ["Financials", 34.55, 33.60],
       ["Materials", 27.34, 24.50],
@@ -860,23 +1308,34 @@
       ["ANZ","ANZ Banking Group","Financials",4.40,4.20],
       ["WBC","Westpac Banking Corporation","Financials",2.43,5.25]
     ],
-    fi: [
-      ["CSA0038AU","Bentham Global Income Fund",14.0,27.0,30.0,35.0,4.6,4.3,17.0,17.0,10.0,4.0,4.0,13.0,0.0,35.0],
-      ["HOW2852AU","Bentham Asset Backed Securities Fund",19.2,56.0,32.0,12.0,4.5,4.8,71.0,17.0,0.0,0.0,0.0,0.0,0.0,12.0],
-      ["MAQ0274AU","Macquarie Dynamic Bond Fund",25.8,25.2,74.8,0.0,5.5,5.7,19.1,20.0,27.5,30.0,2.0,1.2,0.2,0.0],
-      ["PER0260AU","Perpetual Diversified Income Fund",20.2,70.6,19.7,9.7,0.8,5.4,28.6,11.9,13.7,32.4,3.2,0.0,0.6,9.7],
-      ["SLT0052AU","Coolabah Short Term Income Fund",20.4,97.8,0.0,2.2,0.2,5.1,0.0,97.8,0.0,0.0,0.0,0.0,0.0,2.2],
-      ["CASH","Cash + Reserves",0.5,0.0,0.0,100.0,null,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,100.0]
-    ],
-    fiTotals: ["TOTAL", 100.0, 55.2, 33.6, 10.1, null, null, 26.7, 33.1, 11.3, 14.8, 1.7, 2.1, 0.2, null]
+    fi: {
+      dual: false,
+      rows: [
+        ["CSA0038AU","Bentham Global Income Fund",14.0,27.0,30.0,35.0,null,4.6,4.3,17.0,17.0,10.0,4.0,4.0,13.0,0.0,35.0],
+        ["HOW2852AU","Bentham Asset Backed Securities Fund",19.2,56.0,32.0,12.0,null,4.5,4.8,71.0,17.0,0.0,0.0,0.0,0.0,0.0,12.0],
+        ["MAQ0274AU","Macquarie Dynamic Bond Fund",25.8,25.2,74.8,0.0,null,5.5,5.7,19.1,20.0,27.5,30.0,2.0,1.2,0.2,0.0],
+        ["PER0260AU","Perpetual Diversified Income Fund",20.2,70.6,19.7,9.7,null,0.8,5.4,28.6,11.9,13.7,32.4,3.2,0.0,0.6,9.7],
+        ["SLT0052AU","Coolabah Short Term Income Fund",20.4,97.8,0.0,2.2,null,0.2,5.1,0.0,97.8,0.0,0.0,0.0,0.0,0.0,2.2],
+        ["CASH","Cash + Reserves",0.5,null,null,100.0,null,null,null,0.0,0.0,0.0,0.0,0.0,0.0,0.0,100.0]
+      ],
+      totals: ["TOTAL",100.0,55.2,33.6,10.1,null,null,null,26.7,33.1,11.3,14.8,1.7,2.1,0.2,null]
+    },
+    fiProposed: null
+  }
   };
 
   // ====== CHART PALETTE (gold-toned to match site) ======
   const palette = [
     '#b8954b','#0d1b2a','#cdb076','#1a2b3f',
     '#4d7a3a','#a83a3a','#6b8e7f','#d4a574',
-    '#7a8c7d','#5d4e37','#8e7c5e','#b8a487'
+    '#7a8c7d','#5d4e37','#8e7c5e','#b8a487',
+    '#3f5d70','#9c8558'
   ];
+
+  // ====== State ======
+  let activePeriod = 'jun2026';
+  let ausView = 'top';
+  let glView  = 'top';
 
   // ====== Helpers ======
   const fmtSigned = v => {
@@ -885,6 +1344,15 @@
     const sign = v > 0 ? '+' : '';
     return `<span class="${cls}">${sign}${v.toFixed(2)}%</span>`;
   };
+  // Portfolio weight: 1dp unless a second decimal is meaningful (e.g. 29.75%)
+  const fmtWt = v => {
+    if (v == null) return '—';
+    const two = v.toFixed(2);
+    return (two.endsWith('0') ? two.slice(0, -1) : two) + '%';
+  };
+  const fmtPct = v => v == null ? '—' : v.toFixed(1) + '%';
+  const fmtDur = v => v == null ? '—' : v.toFixed(2);
+  const fmtYld = v => v == null ? '—' : v.toFixed(2) + '%';
 
   // ====== Pie chart ======
   function drawPie(containerId, legendId, dataset) {
@@ -942,23 +1410,20 @@
         <td class="num">${fmtSigned(diff)}</td>
       </tr>`;
     }).join('');
+    const tp = rows.reduce((a, r) => a + r[1], 0);
+    const tb = rows.reduce((a, r) => a + r[2], 0);
+    document.querySelector(`#${tblId} tfoot`).innerHTML = `<tr>
+      <td>Total</td>
+      <td class="num">${tp.toFixed(1)}%</td>
+      <td class="num">${tb.toFixed(1)}%</td>
+      <td class="num flat">—</td>
+    </tr>`;
   }
 
-  // ====== Init charts & tables ======
-  drawPie('aus-pie', 'aus-pie-legend', data.ausSectors);
-  buildAllocationTable('aus-sector-tbl', data.ausSectors);
-
-  drawPie('gl-region-pie', 'gl-region-legend', data.globalRegions);
-  buildAllocationTable('gl-region-tbl', data.globalRegions);
-
-  drawPie('gl-sector-pie', 'gl-sector-legend', data.globalSectors);
-  buildAllocationTable('gl-sector-tbl', data.globalSectors);
-
-  // Mag 7
-  (function() {
-    const tbody = document.querySelector('#mag7-tbl tbody');
+  // ====== Mag 7 ======
+  function buildMag7(rows) {
     let totalP = 0, totalI = 0;
-    tbody.innerHTML = data.globalMag7.map(([name, p, b]) => {
+    document.querySelector('#mag7-tbl tbody').innerHTML = rows.map(([name, p, b]) => {
       totalP += p; totalI += b;
       const diff = p - b;
       return `<tr>
@@ -975,13 +1440,12 @@
       <td class="num">${totalI.toFixed(2)}%</td>
       <td class="num">${fmtSigned(totalP - totalI)}</td>
       <td>${deltaBar(totalP - totalI)}</td>`;
-  })();
+  }
 
   // ====== AUS Banks ======
   function buildBanksTable(tblId, totalsRowId, rows) {
-    const tbody = document.querySelector(`#${tblId} tbody`);
     let totalP = 0, totalI = 0;
-    tbody.innerHTML = rows.map(([code, name, sector, p, b]) => {
+    document.querySelector(`#${tblId} tbody`).innerHTML = rows.map(([code, name, sector, p, b]) => {
       totalP += p; totalI += b;
       const diff = p - b;
       return `<tr>
@@ -1002,8 +1466,6 @@
       <td class="num">${fmtSigned(diff)}</td>
       <td>${deltaBar(diff)}</td>`;
   }
-  buildBanksTable('aus-banks-big5-tbl', 'aus-banks-big5-totals', data.ausBanksBig5);
-  buildBanksTable('aus-banks-big4-tbl', 'aus-banks-big4-totals', data.ausBanksBig4);
 
   // ====== AUS Holdings ======
   function ausHoldingsTable(rows) {
@@ -1033,24 +1495,30 @@
     </table>`;
   }
 
-  function renderAusHoldings(view) {
+  function renderAusHoldings(d, view) {
     const el = document.getElementById('aus-holdings-content');
     if (view === 'top') {
-      el.innerHTML = ausHoldingsTable(data.ausTop.slice(0, 50));
+      el.innerHTML = ausHoldingsTable(d.ausTop.slice(0, 50));
     } else if (view === 'ow') {
-      el.innerHTML = ausHoldingsTable([...data.ausTop].sort((a,b) => (b[3]-b[4])-(a[3]-a[4])).slice(0,20));
+      el.innerHTML = ausHoldingsTable([...d.ausTop].sort((a,b) => (b[3]-b[4])-(a[3]-a[4])).slice(0,20));
     } else {
-      el.innerHTML = ausHoldingsTable([...data.ausTop].sort((a,b) => (a[3]-a[4])-(b[3]-b[4])).slice(0,20));
+      el.innerHTML = ausHoldingsTable([...d.ausTop].sort((a,b) => (a[3]-a[4])-(b[3]-b[4])).slice(0,20));
     }
   }
-  renderAusHoldings('top');
 
   // ====== Global Holdings ======
-  function glHoldingsTable(rows) {
+  // Row shape: [security, sector, region, portfolio, index] for periods carrying a
+  // region field; [security, sector, portfolio, index] otherwise.
+  function glNormalise(r, hasRegion) {
+    return hasRegion ? r : [r[0], r[1], null, r[2], r[3]];
+  }
+
+  function glHoldingsTable(rows, hasRegion) {
     return `<table>
       <thead>
         <tr>
           <th>#</th><th>Stock</th><th>Sector</th>
+          ${hasRegion ? '<th>Region</th>' : ''}
           <th class="num">Portfolio</th>
           <th class="num">Index (VGS)</th>
           <th class="num">OW / UW</th>
@@ -1058,13 +1526,14 @@
       </thead>
       <tbody>
         ${rows.map((r, i) => {
-          const diff = r[2] - r[3];
+          const diff = r[3] - r[4];
           return `<tr>
             <td class="code-cell">${String(i+1).padStart(2,'0')}</td>
             <td><strong>${r[0]}</strong></td>
             <td>${r[1]}</td>
-            <td class="num">${r[2].toFixed(2)}%</td>
+            ${hasRegion ? `<td>${r[2] == null ? '—' : r[2]}</td>` : ''}
             <td class="num">${r[3].toFixed(2)}%</td>
+            <td class="num">${r[4].toFixed(2)}%</td>
             <td class="num">${fmtSigned(diff)}</td>
           </tr>`;
         }).join('')}
@@ -1072,72 +1541,132 @@
     </table>`;
   }
 
-  function renderGlHoldings(view) {
+  function renderGlHoldings(d, view) {
     const el = document.getElementById('gl-holdings-content');
-    if (view === 'top') {
-      el.innerHTML = glHoldingsTable(data.globalTop.slice(0, 100));
-    } else if (view === 'ow') {
-      el.innerHTML = glHoldingsTable(data.globalTopOW.slice(0, 50));
-    } else {
-      el.innerHTML = glHoldingsTable(data.globalTopUW.slice(0, 50));
-    }
+    const hr = d.glHasRegion;
+    let src;
+    if (view === 'top')      src = d.globalTop.slice(0, 100);
+    else if (view === 'ow')  src = d.globalTopOW.slice(0, 50);
+    else                     src = d.globalTopUW.slice(0, 50);
+    el.innerHTML = glHoldingsTable(src.map(r => glNormalise(r, hr)), hr);
   }
-  renderGlHoldings('top');
 
   // ====== Fixed Interest ======
-  (function() {
-    const tbody = document.querySelector('#fi-tbl tbody');
-    tbody.innerHTML = data.fi.map(r => {
-      const [code, name, port, aus, gex, cash, dur, yld] = r;
-      return `<tr>
-        <td><strong>${code}</strong></td>
-        <td>${name}</td>
-        <td class="num">${port.toFixed(1)}%</td>
-        <td class="num">${aus.toFixed(1)}%</td>
-        <td class="num">${gex.toFixed(1)}%</td>
-        <td class="num">${cash.toFixed(1)}%</td>
-        <td class="num">${dur == null ? '—' : dur.toFixed(1)}</td>
-        <td class="num">${yld == null ? '—' : yld.toFixed(1) + '%'}</td>
-      </tr>`;
-    }).join('');
-    const t = data.fiTotals;
-    document.querySelector('#fi-tbl tfoot').innerHTML = `<tr>
-      <td colspan="2">${t[0]}</td>
-      <td class="num">${t[1].toFixed(1)}%</td>
-      <td class="num">${t[2].toFixed(1)}%</td>
-      <td class="num">${t[3].toFixed(1)}%</td>
-      <td class="num">${t[4].toFixed(1)}%</td>
-      <td class="num">—</td><td class="num">—</td>
+  const FI_COLS_DUAL   = ['12%','24%','9%','9%','12%','8%','9%','9%','8%'];
+  const FI_COLS_SINGLE = ['13%','26%','10%','10%','13%','9%','10%','9%'];
+
+  function fiHead(dual) {
+    return `<tr>
+      <th class="left">Code</th>
+      <th class="left">Security</th>
+      <th>Port. Weight</th>
+      <th>Aus FI</th>
+      <th>Global ex-Aus FI</th>
+      <th>Cash</th>
+      ${dual ? '<th>Credit Duration</th><th>Interest Rate Duration</th>' : '<th>Duration</th>'}
+      <th>Running Yield Estimate</th>
+    </tr>`;
+  }
+
+  // Row shape: [code, security, weight, ausFI, globalFI, cash, creditDur, rateDur,
+  // yield, AAA, AA, A, BBB, BB, B, notRated, cashRating]
+  function fiHoldingsRow(r, dual) {
+    return `<tr>
+      <td class="left code">${r[0] == null ? '—' : r[0]}</td>
+      <td class="left">${r[1]}</td>
+      <td>${fmtWt(r[2])}</td>
+      <td>${fmtPct(r[3])}</td>
+      <td>${fmtPct(r[4])}</td>
+      <td>${fmtPct(r[5])}</td>
+      ${dual ? `<td>${fmtDur(r[6])}</td>` : ''}
+      <td>${fmtDur(r[7])}</td>
+      <td>${fmtYld(r[8])}</td>
+    </tr>`;
+  }
+
+  function fiTotalsRow(t, dual) {
+    return `<tr>
+      <td class="left" colspan="2">${t[0]}</td>
+      <td>${fmtWt(t[1])}</td>
+      <td>${fmtPct(t[2])}</td>
+      <td>${fmtPct(t[3])}</td>
+      <td>${fmtPct(t[4])}</td>
+      ${dual ? `<td>${fmtDur(t[5])}</td>` : ''}
+      <td>${fmtDur(t[6])}</td>
+      <td>${fmtYld(t[7])}</td>
+    </tr>`;
+  }
+
+  function renderFI(d) {
+    const dual = d.fi.dual;
+    document.getElementById('fi-cols').innerHTML =
+      (dual ? FI_COLS_DUAL : FI_COLS_SINGLE).map(w => `<col style="width:${w}">`).join('');
+    document.getElementById('fi-head').innerHTML = fiHead(dual);
+    document.querySelector('#fi-tbl tbody').innerHTML = d.fi.rows.map(r => fiHoldingsRow(r, dual)).join('');
+    document.querySelector('#fi-tbl tfoot').innerHTML = fiTotalsRow(d.fi.totals, dual);
+
+    // Credit rating breakdown
+    document.querySelector('#fi-credit-tbl tbody').innerHTML = d.fi.rows.map(r => `<tr>
+      <td class="left code">${r[0] == null ? '—' : r[0]}</td>
+      <td class="left">${r[1]}</td>
+      ${r.slice(9, 17).map(v => `<td>${fmtPct(v)}</td>`).join('')}
+    </tr>`).join('');
+    const t = d.fi.totals;
+    document.querySelector('#fi-credit-tbl tfoot').innerHTML = `<tr>
+      <td class="left" colspan="2">${t[0]}</td>
+      ${t.slice(8, 16).map(v => `<td>${fmtPct(v)}</td>`).join('')}
     </tr>`;
 
-    const cb = document.querySelector('#fi-credit-tbl tbody');
-    cb.innerHTML = data.fi.map(r => {
-      const [code, name, , , , , , , aaa, aa, a, bbb, bb, b, nr, cash] = r;
-      return `<tr>
-        <td><strong>${code}</strong></td>
-        <td>${name}</td>
-        <td class="num">${aaa.toFixed(1)}%</td>
-        <td class="num">${aa.toFixed(1)}%</td>
-        <td class="num">${a.toFixed(1)}%</td>
-        <td class="num">${bbb.toFixed(1)}%</td>
-        <td class="num">${bb.toFixed(1)}%</td>
-        <td class="num">${b.toFixed(1)}%</td>
-        <td class="num">${nr.toFixed(1)}%</td>
-        <td class="num">${cash.toFixed(1)}%</td>
-      </tr>`;
-    }).join('');
-    document.querySelector('#fi-credit-tbl tfoot').innerHTML = `<tr>
-      <td colspan="2">${t[0]}</td>
-      <td class="num">${t[7].toFixed(1)}%</td>
-      <td class="num">${t[8].toFixed(1)}%</td>
-      <td class="num">${t[9].toFixed(1)}%</td>
-      <td class="num">${t[10].toFixed(1)}%</td>
-      <td class="num">${t[11].toFixed(1)}%</td>
-      <td class="num">${t[12].toFixed(1)}%</td>
-      <td class="num">${t[13].toFixed(1)}%</td>
-      <td class="num">—</td>
-    </tr>`;
-  })();
+    // Proposed portfolio
+    const sec = document.getElementById('fi-proposed-section');
+    if (d.fiProposed) {
+      sec.style.display = '';
+      document.querySelector('#fi-proposed-tbl tbody').innerHTML =
+        d.fiProposed.rows.map(r => fiHoldingsRow(r, true)).join('');
+      document.querySelector('#fi-proposed-tbl tfoot').innerHTML =
+        fiTotalsRow(d.fiProposed.totals, true);
+    } else {
+      sec.style.display = 'none';
+    }
+  }
+
+  // ====== Master render ======
+  function render(key) {
+    const d = PERIODS[key];
+    activePeriod = key;
+
+    document.getElementById('meta-as-at').textContent = d.asAt;
+    document.getElementById('methodology-text').innerHTML = d.methodology;
+
+    drawPie('aus-pie', 'aus-pie-legend', d.ausSectors);
+    buildAllocationTable('aus-sector-tbl', d.ausSectors);
+
+    drawPie('gl-region-pie', 'gl-region-legend', d.globalRegions);
+    buildAllocationTable('gl-region-tbl', d.globalRegions);
+
+    drawPie('gl-sector-pie', 'gl-sector-legend', d.globalSectors);
+    buildAllocationTable('gl-sector-tbl', d.globalSectors);
+
+    buildMag7(d.globalMag7);
+    buildBanksTable('aus-banks-big5-tbl', 'aus-banks-big5-totals', d.ausBanksBig5);
+    buildBanksTable('aus-banks-big4-tbl', 'aus-banks-big4-totals', d.ausBanksBig4);
+
+    renderAusHoldings(d, ausView);
+    renderGlHoldings(d, glView);
+    renderFI(d);
+  }
+
+  render(activePeriod);
+
+  // ====== Period switching ======
+  document.querySelectorAll('#period-toggle button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (btn.dataset.period === activePeriod) return;
+      document.querySelectorAll('#period-toggle button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      render(btn.dataset.period);
+    });
+  });
 
   // ====== Tab switching ======
   document.querySelectorAll('.lk-tab').forEach(tab => {
@@ -1164,7 +1693,8 @@
     btn.addEventListener('click', () => {
       document.querySelectorAll('#aus-toggle button').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      renderAusHoldings(btn.dataset.view);
+      ausView = btn.dataset.view;
+      renderAusHoldings(PERIODS[activePeriod], ausView);
     });
   });
 
@@ -1173,7 +1703,8 @@
     btn.addEventListener('click', () => {
       document.querySelectorAll('#gl-toggle button').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      renderGlHoldings(btn.dataset.view);
+      glView = btn.dataset.view;
+      renderGlHoldings(PERIODS[activePeriod], glView);
     });
   });
   </script>
