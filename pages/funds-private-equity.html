@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Private Equity — Vantage Wealth Management | Investment Data Portal</title>
-  <meta name="last-updated" content="05 Jul 2026">
+  <meta name="last-updated" content="11 Aug 2026">
   <meta name="owner"        content="Anthony Nguyen">
   <meta name="source"       content="Morningstar">
-  <meta name="as-at"        content="30 Jun 2026">
+  <meta name="as-at"        content="31 Jul 2026">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -65,10 +65,41 @@
       <div class="period-selector-bar">
         <label for="period-select">Period:</label>
         <select id="period-select">
+          <option value="jul2026">31 Jul 2026</option>
           <option value="jun2026">30 Jun 2026</option>
         </select>
       </div>
-      <div class="period-panel" id="panel-jun2026">
+      <div class="period-panel" id="panel-jul2026">
+      <div class="asset-section">
+        <h2 class="asset-title">Private Equity — Active</h2>
+        <div class="notice"><strong>Note:</strong> Performance as at 30 April 2026 unless specified. PEP Gateway Vintages (Access Fund) 2025 and Scarcity GP Access (Feeder) as at 31 May 2026.</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Fund</th><th>APIR</th>
+                <th class="numeric">CYTD</th>
+                <th class="numeric">1M</th><th class="numeric">3M</th><th class="numeric">6M</th>
+                <th class="numeric">1Y</th><th class="numeric">3Y</th><th class="numeric">5Y</th>
+                <th class="numeric">10Y</th><th class="numeric">15Y</th><th class="numeric">20Y</th>
+                <th>Inception</th><th class="numeric">IM Fee</th>
+                <th class="numeric">MS Rating</th><th>MS Medallist</th>
+                <th>APL Date</th><th>Checklist</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>PEP Gateway Vintages (Access Fund) - 2025</td><td class="apir">PEP8930AU</td><td class="r">-0.96%</td><td class="r">-0.83%</td><td class="r">0.55%</td><td class="r">-1.56%</td><td class="r">6.78%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">TBC</td><td class="r">TBC</td><td class="r">TBC</td><td>TBC</td><td class="w">TBC</td><td class="w">TBC</td></tr>
+              <tr><td>PEP Gateway Vintages (Access Fund) 2026</td><td class="apir">PEP3009AU</td><td class="r">15.82%</td><td class="r">0.61%</td><td class="r">0.76%</td><td class="r">15.51%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">TBC</td><td class="r">TBC</td><td class="r">TBC</td><td>TBC</td><td class="w">TBC</td><td class="w">TBC</td></tr>
+              <tr><td>PEP Gateway Evergreen (Access Fund)</td><td class="apir">PEP3457AU</td><td class="r">-0.12%</td><td class="r">-0.60%</td><td class="r">0.13%</td><td class="r">-0.38%</td><td class="r">5.63%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">TBC</td><td class="r">TBC</td><td class="r">TBC</td><td>TBC</td><td class="w">TBC</td><td class="w">TBC</td></tr>
+              <tr><td>Scarcity GP Access (Feeder)</td><td class="apir">SCR6020AU</td><td class="r">0.12%</td><td class="r">0.24%</td><td class="r">1.37%</td><td class="r">-0.32%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">TBC</td><td class="r">TBC</td><td class="r">TBC</td><td>TBC</td><td class="w">TBC</td><td class="w">TBC</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+        <p style="font-size:0.78rem;color:var(--muted);">Source: Morningstar. Private equity performance as at 30 April 2026 unless specified (PEP Gateway Vintages 2025 and Scarcity GP Access as at 31 May 2026). Past performance is not a reliable indicator of future performance.</p>
+      </div>
+
+    <div class="period-panel" id="panel-jun2026">
       <div class="asset-section">
         <h2 class="asset-title">Private Equity — Active</h2>
         <div class="notice"><strong>Note:</strong> Performance as at 30 April 2026. Scarcity GP Access (Feeder) as at 31 March 2026.</div>
@@ -106,6 +137,7 @@
   <script>
     (function() {
       var META = {
+        'jul2026': { asat: '31 Jul 2026', updated: '11 Aug 2026' },
         'jun2026': { asat: '30 Jun 2026', updated: '05 Jul 2026' }
       };
       function showPeriod(key) {

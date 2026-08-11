@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RBA Cash Rate &amp; Australian CPI — Vantage Wealth Management | Investment Data Portal</title>
-  <meta name="last-updated" content="05 Jul 2026">
+  <meta name="last-updated" content="11 Aug 2026">
   <meta name="owner"        content="Anthony Nguyen">
   <meta name="source"       content="Morningstar">
-  <meta name="as-at"        content="30 Jun 2026">
+  <meta name="as-at"        content="31 Jul 2026">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -65,10 +65,35 @@
       <div class="period-selector-bar">
         <label for="period-select">Period:</label>
         <select id="period-select">
+          <option value="jul2026">31 Jul 2026</option>
           <option value="jun2026">30 Jun 2026</option>
           <option value="may2026">31 May 2026</option>
-          <option value="apr2026">30 Apr 2026</option>
         </select>
+      </div>
+      <div class="period-panel" id="panel-jul2026">
+      <div class="asset-section">
+        <h2 class="asset-title">RBA Cash Rate &amp; Australian CPI</h2>
+        <div class="notice"><strong>Note:</strong> CPI figures as at 30 June 2026 (quarterly release). Monthly CPI series as at 30 June 2026.</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Series</th><th></th>
+                <th class="numeric">CYTD</th>
+                <th class="numeric">1M</th><th class="numeric">3M</th><th class="numeric">6M</th>
+                <th class="numeric">1Y</th><th class="numeric">3Y</th><th class="numeric">5Y</th>
+                <th class="numeric">10Y</th><th class="numeric">15Y</th><th class="numeric">20Y</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>RBA Cash Rate Target</td><td class="w">4.35%</td><td class="r">2.43%</td><td class="r">0.38%</td><td class="r">1.11%</td><td class="r">2.11%</td><td class="r">4.02%</td><td class="r">4.27%</td><td class="r">3.26%</td><td class="r">2.15%</td><td class="r">2.40%</td><td class="r">3.14%</td></tr>
+              <tr><td>ABS Australian CPI &mdash; Quarterly</td><td class="w">30 June 2026</td><td class="r">1.98%</td><td class="r">0.60%</td><td class="r">0.60%</td><td class="r">1.98%</td><td class="r">3.94%</td><td class="r">3.28%</td><td class="r">4.41%</td><td class="r">3.09%</td><td class="r">2.67%</td><td class="r">2.73%</td></tr>
+              <tr><td>ABS Australian CPI &mdash; Monthly</td><td class="w">30 June 2026</td><td class="r">1.05%</td><td class="r">-0.06%</td><td class="r">-0.40%</td><td class="r">1.05%</td><td class="r">3.75%</td><td class="r">-5.18%</td><td class="r">-0.84%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+        <p style="font-size:0.78rem;color:var(--muted);">Source: Morningstar, ABS, RBA. Historical returns as at 31 July 2026. CPI as at 30 June 2026 (quarterly and monthly).</p>
       </div>
       <div class="period-panel" id="panel-jun2026">
       <div class="asset-section">
@@ -119,32 +144,7 @@
       </div>
         <p style="font-size:0.78rem;color:var(--muted);">Source: Morningstar, ABS, RBA. Historical returns as at 31 May 2026. CPI as at 31 March 2026.</p>
       </div>
-      <div class="period-panel" id="panel-apr2026">
-      <div class="asset-section">
-        <h2 class="asset-title">RBA Cash Rate &amp; Australian CPI</h2>
-        <div class="notice"><strong>Note:</strong> CPI figures as at 31 March 2026 (quarterly release).</div>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Series</th><th></th>
-                <th class="numeric">1M</th><th class="numeric">3M</th><th class="numeric">6M</th>
-                <th class="numeric">1Y</th><th class="numeric">3Y</th><th class="numeric">5Y</th>
-                <th class="numeric">10Y</th><th class="numeric">15Y</th><th class="numeric">20Y</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>RBA Cash Rate Target</td><td class="w">4.35% (5 May 2026)</td><td class="r">0.34%</td><td class="r">0.99%</td><td class="r">1.92%</td><td class="r">3.90%</td><td class="r">4.24%</td><td class="r">3.03%</td><td class="r">2.08%</td><td class="r">2.41%</td><td class="r">3.16%</td></tr>
-              <tr><td>ABS Australian CPI — Quarterly</td><td class="w">31 March 2026</td><td class="r">1.38%</td><td class="r">1.38%</td><td class="r">1.98%</td><td class="r">4.09%</td><td class="r">3.37%</td><td class="r">4.43%</td><td class="r">3.08%</td><td class="r">2.69%</td><td class="r">2.78%</td></tr>
-              <tr><td>ABS Australian CPI — Monthly</td><td class="w">31 March 2026</td><td class="r">1.12%</td><td class="r">1.46%</td><td class="r">2.44%</td><td class="r">4.57%</td><td class="r">-4.77%</td><td class="r">-0.61%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-        <p style="font-size:0.78rem;color:var(--muted);">Source: Morningstar, ABS, RBA. Historical returns as at 30 April 2026. CPI as at 31 March 2026.</p>
-      </div>
-
-    </main>
+      </main>
     <div id="footer-placeholder"></div>
   </div>
 
@@ -152,9 +152,9 @@
   <script>
     (function() {
       var META = {
+        'jul2026': { asat: '31 Jul 2026', updated: '11 Aug 2026' },
         'jun2026': { asat: '30 Jun 2026', updated: '05 Jul 2026' },
-        'may2026': { asat: '31 May 2026', updated: '10 Jun 2026' },
-        'apr2026': { asat: '30 Apr 2026', updated: '10 May 2026' }
+        'may2026': { asat: '31 May 2026', updated: '10 Jun 2026' }
       };
       function showPeriod(key) {
         document.querySelectorAll('.period-panel').forEach(function(p) { p.classList.remove('active'); });
