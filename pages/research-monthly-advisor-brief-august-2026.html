@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vantage Monthly Investment Brief | July 2026</title>
+<style>
+  :root {
+    --navy: #0E2A47;
+    --navy-deep: #091D33;
+    --gold: #C9A227;
+    --gold-soft: #E3CB7A;
+    --ink: #2B2F36;
+    --ink-soft: #5A6270;
+    --paper: #FAFAF7;
+    --card: #FFFFFF;
+    --rule: #E2E0D8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Ebrima','Segoe UI','Helvetica Neue',Arial,sans-serif; background: var(--paper); color: var(--ink); line-height: 1.65; font-size: 16px; }
+  .wrap { max-width: 840px; margin: 0 auto; padding: 0 28px; }
+
+  /* Masthead */
+  header.masthead { background: linear-gradient(160deg,var(--navy) 0%,var(--navy-deep) 100%); color:#fff; padding:52px 0 44px; border-bottom:4px solid var(--gold); }
+  .masthead .brand { font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold-soft); margin-bottom:14px; }
+  .masthead h1 { font-size:34px; font-weight:700; letter-spacing:-.01em; line-height:1.2; margin-bottom:10px; }
+  .masthead .edition { font-size:15px; color:rgba(255,255,255,.78); }
+  .masthead .edition span.sep { color:var(--gold); margin:0 10px; }
+
+  /* Shared panel */
+  .shared-panel { background:var(--navy); color:#fff; border-radius:6px; padding:30px 34px 28px; margin:-34px auto 48px; max-width:840px; box-shadow:0 10px 30px rgba(9,29,51,.18); border-top:3px solid var(--gold); }
+  .shared-panel .eyebrow { font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold-soft); margin-bottom:16px; }
+  .shared-item { padding:14px 0; border-top:1px solid rgba(255,255,255,.12); }
+  .shared-item:first-of-type { border-top:none; padding-top:0; }
+  .shared-item .date { font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:4px; }
+  .shared-item .stitle { font-size:16px; font-weight:700; margin-bottom:5px; }
+  .shared-item p { font-size:14.5px; line-height:1.6; color:rgba(255,255,255,.88); margin:0; }
+
+  /* Sections */
+  section { margin-bottom:54px; }
+  .eyebrow { font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:8px; }
+  h2 { font-size:24px; color:var(--navy); font-weight:700; margin-bottom:18px; line-height:1.25; }
+  h3 { font-size:17px; color:var(--navy); font-weight:700; margin:26px 0 8px; }
+  h4 { font-size:14px; color:var(--navy); font-weight:700; text-transform:uppercase; letter-spacing:.06em; margin:20px 0 6px; }
+  .period-head { font-size:15px; font-weight:700; color:var(--navy); margin:0 0 12px; padding-bottom:8px; border-bottom:2px solid var(--gold); }
+  .period-head.spaced { margin-top:28px; }
+  p { margin-bottom:14px; }
+  p.lede { font-size:17px; }
+
+  /* Snapshot */
+  .snapshot-5 { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-bottom:10px; }
+  .snapshot-2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:34px; }
+  .snap-tile { background:var(--card); border:1px solid var(--rule); border-top:3px solid var(--gold); border-radius:6px; padding:14px 16px 12px; }
+  .snap-tile svg { width:22px; height:22px; stroke:var(--navy); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; margin-bottom:7px; }
+  .snap-tile .snap-label { font-size:10px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; color:var(--gold); margin-bottom:4px; }
+  .snapshot-5 .snap-tile p { font-size:12.5px; line-height:1.5; color:var(--ink); margin:0; }
+  .snapshot-2 .snap-tile p { font-size:13.5px; line-height:1.55; color:var(--ink); margin:0; }
+  .snap-wide-title { font-size:14px; font-weight:700; color:var(--navy); margin-bottom:7px; }
+  .snap-detail span { display:inline-block; background:#F3F2EC; border-radius:3px; padding:2px 8px; font-size:12.5px; margin:2px 3px 2px 0; color:var(--ink); }
+  .snap-detail span.lead { background:#E8F4EC; color:#1E6640; font-weight:600; }
+  .snap-detail span.lag { background:#FBE9E9; color:#8B2020; font-weight:600; }
+
+  /* Watching box */
+  .watching-box { background:#F3F2EC; border-left:3px solid var(--gold); border-radius:4px; padding:14px 18px; font-size:14.5px; margin:4px 0 6px; }
+  .watching-box strong { color:var(--navy); }
+
+  /* Tables */
+  .tbl-wrap { margin:12px 0; border:1px solid var(--rule); border-radius:4px; overflow:hidden; }
+  table { width:100%; border-collapse:collapse; font-size:13.5px; background:var(--card); }
+  .tbl-section-head { background:var(--navy); }
+  .tbl-section-head td { color:#fff; font-weight:700; font-size:12px; letter-spacing:.1em; text-transform:uppercase; padding:9px 12px; }
+  .tbl-col-head { background:#1A3D60; }
+  .tbl-col-head th { color:rgba(255,255,255,.9); font-size:11.5px; font-weight:600; padding:7px 12px; text-align:right; }
+  .tbl-col-head th:first-child { text-align:left; }
+  tbody td { padding:9px 12px; border-bottom:1px solid var(--rule); }
+  tbody td.num { text-align:right; font-variant-numeric:tabular-nums; }
+  tbody tr:last-child td { border-bottom:none; }
+  tr.bench td { background:#F3F2EC; color:var(--ink-soft); font-size:13px; }
+  tr.bench td:first-child { font-style:italic; }
+  tr.diff-row td { background:#FAFAF7; font-size:12.5px; color:var(--ink-soft); font-style:italic; border-bottom:1px solid var(--rule); }
+  tr.diff-row td.num { text-align:right; }
+  .tbl-note { font-size:12px; color:var(--ink-soft); padding:6px 12px 8px; background:#F6F5F0; border-top:1px solid var(--rule); }
+
+  /* Commentary */
+  .commentary { background:var(--card); border:1px solid var(--rule); border-radius:6px; padding:18px 22px; margin:14px 0 6px; font-size:15px; }
+  .commentary p:last-child { margin-bottom:0; }
+
+  /* Portal links */
+  .portal-links { font-size:13.5px; margin:14px 0 4px; padding:11px 16px; background:#F3F2EC; border-radius:4px; line-height:1.9; }
+  .portal-links a { color:var(--navy); font-weight:600; text-decoration:none; border-bottom:1px solid var(--gold); }
+  .portal-links a:hover { color:var(--gold); }
+
+  /* Actions */
+  .actions li { margin:0 0 14px 0; list-style:none; padding-left:22px; position:relative; }
+  .actions li::before { content:""; position:absolute; left:0; top:9px; width:9px; height:9px; background:var(--gold); border-radius:1px; transform:rotate(45deg); }
+
+  hr.section-rule { border:none; border-top:1px solid var(--rule); margin:0 0 54px; }
+
+  footer { background:var(--navy-deep); color:rgba(255,255,255,.66); font-size:12.5px; line-height:1.7; padding:36px 0 44px; margin-top:70px; border-top:4px solid var(--gold); }
+  footer .fbrand { color:var(--gold-soft); font-size:12px; letter-spacing:.18em; text-transform:uppercase; margin-bottom:14px; }
+  footer p { margin-bottom:10px; }
+
+  /* Event cards */
+  .events-row { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:22px 0 6px; }
+  .event-card { background:var(--navy); color:#fff; border-radius:6px; padding:18px 18px 16px; border-top:3px solid var(--gold); }
+  .event-date { font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold-soft); font-weight:700; margin-bottom:6px; }
+  .event-title { font-size:15px; font-weight:700; color:#fff; margin-bottom:8px; line-height:1.3; }
+  .event-body { font-size:13px; color:rgba(255,255,255,.82); line-height:1.55; }
+
+  @media(max-width:680px){
+    .events-row { grid-template-columns:1fr; }
+    .masthead h1{font-size:26px;}
+    .shared-panel{padding:24px 22px 20px;margin-top:-24px;}
+    .snapshot-5{grid-template-columns:repeat(3,1fr);}
+    .snapshot-2{grid-template-columns:1fr;}
+    tbody td{padding:7px 8px;font-size:12px;}
+  }
+
+  /* --- July additions --- */
+  .tbc { color:#B4462F !important; font-weight:700; }
+  .tbc-inline { color:#B4462F; }
+  .tbc-chip { display:inline-block; background:#FBEDE9; border:1px dashed #B4462F;
+              color:#B4462F; font-size:12px; padding:4px 9px; border-radius:4px; line-height:1.4; }
+  .tbc-block { background:#FBEDE9; border-left:3px solid #B4462F; color:#8A3523;
+               padding:11px 14px; border-radius:0 4px 4px 0; font-size:14.5px; }
+  td.num.pos { color:#1D6B45; font-weight:600; }
+  td.num.neg { color:#B4462F; font-weight:600; }
+  .cal-wrap { overflow-x:auto; margin:16px 0 6px; }
+  table.cal { width:100%; border-collapse:collapse; table-layout:fixed; }
+  table.cal thead th { background:#1A2B3C; color:#fff; font-size:11px;
+      letter-spacing:.06em; text-transform:uppercase; padding:7px 8px; text-align:left;
+      font-weight:600; border:1px solid rgba(255,255,255,.15); }
+  table.cal td { border:1px solid #E2E6EA; vertical-align:top; padding:7px 8px;
+      height:100px; background:#fff; }
+  table.cal td.cal-empty { background:#F7F8F9; }
+  .cal-d { display:block; font-size:12px; font-weight:700; color:#8A97A3; margin-bottom:5px; }
+  .cal-tk { display:inline-block; background:#1D4E6B; color:#fff; font-size:11px;
+      font-weight:700; letter-spacing:.04em; padding:3px 7px; border-radius:3px;
+      margin:0 3px 3px 0; }
+  .cal-tk.hy { background:#5E8CA8; }
+  .cal-tk.q3 { background:#fff; color:#1D4E6B; border:1px solid #1D4E6B; padding:2px 6px; }
+  .cal-mac { display:block; font-size:10.5px; color:#8A5A12; background:#FDF4E3;
+      border-left:2px solid #C88A1E; padding:2px 5px; margin:3px 0 0; line-height:1.3;
+      border-radius:0 2px 2px 0; }
+  .cal-ev { display:block; font-size:10.5px; color:#7A8792; line-height:1.3; margin-top:3px;
+      font-style:italic; }
+  .cal-legend { font-size:12px; color:#5A6B7A; margin:8px 0 0; line-height:2; }
+  .cal-key { font-size:13.5px; color:#5A6B7A; line-height:1.6;
+      background:#F4F7F9; border-radius:4px; padding:11px 14px; margin-top:12px; }
+
+  /* --- Table formatting: even columns, centred data --- */
+  .tbl-wrap table { table-layout: fixed; }
+  .tbl-col-head th { text-align: center; }
+  .tbl-col-head th:first-child { text-align: left; }
+  tbody td.num { text-align: center; }
+  tr.diff-row td.num { text-align: center; }
+
+  /* --- August additions: reporting season --- */
+  .prelim-banner { background:#FBEDE9; border:1px solid #E0A091; border-left:4px solid #B4462F; color:#8A3523;
+      border-radius:4px; padding:12px 16px; font-size:14px; margin:0 0 30px; line-height:1.6; }
+  .prelim-banner strong { color:#6E2A1A; }
+  .rs-strip { display:grid; grid-template-columns:repeat(6,1fr); gap:8px; margin:20px 0 10px; }
+  .rs-tile { background:var(--card); border:1px solid var(--rule); border-top:3px solid var(--navy); border-radius:4px; padding:12px 10px; text-align:center; }
+  .rs-tile.t-beat { border-top-color:#1F7A4D; }
+  .rs-tile.t-inline { border-top-color:#7A8290; }
+  .rs-tile.t-miss { border-top-color:#B03A2E; }
+  .rs-tile .k { font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-soft); font-weight:700; }
+  .rs-tile .v { font-size:23px; font-weight:700; color:var(--navy); line-height:1.2; margin:3px 0 1px; }
+  .rs-tile .v.up { color:#1F7A4D; } .rs-tile .v.down { color:#B03A2E; }
+  .rs-tile .s { font-size:11px; color:var(--ink-soft); line-height:1.35; }
+  .rs-strip-note { font-size:12.5px; color:var(--ink-soft); border-left:3px solid var(--rule); padding-left:12px; margin-bottom:6px; }
+  .rs-list { list-style:none; }
+  .rs-list li { font-size:14.5px; line-height:1.6; padding:6px 0 6px 18px; position:relative; margin:0; }
+  .rs-list li:before { content:"\25B8"; position:absolute; left:0; color:var(--gold); }
+  .bottom-line { background:var(--navy); color:#fff; border-radius:5px; border-top:3px solid var(--gold); padding:18px 24px; margin-top:16px; font-size:14.5px; line-height:1.6; }
+  .bottom-line strong { color:var(--gold-soft); letter-spacing:.1em; font-size:11px; text-transform:uppercase; display:block; margin-bottom:6px; }
+  .sc-legend { font-size:12.5px; color:var(--ink-soft); margin:6px 0 12px; }
+  .dot { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:8px; flex:0 0 auto; }
+  .dot.beat { background:#1F7A4D; } .dot.inline { background:#7A8290; } .dot.miss { background:#B03A2E; }
+  .sc-group { font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--navy); font-weight:700; border-bottom:2px solid var(--gold); padding-bottom:6px; margin:24px 0 4px; }
+  .sc-row { display:flex; align-items:center; width:100%; text-align:left; background:none; border:none; border-bottom:1px solid var(--rule); padding:9px 8px; cursor:pointer; font-family:inherit; font-size:14.5px; color:var(--ink); }
+  .sc-row:hover { background:#F2F5F8; }
+  .sc-row:focus-visible { outline:2px solid var(--gold); outline-offset:-2px; }
+  .sc-row .code { font-weight:700; color:var(--navy); width:52px; flex:0 0 auto; }
+  .sc-row .line { flex:1 1 auto; padding-right:12px; }
+  .sc-row .rx { width:60px; flex:0 0 auto; text-align:right; font-weight:700; font-variant-numeric:tabular-nums; }
+  .sc-row .chev { width:18px; flex:0 0 auto; text-align:right; color:var(--ink-soft); font-size:13px; }
+  .pos { color:#1F7A4D; } .neg { color:#B03A2E; } .flat { color:var(--ink-soft); }
+  .rs-backdrop { position:fixed; inset:0; background:rgba(9,29,51,.62); display:none; align-items:flex-start; justify-content:center; padding:32px 16px; z-index:900; overflow-y:auto; }
+  .rs-backdrop.open { display:flex; }
+  .rs-modal { background:var(--card); max-width:760px; width:100%; border-radius:6px; border-top:4px solid var(--gold); box-shadow:0 20px 50px rgba(9,29,51,.35); }
+  .rs-modal-head { background:var(--navy); color:#fff; padding:20px 26px 18px; position:relative; }
+  .rs-modal-head .mtitle { font-size:20px; font-weight:700; line-height:1.25; padding-right:34px; }
+  .rs-modal-head .msub { font-size:13px; color:rgba(255,255,255,.78); margin-top:4px; }
+  .mverdict { display:inline-block; font-size:11px; letter-spacing:.1em; text-transform:uppercase; font-weight:700; padding:4px 10px; border-radius:3px; margin-top:11px; line-height:1.4; }
+  .mverdict.beat { background:#1F7A4D; color:#fff; } .mverdict.inline { background:#5A6270; color:#fff; } .mverdict.miss { background:#B03A2E; color:#fff; }
+  .rs-close { position:absolute; top:14px; right:16px; background:none; border:none; color:rgba(255,255,255,.7); font-size:26px; line-height:1; cursor:pointer; padding:2px 6px; }
+  .rs-close:hover { color:#fff; }
+  .rs-modal-body { padding:22px 26px 26px; }
+  .mtiles { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:20px; }
+  .mtile { background:#F4F7F9; border-radius:4px; padding:11px 12px; }
+  .mtile .k { font-size:9.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--ink-soft); font-weight:700; }
+  .mtile .v { font-size:18px; font-weight:700; color:var(--navy); line-height:1.25; margin:2px 0 1px; }
+  .mtile .s { font-size:11.5px; color:var(--ink-soft); line-height:1.35; }
+  .rs-modal-body ul { list-style:none; margin-bottom:6px; }
+  .rs-modal-body li { font-size:14px; line-height:1.6; padding:4px 0 4px 18px; position:relative; }
+  .rs-modal-body li:before { content:"\25B8"; position:absolute; left:0; color:var(--gold); }
+  .desk { background:#F4F7F9; border-left:3px solid var(--gold); border-radius:0 4px 4px 0; padding:13px 16px; margin-top:18px; font-size:13.5px; line-height:1.6; }
+  .desk strong { display:block; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--navy); margin-bottom:4px; }
+  .rs-nav { display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--rule); padding:14px 26px; }
+  .rs-nav button { background:none; border:1px solid var(--rule); border-radius:4px; padding:6px 14px; font-family:inherit; font-size:13px; color:var(--navy); cursor:pointer; }
+  .rs-nav button:hover { background:#F2F5F8; }
+  .rs-nav .pos-ind { font-size:12px; color:var(--ink-soft); }
+  @media(max-width:680px){
+    .rs-strip { grid-template-columns:repeat(2,1fr); }
+    .mtiles { grid-template-columns:repeat(2,1fr); }
+    .rs-backdrop { padding:0; }
+    .rs-modal { border-radius:0; min-height:100vh; }
+    .sc-row .line { font-size:13px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="brand">Vantage Wealth Management</div>
+    <h1>Monthly Investment Brief</h1>
+    <div class="edition">August 2026 edition <span class="sep">|</span> Published 4 September 2026 <span class="sep">|</span> Prepared by Anthony Nguyen</div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="shared-panel">
+    <div class="eyebrow">Key market events in August</div>
+    <div class="shared-item">
+      <div class="date">1 August</div>
+      <div class="stitle">A payrolls contraction moves the next Fed hike from September to December</div>
+      <p>July non-farm payrolls contracted by 23,000 against consensus for an increase of 80,000, and wage growth moderated to 3.20%, both pointing to a softer US labour market. Markets recalibrated immediately, pushing the next 25 basis point increase from September out to December, and gold rose 7.3% over the week on the combination of lower expected real yields and a softer US dollar. Asian equities were subdued over the same week, with the MSCI Asia ex-Japan Index down around 0.9%, South Korea falling 5.1% and Taiwan gaining 2.5%.</p>
+    </div>
+    <div class="shared-item">
+      <div class="date">10 to 17 August</div>
+      <div class="stitle">Westpac resets the banks and the RBA holds at 4.35%</div>
+      <p>Westpac opened the bank reporting round on 10 August with home loan applications down 11% over the quarter and around 20% below pre-budget levels, falling 5.9% and taking the S&amp;P/ASX 200 Financials index down 2.2% in morning trade. Commonwealth Bank and NAB each subsequently reported 15% declines in applications, and NAB now forecasts total housing credit growth slowing from about 7.5% to 2.5% in FY27 with investor credit contracting 1.4%. The RBA held the cash rate at 4.35% on 11 August in a unanimous decision, cutting its trimmed mean forecast to 3.3% from 3.5% while lifting its December 2026 unemployment forecast to 4.5% from 4.3%.</p>
+    </div>
+    <div class="shared-item">
+      <div class="date">20 August</div>
+      <div class="stitle">The US long end forces a Treasury intervention</div>
+      <p>Long-term US borrowing costs reached a near two-decade high before the Treasury announced it would double selected long-dated bond buyback operations to US$4 billion per operation. The measure improved liquidity expectations without addressing the underlying concerns about inflation, debt supply and the federal deficit, and it unsettled currency markets by raising questions about debt management and the dollar's long-term purchasing power. The US dollar index sat at around 98.98 by 24 August, near multi-month lows.</p>
+    </div>
+    <div class="shared-item">
+      <div class="date">24 August</div>
+      <div class="stitle">Gold reaches its highest level since May</div>
+      <p>Gold futures traded at US$4,706 on 24 August, the highest level since 15 May, extending a weekly gain of more than 5% on a softer dollar, government debt concerns and geopolitical uncertainty. The metal had earlier broken above its 100-day moving average at US$4,387 for the first time in more than two months as US rate hike odds fell. The World Gold Council reported central bank purchases of 288.9 tonnes in the June quarter, up 62% year on year and the strongest second quarter on record. Gold gave back 3.2% in the final week as the dollar recovered, finishing the month at US$4,455 and up 9.7%.</p>
+    </div>
+    <div class="shared-item">
+      <div class="date">28 August</div>
+      <div class="stitle">Warsh turns hawkish at Jackson Hole and puts September back in play</div>
+      <p>Federal Reserve Chair Kevin Warsh used his first Jackson Hole address to say that while the summer inflation readings had come in better than expected, they do not tell him that underlying trends have meaningfully improved. He recommitted to the 2% PCE target, described the economy as having strengthened, and declined to offer either forward guidance or a reaction function, arguing that market participants should not be looking primarily to the Fed for their next trade. Fed funds futures moved to a 60.4% probability of a quarter point increase in September, up from around 56% before the address, and gold and Asian equities both fell on Monday 31 August as the dollar strengthened.</p>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <div class="prelim-banner">
+    <strong>Preliminary edition.</strong> All figures in this brief are preliminary and drawn from three different cut-off dates: index and market data are full August month returns to 31 August 2026 and portfolio performance covers the full month to 31 August 2026. Benchmark and active return figures across every portfolio table are to be confirmed and are shown as TBC. The reporting season review is as at 26 August 2026 with Wesfarmers added on 27 August.
+  </div>
+
+  <!-- MACRO -->
+  <section id="macro">
+    <div class="eyebrow">Macro</div>
+    <h2>What moved markets in August</h2>
+    <p class="lede">August was a month of dispersion rather than direction. The S&amp;P/ASX 200 Accumulation Index rose 1.5% for the month, a fifth consecutive gain, but the headline conceals a 27 percentage point spread between healthcare at 18.7% and consumer discretionary at negative 8.1% as FY26 results landed and the banks flagged a housing credit slowdown. Offshore, a US payrolls contraction on 1 August pushed the next Fed hike out to December and lifted gold 9.7%, then Warsh reversed that positioning on 28 August with a hawkish Jackson Hole address that returned September to a 60.4% probability. The Australian dollar rose 2.1% to 0.716 and took 2.2 percentage points out of unhedged global equity returns. Rate hike expectations have since risen on both sides, with the June quarter national accounts on 2 September coming in above expectations and pulling forward domestic pricing.</p>
+
+    <div class="snapshot-5">
+      <div class="snap-tile">
+        <svg viewBox="0 0 24 24"><path d="M4 20h16M6 16v-5M10 16V8M14 16v-7M18 16V5"/></svg>
+        <div class="snap-label">Equities</div>
+        <p>ASX 200 Accumulation +1.5% and the MSCI All Countries World Index (AUD) +0.6%. In local currency the S&amp;P 500 rose 3.1%, the Nikkei 225 3.1% and the DAX 2.5%.</p>
+      </div>
+      <div class="snap-tile">
+        <svg viewBox="0 0 24 24"><path d="M19 5L5 19M7.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM16.5 18a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
+        <div class="snap-label">Rates</div>
+        <p>The RBA held at 4.35% on 11 August, unanimously, and decides again on 29 September. September Fed hike odds ran from around 36% after the payrolls contraction to 60.4% after Jackson Hole.</p>
+      </div>
+      <div class="snap-tile">
+        <svg viewBox="0 0 24 24"><path d="M12 20a8 8 0 1 1 8-8M12 12l4.5-3"/></svg>
+        <div class="snap-label">Credit</div>
+        <p>AusBond Credit fell 0.1% and Credit FRN rose 0.4%. Global Corporate Credit hedged added 0.4% and Global High Yield 0.8% through the long end selloff.</p>
+      </div>
+      <div class="snap-tile">
+        <svg viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg>
+        <div class="snap-label">Commodities</div>
+        <p>Gold rose 9.7% and Brent 7.3% to US$88. The S&amp;P GSCI added 2.4%, Dalian iron ore 5.9% and Newcastle thermal coal 8.9%.</p>
+      </div>
+      <div class="snap-tile">
+        <svg viewBox="0 0 24 24"><path d="M5 17l5-5 3 3 6-6M19 9V5h-4"/></svg>
+        <div class="snap-label">Currency &amp; Policy</div>
+        <p>The Australian dollar rose 2.1% to 0.716 and 1.3% against the euro, taking the calendar year gain to 7.4%. The RBA cut its trimmed mean forecast to 3.3%.</p>
+      </div>
+    </div>
+
+    <div class="snapshot-2">
+      <div class="snap-tile">
+        <svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        <div class="snap-label">Global Equities</div>
+        <div class="snap-wide-title">Regional returns for August, local currency</div>
+        <div class="snap-detail" style="margin-bottom:12px;">
+          <span>China +4.0%</span><span>Korea +3.4%</span><span>US +3.1%</span><span>Japan +3.1%</span><span>Germany +2.5%</span><span>Australia +1.5%</span><span>Europe 50 +1.0%</span><span>Europe 600 +0.3%</span><span>UK +0.2%</span><span class="lag">Hong Kong -1.0%</span>
+        </div>
+        <div class="snap-wide-title">In Australian dollars</div>
+        <div class="snap-detail" style="margin-bottom:12px;">
+          <span>MSCI World ex-Aus +0.6%</span><span class="lead">Hedged +2.8%</span><span>MSCI ACWI +0.6%</span><span>EM +1.6%</span><span>Asia ex-Japan +1.4%</span>
+        </div>
+        <div class="snap-wide-title">Currency drag on unhedged exposure</div>
+        <div class="snap-detail">
+          <span class="lag">2.2 percentage points</span><span>AUDUSD +2.1%</span><span>AUDGBP +1.5%</span><span>AUDEUR +1.3%</span>
+        </div>
+      </div>
+      <div class="snap-tile">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <div class="snap-label">Australian Equities</div>
+        <div class="snap-wide-title">Sector leaders</div>
+        <div class="snap-detail" style="margin-bottom:12px;">
+          <span class="lead">Healthcare +18.7%</span><span>Materials +12.0%</span><span>Utilities +7.0%</span><span>Info Technology +6.3%</span><span>Energy +3.5%</span>
+        </div>
+        <div class="snap-wide-title">Sector laggards</div>
+        <div class="snap-detail" style="margin-bottom:12px;">
+          <span class="lag">Cons Disc -8.1%</span><span class="lag">A-REITs -7.1%</span><span class="lag">Financials -6.1%</span><span class="lag">Telecoms -2.8%</span><span class="lag">Industrials -1.9%</span>
+        </div>
+        <div class="snap-wide-title">Size</div>
+        <div class="snap-detail">
+          <span>ASX 200 Accumulation +1.5%</span><span class="lead">Small Cap Accumulation +5.2%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="watching-box">
+      <strong>Rate hike expectations have risen on both sides of the Pacific.</strong> Warsh's Jackson Hole address on 28 August moved Fed funds futures to a 60.4% probability of a September increase, from around 56% beforehand and roughly 36% earlier in the month. Domestically, July trimmed mean inflation held at 3.6% while headline eased to 3.5%, and the June quarter national accounts released on 2 September came in above expectations with growth running above the economy's speed limit. HSBC moved to a September hike and a 4.85% cash rate by the December quarter, NAB forecasts a 25 basis point increase to 4.6% in September, ANZ and Commonwealth Bank both look to November, and Westpac remains the outlier expecting 4.35% to hold through 2026. The RBA decides on 29 September.
+    </div>
+
+    <div class="snap-wide-title" style="font-size:15px;margin:24px 0 4px;">Upcoming Key Events</div>
+    <div class="events-row">
+      <div class="event-card">
+        <div class="event-date">4 September</div>
+        <div class="event-title">US August employment situation</div>
+        <div class="event-body">July payrolls contracted 23,000 against an 80,000 consensus. With Warsh signalling that inflation remains the priority and September now pricing at 60.4%, a second weak labour print is the main thing standing between the Fed and an increase.</div>
+      </div>
+      <div class="event-card">
+        <div class="event-date">11 September</div>
+        <div class="event-title">US August consumer price index</div>
+        <div class="event-body">July CPI rose 0.1% on the month and 3.4% over the year, with core at 2.5%. Warsh said those readings do not show underlying trends meaningfully improving, which makes the August print the single most important input to the 16 September decision.</div>
+      </div>
+      <div class="event-card">
+        <div class="event-date">29 September</div>
+        <div class="event-title">RBA cash rate decision</div>
+        <div class="event-body">The board meets 28 and 29 September with the cash rate at 4.35%. The big four are split: NAB expects a 25 basis point increase to 4.6% at this meeting, ANZ and Commonwealth Bank look to November, and Westpac expects no move in 2026.</div>
+      </div>
+    </div>
+    <div class="tbl-note" style="background:none;border:none;padding:6px 0 0;">Index data sourced from the Morgan Stanley Wealth Management Weekly Asset Class Performance Sheet with month end returns as at Monday 31 August 2026. Monthly figures are full August month returns.</div>
+  </section>
+
+  <hr class="section-rule">
+
+  <!-- REPORTING SEASON -->
+  <section id="reporting-season">
+    <div class="eyebrow">Reporting season</div>
+    <h2>August 2026 FY26 Reporting Season Review</h2>
+    <p class="lede">Twenty eight ASX results covered: 21 held across the Vantage Australian Equities portfolio and seven top 20 index names reviewed for read-through only. Results are measured against analyst consensus on the primary earnings line, with forward guidance and the day one share price reaction shown separately. Data as at 26 August 2026, with Wesfarmers added on 27 August. Source: Vantage Investment Team, Resonant, company disclosures, consensus estimates.</p>
+
+    <div class="rs-strip">
+      <div class="rs-tile"><div class="k">Names</div><div class="v">28</div><div class="s">21 held · 7 read-through</div></div>
+      <div class="rs-tile t-beat"><div class="k">Beat</div><div class="v">4</div><div class="s">vs consensus</div></div>
+      <div class="rs-tile t-inline"><div class="k">In line</div><div class="v">14</div><div class="s">as expected</div></div>
+      <div class="rs-tile t-miss"><div class="k">Miss</div><div class="v">3</div><div class="s">of held names</div></div>
+      <div class="rs-tile"><div class="k">Best held</div><div class="v up">+14%</div><div class="s">Stockland</div></div>
+      <div class="rs-tile"><div class="k">Worst held</div><div class="v down">-11.9%</div><div class="s">Monadelphous</div></div>
+    </div>
+    <div class="rs-strip-note">The beat, in line and miss split covers the 21 held names only. Share price reaction is the day one move. CSL, which rose 16% and was the largest single move of the round, is a read-through name and is not held.</div>
+
+    <div class="commentary">
+      <h4 style="margin-top:0;">Key themes</h4>
+      <ul class="rs-list">
+        <li>Forward guidance set the share price, not the reported result. Fourteen of the 21 held names landed within roughly 2% of consensus on the primary earnings line, yet day one reactions ran from Stockland up 14% to Monadelphous down 11.9%. Monadelphous beat by 2% on both revenue and earnings and delivered a record FY26, then fell because it gave no FY27 guidance on a stretched multiple.</li>
+        <li>The banks confirmed a housing credit slowdown as the May budget tax changes bite. Westpac reported applications around 20% below pre-budget levels, with Commonwealth Bank and NAB both down 15% over the quarter. NAB now forecasts total housing credit growth falling from about 7.5% to 2.5% in FY27, with investor credit contracting 1.4%; ANZ was the exception, with applications broadly flat.</li>
+        <li>Resources delivered on copper leverage and restored dividends. BHP lifted underlying profit 30% to US$13.2 billion, with copper above half of group EBITDA for the first time at a 70% margin, and declared its largest final dividend in four years at US$0.99. Rio Tinto raised the interim dividend 43% to 211 US cents on an 84% rise in copper EBITDA.</li>
+        <li>Quality platforms compounded but had no valuation headroom. HUB24 grew platform funds under administration 24% to $139.5 billion and lifted underlying profit 40%, and still fell 6% on 41 times forward earnings. Goodman guided FY27 earnings per share growth of 9% against the roughly 11% the market carried, and Breville posted record revenue and fell 6% on 30 times.</li>
+        <li>Cost-out and AI productivity became the recurring FY27 margin lever. Commonwealth Bank named AI-driven productivity as its key cost lever while capping investment spend, CSL guided FY27 profit growth of around 5% with most of it from cost reduction, and Woodside set a new US$350 million annual savings target from 2028.</li>
+        <li>Beats did not hold. Goldman Sachs strategist Matthew Ross found that almost half the S&amp;P/ASX 200 moved 5% or more on the day of its result, against a long-run average of 28%. Of the 21 companies that jumped more than 10% on reporting day, the average share price has since fallen 4%, with seven underperforming the market by 10%. Ross called the pattern unusual against a long history of beats continuing to outperform by a few per cent over the following one to two months, and attributed the volatility to passive flows, multi-strategy funds and quantitative trading reacting to small beats and misses.</li>
+      </ul>
+
+      <h4>Notable share price reactions</h4>
+      <ul class="rs-list">
+        <li>Best received among held names were Stockland at plus 14%, with funds from operations of 37 cents at the top of guidance and FY27 guidance around 6% above the consensus midpoint, Origin Energy at plus 6% on adjusted free cash flow up $867 million, and ANZ at plus 4.5% as the strongest of the majors.</li>
+        <li>Softest were Monadelphous at minus 11.9%, nib Holdings at minus 10% on FY27 guidance around 4% below consensus, and ResMed at minus 7.5% on a first ever formal guidance range of 12% to 14% core earnings per share growth. In each case the forward number did the damage.</li>
+        <li>Among the read-through names CSL rose 16%, the largest single move of the round, as underlying profit of US$3.1 billion matched twice-cut May guidance and the feared Vifor outcome did not materialise. Woolworths added 4.9% on Australian food sales up 7.6% in July and August, against Coles at 3.7% across FY26.</li>
+      </ul>
+    </div>
+
+    <div class="bottom-line">
+      <strong>Bottom line</strong>
+      A two-speed season. Resources and quality compounders beat and re-rated, while banks and priced-for-perfection names were marked down on cautious FY27 guidance rather than on the result itself.
+    </div>
+
+    <h4>The scorecard</h4>
+    <div class="sc-legend">One line per result. The dot shows how the result landed against consensus; the figure on the right is the day one share price move. Select any row for the full one page analysis.</div>
+    <div id="scorecard"></div>
+
+    <div class="portal-links">
+      Underlying stock and fund monthly commentary: <a href="https://anguyen1992.github.io/vantage-portal/pages/managed-accounts-hub-analytics.html">Portfolio Analytics Dashboard</a>
+    </div>
+  </section>
+
+  <hr class="section-rule">
+
+  <!-- MULTI-SECTOR -->
+  <section id="multisector">
+    <div class="eyebrow">Portfolios</div>
+    <h2>Vantage Multi-sector Portfolios</h2>
+    <p>Returns cover the full month of August 2026 and the financial year to date from 1 July 2026, and are before investment management, administration and performance fees and before tax. Vantage HUB24 portfolios launched 14 July 2025. Objective and active return figures are to be confirmed, along with longer period returns and Morningstar peer category data.</p>
+
+    <h3>HUB24 Vantage Multi-sector SMAs</h3>
+    <div class="tbl-wrap">
+      <table>
+        <colgroup>
+          <col style="width:40%;">
+          <col style="width:15%;">
+          <col style="width:15%;">
+          <col style="width:15%;">
+          <col style="width:15%;">
+        </colgroup>
+        <tbody>
+          <tr class="tbl-section-head"><td colspan="5">Vantage Moderate Growth Portfolio &mdash; VAN005</td></tr>
+          <tr class="tbl-col-head"><th>Strategy</th><th>August</th><th>FYTD</th><th>1 Year</th><th>Since Inception&sup1; p.a.</th></tr>
+          <tr><td>Vantage Moderate Growth Portfolio (VAN005)</td><td class="num">0.97%</td><td class="num">1.33%</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td></tr>
+          <tr class="bench"><td>CPI + 2% objective</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td></tr>
+          <tr class="diff-row"><td>Difference vs objective</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td></tr>
+          <tr class="tbl-section-head"><td colspan="5">Vantage Growth Portfolio &mdash; VAN006</td></tr>
+          <tr class="tbl-col-head"><th>Strategy</th><th>August</th><th>FYTD</th><th>1 Year</th><th>Since Inception&sup1; p.a.</th></tr>
+          <tr><td>Vantage Growth Portfolio (VAN006)</td><td class="num">1.19%</td><td class="num">1.71%</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td></tr>
+          <tr class="bench"><td>CPI + 3% objective</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td></tr>
+          <tr class="diff-row"><td>Difference vs objective</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td></tr>
+          <tr class="tbl-section-head"><td colspan="5">Vantage High Growth Portfolio &mdash; VAN007</td></tr>
+          <tr class="tbl-col-head"><th>Strategy</th><th>August</th><th>FYTD</th><th>1 Year</th><th>Since Inception&sup1; p.a.</th></tr>
+          <tr><td>Vantage High Growth Portfolio (VAN007)</td><td class="num">1.38%</td><td class="num">2.07%</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td></tr>
+          <tr class="bench"><td>CPI + 3.5% objective</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td></tr>
+          <tr class="diff-row"><td>Difference vs objective</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td></tr>
+        </tbody>
+      </table>
+      <div class="tbl-note">&sup1; Portfolio inception 14 July 2025. &nbsp; Full month to 31 August 2026 and financial year to date from 1 July 2026. Source: HUB24. Objective, difference, 1 Year and Since Inception figures are to be confirmed. Returns are before investment management, administration and performance fees and before tax.</div>
+    </div>
+
+    <div class="commentary">
+      <h4 style="margin-top:0;">August in review</h4>
+      <p>All three multi-sector portfolios finished August ahead, with High Growth at 1.38%, Growth at 1.19% and Moderate Growth at 0.97%. Australian Equities was the largest contributor to absolute returns at 2.10%, driven by the resources and gold complex as BHP rose 9.82% and Newmont 31.21% through the reporting round. Global Equities added 2.08% and Fixed Income 0.26%, while Property and Infrastructure detracted at negative 2.26% as A-REITs fell 6.7% and global listed infrastructure 2.9%. High Growth's larger weighting to Australian and global equities, and Moderate Growth's larger weighting to fixed income and cash, explain the ordering of the three results.</p>
+      <p>Financial year to date the same pattern holds, with High Growth at 2.07%, Growth at 1.71% and Moderate Growth at 1.33% across the two months from 1 July. Australian Equities has contributed 4.58% over that period and Global Equities 1.64%, against Property and Infrastructure at negative 1.72%. Currency worked against unhedged offshore holdings for a second consecutive month: the Australian dollar rose 2.1% against the US dollar to 0.716 and 1.3% against the euro, and the MSCI World ex-Australia Index returned 0.6% unhedged in Australian dollars against 2.8% hedged, a gap of 2.2 percentage points that the portfolio's mix of hedged and unhedged exposure is built to absorb.</p>
+    </div>
+
+    <h3>Vantage CFS FirstChoice Managed Accounts</h3>
+    <div class="tbc-block">
+      <strong>To be confirmed.</strong> CFS FirstChoice performance data for August 2026 was not available at the time of publication. The full range across Aggressive, High Growth, Growth, Moderate and Conservative in both Super and Pension will be included in the revised edition once month-end data is received from FE Precision Plus and CFS.
+    </div>
+
+    <div class="portal-links">
+      Detailed portfolio performance: <a href="https://anguyen1992.github.io/vantage-portal/pages/managed-accounts-hub-performance.html">HUB24 Portfolio Performance</a> &nbsp;|&nbsp; <a href="https://anguyen1992.github.io/vantage-portal/pages/managed-accounts-cfs-performance.html">CFS Portfolio Performance</a>
+    </div>
+  </section>
+
+  <hr class="section-rule">
+
+  <!-- SINGLE ASSET CLASS -->
+  <section id="sector-smas">
+    <div class="eyebrow">Sector portfolios</div>
+    <h2>Vantage Single-Asset Class HUB24 SMA Performance</h2>
+    <p>Each portfolio against its benchmark, with market context and manager commentary. Portfolio data covers the full month to 31 August 2026 and the financial year to date from 1 July 2026, sourced from HUB24 Shadow Portfolio Performance Reports. Benchmark and active return figures are to be confirmed. Market and index commentary is sourced from the Morgan Stanley Wealth Management Weekly Asset Class Performance Sheet and covers the full August month to 31 August 2026.</p>
+
+    <!-- VAN001 AE -->
+    <h3>Australian Equities &mdash; VAN001</h3>
+    <div class="tbl-wrap">
+      <table>
+        <colgroup><col style="width:44%;"><col style="width:28%;"><col style="width:28%;"></colgroup>
+        <tbody>
+          <tr class="tbl-col-head"><th>Portfolio / Benchmark</th><th>August</th><th>FYTD</th></tr>
+          <tr><td>Vantage Australian Equities Portfolio (VAN001)</td><td class="num">2.10%</td><td class="num">4.58%</td></tr>
+          <tr class="bench"><td>S&amp;P/ASX 300 Accumulation Index</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td></tr>
+          <tr class="diff-row"><td>Difference vs benchmark</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td></tr>
+        </tbody>
+      </table>
+      <div class="tbl-note">Full month to 31 August 2026 and financial year to date from 1 July 2026. Source: HUB24 Shadow Portfolio Performance Report. Benchmark and difference figures to be confirmed.</div>
+    </div>
+    <div class="commentary">
+      <div class="period-head">August month to date</div>
+      <h4 style="margin-top:0;">Market</h4>
+      <p>The S&amp;P/ASX 200 Accumulation Index rose 1.5% in August, a fifth consecutive monthly gain, but the sector spread was the widest of the financial year at 27 percentage points. Healthcare led at 18.7% on the CSL relief rally, followed by materials at 12.0% as gold and copper ran, utilities at 7.0% and information technology at 6.3%. Consumer discretionary fell 8.1%, A-REITs 7.1% and financials 6.1% as the banks reported housing credit slowing. Small caps reversed July sharply, with the Small Cap Accumulation Index up 5.2% after falling 3.2%.</p>
+      <h4>Vantage Direct Australian Equities</h4>
+      <p>The portfolio returned 2.10% for August. Newmont led on a percentage basis at 31.21% and Xero at 18.39%, while BHP at 9.82% was the largest single earnings contributor at $117,802, ahead of the SPDR S&amp;P/ASX 200 Fund at 1.42% and $94,143 given its index weight, Newmont at $72,927 and ResMed at 11.18% and $34,448. The gold and copper exposure did most of the work, consistent with gold's 9.7% rise to US$4,455 and the materials sector's 12.0% gain across August.</p>
+      <p>Detraction was concentrated in the banks, insurers and platforms as reporting season landed. HUB24 fell 11.06% despite lifting underlying profit 40%, nib Holdings 9.33% on FY27 guidance around 4% below consensus, QBE Insurance 8.65% and the largest dollar detractor at negative $38,255, Commonwealth Bank 8.41% and National Australia Bank 6.53% at negative $34,916 after its third quarter update. All five reported during the month, which is the clearest evidence that the round was priced on guidance rather than on the result.</p>
+      <div class="period-head spaced">Financial year to date</div>
+      <p>The portfolio returned 4.58% across the two months from 1 July. The SPDR S&amp;P/ASX 200 Fund contributed the most at $244,861 on a 3.78% return, followed by BHP at 11.50% and $135,910, Newmont at 31.65% and $73,706, the Perpetual Pure Equity Alpha Fund at 3.38% and $59,973 and ResMed at 14.68% and $43,863. QBE Insurance remains the largest detractor at negative 10.32% and negative $46,478, ahead of Orica at negative 6.12%, Monadelphous at negative 6.97%, Challenger at negative 3.75% and nib Holdings at negative 3.68%.</p>
+    </div>
+
+    <!-- VAN002 GE -->
+    <h3>Global Equities &mdash; VAN002</h3>
+    <div class="tbl-wrap">
+      <table>
+        <colgroup><col style="width:44%;"><col style="width:28%;"><col style="width:28%;"></colgroup>
+        <tbody>
+          <tr class="tbl-col-head"><th>Portfolio / Benchmark</th><th>August</th><th>FYTD</th></tr>
+          <tr><td>Vantage Global Equities Portfolio (VAN002)</td><td class="num">2.08%</td><td class="num">1.64%</td></tr>
+          <tr class="bench"><td>Combined global equities benchmark</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td></tr>
+          <tr class="diff-row"><td>Difference vs benchmark</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td></tr>
+        </tbody>
+      </table>
+      <div class="tbl-note">Full month to 31 August 2026 and financial year to date from 1 July 2026. Source: HUB24 Shadow Portfolio Performance Report. Benchmark and difference figures to be confirmed.</div>
+    </div>
+    <div class="commentary">
+      <div class="period-head">August month to date</div>
+      <h4 style="margin-top:0;">Market</h4>
+      <p>Developed markets rose in local currency and gave most of it back in Australian dollars. The S&amp;P 500 added 3.1% locally against 1.1% in Australian dollars, the Nikkei 225 3.1% against 0.9% and the DAX 2.5% against 1.3%, as the Australian dollar rose 2.1% against the US dollar to 0.716. The MSCI World ex-Australia Index returned 0.6% unhedged in Australian dollars against 2.8% hedged. Emerging markets added 1.6% in Australian dollars, with Korea's Kospi up 3.4% locally after July's 22.2% fall.</p>
+      <h4>Our managers</h4>
+      <p>The portfolio returned 2.08% for August. Arrowstreet Global Equity No. 2 Hedged led at 3.64%, capturing the hedged advantage directly, followed by Arrowstreet Global Small Companies No. 2 at 1.97%, Aoris International at 1.87% and VanEck Global Value (VVLU) at 1.40%. T. Rowe Price Global Equity returned 1.37%, Vanguard MSCI International (VGS) 0.81% and VanEck MSCI International Quality (QUAL) 0.41%, the passive core lagging as expected when the active managers are taking currency and stock risk the index does not.</p>
+      <div class="period-head spaced">Financial year to date</div>
+      <p>The portfolio returned 1.64% across the two months from 1 July. Aoris International leads at 6.52% and VVLU at 5.12%, with Arrowstreet Global Equity No. 2 Hedged at 3.38%. QUAL at negative 1.58%, T. Rowe Price at negative 2.25%, Arrowstreet Global Small Companies at negative 0.86% and VGS at negative 0.41% all remain behind, reflecting the July semiconductor unwind that the value and quality-at-a-price managers largely avoided.</p>
+    </div>
+
+    <!-- VAN003 P&I -->
+    <h3>Property &amp; Infrastructure &mdash; VAN003</h3>
+    <div class="tbl-wrap">
+      <table>
+        <colgroup><col style="width:44%;"><col style="width:28%;"><col style="width:28%;"></colgroup>
+        <tbody>
+          <tr class="tbl-col-head"><th>Portfolio / Benchmark</th><th>August</th><th>FYTD</th></tr>
+          <tr><td>Vantage Property &amp; Infrastructure Portfolio (VAN003)</td><td class="num">-2.26%</td><td class="num">-1.72%</td></tr>
+          <tr class="bench"><td>CPI + 3% objective</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td></tr>
+          <tr class="diff-row"><td>Difference vs objective</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td></tr>
+        </tbody>
+      </table>
+      <div class="tbl-note">Full month to 31 August 2026 and financial year to date from 1 July 2026. Source: HUB24 Shadow Portfolio Performance Report. Benchmark and difference figures to be confirmed, and benchmark identification remains subject to the source discrepancy noted below.</div>
+    </div>
+    <div class="commentary">
+      <div class="period-head">August month to date</div>
+      <h4 style="margin-top:0;">Market</h4>
+      <p>Listed real assets fell across every region. The ASX 200 A-REIT Index dropped 6.7% in August, the FTSE EPRA/NAREIT Developed Markets Index 4.1%, its European sub-index 4.5%, its North American sub-index 4.2% and its Asian sub-index 4.0%, while global listed infrastructure hedged fell 2.9%. Stockland's 14% gain on its FY26 result was the exception rather than the rule, and did not offset broader A-REIT weakness as long bond yields reached a near two-decade high before the US Treasury's buyback expansion.</p>
+      <h4>Our managers</h4>
+      <p>The portfolio returned negative 2.26% for August, with every holding negative. Quay Global Real Estate was the largest detractor at negative 4.10%, followed by VanEck International REIT ETF at negative 2.67%, VanEck Infrastructure ETF at negative 1.79%, ATLAS Infrastructure Australian Feeder Hedged at negative 1.17% and Ausbil Global Essential Infrastructure Hedged at negative 0.24%. Measured against the underlying markets the sleeve held up better than the headline suggests: negative 2.26% compares to negative 6.7% for A-REITs, negative 4.1% for global developed property and negative 2.9% for global listed infrastructure.</p>
+      <div class="period-head spaced">Financial year to date</div>
+      <p>The portfolio returned negative 1.72% across the two months from 1 July. Ausbil Global Essential Infrastructure Hedged is the smallest detractor at negative 0.16%, followed by VanEck International REIT ETF at negative 0.60%, ATLAS at negative 1.65%, VanEck Infrastructure ETF at negative 1.97% and Quay Global Real Estate at negative 2.80%.</p>
+    </div>
+
+    <!-- VAN004 FI -->
+    <h3>Fixed Income &mdash; VAN004</h3>
+    <div class="tbl-wrap">
+      <table>
+        <colgroup><col style="width:44%;"><col style="width:28%;"><col style="width:28%;"></colgroup>
+        <tbody>
+          <tr class="tbl-col-head"><th>Portfolio / Benchmark</th><th>August</th><th>FYTD</th></tr>
+          <tr><td>Vantage Fixed Income Portfolio (VAN004)</td><td class="num">0.26%</td><td class="num">0.08%</td></tr>
+          <tr class="bench"><td>Combined fixed income benchmark</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td></tr>
+          <tr class="diff-row"><td>Difference vs benchmark</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td></tr>
+        </tbody>
+      </table>
+      <div class="tbl-note">Full month to 31 August 2026 and financial year to date from 1 July 2026. Source: HUB24 Shadow Portfolio Performance Report. Benchmark and difference figures to be confirmed.</div>
+    </div>
+    <div class="commentary">
+      <div class="period-head">August month to date</div>
+      <h4 style="margin-top:0;">Market</h4>
+      <p>Domestic fixed income was close to flat while global duration stabilised. The Bloomberg AusBond Composite Index fell 0.2% in August and the Government sub-index 0.3%, while Credit fell 0.1% and the Credit Floating Rate Note Index rose 0.4%. Global Aggregate hedged added 0.3%, Global Corporate Credit hedged 0.4% and Global High Yield 0.8%, a recovery from July's long end selloff that came despite US long-term borrowing costs reaching a near two-decade high before the Treasury doubled its long-dated buyback operations to US$4 billion. The Bank Bill Index returned 0.4% for the month.</p>
+      <h4>Our managers</h4>
+      <p>The portfolio returned 0.26% for August. Perpetual Diversified Income led at 0.31%, followed by Bentham Asset Backed Securities at 0.24%, Macquarie Dynamic Bond at 0.17%, Realm Short Term Income at 0.13% and Coolabah Short Term Income at 0.08%, the last two consistent with their short duration mandates. Bentham Global Income was the only negative holding at negative 0.27%.</p>
+      <div class="period-head spaced">Financial year to date</div>
+      <p>The portfolio returned 0.08% across the two months from 1 July. Perpetual Diversified Income leads at 0.78% and Coolabah Short Term Income at 0.49%, with Realm Short Term Income at 0.13%. Bentham Global Income at negative 1.02%, Macquarie Dynamic Bond at negative 0.72% and Bentham Asset Backed Securities at negative 0.14% carry the residual drag from July's global duration selloff.</p>
+    </div>
+
+    <!-- ALTERNATIVES -->
+    <h3>Alternatives</h3>
+    <div class="tbl-wrap">
+      <table>
+        <colgroup><col style="width:44%;"><col style="width:28%;"><col style="width:28%;"></colgroup>
+        <tbody>
+          <tr class="tbl-col-head"><th>Portfolio / Benchmark</th><th>August</th><th>FYTD</th></tr>
+          <tr><td>Vantage Alternatives Portfolio</td><td class="num">-0.17%</td><td class="num">-1.30%</td></tr>
+          <tr class="bench"><td>Cash + 2%</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td></tr>
+          <tr class="diff-row"><td>Difference vs benchmark</td><td class="num tbc">TBC</td><td class="num tbc">TBC</td></tr>
+        </tbody>
+      </table>
+      <div class="tbl-note">Full month to 31 August 2026 and financial year to date from 1 July 2026. Benchmark and difference figures to be confirmed. The Alternatives sleeve is not held within the Vantage multi-sector portfolios and does not contribute to the VAN005 to VAN007 results above.</div>
+    </div>
+    <div class="commentary">
+      <div class="period-head">August month to date</div>
+      <h4 style="margin-top:0;">Our managers</h4>
+      <p>The portfolio returned negative 0.17% for August. The VanEck 1-3 Month US Treasury Bond ETF was the largest detractor at negative 1.67%, entirely a currency outcome given the Australian dollar's 2.1% rise against the US dollar on an unhedged short-dated Treasury exposure, followed by Colchester Emerging Markets Bond at negative 1.18%. The iShares Asia 50 ETF steadied at negative 0.21% after July's 8.66% decline. Aspect Absolute Return led at 0.90%, ahead of Fortlake Real Higher Income at 0.77% and Janus Henderson Global Multi-Strategy at 0.13%.</p>
+      <div class="period-head spaced">Financial year to date</div>
+      <p>The portfolio returned negative 1.30% across the two months from 1 July. The iShares Asia 50 ETF carries the bulk of it at negative 8.86%, with the VanEck 1-3 Month US Treasury Bond ETF at negative 3.40% and Colchester Emerging Markets Bond at negative 2.02%. Aspect Absolute Return at 2.09% and Janus Henderson Global Multi-Strategy at 1.96% are the two positive contributors of scale over the period.</p>
+    </div>
+
+    <div class="portal-links">
+      Detailed performance: <a href="https://anguyen1992.github.io/vantage-portal/pages/managed-accounts-hub-performance.html">HUB24 Portfolio Performance</a><br>
+      Underlying stock and fund monthly commentary: <a href="https://anguyen1992.github.io/vantage-portal/pages/managed-accounts-hub-analytics.html">Portfolio Analytics Dashboard</a><br>
+      Active fund performance detail: <a href="https://anguyen1992.github.io/vantage-portal/pages/managed-accounts-hub-active-funds.html">Active Fund Performance</a>
+    </div>
+  </section>
+
+  <hr class="section-rule">
+
+
+
+  <!-- SEPTEMBER CALENDAR -->
+  <section id="macro-calendar">
+    <div class="eyebrow">Looking ahead</div>
+    <h2>September 2026 Macro Calendar</h2>
+    <p>The Australian and US releases that set the policy path through the September quarter end. With reporting season complete, the macro calendar carries the weight for the month. Sources: ABS release calendar, US Bureau of Labor Statistics, Bureau of Economic Analysis, US Census Bureau, Federal Reserve, RBA. Dates are subject to change by the issuing agency.</p>
+
+    <div class="cal-wrap">
+      <table class="cal">
+        <thead>
+          <tr><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="cal-empty"><span class="cal-d">31 Aug</span></td>
+            <td><span class="cal-d">1</span><span class="cal-mac">US JOLTS, July</span></td>
+            <td><span class="cal-d">2</span><span class="cal-mac">Australian national accounts, June quarter GDP</span></td>
+            <td><span class="cal-d">3</span></td>
+            <td><span class="cal-d">4</span><span class="cal-mac">US employment situation, August</span></td>
+          </tr>
+          <tr>
+            <td><span class="cal-d">7</span></td>
+            <td><span class="cal-d">8</span></td>
+            <td><span class="cal-d">9</span></td>
+            <td><span class="cal-d">10</span><span class="cal-mac">US producer price index, August</span></td>
+            <td><span class="cal-d">11</span><span class="cal-mac">US consumer price index, August</span></td>
+          </tr>
+          <tr>
+            <td><span class="cal-d">14</span></td>
+            <td><span class="cal-d">15</span><span class="cal-mac">FOMC meeting begins</span></td>
+            <td><span class="cal-d">16</span><span class="cal-mac">FOMC rate decision, 2.00pm ET</span><span class="cal-mac">US advance retail sales, August</span></td>
+            <td><span class="cal-d">17</span><span class="cal-mac">Australian labour force, August</span><span class="cal-mac">Bank of England MPC decision</span></td>
+            <td><span class="cal-d">18</span></td>
+          </tr>
+          <tr>
+            <td><span class="cal-d">21</span></td>
+            <td><span class="cal-d">22</span></td>
+            <td><span class="cal-d">23</span></td>
+            <td><span class="cal-d">24</span></td>
+            <td><span class="cal-d">25</span></td>
+          </tr>
+          <tr>
+            <td><span class="cal-d">28</span><span class="cal-mac">RBA Monetary Policy Board meeting begins</span></td>
+            <td><span class="cal-d">29</span><span class="cal-mac">RBA cash rate decision, 2.30pm AEST</span><span class="cal-mac">US JOLTS, August</span></td>
+            <td><span class="cal-d">30</span><span class="cal-mac">Australian monthly CPI, August</span><span class="cal-mac">US Q2 GDP third estimate and August PCE</span></td>
+            <td class="cal-empty"></td>
+            <td class="cal-empty"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="cal-legend"><span class="cal-mac" style="display:inline-block;margin:0;">macroeconomic event</span> &nbsp; No portfolio holdings report during September; the next results are Xero, Orica and Technology One in November.</div>
+
+  </section>
+
+
+  <hr class="section-rule">
+
+  <!-- FOCUS -->
+  <section id="actions">
+    <div class="eyebrow">Investment team</div>
+    <h2>Current areas of focus</h2>
+    <ul class="actions">
+      <li><strong>To be confirmed.</strong> Current areas of focus for the investment team will be set out in the next edition.</li>
+    </ul>
+    <p style="margin-top:18px;">A round in which fourteen of twenty one held results landed within roughly 2% of consensus and still produced share price reactions from plus 14% to minus 11.9% is a round priced on forward guidance and positioning, not on earnings. That is the environment our process is built for. We hold the portfolios to a quality threshold and a valuation discipline that will look pedestrian when a narrow set of names is being bid up, and that does its work when the market marks a company down for the outlook rather than the result. Monadelphous delivered a record FY26 and a 2% beat on both lines and fell 11.9%; we are buyers of that arithmetic, not sellers of it.</p>
+  </section>
+
+</main>
+
+<!-- REPORTING SEASON DETAIL MODAL -->
+<div class="rs-backdrop" id="rsBackdrop">
+  <div class="rs-modal" role="dialog" aria-modal="true" aria-labelledby="rsTitle">
+    <div class="rs-modal-head">
+      <button class="rs-close" id="rsClose" aria-label="Close">&times;</button>
+      <div class="mtitle" id="rsTitle"></div>
+      <div class="msub" id="rsSub"></div>
+      <span class="mverdict" id="rsVerdict"></span>
+    </div>
+    <div class="rs-modal-body">
+      <div class="mtiles" id="rsTiles"></div>
+      <h4 style="margin-top:0;">Result &mdash; key highlights</h4>
+      <ul id="rsHighlights"></ul>
+      <h4>Outlook</h4>
+      <ul id="rsOutlook"></ul>
+      <div class="desk" id="rsDesk"></div>
+    </div>
+    <div class="rs-nav">
+      <button id="rsPrev">&larr; Previous</button>
+      <span class="pos-ind" id="rsPos"></span>
+      <button id="rsNext">Next &rarr;</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="fbrand">Vantage Wealth Management</div>
+    <p>This communication is prepared by VWM Financial Services Pty Ltd (AFSL 345744) for use by financial advisers of Vantage Wealth Management. It contains general information only and does not take into account the objectives, financial situation or needs of any person. Advisers should consider the appropriateness of any information for individual clients before acting on it.</p>
+    <p>All figures in this edition are preliminary. Past performance is not a reliable indicator of future performance. Performance figures are net of investment fees unless otherwise stated. Portfolio and benchmark data are sourced from HUB24 Portfolio Performance Reports and Shadow Portfolio Performance Reports covering 1 to 25 August 2026 and 1 July to 25 August 2026. Index and market data are sourced from the Morgan Stanley Wealth Management Weekly Asset Class Performance Sheet with month end returns as at Monday 31 August 2026, and are full August month returns. Reporting season data is sourced from Resonant Asset Management desk notes and company disclosures as at 26 August 2026, with Wesfarmers added on 27 August. Macro calendar dates are sourced from the ABS, US Bureau of Labor Statistics, Bureau of Economic Analysis, US Census Bureau, Federal Reserve and RBA.</p>
+    <p>&copy; 2026 VWM Financial Services Pty Ltd. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+const R = [
+ {c:"AGL",n:"AGL Energy",h:1,v:"inline",rx:"+5%",d:"FY26 Full Year Result — 12 August 2026",
+  line:"FY26 in line; FY27 guidance brackets consensus, payout lifted",
+  t:[["Statutory NPAT","A$756m","up from $112m"],["Underlying EBITDA","$2,100m","in line · +2%"],["FY26 dividend","50c","payout ~53%"],["FY27 EBITDA guidance","$1.9–2.2bn","brackets consensus"],["Share price · day 1","▲ 5%","cash + dividend"],["Valuation","10.3x","fwd P/E · 5.6% yield"]],
+  hi:["Statutory profit A$756m, up A$644m as prior-year one-offs washed through","Underlying EBITDA A$2,100m, up 2% and in line; underlying NPAT A$631m, down 2%","Operating cash flow A$1.7bn the standout, funding a step-up in returns","Portfolio captured 1.18x the time-weighted market price of energy","Customer numbers grew 92,000 to 4.6m; satisfaction up to 84.1"],
+  ou:["FY27 EBITDA guidance A$1.9–2.2bn brackets consensus; NPAT A$470–670m","Payout policy lifted to 55–60% of underlying NPAT, fully franked","Targeting A$50m of sustainable net opex cuts by FY27; A$30m banked in FY26","Retail transformation still absorbing investment; volumes down 3.4%"],
+  dn:"Revenues and earnings in line; the portfolio delivered a 1.18x premium to the time-weighted market price of energy, the likely market focus. FY27 guidance brackets consensus."},
+
+ {c:"AMC",n:"Amcor",h:1,v:"miss",rx:"−1.5%",d:"Q4 FY26 Result — 12 August 2026",
+  line:"Q4 EPS at top of range; soft six-month transition guidance",
+  t:[["Q4 adj EPS","$1.23","▲ 23% · top of gd"],["FY26 adj EPS","$4.02","▲ 13%"],["Berry synergies","$285m","~10% ahead"],["Year-end → Dec","6-month","transition period"],["Share price · day 1","▼ 1.5%","two cuts to Hold"],["Valuation","11.5x","fwd P/E · 5.2% yield"]],
+  hi:["Q4 adjusted EPS $1.23, up 23% and at the top of guidance; FY26 $4.02, up 13%","Q4 net sales $6.4bn, up 26%; FY26 revenue $23.5bn including $7.9bn of acquired Berry","Q4 adjusted EBIT $836m, up 37%; gross margin up 330bps","Berry synergies $285m captured, around 10% ahead of the first-year target","Volumes better than expected in food service, pet care and protein"],
+  ou:["Reporting shifts to a December year-end; a six-month transition period follows","Transition guidance adjusted EPS $1.80–1.90; double-digit growth flagged for CY27","FY26 free cash flow $1.3bn, short of plan on a working-capital drag","Leverage 3.5–3.6x keeps balance sheet paydown central to the story"],
+  dn:"4Q result in line with expectations; FY27 management forecasts still strong, with Berry acquisition synergies running around 10% ahead of the original first-year target."},
+
+ {c:"ANZ",n:"ANZ Group",h:1,v:"beat",rx:"+4.5%",d:"Q3 FY26 Trading Update — 13 August 2026",
+  line:"Best received major; costs ahead of schedule, cheapest going in",
+  t:[["Cash profit","$1.90bn","+2%; ex-NZ +5%"],["NZ provision","A$74m","post-tax, class action"],["CET1","12.51%","sector-leading"],["FY26 costs","▼ 5%","ahead of schedule"],["Share price · day 1","▲ 4.5%","cheapest going in"],["Valuation","14.6x","fwd P/E · 4.5% yield"]],
+  hi:["Cash profit $1.90bn, up 2%; up 5% to $1.98bn excluding a NZ class-action provision","NZ class action cost A$103m pre-tax (A$74m post-tax), the only real drag","Provision charge $102m, down 26%, as credit quality held firm","Home lending returned to system; applications broadly flat quarter on quarter","Business banking grew strongly; cost to income a lean 49.7%"],
+  ou:["FY26 costs tracking down 5%, ahead of schedule; the target was reaffirmed","CET1 12.51%, the strongest of the majors, underpins capital returns","Suncorp Bank integration remains on track","Flat home loan applications a materially better outcome than peers"],
+  dn:"3Q result, profit slightly up year on year, driven mainly by an improvement in operating expenses. The cheapest major going in and the best received update of the round."},
+
+ {c:"BHP",n:"BHP Group",h:1,v:"beat",rx:"+3%",d:"FY26 Full Year Result — 18 August 2026",
+  line:"Profit +30%; biggest dividend in four years, copper above half of EBITDA",
+  t:[["Underlying profit","US$13.2bn","▲ 30%"],["Final dividend","US$0.99","ahead of consensus"],["Copper EBITDA","54%","> half of group"],["Net debt","US$8.7bn","low end of range"],["Share price · day 1","▲ 3%","div + balance sheet"],["Valuation","18.0x","fwd P/E · 4.2% yield"]],
+  hi:["Underlying profit US$13.2bn, up 30%; underlying EBITDA US$32.9bn, up 27%","Revenue US$58.8bn, up 15%; operating cash flow US$21.8bn, up 17%","Final dividend US$0.99, the largest in four years and ahead of consensus","Copper 54% of group EBITDA, above half for the first time, at a 70% margin","Copper production around 1.95Mt, a second straight year near the 2Mt mark"],
+  ou:["Copper output set lower next year as Escondida ore grades decline","FY27 capex around US$11bn, directed mainly at copper (Escondida, Jansen)","Net debt US$8.7bn, at the low end of the target range","Copper-equivalent volumes targeted to grow 3–4% a year through FY35"],
+  dn:"FY26 ahead of market expectations, with stronger copper pricing and lower iron ore costs supporting the result. Declared a US$0.99 per share final dividend, comfortably ahead of consensus."},
+
+ {c:"BRG",n:"Breville Group",h:1,v:"miss",rx:"−6%",d:"FY26 Full Year Result — 19 August 2026",
+  line:"Record revenue around 2% below consensus; sold off on ~30x",
+  t:[["Revenue","$1,811m","record · +6.7%"],["CC growth","+9.7%","Global Segment"],["EBIT","$207m","in line with guidance"],["FY dividend","38c","+2.7%; net cash $104m"],["Share price · day 1","▼ 6%","on ~30x P/E"],["Valuation","30.4x","fwd P/E · 1.2% yield"]],
+  hi:["Record revenue $1,810.9m, up 6.7% but around 2% below consensus on a weaker US dollar","Global Segment constant-currency revenue up 9.7%, double digit in the second half","EBIT $207m, up 1.2% and in line with budget and guidance; NPAT $138m","2H gross margin 36.8%, above 1H and pcp; full-year margin down only about 60bps despite tariffs","Net cash $104.4m, more than double last year; full-year dividend 38c, up 2.7%"],
+  ou:["Manufacturing diversification substantially complete, 85% of 120V gross profit now sourced outside China","Newer markets (China, Korea, Mexico, the Middle East) grew over 70% collectively","Trades on around 30x earnings, with Premier Investments holding around 25%","Competition intensifying from De'Longhi, SharkNinja and Smeg; management succession a watch item"],
+  dn:"FY26 earnings broadly in line; around 9.7% constant-currency revenue growth. Gross margins expanded again in 2H, supported by the shift away from Chinese manufacturing (85% of 120V profit now sourced elsewhere) and lower tariff exposure."},
+
+ {c:"CBA",n:"Commonwealth Bank",h:1,v:"inline",rx:"Flat",d:"FY26 Full Year Result — 12 August 2026",
+  line:"Cash NPAT around 1% ahead on low bad debts; no new buyback",
+  t:[["Cash NPAT","$10,980m","▲ 7% · ~1% ahead"],["Net interest margin","2.05%","▼ 3bps y/y"],["FY26 dividend","$5.05","▲ 4%; final $2.70"],["CET1 capital","12.0%","no new buyback"],["Share price · day 1","≈ Flat","slightly lower"],["Valuation","23.6x","fwd P/E · 3.2% yield"]],
+  hi:["Cash NPAT $10,980m, up 7% and around 1% ahead of consensus","Operating income up 6%; NIM 2.05%, down 3bps but underlying broadly stable","Cash EPS 657c (up 44c); return on equity 14.0%, up 50bps","Credit quality the bright spot, realised loan losses well below the long-run average","Final dividend $2.70 fully franked; full-year $5.05, up 4%"],
+  ou:["Home loan applications have fallen 15% since the May budget","Board did not extend the buyback and capped next year's investment spend (FY26 spend $2.4bn)","Housing credit growth expected to slow from 7.5% to 5–7% over the year","Management flags a step-up in AI-driven productivity as the key cost lever"],
+  dn:"FY26 a slight beat, driven by lower bad and doubtful debts. Forward guidance is for flat investment spend, with management flagging a step-up in AI-driven productivity gains."},
+
+ {c:"CGF",n:"Challenger",h:1,v:"inline",rx:"+0.5%",d:"FY26 Full Year Result — 18 August 2026",
+  line:"In-line EPS; upsized $450m buyback offsets softer FY27 guidance",
+  t:[["Normalised NPAT","$468m","▲ 3% · in line"],["Statutory NPAT","$506m","▲ 163% on gains"],["Annuity sales","$6.2bn","▲ 19%"],["Buyback","$450m","+ 1.5c special"],["Share price · day 1","▲ 0.5%","≈ unchanged"],["Valuation","14.1x","fwd P/E · 3.3% yield"]],
+  hi:["Normalised NPAT $468m, up 3% and in line with guidance; EPS 68.1c","Statutory NPAT $506m, up 163% on portfolio and asset/liability gains","Annuity sales $6.2bn, up 19%; book growth 10.7%; total Life sales $9.6bn","Ordinary dividend 31.5c, up 7%, plus a 1.5c fully franked special","Normalised ROE 11.6%, running around 70bps above target"],
+  ou:["Buyback upsized to $450m (+$300m new on-market), pending regulatory approval","New capital standards should free capital, pro-forma PCA 1.50x","FY27 core EPS guidance 45–49c; midpoint up 6% but below consensus","New reporting standards make the underlying performance harder to read"],
+  dn:"Broadly in-line FY26; new reporting standards made underlying performance harder to assess. Annuity growth strong and EPS in line, while FY27 EPS guidance came in slightly below market, offset by an upsized buyback."},
+
+ {c:"COL",n:"Coles Group",h:1,v:"inline",rx:"+4.9%",d:"FY26 Full Year Result — 25 August 2026",
+  line:"Sales in line, earnings a slight beat; FY26 dividend 78¢",
+  t:[["Statutory NPAT","A$1.09bn","▲ 1% incl. A$235m charge"],["Underlying NPAT","A$1.255bn","▲ 13.7%"],["Group EBIT","A$2.32bn","▲ 9.9%"],["Total sales","A$45.6bn","▲ 2.8%"],["FY26 dividend","78¢","fully franked"],["Share price · day 1","▲ 4.9%","firm reaction"]],
+  hi:["Statutory NPAT A$1.09bn (+1%), a A$235m underpayment provision the swing factor","Underlying NPAT A$1.255bn, +13.7%; group EBIT +9.9% to A$2.32bn","Total sales A$45.58bn (+2.8%); Supermarkets A$41.5bn (+3.7%), +5.1% ex-tobacco","Q4 supermarket sales +3.7%; momentum carried into the new year","Liquor A$3.55bn (−3.3%), with the decline moderating to −2.5% in Q4"],
+  ou:["Sales in line with consensus; underlying earnings a shade ahead","Ex-tobacco growth of +5.1% points to share gains in core food","Cost-out and automation (Witron/Ocado) the key FY27 margin levers","No FY27 guidance provided; FY-to-date sales tracking broadly in line with 4Q26","Woolworths reported Australian food sales up 7.6% into FY27, a competitive marker"],
+  dn:"COL reported FY26 results, with revenue in line and earnings a slight beat (+3%). Supermarket sales growth and margin expansion supported the result, with operating efficiencies offsetting incremental 2H fuel costs. A FY26 dividend of 78¢ per share was declared. No FY27 guidance was provided, although sales growth FY to date is tracking broadly in line with 4Q26."},
+
+ {c:"CWY",n:"Cleanaway Waste",h:1,v:"inline",rx:"Flat",d:"FY26 Full Year Result — 20 August 2026",
+  line:"Earnings in line; now trading on the EQT takeover approach",
+  t:[["Underlying EBIT","$470m","▲ 14.2%"],["Underlying NPAT","$223m","▲ 13.6%"],["Dividend","6.85c","▲ 14.2%"],["FY27 EBIT guidance","$500–530m","~3% < consensus"],["Share price · day 1","≈ Flat","tracks EQT offer"],["Valuation","23.7x","fwd P/E · 2.7% yield"]],
+  hi:["Underlying EBIT $470.2m, up 14.2%, at reaffirmed guidance; margin up 10bps to 12.6%","Underlying NPAT $223.1m, up 13.6%; EPSA 10.6c, up 14%","Gross revenue $4.37bn, up 13.5%, led by Solid Waste and Contract Resources","Free cash flow $213.8m, up 64%; dividend 6.85c, up 14%","Statutory NPAT $98.5m, down 37% on $124.6m of non-recurring items"],
+  ou:["FY27 EBIT guidance $500–530m, around 3% below consensus on higher technology spend","EQT Infrastructure running due diligence at around 20x FY26 EBIT","Board intends to recommend a binding deal at that price or higher","Finance costs rising on higher acquisition debt and rates"],
+  dn:"FY26, revenues a slight beat (+4%) and earnings in line, led by Solid Waste Services and Contract Resources. Dividend 6.85c per share; FY27 EBIT guidance around $515m, roughly 3% below expectations on higher IT and technology costs."},
+
+ {c:"HUB",n:"HUB24",h:1,v:"inline",rx:"−6%",d:"FY26 Full Year Result — 18 August 2026",
+  line:"FUA +24%, result in line; growth already priced in at 41x",
+  t:[["Total FUA","$164.3bn","▲ 20%"],["Underlying EBITDA","$211.4m","▲ 30%"],["Underlying NPAT","$137.3m","▲ 40% · +2% beat"],["FY28 FUA target","$193bn","vs consensus $195bn"],["Share price · day 1","▼ 6%","growth priced in"],["Valuation","41.0x","fwd P/E · 0.8% yield"]],
+  hi:["Total FUA $164.3bn, up 20%; platform FUA $139.5bn, up 24%","Revenue $501.1m, up 23%; underlying EBITDA $211.4m, up 30%","Underlying NPAT $137.3m, up 40%, around a 2% beat helped by a lower tax rate","Record platform net inflows $18.9bn, up 20%","Total dividend 78c, up 39%, fully franked"],
+  ou:["1Q27 platform FUA already $144.1bn, around a 3% upgrade","Maiden FY28 FUA target $193bn versus consensus $195bn","Structural demand for advice supported by budget tax changes","Earnings remain tied to market levels, not just new money"],
+  dn:"FY26 revenues and earnings broadly in line; FUA +24% year on year with margins resilient at around 1bp. Core profit a 2% beat on a lower tax rate. 1Q27 FUA upgraded to $144.1bn (+3%); maiden FY28 FUA target $193bn vs consensus $195bn."},
+
+ {c:"MND",n:"Monadelphous",h:1,v:"inline",rx:"−11.9%",d:"FY26 Full Year Result — 25 August 2026",
+  line:"Record result, a 2% beat on both lines, but sold 11.9% lower",
+  t:[["Statutory NPAT","A$127.3m","▲ 52.1%"],["Revenue","A$2.98bn","▲ 31.5%"],["FY26 dividend","108¢","▲ ~50%, franked"],["New contracts","A$680m+","since Jul 2026"],["Share price · day 1","▼ 11.9%","sold on open"],["Operating margin","~7.6%","FY27 focus"]],
+  hi:["Record revenue A$2.98bn, +31.5%, ahead of the roughly 30% guidance","Statutory NPAT A$127.3m, +52.1%, a record result","Engineering Construction A$1.37bn (+48.5%) on iron ore and integrated services","Maintenance & Industrial Services A$1.61bn (+20%), a record, energy-sector led","Full-year dividend up around 50% to 108¢, fully franked"],
+  ou:["Shares fell 11.9%, a sell-the-news reaction on a stretched multiple","No FY27 guidance; management focused on near-term consolidation","Underlying demand across iron ore and energy remains strong","More than A$680m of new work secured since July underpins committed FY27"],
+  dn:"MND reported FY26 results, with revenue and earnings both a slight beat (+2%). Result driven by the Engineering Construction segment, underpinned by strong demand across iron ore and energy sectors. FY26 dividend of 108¢ per share was declared. No FY27 guidance was provided, with management focused on consolidation in the near term while underlying resources and energy demand remains strong."},
+
+ {c:"NAB",n:"National Australia Bank",h:1,v:"miss",rx:"−4.6%",d:"Q3 FY26 Trading Update — 17 August 2026",
+  line:"Small miss on Markets; home loan applications down 15%",
+  t:[["Cash earnings","$1.83bn","▲ 4% y/y"],["NIM","1.79%","1.83% ex-M&T"],["M&T revenue","▼ ~10%","ex-M&T +3%"],["Home loan apps","▼ 15%","over the quarter"],["Share price · day 1","▼ 4.6%","dragged the index"],["Valuation","16.3x","fwd P/E · 4.5% yield"]],
+  hi:["Cash earnings $1.83bn, up 4% on 3Q25 but a small miss on Markets & Treasury","Markets & Treasury revenue down around 10%; ex-M&T revenue up 3%","NIM 1.79% (1.83% ex-M&T); costs up 4%, FY guidance held below 4.6%","The profit lift was driven mainly by lower credit impairment charges","Business banking the genuine bright spot, lending up 2%, B&PB up 4%"],
+  ou:["Home loan applications fell 15% over the quarter","Forecasts FY27 total housing credit growth slowing from 7.5% to 2.5%, investor credit contracting 1.4%","CET1 11.93%, above target, giving room to protect the dividend","Targeting more than A$450m of savings in FY26; non-performing ratio fell, watch loans edged higher"],
+  dn:"Small bottom-line miss in 3Q26, driven by Markets & Treasury revenue down around 10%; ex-M&T revenue +3%. NIM 1.79% (1.83% ex-M&T), costs +4% with FY26 guidance below 4.6% maintained; asset quality and capital as expected."},
+
+ {c:"NHF",n:"nib Holdings",h:1,v:"inline",rx:"−10%",d:"FY26 Full Year Result — 24 August 2026",
+  line:"Underlying profit in line; FY27 guidance around 4% below consensus",
+  t:[["Group UOP","$260.9m","▲ 9.1% · in line"],["NPAT","$186.9m","▼ 5.9%"],["FY26 dividend","34c","incl. 5c special"],["FY27 UOP guidance","$265–285m","~4% < consensus"],["Share price · day 1","▼ 10%","guidance-led"],["Valuation","16.5x","fwd P/E · 3.9% yield"]],
+  hi:["Group underlying operating profit $260.9m, up 9.1%, within guidance and in line","New Zealand swung to a $27.5m profit; International UOP $35.1m, up 15%","Australian Residents UOP $187.9m, softer as policyholder growth slowed","Total revenue $3.8bn, up 6.2%; group opex ratio down 110bps to 16.6%","Total dividend 34c fully franked, including a 5c special"],
+  ou:["FY27 UOP guidance $265–285m, around 4% below consensus, the share price driver","Competitive Australian private health insurance market pressures acquisition and margins","Payout policy lifted to 65–75%; leverage down to 0.6x","Portfolio simpler post the travel review; around $97m of sale proceeds due 1H27"],
+  dn:"FY26 UOP broadly in line; a stronger NZ contribution offset by lower Australian Residential Health margins as policyholder growth slowed in a competitive market. Special dividend 5c per share. FY27 UOP guidance around 4% below consensus."},
+
+ {c:"ORG",n:"Origin Energy",h:1,v:"beat",rx:"+6%",d:"FY26 Full Year Result — 13 August 2026",
+  line:"Free cash flow up $867m; FY27 guidance toward the top of range",
+  t:[["Statutory profit","$1,574m","▲ from $1,481m"],["Adj free cash flow","$2,074m","▲ $867m"],["FY26 dividend","60c","held · fully franked"],["FY27 EM EBITDA gd","$1.55–1.85bn","top of range"],["Share price · day 1","▲ 6%","cash flow + capex"],["Valuation","18.3x","fwd P/E · 5.1% yield"]],
+  hi:["Statutory profit $1,574m, up on last year and slightly ahead of expectations overall","Energy Markets the standout, above guidance; adjusted EBITDA $3.22bn","Adjusted free cash flow $2,074m, up $867m, the clear highlight","Dividend held at 60c fully franked; leverage a comfortable 1.6x","Retail added 243,000 accounts; Octopus and Kraken stakes still compounding"],
+  ou:["FY27 Energy Markets EBITDA guided $1.55–1.85bn, toward the top of consensus","Total capex just $450–650m as the battery build completes","Higher oil prices flagged as an FY27 earnings kicker","Kraken now 95m contracted accounts; a US$1bn raise valued Octopus at US$8.65bn"],
+  dn:"FY26 strong across all segments; energy markets continues to grow despite low volatility. Forward guidance toward the top of the consensus range, with management flagging an earnings pick-up from higher oil prices in FY27."},
+
+ {c:"QBE",n:"QBE Insurance",h:1,v:"inline",rx:"−5%",d:"HY26 Result — 14 August 2026",
+  line:"Slight beat with guidance reiterated, but premium rate growth stalled",
+  t:[["Adjusted NPAT","US$1,033m","▲ from $997m"],["Combined ratio","92.8%","toward ~92.5% gd"],["GWP growth","+6%","constant currency"],["Interim dividend","33c","▲ 6%"],["Share price · day 1","▼ 5%","rate growth stalls"],["Valuation","11.6x","fwd P/E · 17.7% ROE"]],
+  hi:["Adjusted NPAT US$1,033m, up from US$997m; adjusted ROE 17.7%","Combined operating ratio 92.8%, tracking toward around 92.5% full-year guidance","Gross written premium up 6% in constant currency, but rate growth slowed sharply","Catastrophe costs below allowance; favourable prior-year reserve development","Interim dividend 33c, up 6%; capital above the top of the target range"],
+  ou:["FY26 guidance reiterated, though brokers question the target ratio","Slowing premium rates the key concern behind the sell-off","Surplus capital above target supports ongoing returns","Data-centre insurance flagged as a growth opportunity"],
+  dn:"1H26 a slight beat to consensus with guidance reiterated, though some costs were slightly higher on one-off events. Premium-rate momentum the market's main worry into FY27."},
+
+ {c:"RIO",n:"Rio Tinto",h:1,v:"inline",rx:"+5%",d:"HY26 Result — 29 July 2026",
+  line:"Interim dividend up 43%; copper EBITDA up 84%",
+  t:[["Underlying EBITDA","US$14.8bn","▲ 28%"],["Free cash flow","US$3.8bn","▲ 75%"],["Interim dividend","211c","▲ 43%"],["Copper EBITDA","US$5.7bn","▲ 84%"],["Share price · day 1","▲ 5%","div + cash flow"],["Valuation","12.8x","fwd P/E · 3.8% yield"]],
+  hi:["Underlying EBITDA US$14.8bn, up 28%; underlying earnings US$6.9bn, up 43%","Free cash flow US$3.8bn, up 75%; profit after tax US$6.7bn, up 47%","Interim dividend 211c (US$3.4bn), up 43%, the largest in four years","Copper EBITDA up 84% to US$5.7bn, closing on iron ore","ROCE 17%; net debt lower at US$14.1bn"],
+  ou:["Full-year production guidance unchanged across every commodity","US$870m of productivity banked; targeting a US$1.8bn run-rate by year-end","Capex heavy as Simandou and Argentine lithium progress","Copper, aluminium and lithium now over half of group EBITDA"],
+  dn:"Not covered in Resonant's desk notes this round."},
+
+ {c:"RMD",n:"ResMed",h:1,v:"inline",rx:"−7.5%",d:"Q4 FY26 Result — 6 August 2026",
+  line:"Solid Q4; first ever formal guidance of 12–14% disappointed",
+  t:[["Q4 revenue","US$1.46bn","▲ 9% · ≈ consensus"],["Core EPS","US$2.95","▲ 16% · +2% beat"],["Gross margin","62.3%","+90bps · < consensus"],["FY27 guidance","12–14%","core EPS growth"],["Share price · day 1","▼ 7.5%","guidance-led"],["Valuation","18.6x","fwd P/E · 1.1% yield"]],
+  hi:["Q4 revenue US$1.464bn, up 9% and broadly in line; FY26 revenue US$5.7bn, up 10%","Q4 core EPS US$2.95, up 16%, around a 2% beat","Core gross margin 62.3%, up 90bps but modestly below consensus","GAAP margin hit by a US$41.9m Astral field-safety charge","Over US$1bn returned to shareholders in FY26, up more than 70%"],
+  ou:["First ever formal guidance targets 12–14% core EPS growth, the disappointment","Headline growth depressed by the MatrixCare sale and the Astral action","Non-US sales offset slightly soft US device sales","A larger buyback and higher dividend step up shareholder returns"],
+  dn:"Solid Q4 FY26, revenue US$1.46bn (+9%, in line); core EPS +16%, beating by 2%. Core gross margin +90bps but modestly below consensus; the Astral notification weighed on reported margins. First-ever guidance targets 12–14% core earnings growth."},
+
+ {c:"SDF",n:"Steadfast Group",h:1,v:"inline",rx:"Flat",d:"FY26 Full Year Result — 26 August 2026",
+  line:"Slight beats on revenue and EBITA; FY27 guidance implies EPS +4–8%",
+  t:[["Revenue","▲ 1%","slight beat vs consensus"],["Underlying EBITA","▲ 2%","slight beat vs consensus"],["FY27 EPS guidance","4–8%","growth implied"],["Share price · day 1","Flat","muted reaction"]],
+  hi:["Revenue up around 1%, a slight beat versus consensus","Underlying EBITA up around 2%, also modestly ahead of consensus","Broking earnings stronger, aided by bolt-on acquisitions","Underwriting agencies a further driver of group growth","Insurance pricing more moderate than in prior years"],
+  ou:["FY27 guidance implies core EPS growth of 4–8%","Acquisitions remain a key lever for broking growth","Underwriting agencies underpin earnings resilience","Softer premium pricing a mild organic growth headwind"],
+  dn:"FY26 in line, revenue +1% and underlying EBITA +2%, both slight beats. Growth was led by stronger broking and underwriting agency earnings, with acquisitions supporting broking amid a more moderate insurance pricing environment. FY27 guidance implies EPS growth of 4–8%."},
+
+ {c:"SGP",n:"Stockland",h:1,v:"beat",rx:"+14%",d:"FY26 Full Year Result — 19 August 2026",
+  line:"FFO at the top of guidance; best reaction of the round among held names",
+  t:[["FFO","37 cps","top of 36–37c"],["FY27 FFO guidance","38–39c","above consensus mid"],["Resi settlements","▲ 30%","new sales ▲ 50%"],["Reported profit","▲ >20%","gearing fell"],["Share price · day 1","▲ 14%","best held reaction"],["Valuation","11.9x","P/E · 5.9% yield"]],
+  hi:["FFO 37c, at the top of the 36–37c guidance range; reported profit up over 20%","Residential the engine, settlements up around 30%, new sales up over 50%","Gearing fell and net tangible assets per security rose","Communities and land lease demand stayed firm through the year","Best share price reaction of any held name this round"],
+  ou:["FY27 FFO guidance 38–39c, around 6% above the consensus midpoint","EdgeConneX partnership securing 450MW across three data centre sites","Three new capital partners added, growing funds under management","Rate relief a potential tailwind for residential volumes"],
+  dn:"Strong FY26, FFO of 37cps at the top of the 36–37c guidance range. FY27 guidance of 38–39c also ahead of the consensus midpoint. Residential settlements and the data centre pivot the highlights."},
+
+ {c:"TPG",n:"TPG Telecom",h:1,v:"inline",rx:"+4%",d:"HY26 Result — 21 August 2026",
+  line:"Cash conversion the story; gearing down to 0.8x",
+  t:[["EBITDA","$821m","+4.5% pro forma"],["FY26 EBITDA guidance","$1.7bn","reaffirmed"],["Mobile service revenue","$1.22bn","▲ 3.1%"],["Net debt / EBITDA","0.8x","from 1.5x"],["Share price · day 1","▲ 4%","cash conversion"],["Valuation","52.8x","fwd P/E · 5.3% yield"]],
+  hi:["EBITDA $821m, up 4.5% pro forma; NPAT $35m from continuing operations","Mobile service revenue $1.22bn, up 3.1%; 64,000 mobile net adds","Margins expanded on subscriber growth and cost control","Finance costs around $85m lower after repaying $2.7bn post the Vocus fibre sale","Operating free cash flow $199m, up 16%; gearing down to 0.8x"],
+  ou:["FY26 EBITDA guidance reaffirmed at $1,665–1,735m","Interim dividend lifted to 10c; progressive policy maintained","Capex falling to $550–650m from FY27, aiding cash conversion","Growth still hinges on mobile net adds via the Optus network deal"],
+  dn:"1H26, revenue a slight miss on hardware, offset by cost discipline; earnings in line. Mobile subscriber growth continued after the regional network sharing deal with Optus, though home broadband losses persist. FY26 EBITDA guidance reaffirmed at $1.7bn."},
+
+ {c:"WDS",n:"Woodside Energy",h:1,v:"inline",rx:"−1.4%",d:"1H FY26 Result — 25 August 2026",
+  line:"Underlying profit +7%, marginally short of consensus",
+  t:[["Underlying NPAT","US$1.33bn","▲ 7%"],["Reported NPAT","US$1.67bn","▲ 27%"],["Sales revenue","US$7.45bn","▲ 13%"],["Interim dividend","US57¢","80% payout"],["Share price · day 1","▼ 1.4%","eased on open"],["Cost target","US$350m","p.a. from 2028"]],
+  hi:["Underlying NPAT US$1.33bn, +7%, on higher realised commodity prices","Sales revenue US$7.45bn, +13% on stronger prices and volumes","Reported net income US$1.67bn, +27%","Interim dividend US57¢, an 80% payout of underlying NPAT, in line","Underlying result came in marginally short of consensus"],
+  ou:["Scarborough LNG on schedule for first cargo in the December quarter","New US$350m annual cost savings target from 2028 via a structured review","Shares eased around 1%, with the market looking through the small consensus miss","Higher prices and the volume ramp underpin second half cash flow","Capital returns anchored to the 80% underlying payout policy"],
+  dn:"WDS reported H126 results, with revenue and NPAT both strongly higher year on year. Result was driven primarily by higher realised prices for oil/condensate and traded liquids amid global supply disruptions and supply route uncertainty. An interim dividend of US57¢ per share was declared. FY26 guidance was unchanged, with first LNG cargo from the major Scarborough project in WA expected in the December quarter."},
+
+ {c:"CSL",n:"CSL",h:0,v:"inline",rx:"+16%",d:"FY26 Full Year Result — 18 August 2026",
+  line:"Relief rally +16%; the feared Vifor outcome did not eventuate",
+  t:[["Underlying NPATA","US$3.1bn","▼ 2% · = guidance"],["Reported","−US$2.6bn","Vifor write-downs"],["Revenue","US$15.8bn","+2%"],["FY27 profit","~ +5%","mostly cost-out"],["Share price · day 1","▲ 16%","largest move of round"],["Valuation","18.4x","fwd P/E · 2.5% yield"]],
+  hi:["Underlying NPATA US$3.1bn, down 2%, matching the lowered May guidance","Reported a net loss of US$2.6bn, the first since listing, on Vifor write-downs","Revenue US$15.8bn, up 2%; operating cash flow US$3.5bn","Around US$176m of cost savings banked, ahead of target; US$799m restructuring charge","Setting write-downs aside, delivered against twice-cut expectations, hence the relief rally"],
+  ou:["FY27 profit growth of around 5% guided, most of it from cost-out","Vifor revenue expected to fall sharply on competition and reimbursement","Final dividend US$1.62 maintained; the buyback continues","Leadership unsettled, still searching for a permanent chief executive"],
+  dn:"Not covered in Resonant's desk notes this round."},
+
+ {c:"GMG",n:"Goodman Group",h:0,v:"miss",rx:"−2%",d:"FY26 Full Year Result — 19 August 2026",
+  line:"Strong FY26 but FY27 EPS growth guided below market",
+  t:[["Operating profit","$2.67bn","▲ 15.7%"],["Operating EPS","129.9c","▲ 10.1%"],["Work in progress","$19.7bn","~78% data centres"],["FY27 EPS guidance","+9%","below ~11% market"],["Share price · day 1","▼ 2%","−20% over 12m"],["Valuation","19.1x","fwd P/E · 1.1% yield"]],
+  hi:["Operating profit $2,674.5m, up 15.7%; operating EPS 129.9c, up 10.1%","Development earnings the driver, coming in stronger than expected","Work in progress a record $19.7bn across 50 projects, yield on cost 8.2%","Data centres around 78% of WIP; portfolio occupancy a firm 95.6%","NTA $11.79, up 7%; gearing low at 6.5%, interest cover 25.4x"],
+  ou:["FY27 operating EPS growth guided at 9%, below the roughly 11% the market carried","Distribution held at 30c as earnings are retained for development","Key risk is prolonged delay in data centre commencements and sell-downs","Very low gearing and high occupancy underpin the record pipeline"],
+  dn:"Not covered in Resonant's desk notes this round."},
+
+ {c:"TCL",n:"Transurban",h:0,v:"miss",rx:"−2.3%",d:"FY26 Full Year Result — 13 August 2026",
+  line:"Earnings light; transitional FY27 with a cash cover warning",
+  t:[["Proportional EBITDA","$3,063m","▲ 7.5%"],["Toll revenue","$3,982m","▲ 6.7%"],["Distribution","69c","▲ 6.2%"],["FY27 DPS guidance","72c","cover < target"],["Share price · day 1","▼ 2.3%","cash cover warning"],["Valuation","71.4x","fwd P/E · 5.0% yield"]],
+  hi:["Proportional operating EBITDA $3,063m, up 7.5%; margin up to 75.7%","Proportional toll revenue $3,982m, up 6.7%; average daily traffic up 2.2%","Three project openings added 144 lane-km and 80bps of margin","Distribution 69c, up 6.2%, 98% covered by free cash","Earnings still landed below market; West Gate ramping slowly"],
+  ou:["FY27 a transitional year, free cash cover seen slightly below the 95–105% target","FY27 distribution guided to 72c, around 4% growth","M5 West contribution halves from December on an ownership change","Growth pipeline above $10bn; the balance sheet is 88% hedged"],
+  dn:"Not covered in Resonant's desk notes this round."},
+
+ {c:"TLS",n:"Telstra Group",h:0,v:"miss",rx:"−4.3%",d:"FY26 Full Year Result — 13 August 2026",
+  line:"FY27 guidance cut; dividend up 10.5% and a $1bn buyback",
+  t:[["Underlying EBITDAaL","$8.3bn","▲ 4%"],["Cash EPS","25.5c","▲ 14%"],["FY26 dividend","21c","▲10.5% · +$1bn bb"],["Mobile adds","+270k","income ▲ 3.2%"],["Share price · day 1","▼ 4.3%","fresh 12m low"],["Valuation","22.0x","fwd P/E · 4.4% yield"]],
+  hi:["Net profit $2.4bn, up 2.7%; underlying EBITDAaL $8.3bn, up 4%","Cash earnings $2.9bn, up 12%; cash EPS 25.5c, up 14%","Costs down 3%, mobile-led; total income slightly lower at $23.4bn","Mobile added more than 270,000 services; mobile income up 3.2%","Dividend 21c, up 10.5%, alongside a new $1bn buyback"],
+  ou:["FY27 cash earnings guidance below consensus on higher business-as-usual capex","Management says it remains on track for its FY30 targets","Defensive premium under pressure from rates and mobile competition","Postpaid churn lower; 5G and ARPU trends supportive"],
+  dn:"Not covered in Resonant's desk notes this round."},
+
+ {c:"WBC",n:"Westpac",h:0,v:"miss",rx:"−5.9%",d:"Q3 FY26 Trading Update — 10 August 2026",
+  line:"Reset the sector; applications around 20% below pre-budget",
+  t:[["Net profit","$1.8bn","+3% q/q"],["NIM","1.89%","flat; core +1bp"],["Home loan apps","▼ 11%","~20% < pre-budget"],["CET1","12.1%","12.3% pro forma"],["Share price · day 1","▼ 5.9%","dragged sector"],["Valuation","16.0x","fwd P/E · 4.5% yield"]],
+  hi:["Net profit $1.8bn, up 3%; revenue up just 1% as the margin held flat","NIM 1.89% (core 1.78%, up 1bp); lending margin flat, so revenue was soft","Loans up 2% and deposits up 2%; business lending up 4%","Bad debt charges stable, but provisions and watchlist loans rose","New Zealand revenue down 7% on a tougher backdrop"],
+  ou:["The update that reset expectations for the whole sector","Home loan applications down 11%, around 20% below pre-budget levels","Plans to grow its mortgage book slower than system in Q4","CET1 12.1% (12.3% pro forma with the RAMS sale) supports returns"],
+  dn:"Not covered in Resonant's desk notes this round."},
+
+ {c:"WES",n:"Wesfarmers",h:0,v:"inline",rx:"−2%",d:"FY26 Full Year Result — 27 August 2026",
+  line:"Solid FY26 led by Bunnings, but around 30x leaves little room",
+  t:[["Statutory NPAT","$3.16bn","▲ ~8%"],["Bunnings EBT","$2.45bn","▲ 5.1%"],["FY26 dividend","~$2.20","full-year · ff"],["FY27 QTD Bunnings","▲ 4%+","above H2 FY26 rate"],["Valuation","~30x","forward P/E"],["Share price · day 1","▼ 2%","valuation full"]],
+  hi:["NPAT around $3.16bn, up around 8%, a dependable FY26","Bunnings the engine, revenue +4.1% to $20.4bn and EBT +5.1% to $2.45bn","Margin up, with productivity the key driver group-wide","Kmart Group delivered earnings growth as customers keep trading down","First real WesCEF lithium contribution as Covalent ramps"],
+  ou:["Solid FY27 start, Bunnings sales above the 4% H2 FY26 rate","Kmart in line (+2.3%), Officeworks softer","WES and SQM to invest $645–715m doubling lithium capacity and cutting unit costs","Industrial & Safety folds into Bunnings from 1 July 2026","Around 30x earnings leaves little room for error"],
+  dn:"Not held, read-through only. A dependable FY26 (NPAT around +8%) with Bunnings again the engine (EBT +5.1%) and the first real lithium contribution as Covalent ramps. At around 30x earnings the valuation leaves little room, so we prefer our exposure via held names. Watch Bunnings FY27 momentum and the Covalent ramp-up."},
+
+ {c:"WOW",n:"Woolworths Group",h:0,v:"beat",rx:"+4.9%",d:"FY26 Full Year Result — 26 August 2026",
+  line:"Turnaround outpacing Coles; Australian food sales +7.6% into FY27",
+  t:[["Net profit","$1.14bn","▲ 18%"],["Group sales","$71.5bn","▲ 3.6%"],["Aus food sales","$53.9bn","▲ 4.6% · H2 +5.7%"],["Final dividend","52¢","FY26 final"],["FY27 QTD sales","▲ 7.6%","Aus food · Jul–Aug"],["Share price · day 1","▲ 4.9%","up on open"]],
+  hi:["Net profit up 18% to $1.14bn, around $1.6bn before a $461m one-off charge","Group sales up 3.6% to $71.5bn, with Australian food up 4.6% to $53.9bn","Second half momentum stronger, Australian food sales up 5.7%","Online $10.6bn, around 15.9% of supermarket sales","Big W back to profit, EBIT $64m versus a $33m loss"],
+  ou:["Strong start to FY27, Australian food sales up 7.6% in July and August","Disney Ooshies added an estimated 1.5 to 2 percentage points of growth","Outpacing Coles, whose food sales grew 3.7% across FY26","Budgets still pressured; low price strategy the focus","Final dividend of 52¢ per share declared"],
+  dn:"Not held, read-through only. A strong FY26 (NPAT +18%) and accelerating momentum (Australian food +5.7% in H2, +7.6% into FY27 on the Ooshies program) show the turnaround winning share, a clear competitive marker for Coles (held). Watch COL volumes and share into FY27."}
+];
+
+const VLABEL = {beat:"Beat", inline:"In line", miss:"Miss"};
+const held = R.filter(r=>r.h), notHeld = R.filter(r=>!r.h);
+const order = held.concat(notHeld);
+let idx = 0;
+
+function rxClass(rx){
+  if(rx.indexOf("+")===0) return "pos";
+  if(rx.indexOf("\u2212")===0 || rx.indexOf("-")===0) return "neg";
+  return "flat";
+}
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+function buildRow(r){
+  const b = document.createElement("button");
+  b.className = "sc-row";
+  b.type = "button";
+  b.innerHTML = '<span class="dot ' + r.v + '"></span>'
+    + '<span class="code">' + esc(r.c) + '</span>'
+    + '<span class="line">' + esc(r.line) + '</span>'
+    + '<span class="rx ' + rxClass(r.rx) + '">' + esc(r.rx) + '</span>'
+    + '<span class="chev">&rsaquo;</span>';
+  b.addEventListener("click", function(){ openResult(order.indexOf(r)); });
+  return b;
+}
+
+const sc = document.getElementById("scorecard");
+if (sc) {
+  let g = document.createElement("div");
+  g.className = "sc-group"; g.textContent = "Portfolio holdings \u2014 21 results";
+  sc.appendChild(g);
+  held.forEach(function(r){ sc.appendChild(buildRow(r)); });
+  g = document.createElement("div");
+  g.className = "sc-group"; g.textContent = "Not held \u2014 top 20 index names, read-through only";
+  sc.appendChild(g);
+  notHeld.forEach(function(r){ sc.appendChild(buildRow(r)); });
+}
+
+const bd = document.getElementById("rsBackdrop");
+function openResult(i){
+  idx = i;
+  const r = order[i];
+  document.getElementById("rsTitle").textContent = r.n + " (" + r.c + ")" + (r.h ? "" : "  \u00b7  not held");
+  document.getElementById("rsSub").textContent = r.d;
+  const v = document.getElementById("rsVerdict");
+  v.className = "mverdict " + r.v;
+  v.textContent = VLABEL[r.v] + " \u2014 " + r.line;
+  document.getElementById("rsTiles").innerHTML = r.t.map(function(t){
+    return '<div class="mtile"><div class="k">' + esc(t[0]) + '</div><div class="v">' + esc(t[1]) + '</div><div class="s">' + esc(t[2] || "") + '</div></div>';
+  }).join("");
+  document.getElementById("rsHighlights").innerHTML = r.hi.map(function(x){ return "<li>" + esc(x) + "</li>"; }).join("");
+  document.getElementById("rsOutlook").innerHTML = r.ou.map(function(x){ return "<li>" + esc(x) + "</li>"; }).join("");
+  document.getElementById("rsDesk").innerHTML = "<strong>Resonant AM &middot; desk note</strong>" + esc(r.dn);
+  document.getElementById("rsPos").textContent = (i + 1) + " of " + order.length;
+  bd.classList.add("open");
+  document.body.style.overflow = "hidden";
+  bd.scrollTop = 0;
+}
+function closeResult(){
+  bd.classList.remove("open");
+  document.body.style.overflow = "";
+}
+document.getElementById("rsClose").addEventListener("click", closeResult);
+bd.addEventListener("click", function(e){ if (e.target === bd) closeResult(); });
+document.addEventListener("keydown", function(e){
+  if (!bd.classList.contains("open")) return;
+  if (e.key === "Escape") closeResult();
+  if (e.key === "ArrowRight") openResult((idx + 1) % order.length);
+  if (e.key === "ArrowLeft") openResult((idx - 1 + order.length) % order.length);
+});
+document.getElementById("rsPrev").addEventListener("click", function(){ openResult((idx - 1 + order.length) % order.length); });
+document.getElementById("rsNext").addEventListener("click", function(){ openResult((idx + 1) % order.length); });
+</script>
+
+</body>
+</html>

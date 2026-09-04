@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Benchmark Data — Vantage Wealth Management | Investment Data Portal</title>
 
-  <meta name="last-updated" content="05 Aug 2026">
+  <meta name="last-updated" content="01 Sep 2026">
   <meta name="owner"        content="Anthony Nguyen">
   <meta name="source"       content="Morgan Stanley">
-  <meta name="as-at"        content="31 Jul 2026">
+  <meta name="as-at"        content="31 Aug 2026">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -168,8 +168,8 @@
         <p class="page-eyebrow">Benchmarks</p>
         <h1>Benchmark Data</h1>
         <div class="page-meta">
-          <span class="meta-item"><strong>As at:</strong> <span id="meta-as-at">31 Jul 2026</span></span>
-          <span class="meta-item"><strong>Last updated:</strong> 05 Aug 2026</span>
+          <span class="meta-item"><strong>As at:</strong> <span id="meta-as-at">31 Aug 2026</span></span>
+          <span class="meta-item"><strong>Last updated:</strong> 01 Sep 2026</span>
           <span class="meta-item"><strong>Owner:</strong> Anthony Nguyen</span>
           <span class="meta-item"><strong>Source:</strong> Morgan Stanley</span>
         </div>
@@ -181,7 +181,8 @@
       <div class="date-switcher-bar">
         <label for="period-select">Viewing data as at:</label>
         <select id="period-select" onchange="switchPeriod(this.value)">
-          <option value="jul2026" selected>31 Jul 2026</option>
+          <option value="aug2026" selected>31 Aug 2026</option>
+          <option value="jul2026">31 Jul 2026</option>
           <option value="jun2026">30 Jun 2026</option>
           <option value="may2026">31 May 2026</option>
           <option value="apr2026">30 Apr 2026</option>
@@ -498,6 +499,105 @@
   // null = N/A
 
   const PERIODS = {
+
+    aug2026: {
+      label: '31 Aug 2026',
+      note: 'All returns in AUD terms unless otherwise stated. Total return unless otherwise stated. Net = after deduction of withholding taxes. CYTD = from 31 December 2025. FYTD = from 30 June 2026 and covers July and August. The Morgan Stanley source sheet does not publish an FYTD column, so these figures are derived by compounding the published July and August monthly returns and may differ from a directly calculated FYTD by rounding. Returns calculated using month-end prices. Source: Morgan Stanley / Bloomberg.',
+      tables: {
+        'tbl-aus-eq': [
+          ['S&P/ASX 200 Accumulation Index',                 1.5,    4.5,    0.3,    3.8,    6.3,    4.4,   11.2,    7.8,    9.4],
+          ['ASX 200 Materials (price return)',              12.0,    3.6,    2.5,   11.0,   22.3,   44.5,   13.3,    8.9,   11.6],
+          ['ASX 200 Energy (price return)',                  3.5,    5.8,   14.8,   16.1,   30.7,   18.3,   -1.6,    8.1,    2.7],
+          ['ASX 200 Industrials (price return)',            -1.9,    0.4,   -5.1,   -3.3,   -2.8,   -6.0,    6.5,    4.3,    4.4],
+          ['ASX 200 Financials (price return)',             -6.1,    1.1,   -6.7,   -0.7,   -0.1,   -4.4,   13.1,    6.9,    4.5],
+          ['ASX 200 Info Technology (price return)',         6.3,    6.1,    5.6,    3.3,  -13.1,  -37.2,    0.2,   -4.5,    8.6],
+          ['ASX 200 Cons Disc (price return)',              -8.1,    4.0,    0.2,   -7.3,   -7.0,  -19.4,    5.2,    0.8,    5.2],
+          ['ASX 200 Consumer Staples (price return)',        0.4,   13.5,    7.1,    0.4,   15.5,    7.7,    2.1,   -1.2,    4.1],
+          ['ASX 200 A-REITs (price return)',                -7.1,   -6.6,   -7.4,   -7.2,  -13.5,  -18.2,    3.2,   -0.9,    0.5],
+          ['ASX 200 Healthcare (price return)',             18.7,   37.5,    5.9,   21.4,   -6.2,  -19.7,   -7.7,   -8.0,    3.7],
+          ['ASX 200 Telecoms (price return)',               -2.8,   -3.4,   -7.0,   -1.8,   -8.5,  -17.1,    1.0,    0.7,   -2.0],
+          ['ASX 200 Utilities (price return)',               7.0,    6.4,    1.3,    5.9,    6.2,    1.8,    5.7,   11.5,    3.0],
+          ['S&P Australian Small Cap Accumulation Index',    5.2,   -0.2,   -6.3,    1.8,   -6.2,   -1.2,    9.8,    2.2,    6.5],
+        ],
+        'tbl-intl-aud': [
+          ['MSCI All Countries World Index (Net)',    0.6,    2.2,    8.9,   -1.0,    6.4,   11.8,   16.5,   11.4,   13.2],
+          ['MSCI World x Aus Index (Net)',            0.6,    2.8,    9.5,   -0.3,    5.3,   10.1,   16.3,   11.7,   13.6],
+          ['MSCI World x Aus Index (Net, Hedged)',    2.8,    3.1,   10.7,    3.1,   13.6,   21.4,   19.6,   11.0,   12.7],
+          ['MSCI Emerging Markets (Net)',             1.6,   -0.7,    7.5,   -3.1,   15.8,   27.5,   19.2,    8.7,    9.8],
+          ['MSCI Asia x Japan (Net)',                 1.4,   -0.9,    9.5,   -3.5,   17.6,   28.5,   20.5,    9.0,   10.5],
+        ],
+        'tbl-dev-aud': [
+          ['US — S&P 500',                    1.1,    2.4,   12.0,   -0.6,    5.8,   10.4,   17.1,   13.3,   16.0],
+          ['Japan — Nikkei 225',              0.9,    0.1,   10.2,   -7.0,   21.7,   32.7,   20.9,   12.8,   12.4],
+          ['Europe — STOXX 50',              -0.1,    6.1,    3.8,   -0.3,    4.0,   11.2,   15.7,   11.6,   11.4],
+          ['Europe — STOXX 600',             -0.8,    3.8,    0.3,   -0.4,    1.3,    7.3,   11.2,    6.8,    7.5],
+          ['Germany — DAX (price return)',    1.3,    4.4,    1.4,    3.1,   -0.9,   -0.4,   16.8,   10.7,   10.5],
+          ['UK — FTSE 100',                  -1.1,    5.8,    1.3,    2.5,    4.8,   11.4,   16.0,   12.9,    9.7],
+          ['Hong Kong — Hang Seng',          -2.9,    3.0,   -2.9,    8.4,   -5.8,   -4.6,   11.8,    3.5,    4.9],
+        ],
+        'tbl-dev-local': [
+          ['US — S&P 500',                    3.1,    2.0,   12.7,    3.0,   13.5,   20.8,   21.2,   12.9,   15.4],
+          ['Japan — Nikkei 225',              3.1,    0.1,   13.6,   -5.3,   32.9,   57.9,   29.0,   21.1,   16.9],
+          ['Europe — STOXX 50',               1.0,    6.3,    6.3,    1.6,   12.9,   22.6,   17.0,   11.6,   10.4],
+          ['Europe — STOXX 600',              0.3,    4.0,    2.7,    1.5,    9.9,   18.4,   12.4,    6.7,    6.6],
+          ['Germany — DAX (price return)',    2.5,    4.6,    3.9,    5.1,    7.2,    9.9,   18.1,   10.6,    9.5],
+          ['UK — FTSE 100',                   0.2,    4.9,    1.4,    3.8,   11.7,   21.6,   17.3,   12.7,    8.8],
+          ['Hong Kong — Hang Seng',          -1.0,    2.7,   -2.0,   12.3,    1.9,    5.1,   15.7,    3.2,    4.5],
+        ],
+        'tbl-ms-ref': [
+          ['S&P 500 (USD) (price return)',                  2.6,    1.4,   11.7,    2.5,   12.3,   19.0,   19.5,   11.2,   13.5],
+          ['MSCI Europe (Local) (price return)',            1.1,    5.2,    3.5,    1.9,   10.5,   18.8,   12.3,    6.8,    6.5],
+          ['TOPIX (JPY) (price return)',                    3.8,    5.0,    5.5,    4.0,   21.9,   35.2,   21.2,   16.2,   12.1],
+          ['ASX 200 (AUD) (price return)',                  1.1,    3.9,   -1.3,    3.4,    4.2,    1.1,    7.5,    3.8,    5.3],
+          ['MSCI Emerging Markets (USD) (price return)',    3.2,   -1.9,    6.7,   -0.2,   22.4,   36.6,   20.6,    5.6,    6.8],
+        ],
+        'tbl-em-aud': [
+          ['China — Shanghai Composite (price return)',    2.5,   -1.0,   -2.9,   -5.1,   -2.8,    0.1,    7.6,    2.0,    3.0],
+          ['Korea — KOSPI (price return)',                 6.6,  -11.3,   14.1,  -12.2,   59.4,   98.6,   32.7,   13.0,   11.1],
+        ],
+        'tbl-em-local': [
+          ['China — Shanghai Composite (price return)',    4.0,   -2.0,   -4.2,   -2.7,    0.4,    3.3,    8.5,    2.4,    2.6],
+          ['Korea — KOSPI (price return)',                 3.4,  -19.5,    9.2,  -19.6,   61.8,  114.1,   38.7,   16.3,   12.9],
+        ],
+        'tbl-prop': [
+          ['ASX 200 A-REITs',                                            -6.7,   -5.1,   -5.8,   -6.8,  -11.6,  -15.5,    6.8,    2.9,    4.7],
+          ['FTSE EPRA/NAREIT Developed Markets (Net)',                   -4.1,    1.6,   -1.6,   -3.1,    2.5,    0.7,    6.0,    1.1,    3.6],
+          ['FTSE EPRA/NAREIT Index (Europe) (Net)',                      -4.5,    0.0,  -10.4,   -2.5,   -6.4,   -6.2,    5.5,   -5.5,    0.9],
+          ['FTSE EPRA/NAREIT Index (North America) (Net)',               -4.2,    3.0,    4.3,   -3.6,    8.5,    5.4,    6.9,    3.1,    4.6],
+          ['FTSE EPRA/NAREIT Index (Asia) (Net)',                        -4.0,   -1.9,  -12.9,   -2.0,   -9.4,   -9.3,    2.9,   -0.3,    2.1],
+          ['Global Listed Infrastructure — S&P Global Infra (Hedged)',   -2.9,   -0.5,   -4.0,   -3.2,    7.1,   11.0,   15.1,    9.9,    7.6],
+        ],
+        'tbl-fi': [
+          ['Bloomberg AusBond Composite Index',                   -0.2,    0.3,    0.5,   -0.6,    1.6,    0.6,    3.3,   -0.1,    1.6],
+          ['Bloomberg AusBond Government Index',                  -0.3,    0.2,    0.3,   -0.8,    1.5,    0.3,    3.0,   -0.5,    1.4],
+          ['Bloomberg AusBond Credit Index',                      -0.1,    0.8,    1.2,   -0.2,    2.1,    1.7,    4.8,    1.8,    3.0],
+          ['Bloomberg AusBond Credit Floating Rate Note Index',    0.4,    1.3,    2.5,    0.8,    3.3,    4.8,    5.2,    4.0,    3.2],
+          ['Solactive Australian Hybrid Securities (Gross)',       0.3,    2.0,    3.3,    0.4,    3.9,    6.5,    7.6,    6.3,    6.3],
+          ['Solactive Australian Hybrid Securities (Net)',         0.3,    1.5,    2.3,    0.4,    3.0,    4.7,    5.6,    4.5,    4.7],
+          ['Bloomberg Global Aggregate (Hedged)',                  0.3,   -0.2,   -0.5,   -0.7,    1.1,    2.7,    4.7,    0.3,    2.0],
+          ['Bloomberg Global Treasury (Hedged)',                   0.1,   -0.3,   -1.5,   -0.7,    0.1,    1.1,    2.7,   -0.7,    0.9],
+          ['Bloomberg Global Corporate Credit (Hedged)',           0.4,   -0.4,   -1.0,   -0.8,    0.5,    2.4,    4.8,   -0.3,    1.9],
+          ['Bloomberg Global High Yield',                          0.8,    1.2,    2.4,    0.8,    3.1,    4.8,    7.7,    4.2,    4.8],
+        ],
+        'tbl-cash': [
+          ['Bloomberg AusBond Bank Bill Index',    0.4,    1.1,    2.2,    0.8,    2.8,    4.0,    4.2,    3.3,    2.2],
+        ],
+        'tbl-comm': [
+          ['Commodities — S&P GSCI',                   2.4,    6.3,   28.9,   13.4,   35.9,   35.5,   12.7,   17.7,   10.6],
+          ['Oil — Brent (US$/barrel)',                 7.3,    6.1,   31.4,   29.2,   50.8,   38.0,    7.2,    9.5, null],
+          ['Gold (US$/ounce)',                         9.7,   -2.3,  -15.9,   10.8,    2.7,   28.7,   31.8,   19.6,   13.0],
+          ['Iron Ore — Dalian futures (CNY/tonne)',    5.9,   -5.7,   -3.2,    0.8,   -7.4,   -7.4,   -6.5,   -4.3,    4.6],
+          ['Thermal Coal — Newcastle (US$/tonne)',     8.9,    8.0,   22.4,    9.3,   31.9,   27.1,   -3.1,   -4.0,    7.5],
+        ],
+        'tbl-fx': [
+          ['AUD/USD',    2.1,   -0.3,    0.7,    3.5,    7.4,    9.6,    3.4,   -0.4,   -0.5],
+          ['AUD/GBP',    1.5,   -1.0,    0.2,    1.4,    6.8,    9.4,    1.1,   -0.1,   -0.8],
+          ['AUD/EUR',    1.3,    0.1,    2.4,    1.8,    8.6,   10.2,    1.0,   -0.1,   -0.9],
+          ['USD/JPY',    1.5,    0.3,    2.4,   -1.7,    1.9,    8.6,    3.2,    7.7,    4.4],
+          ['EUR/USD',    0.8,   -0.4,   -1.6,    1.7,   -1.1,   -0.6,    2.3,   -0.3,    0.4],
+        ],
+      }
+    },
 
     jul2026: {
       label: '31 Jul 2026',
@@ -986,9 +1086,9 @@
     Object.entries(period.tables).forEach(([id, rows]) => renderTable(id, rows));
   }
 
-  // ─── INIT: default to latest (jul2026) ─────────────────────────────────────
+  // ─── INIT: default to latest (aug2026) ─────────────────────────────────────
   document.addEventListener('DOMContentLoaded', function() {
-    switchPeriod('jul2026');
+    switchPeriod('aug2026');
   });
   </script>
 </body>
