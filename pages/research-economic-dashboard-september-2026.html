@@ -52,12 +52,6 @@ section{margin:0 0 52px}
 p{margin:0 0 14px;max-width:76ch}
 .note{color:var(--muted);font-size:13px}
 
-/* house view */
-.house{background:var(--panel);border:1px solid var(--rule);padding:26px 28px 10px}
-.house p:first-child{margin-top:0}
-.house p{font-family:var(--serif);font-size:20px;line-height:1.5;max-width:88ch}
-.house p.close{font-weight:600}
-
 /* signal board (signature) */
 .boardlab{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
   font-weight:700;margin:0 0 7px}
@@ -116,6 +110,7 @@ figure h3{font-size:13.5px;font-weight:600;margin:0 0 2px}
 .bias{display:inline-block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;
   padding:2px 8px;border:1px solid currentColor;white-space:nowrap;font-weight:600}
 .bias--hold{color:var(--muted)} .bias--tight{color:var(--red)} .bias--ease{color:var(--green)}
+.bias--lean{color:var(--amber)}
 .pos{color:var(--green)} .neg{color:var(--red)} .dim{color:var(--rule2)}
 .bar{display:block;width:78px;height:6px;background:var(--band);position:relative}
 .bar__f{display:block;height:6px}
@@ -204,37 +199,6 @@ footer p{max-width:none}
     <span>Next refresh <b>early October 2026</b></span>
   </div>
 </header>
-
-<section>
-  <div class="eyebrow"><h2>House view</h2><span class="asat">written 3 Sep 2026</span></div>
-  <div class="house">
-    <p>The discount rate has moved against a market that has not repriced. The Australian 10 year
-    closed August at 5.09%, up 17 basis points over the month and 35 points calendar year to date,
-    and reached 5.16% on 1 September, its highest level since April 2011. The ASX 200 finished the
-    month on 17.9 times forward earnings against a long-run average of 14.9, a 20% premium, which
-    leaves the forward earnings yield only 0.50 percentage points above the bond and the dividend
-    yield 1.7 points below it. Betashares has the ASX on 18.2 times against 17.0 for global
-    equities, a 7% premium on a market whose forward earnings are expected to grow 8.7% to the
-    end of 2027 against 17.3% globally.</p>
-    <p>The inflation impulse is broader than oil. Brent ended August at US$90.50, up 48.7% calendar
-    year to date after trading above US$100 in late July, while the CRB index rose 6.6% over the
-    month and is 37.4% higher for the year, with wheat up 17.7%, sugar 21.5% and corn 15.9% in
-    August alone. Trimmed mean inflation has not moved off 3.6% for a fourth month even as headline
-    eased to 3.5% in July.</p>
-    <p>The policy skew has flipped from when the RBA cuts to whether it hikes. The Board held at
-    4.35% on 11 August in a unanimous decision while repeating that it will raise again if upside
-    risks materialise, and market pricing now implies 54% for a move to 4.60% on 29 September
-    against 10% a week earlier, with one full hike priced by year end in both Australia and the
-    United States. NAB forecasts that September hike, ANZ and CBA expect one in
-    November, and Westpac expects a hold for the balance of 2026.</p>
-    <p>Our position is caution. We are content to sit short of benchmark duration, we are reluctant
-    to pay a 20% valuation premium for domestic earnings where FY27 consensus growth was cut 2.0
-    points to 9.3% during August, and we would rather be paid to wait than reach for return into a
-    rising discount rate.</p>
-    <p class="close">Quality balance sheets bought at a sensible price will outlast this
-    repricing, and we intend to hold them through it.</p>
-  </div>
-</section>
 
 <section>
   <div class="eyebrow"><h2>Signal board</h2><span class="asat">seven drivers, Australia and global</span></div>
@@ -354,10 +318,10 @@ footer p{max-width:none}
   <div class="tblwrap">
   <table class="tbl tbl--cb">
     <thead><tr><th>Bank</th><th class="num">Policy rate</th><th>Bias</th><th class="num">Last</th><th class="num">Next</th></tr></thead>
-    <tbody><tr><th scope="row">Reserve Bank of Australia<span class="note">Held unanimously for a second consecutive meeting while repeating that it will raise the cash rate further if upside inflation risks materialise. Market pricing implies 54% for 4.60% this month.</span></th><td class="num strong">4.35</td><td><span class="bias bias--hold">Hold</span></td><td class="num">11 Aug</td><td class="num">29 Sep</td></tr><tr><th scope="row">US Federal Reserve<span class="note">Held 9 to 3, with Hammack, Kashkari and Logan dissenting in favour of a 25 basis point rise. Warsh's Jackson Hole address lifted September hike pricing to 60.4%.</span></th><td class="num strong">3.75</td><td><span class="bias bias--hold">Hold</span></td><td class="num">29 Jul</td><td class="num">16 Sep</td></tr><tr><th scope="row">European Central Bank<span class="note">Raised 25 basis points in June, its first increase in three years, then held in July. S&amp;P Global has lifted the odds of a September rise while doubting the 50 points priced by early 2027.</span></th><td class="num strong">2.25</td><td><span class="bias bias--tight">Tightening</span></td><td class="num">23 Jul</td><td class="num">10 Sep</td></tr><tr><th scope="row">Bank of Japan<span class="note">Held in July with Takata's proposal for 1.25% rejected 8 to 1. Deputy Governor Himino said on 2 September the Board will discuss the need to raise rates. S&amp;P Global has brought the next increase forward to October.</span></th><td class="num strong">1.00</td><td><span class="bias bias--tight">Tightening</span></td><td class="num">Jul</td><td class="num">18 Sep</td></tr><tr><th scope="row">Bank of England<span class="note">The central projection has CPI peaking near 3.2% in the December quarter of 2026, with risks to the inflation outlook tilted to the upside.</span></th><td class="num strong">3.75</td><td><span class="bias bias--hold">Hold</span></td><td class="num">30 Jul</td><td class="num">17 Sep</td></tr><tr><th scope="row">Bank of Canada<span class="note">Seventh consecutive hold. The Bank warned that new US tariffs, Canadian counter measures and elevated oil prices raise the risk that inflation moves above 3% rather than settling near 2%.</span></th><td class="num strong">2.25</td><td><span class="bias bias--hold">Hold</span></td><td class="num">2 Sep</td><td class="num">28 Oct</td></tr><tr><th scope="row">Reserve Bank of New Zealand<span class="note">Raised 25 basis points to return inflation sustainably to the 2% midpoint.</span></th><td class="num strong">2.75</td><td><span class="bias bias--tight">Tightening</span></td><td class="num">2 Sep</td><td class="num"><span class="dim">&mdash;</span></td></tr><tr><th scope="row">People's Bank of China<span class="note">Seven day reverse repo unchanged since May 2025 and the one year loan prime rate held at 3.00% for a fifteenth month. New yuan loans fell in July, the sharpest contraction on record.</span></th><td class="num strong">1.40</td><td><span class="bias bias--ease">Easing</span></td><td class="num">20 Aug</td><td class="num">20 Sep</td></tr></tbody>
+    <tbody><tr><th scope="row">Reserve Bank of Australia<span class="note">Held unanimously for a second consecutive meeting while repeating that it will raise the cash rate further if upside inflation risks materialise. Market pricing implies 54% for 4.60% this month.</span></th><td class="num strong">4.35</td><td><span class="bias bias--lean">Hold / tightening</span></td><td class="num">11 Aug</td><td class="num">29 Sep</td></tr><tr><th scope="row">US Federal Reserve<span class="note">Held 9 to 3, with Hammack, Kashkari and Logan dissenting in favour of a 25 basis point rise. Warsh's Jackson Hole address lifted September hike pricing to 60.4%.</span></th><td class="num strong">3.75</td><td><span class="bias bias--lean">Hold / tightening</span></td><td class="num">29 Jul</td><td class="num">16 Sep</td></tr><tr><th scope="row">European Central Bank<span class="note">Raised 25 basis points in June, its first increase in three years, then held in July. S&amp;P Global has lifted the odds of a September rise while doubting the 50 points priced by early 2027.</span></th><td class="num strong">2.25</td><td><span class="bias bias--tight">Tightening</span></td><td class="num">23 Jul</td><td class="num">10 Sep</td></tr><tr><th scope="row">Bank of Japan<span class="note">Held in July with Takata's proposal for 1.25% rejected 8 to 1. Deputy Governor Himino said on 2 September the Board will discuss the need to raise rates. S&amp;P Global has brought the next increase forward to October.</span></th><td class="num strong">1.00</td><td><span class="bias bias--tight">Tightening</span></td><td class="num">Jul</td><td class="num">18 Sep</td></tr><tr><th scope="row">Bank of England<span class="note">The central projection has CPI peaking near 3.2% in the December quarter of 2026, with risks to the inflation outlook tilted to the upside.</span></th><td class="num strong">3.75</td><td><span class="bias bias--hold">Hold</span></td><td class="num">30 Jul</td><td class="num">17 Sep</td></tr><tr><th scope="row">Bank of Canada<span class="note">Seventh consecutive hold. The Bank warned that new US tariffs, Canadian counter measures and elevated oil prices raise the risk that inflation moves above 3% rather than settling near 2%.</span></th><td class="num strong">2.25</td><td><span class="bias bias--hold">Hold</span></td><td class="num">2 Sep</td><td class="num">28 Oct</td></tr><tr><th scope="row">Reserve Bank of New Zealand<span class="note">Raised 25 basis points to return inflation sustainably to the 2% midpoint.</span></th><td class="num strong">2.75</td><td><span class="bias bias--tight">Tightening</span></td><td class="num">2 Sep</td><td class="num"><span class="dim">&mdash;</span></td></tr><tr><th scope="row">People's Bank of China<span class="note">Seven day reverse repo unchanged since May 2025 and the one year loan prime rate held at 3.00% for a fifteenth month. New yuan loans fell in July, the sharpest contraction on record.</span></th><td class="num strong">1.40</td><td><span class="bias bias--ease">Easing</span></td><td class="num">20 Aug</td><td class="num">20 Sep</td></tr></tbody>
   </table>
   </div>
-  <p class="note" style="margin-top:14px">Policy rate is the upper bound of the target range for the Federal Reserve, the deposit facility rate for the ECB and the seven day reverse repo rate for the PBoC. Rates and meeting dates are taken from each central bank rather than from a single monitor, so end of year forecasts are not shown this edition.</p>
+  <p class="note" style="margin-top:14px">Policy rate is the upper bound of the target range for the Federal Reserve, the deposit facility rate for the ECB and the seven day reverse repo rate for the PBoC. Rates and meeting dates are taken from each central bank rather than from a single monitor, so end of year forecasts are not shown this edition. The RBA and the Federal Reserve are shown as borderline: both are on hold but carry an explicit tightening bias, the RBA in its own statement and the Federal Reserve through three dissents in favour of a rise. Banks marked tightening have moved or are expected to move at their next meeting.</p>
 </section>
 
 <section>
