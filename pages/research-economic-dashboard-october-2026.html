@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Economic Dashboard &mdash; October 2026 | Vantage Wealth Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#faf7f0; --panel:#ffffff; --ink:#0d1b2a; --muted:#8a8579;
+  --rule:#e8e3d6; --rule2:#d8d2c4; --band:#f5f1e8;
+  --accent:#b8954b; --green:#4d7a3a; --amber:#b8853a; --red:#a83a3a;
+  --serif:"Cormorant Garamond",Georgia,serif;
+  --sans:"Inter",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--sans); font-size:15px; line-height:1.55;
+  font-feature-settings:"tnum" 1;
+}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px 90px}
+.num,.tbl .num,.ax{font-family:var(--mono);font-variant-numeric:tabular-nums}
+a{color:var(--accent)}
+
+/* masthead */
+.mast{border-bottom:2px solid var(--accent);padding:26px 0 14px;margin-bottom:34px}
+.back{display:inline-block;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  font-weight:600;color:var(--muted);text-decoration:none;margin-bottom:16px}
+.back:hover{color:var(--accent)}
+.mast__kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+  font-weight:600;margin:0 0 10px}
+.mast h1{font-family:var(--serif);font-weight:600;font-size:52px;
+  line-height:1.05;letter-spacing:-.015em;margin:0 0 14px}
+.stamp{display:flex;flex-wrap:wrap;gap:0 26px;font-family:var(--mono);
+  font-size:11.5px;color:var(--muted)}
+.stamp b{color:var(--ink);font-weight:500}
+
+/* section scaffolding */
+section{margin:0 0 52px}
+.eyebrow{display:flex;align-items:baseline;justify-content:space-between;gap:16px;
+  border-top:2px solid var(--accent);padding-top:9px;margin:0 0 20px}
+.eyebrow h2{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin:0}
+.eyebrow .asat{font-family:var(--mono);font-size:11px;color:var(--muted);
+  white-space:nowrap}
+.lede{font-family:var(--serif);font-size:22px;line-height:1.5;
+  max-width:70ch;margin:0 0 18px}
+p{margin:0 0 14px;max-width:76ch}
+.note{color:var(--muted);font-size:13px}
+
+/* signal board (signature) */
+.boardlab{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  font-weight:700;margin:0 0 7px}
+.board + .boardlab{margin-top:26px}
+.board{display:grid;grid-template-columns:repeat(7,1fr);gap:0;border:1px solid var(--rule);
+  background:var(--panel)}
+.sig{padding:14px 13px 16px;border-left:1px solid var(--rule);position:relative}
+.sig:first-child{border-left:0}
+.sig::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--rule2)}
+.sig--green::before{background:var(--green)} .sig--amber::before{background:var(--amber)}
+.sig--red::before{background:var(--red)}
+.sig__top{display:flex;align-items:center;gap:6px;margin-bottom:7px}
+.sig h3{font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin:0;font-weight:700}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--rule2);flex:none}
+.sig--green .dot{background:var(--green)} .sig--amber .dot{background:var(--amber)}
+.sig--red .dot{background:var(--red)}
+.sig__read{font-family:var(--serif);font-size:17px;line-height:1.18;font-weight:500;margin:0 0 9px}
+.sig__spark{color:var(--rule2);margin-bottom:8px;min-height:20px}
+.sig--green .sig__spark{color:var(--green)} .sig--amber .sig__spark{color:var(--amber)}
+.sig--red .sig__spark{color:var(--red)}
+.sig__note{font-size:11px;line-height:1.42;color:var(--muted);margin:0}
+
+/* changed list */
+.changed{list-style:none;padding:0;margin:0;border-top:1px solid var(--rule)}
+.changed li{display:grid;grid-template-columns:150px 1fr;gap:22px;padding:14px 0;
+  border-bottom:1px solid var(--rule);align-items:baseline}
+.changed .tag{font-family:var(--mono);font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted)}
+.changed p{margin:0}
+
+/* charts */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.grid2 > .span2{grid-column:1 / -1}
+figure{margin:0;background:var(--panel);border:1px solid var(--rule);padding:18px 20px 14px}
+figcaption{font-size:13px;color:var(--muted);margin-top:2px;line-height:1.45}
+figure h3{font-size:13.5px;font-weight:600;margin:0 0 2px}
+.chart{width:100%;height:auto;display:block;margin:6px 0 2px}
+.chart .grid{stroke:var(--rule);stroke-width:1}
+.chart .div{stroke:var(--rule2);stroke-width:1;stroke-dasharray:2 3}
+.ax{font-size:10px;fill:var(--muted)}
+.ax.sm{font-size:9px}
+.num.lg{font-family:var(--mono);font-size:14px;font-weight:600;fill:var(--ink)}
+.key{display:flex;flex-wrap:wrap;gap:14px;font-size:11.5px;color:var(--muted);margin-top:8px}
+.key i{display:inline-block;width:14px;height:3px;margin-right:6px;vertical-align:middle}
+
+/* tables */
+.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
+.tbl th,.tbl td{text-align:left;padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);
+  vertical-align:top}
+.tbl thead th{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+  font-weight:600;border-bottom:1px solid var(--ink);padding-bottom:7px}
+.tbl .num{text-align:right;padding-right:16px;white-space:nowrap}
+.tbl .strong{font-weight:600}
+.tbl--cb th[scope=row]{font-weight:600;width:38%}
+.tbl--cb .note{display:block;font-weight:400;margin-top:3px;max-width:62ch}
+.bias{display:inline-block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  padding:2px 8px;border:1px solid currentColor;white-space:nowrap;font-weight:600}
+.bias--hold{color:var(--muted)} .bias--tight{color:var(--red)} .bias--ease{color:var(--green)}
+.bias--lean{color:var(--amber)}
+.pos{color:var(--green)} .neg{color:var(--red)} .dim{color:var(--rule2)}
+.bar{display:block;width:78px;height:6px;background:var(--band);position:relative}
+.bar__f{display:block;height:6px}
+.bar__f--pos{background:var(--green)} .bar__f--neg{background:var(--red)}
+.barcell{width:90px;padding-top:14px}
+.mkts{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.mkt h4,.cb__grp h4,.vb__grp h4{font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 6px;font-weight:700}
+.tbl--mkt th[scope=row]{font-weight:400;padding-right:8px}
+
+/* lights */
+.light{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:9px;
+  background:var(--rule2);vertical-align:baseline}
+.light--g{background:var(--green)} .light--a{background:var(--amber)} .light--r{background:var(--red)}
+.cb{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;background:var(--panel);
+  border:1px solid var(--rule);padding:20px 22px}
+.cb ul{list-style:none;margin:0;padding:0;font-size:13.5px}
+.cb li{padding:5px 0;border-bottom:1px solid var(--rule)}
+.cb li:last-child{border-bottom:0}
+.cb__overall{grid-column:1/-1;border-top:1px solid var(--ink);padding-top:14px;
+  display:flex;align-items:center;gap:12px}
+.cb__overall b{font-size:15px}
+.vb{display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px}
+.tbl--vb th[scope=row]{font-weight:500;width:52%}
+.tbl--vb .note{font-size:11.5px;line-height:1.4;padding-left:0}
+.tbl--vb td.num{padding-right:12px;width:24%}
+
+/* risks */
+.risks{display:grid;grid-template-columns:1fr 1fr;gap:0 34px}
+.risk{padding:15px 0;border-bottom:1px solid var(--rule)}
+.risk h4{margin:0 0 4px;font-size:14px;font-weight:600}
+.risk h4 span{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;
+  text-transform:uppercase;padding:1px 7px;margin-right:9px;border:1px solid currentColor}
+.risk--hi h4 span{color:var(--red)} .risk--md h4 span{color:var(--amber)}
+.risk--lo h4 span{color:var(--green)}
+.risk p{margin:0;font-size:13px;color:var(--muted)}
+
+/* calendar */
+.cal{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--ink)}
+.cal div{flex:1 1 150px;padding:13px 16px 15px;border-bottom:1px solid var(--rule);
+  border-right:1px solid var(--rule)}
+.cal div:last-child{border-right:0}
+.cal .d{font-family:var(--mono);font-size:12px;color:var(--muted);display:block}
+.cal .e{font-size:13.5px;font-weight:500}
+
+footer{border-top:1px solid var(--ink);padding-top:16px;font-size:12px;color:var(--muted)}
+footer p{max-width:none}
+
+@media(max-width:1000px){
+  .barcell,.tbl--mkt thead th:last-child{display:none}
+  .board{grid-template-columns:repeat(4,1fr)}
+  .sig{border-left:1px solid var(--rule)}
+  .sig:nth-child(4n+1){border-left:0}
+  .sig:nth-child(n+5){border-top:1px solid var(--rule)}
+  .mkts,.cb,.vb{grid-template-columns:1fr 1fr}
+}
+@media(max-width:680px){
+  .wrap{padding:0 18px 60px}
+  .eyebrow{flex-wrap:wrap}
+  .eyebrow .asat{white-space:normal}
+  .tbl--cb{min-width:520px}
+  .tbl thead th{white-space:normal}
+  .tbl .num{padding-right:8px}
+  figure{padding:16px 14px 12px}
+  .mast h1{font-size:36px}
+  .board,.grid2,.mkts,.cb,.vb,.risks{grid-template-columns:1fr}
+  .sig{border-left:0;border-top:1px solid var(--rule)}
+  .sig:first-child{border-top:0}
+  .changed li{grid-template-columns:1fr;gap:4px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="mast">
+  <a class="back" href="./research-economic-dashboard.html">&larr; Economic Dashboard editions</a>
+  <p class="mast__kicker">Vantage Wealth Management &middot; Investment Data Portal &middot; Research</p>
+  <h1>Economic Dashboard</h1>
+  <div class="stamp">
+    <span>As at <b>30 September 2026</b></span>
+    <span>Edition <b>October 2026</b></span>
+    <span>Owner <b>Anthony Nguyen</b></span>
+    <span>Next refresh <b>early November 2026</b></span>
+  </div>
+</header>
+
+<section>
+  <p class="note" style="margin:0 0 4px">This edition incorporates the Morgan Stanley Australia Macro+ Monthly of 2 October, with market levels, valuation and earnings data as at 30 September. Betashares Market Trends for October had not been published, so the Australia against the world comparison carries its 31 August readings.</p>
+</section>
+
+<section>
+  <div class="eyebrow"><h2>Signal board</h2><span class="asat">seven drivers, Australia and global</span></div>
+  <p class="boardlab">Australia</p>
+  <div class="board"><article class="sig sig--amber"><div class="sig__top"><span class="dot"></span><h3>Growth</h3></div><p class="sig__read">Slowing</p><div class="sig__spark"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><path d="M1.0,15.3 L10.5,10.0 L20.0,8.2 L29.4,3.8 L38.6,4.7 L48.1,8.2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/><path d="M48.1,8.2 L57.6,10.0 L67.0,16.2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="2 2"/><circle cx="67.0" cy="16.2" r="2" fill="currentColor"/></svg></div><p class="sig__note">MS GDP 1.9% in 2026, 1.4% in 2027; unemployment 4.6%</p></article><article class="sig sig--red"><div class="sig__top"><span class="dot"></span><h3>Inflation</h3></div><p class="sig__read">Headline back to 4%</p><div class="sig__spark"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><path d="M1.0,14.1 L6.9,12.1 L13.1,16.2 L19.0,12.1 L25.1,12.1 L31.2,13.1 L36.8,3.8 L42.9,7.9 L48.8,10.0 L54.9,12.1 L60.9,15.2 L67.0,10.0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/><circle cx="67.0" cy="10.0" r="2" fill="currentColor"/></svg></div><p class="sig__note">Headline 4.0% in August; trimmed mean steady at 3.6%</p></article><article class="sig sig--red"><div class="sig__top"><span class="dot"></span><h3>Policy</h3></div><p class="sig__read">Hiked to 4.60%</p><div class="sig__spark"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><path d="M1.0,16.2 L6.4,16.2 L12.0,16.2 L17.5,16.2 L23.1,16.2 L28.7,13.1 L33.7,10.0 L39.3,10.0 L44.8,6.9 L50.4,6.9 L55.8,6.9 L61.4,6.9 L67.0,3.8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/><circle cx="67.0" cy="3.8" r="2" fill="currentColor"/></svg></div><p class="sig__note">+25bp on 29 Sep, unanimous, fourth rise of 2026; next 3 Nov</p></article><article class="sig sig--red"><div class="sig__top"><span class="dot"></span><h3>Rates</h3></div><p class="sig__read">15 year high</p><div class="sig__spark"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><path d="M1.0,16.0 L6.4,16.2 L12.0,13.6 L17.5,10.9 L23.1,10.2 L28.7,12.0 L33.7,8.2 L39.3,7.1 L44.8,9.8 L50.4,11.1 L55.8,8.6 L61.4,7.0 L67.0,3.8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/><circle cx="67.0" cy="3.8" r="2" fill="currentColor"/></svg></div><p class="sig__note">10yr 5.35% at month end, +26bp; 5.40% peak on 15 Sep</p></article><article class="sig sig--amber"><div class="sig__top"><span class="dot"></span><h3>Commodities</h3></div><p class="sig__read">Mixed</p><div class="sig__spark"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><path d="M1.0,4.7 L22.8,3.8 L44.8,11.4 L59.7,10.3 L67.0,16.2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/><circle cx="67.0" cy="16.2" r="2" fill="currentColor"/></svg></div><p class="sig__note">Iron ore -5.9% to US$94.1/t, gold -6.3%; coal +3.4%</p></article><article class="sig sig--amber"><div class="sig__top"><span class="dot"></span><h3>Earnings</h3></div><p class="sig__read">Downgrades building</p><div class="sig__spark"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><path d="M1.0,5.1 L17.4,3.8 L35.4,7.3 L50.6,11.6 L51.7,12.5 L63.2,13.4 L67.0,16.2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/><circle cx="67.0" cy="16.2" r="2" fill="currentColor"/></svg></div><p class="sig__note">FY27 cut to 7.2% from 9.3% in Sep; 3m revisions -4.6%</p></article><article class="sig sig--amber"><div class="sig__top"><span class="dot"></span><h3>Markets</h3></div><p class="sig__read">First fall since April</p><div class="sig__spark"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><path d="M1.0,8.6 L17.6,11.3 L33.9,16.2 L50.4,10.0 L61.6,3.8 L67.0,9.8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/><circle cx="67.0" cy="9.8" r="2" fill="currentColor"/></svg></div><p class="sig__note">ASX 200 -2.4% TR in Sep; 137 of 200 stocks fell</p></article></div>
+  <p class="boardlab">Global</p>
+  <div class="board"><article class="sig sig--green"><div class="sig__top"><span class="dot"></span><h3>Growth</h3></div><p class="sig__read">Resilient</p><div class="sig__spark"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><path d="M1.0,3.8 L34.0,16.2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/><path d="M34.0,16.2 L67.0,6.3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="2 2"/><circle cx="67.0" cy="6.3" r="2" fill="currentColor"/></svg></div><p class="sig__note">IMF 3.0% for 2026 (July); Fed lifts US 2026 GDP to 2.3%</p></article><article class="sig sig--red"><div class="sig__top"><span class="dot"></span><h3>Inflation</h3></div><p class="sig__read">Energy led</p><div class="sig__spark"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><path d="M1.0,16.2 L67.0,3.8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/><circle cx="67.0" cy="3.8" r="2" fill="currentColor"/></svg></div><p class="sig__note">August CPI: US 3.4%, euro area 3.3%, UK 3.1%</p></article><article class="sig sig--red"><div class="sig__top"><span class="dot"></span><h3>Policy</h3></div><p class="sig__read">Hiking</p><div class="sig__spark"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><path d="M1.0,3.8 L6.4,10.0 L12.0,10.0 L17.5,16.2 L23.1,16.2 L28.7,16.2 L33.7,16.2 L39.3,16.2 L44.8,16.2 L50.4,16.2 L55.8,16.2 L61.4,16.2 L67.0,10.0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/><circle cx="67.0" cy="10.0" r="2" fill="currentColor"/></svg></div><p class="sig__note">Fed, ECB and BoJ raised in September; BoE held 6-3</p></article><article class="sig sig--red"><div class="sig__top"><span class="dot"></span><h3>Rates</h3></div><p class="sig__read">Selling off</p><div class="sig__spark"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><path d="M1.0,14.2 L15.0,16.2 L22.8,12.5 L44.8,11.4 L59.7,8.7 L67.0,3.8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/><circle cx="67.0" cy="3.8" r="2" fill="currentColor"/></svg></div><p class="sig__note">US 10yr 5.28% at month end, +53bp, a 2007 high</p></article><article class="sig sig--red"><div class="sig__top"><span class="dot"></span><h3>Commodities</h3></div><p class="sig__read">Energy higher</p><div class="sig__spark"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><path d="M1.0,16.2 L22.8,3.8 L44.8,13.3 L59.7,9.1 L67.0,6.0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/><circle cx="67.0" cy="6.0" r="2" fill="currentColor"/></svg></div><p class="sig__note">Brent +14.4% to US$103.5; CRB flat, +37.3% CYTD</p></article><article class="sig sig--green"><div class="sig__top"><span class="dot"></span><h3>Earnings</h3></div><p class="sig__read">Broadening</p><div class="sig__spark"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><path d="M1,10 L67,10" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="1 3"/></svg></div><p class="sig__note">Global forward EPS growth 17.3% to end 2027 (31 Aug)</p></article><article class="sig sig--amber"><div class="sig__top"><span class="dot"></span><h3>Markets</h3></div><p class="sig__read">Slowing</p><div class="sig__spark"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><path d="M1.0,11.6 L22.8,16.2 L44.8,5.5 L59.7,3.8 L67.0,4.2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/><circle cx="67.0" cy="4.2" r="2" fill="currentColor"/></svg></div><p class="sig__note">MSCI ACWI -0.9% local; +2.0% in AUD on the dollar</p></article></div>
+  <p class="note" style="margin-top:10px">Sparklines, oldest to latest. Australia: real GDP growth year on year, March 2025 to June 2026 with Morgan Stanley forecasts to December 2026 dashed; headline CPI, September 2025 to August 2026; cash rate and 10 year yield, September 2025 to September 2026; iron ore 62% CFR, quarter ends to September; FY27 consensus EPS growth, June to September; ASX 200, quarter ends to September. Global: IMF world growth 2025 to 2027 (2027 dashed); IMF world CPI 2025 to 2026; Fed funds upper bound and US 10 year to September; Brent and S&amp;P 500, quarter ends to September. Global earnings has no reliable time series this month and is shown flat. Sources: Morgan Stanley, ABS, RBA, IMF, Federal Reserve, ClearBridge.</p>
+</section>
+
+<section>
+  <div class="eyebrow"><h2>What changed this month</h2><span class="asat">September 2026</span></div>
+  <ul class="changed">
+    <li><span class="tag">RBA</span><p>The RBA raised the cash rate 25 basis points to 4.60% on 29 September in a
+      unanimous decision, its fourth increase of 2026 and the highest setting since late 2011. The Board said some of the
+      upside risks to inflation were materialising, citing further disruptions to global oil supply, growth and inflation
+      running above its expectations, and partial pass through of fuel costs to other prices. It repeated that it will
+      raise the cash rate further if needed. The next decision is on 3 November, after the September quarter CPI on
+      28 October.</p></li>
+    <li><span class="tag">Inflation</span><p>Headline CPI rose to 4.0% in the year to August from 3.5% in July, led by
+      housing at 5.7% and transport at 5.6%, with new dwelling prices up 5.4% as builders passed on materials and labour
+      costs. Trimmed mean held at 3.6%, which the ABS describes as a third consecutive month at that rate, with automotive
+      fuel and electricity excluded and accounting for most of the gap to headline. EY estimates six month annualised
+      trimmed mean at 3.9%, above the twelve month rate. Melbourne Institute inflation expectations held at 4.9% in
+      August.</p></li>
+    <li><span class="tag">Central banks</span><p>Four other central banks on this page moved inside four weeks. The RBNZ
+      raised to 2.75% on 2 September, the ECB raised the deposit rate to 2.50% on 10 September, the Federal Reserve lifted
+      its target range to 3.75% to 4.00% on 16 September on a 12 to 0 vote, its first increase since 2023, and the Bank of
+      Japan moved to 1.25% on 18 September, carried 7 to 2. The Bank of England held at 3.75% on 17 September with Greene,
+      Mann and Pill voting for 4.00%, and the Federal Reserve's projections have 16 of 18 participants expecting at least
+      one further rise this year.</p></li>
+    <li><span class="tag">Bond yields</span><p>The United States 10 year closed September at 5.28%, up 53 basis points for the month and its highest since 2007, with the 30 year reaching 5.56%, its highest since 2004. The Australian 10 year reached 5.40% on 15 September, the highest since May 2011, and closed the month at 5.35%, up 26 basis points. Japanese 10 year yields reached a thirty year high and German 10 year yields their highest since 2009. The Bloomberg AusBond Composite returned minus 0.9% and the Global Aggregate hedged minus 1.6%. ClearBridge attributes most of the United States move since late February to real yields, up 50 basis points against 15 for inflation expectations and 17 for the term premium.</p></li>
+    <li><span class="tag">Oil and the Gulf</span><p>Strikes between the United States and Iran resumed around the Strait of Hormuz in the first week of September, and damage to three pumping stations on Saudi Arabia's East to West pipeline took Brent to a four month high near US$106 on 15 September. Brent closed the month at US$103.5, up 14.4% for September and 70.1% for the calendar year. Goldman Sachs lifted its December 2026 Brent forecast by US$5 to US$85. The EIA assumes Middle East export constraints persist through the end of the year, with regional output below prewar averages until the June quarter of 2027.</p></li>
+    <li><span class="tag">Jobs and business</span><p>Unemployment rose to 4.6% in August, the highest since November 2021,
+      as employment rose 39,500 and participation lifted 0.2 points to 67.1%, so more people entered the labour force than
+      found work. The ABS has changed its supplementary survey method from the August data and recommends the trend series,
+      which also sits at 4.6%. NAB business conditions fell 5 points to minus 1 in August, the first negative reading in six
+      years, with profitability down 10 points to minus 9. Westpac Melbourne Institute consumer sentiment fell 5.2% to 84.4
+      in September.</p></li>
+    <li><span class="tag">Housing</span><p>Cotality's national index fell 1.1% in September, a sixth consecutive monthly
+      decline, leaving values 5.2% below the March peak and unchanged over twelve months. Brisbane fell 1.5% and Sydney 1.4%,
+      with Sydney now 8.6% below its February peak, and 97% of capital city suburbs fell over the September quarter. Sales
+      over the past three months are tracking 19.1% below a year earlier. Cotality's Tim Lawless expects values to keep
+      falling into 2027.</p></li>
+    <li><span class="tag">Private credit</span><p>Bathla Group entered voluntary administration on 25 August with about
+      $3.4 billion of known debt, including $3.08 billion owed to secured lenders across roughly 40 private credit funds, and
+      the NSW Supreme Court has extended the convening period to 13 September 2027. Metrics Credit Partners, which manages
+      about $40 billion, suspended three ASX listed funds on 28 September after its auditor KPMG took different positions on
+      valuation inputs, cutting net tangible assets by between 1.99% and 12.16%, and on 30 September suspended redemptions
+      from the underlying wholesale funds. ASIC Chair Sarah Court has described Bathla as a troubling development for the
+      sector, with the regulator's concerns centred on property development and construction lending.</p></li>
+    <li><span class="tag">Australian equities</span><p>The ASX 200 Accumulation Index returned minus 2.4% in September to close at 8,789, ending five consecutive monthly gains, and is up 3.7% for the calendar year. Information technology fell 10.6% and materials 6.0% as gold and iron ore fell, with BHP alone taking 76 basis points off the index, while health care (+4.4%) and energy (+0.6%) were the only sectors higher. The forward multiple eased to 17.1 times while FY27 consensus earnings growth was cut to 7.2%, and Morgan Stanley sees risk to earnings on the downside into AGM season. Small caps returned minus 2.3% and A-REITs minus 1.9%.</p></li>
+    <li><span class="tag">Global equities</span><p>The MSCI All Countries World Index returned 2.0% in Australian dollars
+      as the currency fell 3.1% against the US dollar to 0.6947, which turned mostly negative local markets into positive
+      unhedged returns. In local currency the S&amp;P 500 returned minus 0.3%, the DAX minus 4.0% and the STOXX 600 minus
+      2.5%, while the Nikkei added 1.3%. MSCI World ex Australia returned 1.6% unhedged against minus 0.5% hedged.</p></li>
+  </ul>
+</section>
+
+<section>
+  <div class="eyebrow"><h2>Australia</h2><span class="asat">RBA, ABS, Cotality &middot; to 30 Sep 2026</span></div>
+  <div class="grid2">
+    <figure>
+      <h3>Cash rate and the forecast path</h3>
+      <svg viewBox="0 0 700 178" class="chart" role="img" aria-label="RBA cash rate"><line class="grid" x1="46" y1="150.0" x2="700" y2="150.0"/><text class="ax" x="40" y="153.5" text-anchor="end">3.25</text><line class="grid" x1="46" y1="107.3" x2="700" y2="107.3"/><text class="ax" x="40" y="110.8" text-anchor="end">3.75</text><line class="grid" x1="46" y1="64.7" x2="700" y2="64.7"/><text class="ax" x="40" y="68.2" text-anchor="end">4.25</text><line class="grid" x1="46" y1="22.0" x2="700" y2="22.0"/><text class="ax" x="40" y="25.5" text-anchor="end">4.75</text><line x1="368.0" y1="18" x2="368.0" y2="152" stroke="var(--muted)" stroke-dasharray="2 3"/><path d="M46.0,98.8 L67.5,98.8 L67.5,120.1 L88.9,120.1 L88.9,120.1 L110.4,120.1 L110.4,120.1 L131.9,120.1 L131.9,120.1 L153.3,120.1 L153.3,120.1 L174.8,120.1 L174.8,120.1 L196.3,120.1 L196.3,98.8 L217.7,98.8 L217.7,77.5 L239.2,77.5 L239.2,77.5 L260.7,77.5 L260.7,56.1 L282.1,56.1 L282.1,56.1 L303.6,56.1 L303.6,56.1 L325.1,56.1 L325.1,56.1 L346.5,56.1 L346.5,34.8 L368.0,34.8" fill="none" stroke="var(--ink)" stroke-width="2"/><path d="M368.0,34.8 L389.5,34.8 L389.5,34.8 L410.9,34.8 L410.9,34.8 L432.4,34.8 L432.4,34.8 L453.9,34.8 L453.9,34.8 L475.3,34.8 L475.3,34.8 L496.8,34.8 L496.8,34.8 L518.3,34.8 L518.3,34.8 L539.7,34.8 L539.7,34.8 L561.2,34.8 L561.2,34.8 L582.7,34.8 L582.7,34.8 L604.1,34.8 L604.1,56.1 L625.6,56.1 L625.6,56.1 L647.1,56.1 L647.1,56.1 L668.5,56.1 L668.5,77.5 L690.0,77.5" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 3"/><circle cx="357.3" cy="34.8" r="3.6" fill="var(--red)"/><text class="ax sm" x="346.5" y="26.8" text-anchor="middle" fill="var(--red)">4.60%, 29 Sep</text><text class="ax sm" x="688" y="91.5" text-anchor="end" fill="var(--accent)">MS 4.10% Dec 27</text><text class="ax" x="56.7" y="166" text-anchor="middle">Jul 25</text><text class="ax" x="185.5" y="166" text-anchor="middle">Jan 26</text><text class="ax" x="314.3" y="166" text-anchor="middle">Jul</text><text class="ax" x="443.1" y="166" text-anchor="middle">Jan 27</text><text class="ax" x="571.9" y="166" text-anchor="middle">Jul</text><text class="ax" x="679.3" y="166" text-anchor="middle">Dec 27</text></svg>
+      <div class="key"><span><i style="background:var(--ink)"></i>Actual</span><span><i style="background:var(--accent)"></i>Morgan Stanley forecast, quarter end</span></div>
+      <figcaption>Four increases in 2026 have taken the cash rate from 3.60% to 4.60%, the latest on
+      29 September. Morgan Stanley's 2 October forecasts have the cash rate holding at 4.60% until mid-2027, then cuts to 4.35%
+      in the September quarter and 4.10% by December 2027. The RBA said it will raise the cash rate further if needed.</figcaption>
+    </figure>
+    <figure>
+      <h3>Inflation, year on year</h3>
+      <svg viewBox="0 0 700 178" class="chart" role="img" aria-label="Australian inflation"><rect x="46" y="107.33" width="644" height="42.67" fill="var(--band)"/><line class="grid" x1="46" y1="150.0" x2="700" y2="150.0"/><text class="ax" x="40" y="153.5" text-anchor="end">2.0</text><line class="grid" x1="46" y1="128.7" x2="700" y2="128.7"/><text class="ax" x="40" y="132.2" text-anchor="end">2.5</text><line class="grid" x1="46" y1="107.3" x2="700" y2="107.3"/><text class="ax" x="40" y="110.8" text-anchor="end">3.0</text><line class="grid" x1="46" y1="86.0" x2="700" y2="86.0"/><text class="ax" x="40" y="89.5" text-anchor="end">3.5</text><line class="grid" x1="46" y1="64.7" x2="700" y2="64.7"/><text class="ax" x="40" y="68.2" text-anchor="end">4.0</text><line class="grid" x1="46" y1="43.3" x2="700" y2="43.3"/><text class="ax" x="40" y="46.8" text-anchor="end">4.5</text><line class="grid" x1="46" y1="22.0" x2="700" y2="22.0"/><text class="ax" x="40" y="25.5" text-anchor="end">5.0</text><path d="M46.0,81.7 L104.5,73.2 L163.1,90.3 L221.6,73.2 L280.2,73.2 L338.7,77.5 L397.3,39.1 L455.8,56.1 L514.4,64.7 L572.9,73.2 L631.5,86.0 L690.0,64.7" fill="none" stroke="var(--ink)" stroke-width="2"/><path d="M46.0,98.8 L104.5,94.5 L163.1,94.5 L221.6,94.5 L280.2,94.5 L338.7,94.5 L397.3,94.5 L455.8,90.3 L514.4,86.0 L572.9,81.7 L631.5,81.7 L690.0,81.7" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 3"/><text class="ax" x="52" y="120.1">target band</text><text class="ax" x="46.0" y="166" text-anchor="middle">Sep 25</text><text class="ax" x="221.6" y="166" text-anchor="middle">Dec</text><text class="ax" x="397.3" y="166" text-anchor="middle">Mar 26</text><text class="ax" x="572.9" y="166" text-anchor="middle">Jun</text><text class="ax" x="690.0" y="166" text-anchor="middle">Aug</text></svg>
+      <div class="key"><span><i style="background:var(--ink)"></i>Headline CPI</span>
+        <span><i style="background:var(--accent)"></i>Trimmed mean</span></div>
+      <figcaption>Headline rose to 4.0% in August from 3.5% in July on electricity and automotive fuel, both of
+      which the trimmed mean excludes. Trimmed mean held at 3.6% for a third consecutive month, the reading that matters for the Board, and the September
+      quarter release on 28 October is the next input before the 3 November meeting. Morgan Stanley forecasts trimmed mean
+      easing to 3.2% by December 2026 and 2.5% by December 2027.</figcaption>
+    </figure>
+    <figure>
+      <h3>Unemployment rate</h3>
+      <svg viewBox="0 0 700 178" class="chart" role="img" aria-label="Unemployment rate"><line class="grid" x1="46" y1="150.0" x2="700" y2="150.0"/><text class="ax" x="40" y="153.5" text-anchor="end">3.9</text><line class="grid" x1="46" y1="118.0" x2="700" y2="118.0"/><text class="ax" x="40" y="121.5" text-anchor="end">4.2</text><line class="grid" x1="46" y1="86.0" x2="700" y2="86.0"/><text class="ax" x="40" y="89.5" text-anchor="end">4.5</text><line class="grid" x1="46" y1="54.0" x2="700" y2="54.0"/><text class="ax" x="40" y="57.5" text-anchor="end">4.8</text><line class="grid" x1="46" y1="22.0" x2="700" y2="22.0"/><text class="ax" x="40" y="25.5" text-anchor="end">5.1</text><path d="M46.0,96.7 L89.1,107.3 L132.2,107.3 L175.3,128.7 L218.4,128.7 L261.5,107.3 L304.5,107.3 L347.6,86.0 L390.7,96.7 L433.8,96.7 L476.9,86.0 L520.0,75.3" fill="none" stroke="var(--ink)" stroke-width="2"/><path d="M520.0,75.3 L570.0,64.7" stroke="var(--amber)" stroke-width="1.4" stroke-dasharray="3 3" fill="none"/><circle cx="570.0" cy="64.7" r="3.2" fill="var(--amber)"/><text class="ax" x="578.0" y="68.2" fill="var(--amber)">MS Dec 26  4.7</text><path d="M520.0,75.3 L570.0,22.0" stroke="var(--red)" stroke-width="1.4" stroke-dasharray="3 3" fill="none"/><circle cx="570.0" cy="22.0" r="3.2" fill="var(--red)"/><text class="ax" x="578.0" y="25.5" fill="var(--red)">MS Dec 27  5.1</text><text class="ax" x="528.0" y="91.3" fill="var(--muted)">RBA peak 4.6</text><text class="ax" x="46.0" y="166" text-anchor="middle">Sep 25</text><text class="ax" x="175.3" y="166" text-anchor="middle">Dec</text><text class="ax" x="304.5" y="166" text-anchor="middle">Mar 26</text><text class="ax" x="433.8" y="166" text-anchor="middle">Jun</text><text class="ax" x="520.0" y="166" text-anchor="middle">Aug</text></svg>
+      <figcaption>The rate rose to 4.6% in August, the highest since November 2021 and level with the
+      RBA's stated 4.6% cycle peak, as employment rose 39,500 and participation lifted to 67.1%. Morgan Stanley's
+      2 October forecasts are 4.7% by December 2026 and 5.1% by December 2027, the latter lifted from 4.9%. The ABS recommends the
+      trend series for August given a change to its survey method; trend unemployment is also 4.6%.</figcaption>
+    </figure>
+    <figure>
+      <h3>Cotality national home value index, month on month</h3>
+      <svg viewBox="0 0 700 160" class="chart" role="img" aria-label="Cotality home value index"><line class="grid" x1="46" y1="132.0" x2="700" y2="132.0"/><text class="ax" x="40" y="135.5" text-anchor="end">-1.4</text><line class="grid" x1="46" y1="104.5" x2="700" y2="104.5"/><text class="ax" x="40" y="108.0" text-anchor="end">-1.0</text><line class="grid" x1="46" y1="77.0" x2="700" y2="77.0"/><text class="ax" x="40" y="80.5" text-anchor="end">-0.6</text><line class="grid" x1="46" y1="49.5" x2="700" y2="49.5"/><text class="ax" x="40" y="53.0" text-anchor="end">-0.2</text><line class="grid" x1="46" y1="22.0" x2="700" y2="22.0"/><text class="ax" x="40" y="25.5" text-anchor="end">0.2</text><rect x="66.0" y="35.75" width="88" height="20.62" fill="var(--red)"/><text class="ax sm" x="110.0" y="69.1" text-anchor="middle">-0.3</text><text class="ax" x="110.0" y="148" text-anchor="middle">May</text><rect x="194.0" y="35.75" width="88" height="27.50" fill="var(--red)"/><text class="ax sm" x="238.0" y="76.0" text-anchor="middle">-0.4</text><text class="ax" x="238.0" y="148" text-anchor="middle">Jun</text><rect x="322.0" y="35.75" width="88" height="82.50" fill="var(--red)"/><text class="ax sm" x="366.0" y="130.9" text-anchor="middle">-1.2</text><text class="ax" x="366.0" y="148" text-anchor="middle">Jul</text><rect x="450.0" y="35.75" width="88" height="61.88" fill="var(--red)"/><text class="ax sm" x="494.0" y="110.3" text-anchor="middle">-0.9</text><text class="ax" x="494.0" y="148" text-anchor="middle">Aug</text><rect x="578.0" y="35.75" width="88" height="75.62" fill="var(--red)"/><text class="ax sm" x="622.0" y="124.1" text-anchor="middle">-1.1</text><text class="ax" x="622.0" y="148" text-anchor="middle">Sep</text><line x1="46" y1="35.75" x2="690" y2="35.75" stroke="var(--ink)" stroke-width="1"/></svg>
+      <figcaption>Six consecutive falls have taken national values 5.2% below the March peak and left them
+      unchanged over twelve months. The combined capitals fell 1.2% in September against 0.7% for regional markets, and
+      Darwin was the only capital to rise. Cotality monthly history before May is not carried on this page.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow"><h2>Australian cycle board</h2><span class="asat">Vantage prototype &middot; thresholds not yet calibrated</span></div>
+  <p class="note" style="margin-bottom:18px">Twelve series grouped the way ClearBridge groups the United States, read against their own history rather than a model. This is a discipline for asking the same question every month, not a forecast. Each reading carries its own reference month.</p>
+  <div class="vb"><div class="vb__grp"><h4>Consumer</h4><table class="tbl tbl--vb"><tbody><tr><th scope="row"><span class="light light--r"></span>Consumer confidence</th><td class="num strong">84.4</td><td class="note">September, down 5.2% on fuel and rate concerns</td></tr><tr><th scope="row"><span class="light light--a"></span>Household consumption</th><td class="num strong">+0.4% q/q</td><td class="note">June quarter, subdued across most categories</td></tr><tr><th scope="row"><span class="light light--a"></span>Building approvals</th><td class="num strong">+8.9% y/y</td><td class="note">June, latest available reading</td></tr><tr><th scope="row"><span class="light light--r"></span>Unemployment</th><td class="num strong">4.6%</td><td class="note">August, highest since November 2021</td></tr><tr><th scope="row"><span class="light light--r"></span>Dwelling values</th><td class="num strong">-1.1% m/m</td><td class="note">September, sixth consecutive fall</td></tr></tbody></table></div><div class="vb__grp"><h4>Business</h4><table class="tbl tbl--vb"><tbody><tr><th scope="row"><span class="light light--r"></span>NAB business conditions</th><td class="num strong">-1</td><td class="note">August, first negative reading in six years</td></tr><tr><th scope="row"><span class="light light--r"></span>NAB business confidence</th><td class="num strong">-8</td><td class="note">August, 12 points below its January level</td></tr><tr><th scope="row"><span class="light light--r"></span>NAB profitability</th><td class="num strong">-9</td><td class="note">August, down 10 points to a post-pandemic low</td></tr><tr><th scope="row"><span class="light light--r"></span>Iron ore</th><td class="num strong">-11.0% CYTD</td><td class="note">US$94.1/t, down 5.9% in September</td></tr></tbody></table></div><div class="vb__grp"><h4>Financial</h4><table class="tbl tbl--vb"><tbody><tr><th scope="row"><span class="light light--r"></span>Cash rate</th><td class="num strong">4.60%</td><td class="note">29 September, fourth rise of 2026</td></tr><tr><th scope="row"><span class="light light--g"></span>Housing credit</th><td class="num strong">+0.6% m/m</td><td class="note">June, steady through the price correction</td></tr><tr><th scope="row"><span class="light light--g"></span>Business credit</th><td class="num strong">+1.1% m/m</td><td class="note">June, above the 5 year average of 0.8%</td></tr></tbody></table></div></div>
+</section>
+
+<section>
+  <div class="eyebrow"><h2>Central banks</h2><span class="asat">sourced from each bank &middot; to 30 Sep 2026</span></div>
+  <div class="tblwrap">
+  <table class="tbl tbl--cb">
+    <thead><tr><th>Bank</th><th class="num">Policy rate</th><th>Bias</th><th class="num">Last</th><th class="num">Next</th></tr></thead>
+    <tbody><tr><th scope="row">Reserve Bank of Australia<span class="note">Raised 25 basis points unanimously, the fourth increase of 2026, saying some upside risks to inflation were materialising, including further disruption to global oil supply and growth and inflation running above expectations. The Board will raise the cash rate further if needed.</span></th><td class="num strong">4.60</td><td><span class="bias bias--tight">Tightening</span></td><td class="num">29 Sep</td><td class="num">3 Nov</td></tr><tr><th scope="row">US Federal Reserve<span class="note">Raised 25 basis points on a unanimous 12 to 0 vote, the first increase since 2023. The updated projections have 16 of 18 participants expecting at least one further rise this year and put the rate at 4.00% to 4.25% at the end of both 2026 and 2027. Markets price roughly 58% for a move on 28 October.</span></th><td class="num strong">4.00</td><td><span class="bias bias--tight">Tightening</span></td><td class="num">16 Sep</td><td class="num">28 Oct</td></tr><tr><th scope="row">European Central Bank<span class="note">Raised 25 basis points, its second increase of the year, effective 16 September. Staff projections keep 2026 inflation at 3.0% and lift 2027 to 2.5%, with growth upgraded to 0.9% in 2026. Markets price about 67% for a move to 2.75% on 29 October.</span></th><td class="num strong">2.50</td><td><span class="bias bias--tight">Tightening</span></td><td class="num">10 Sep</td><td class="num">29 Oct</td></tr><tr><th scope="row">Bank of Japan<span class="note">Raised 25 basis points on a 7 to 2 vote with Asada and Sato against, effective 24 September, taking the policy rate to its highest since 1995. The Board expects CPI excluding fresh food to run clearly above 2% from the second half of fiscal 2026. Three months after the June move, the shortest interval since normalisation began.</span></th><td class="num strong">1.25</td><td><span class="bias bias--tight">Tightening</span></td><td class="num">18 Sep</td><td class="num">Oct</td></tr><tr><th scope="row">Bank of England<span class="note">Held 6 to 3 for a sixth consecutive meeting, with Greene, Mann and Pill voting for 4.00%. UK CPI rose to 3.1% in August and the Committee expects it to rise further over coming quarters. The minutes warn against waiting too long for evidence of second round effects.</span></th><td class="num strong">3.75</td><td><span class="bias bias--lean">Hold / tightening</span></td><td class="num">17 Sep</td><td class="num">5 Nov</td></tr><tr><th scope="row">Bank of Canada<span class="note">Seventh consecutive hold. The Bank warned that new US tariffs, Canadian counter measures and elevated oil prices raise the risk that inflation moves above 3% rather than settling near 2%.</span></th><td class="num strong">2.25</td><td><span class="bias bias--hold">Hold</span></td><td class="num">2 Sep</td><td class="num">28 Oct</td></tr><tr><th scope="row">Reserve Bank of New Zealand<span class="note">Raised 25 basis points to return inflation sustainably to the 2% midpoint.</span></th><td class="num strong">2.75</td><td><span class="bias bias--tight">Tightening</span></td><td class="num">2 Sep</td><td class="num"><span class="dim">&mdash;</span></td></tr><tr><th scope="row">People's Bank of China<span class="note">Seven day reverse repo unchanged since May 2025 and the one year loan prime rate held at 3.00% for a sixteenth month on 20 September. New yuan loans fell in July, the sharpest contraction on record. The only major central bank on this table still easing.</span></th><td class="num strong">1.40</td><td><span class="bias bias--ease">Easing</span></td><td class="num">20 Sep</td><td class="num">20 Oct</td></tr></tbody>
+  </table>
+  </div>
+  <p class="note" style="margin-top:14px">Policy rate is the upper bound of the target range for the Federal Reserve, the deposit facility rate for the ECB and the seven day reverse repo rate for the PBoC. Rates and meeting dates are taken from each central bank rather than from a single monitor, so end of year forecasts are not shown this edition. Five of the eight banks raised in September. The Bank of England is shown as borderline on the criterion used for the RBA and the Federal Reserve before they moved, which is an explicit dissent in favour of a rise: three of nine members voted for 4.00% on 17 September. Banks marked tightening have moved or are expected to move at their next meeting.</p>
+</section>
+
+<section>
+  <div class="eyebrow"><h2>Global growth</h2><span class="asat">IMF World Economic Outlook Update &middot; July 2026</span></div>
+  <figure>
+    <h3>Real GDP growth, calendar year</h3>
+    <svg viewBox="0 0 700 160" class="chart" role="img" aria-label="IMF real GDP growth forecasts"><line class="grid" x1="46" y1="132.0" x2="700" y2="132.0"/><text class="ax" x="40" y="135.5" text-anchor="end">0</text><line class="grid" x1="46" y1="104.5" x2="700" y2="104.5"/><text class="ax" x="40" y="108.0" text-anchor="end">2</text><line class="grid" x1="46" y1="77.0" x2="700" y2="77.0"/><text class="ax" x="40" y="80.5" text-anchor="end">4</text><line class="grid" x1="46" y1="49.5" x2="700" y2="49.5"/><text class="ax" x="40" y="53.0" text-anchor="end">6</text><line class="grid" x1="46" y1="22.0" x2="700" y2="22.0"/><text class="ax" x="40" y="25.5" text-anchor="end">8</text><rect x="65.3" y="83.9" width="20" height="48.1" fill="var(--rule2)"/><text class="ax sm" x="75.3" y="79.9" text-anchor="middle">3.5</text><rect x="86.3" y="90.8" width="20" height="41.2" fill="var(--accent)"/><text class="ax sm" x="96.3" y="86.8" text-anchor="middle">3.0</text><rect x="107.3" y="85.2" width="20" height="46.8" fill="var(--ink)"/><text class="ax sm" x="117.3" y="81.2" text-anchor="middle">3.4</text><text class="ax" x="96.3" y="148" text-anchor="middle">Global</text><rect x="157.9" y="104.5" width="20" height="27.5" fill="var(--rule2)"/><text class="ax sm" x="167.9" y="100.5" text-anchor="middle">2.0</text><rect x="178.9" y="105.9" width="20" height="26.1" fill="var(--accent)"/><text class="ax sm" x="188.9" y="101.9" text-anchor="middle">1.9</text><rect x="199.9" y="108.6" width="20" height="23.4" fill="var(--ink)"/><text class="ax sm" x="209.9" y="104.6" text-anchor="middle">1.7</text><text class="ax" x="188.9" y="148" text-anchor="middle">Australia</text><rect x="250.4" y="103.1" width="20" height="28.9" fill="var(--rule2)"/><text class="ax sm" x="260.4" y="99.1" text-anchor="middle">2.1</text><rect x="271.4" y="100.4" width="20" height="31.6" fill="var(--accent)"/><text class="ax sm" x="281.4" y="96.4" text-anchor="middle">2.3</text><rect x="292.4" y="101.8" width="20" height="30.2" fill="var(--ink)"/><text class="ax sm" x="302.4" y="97.8" text-anchor="middle">2.2</text><text class="ax" x="281.4" y="148" text-anchor="middle">US</text><rect x="343.0" y="63.2" width="20" height="68.8" fill="var(--rule2)"/><text class="ax sm" x="353.0" y="59.2" text-anchor="middle">5.0</text><rect x="364.0" y="68.8" width="20" height="63.2" fill="var(--accent)"/><text class="ax sm" x="374.0" y="64.8" text-anchor="middle">4.6</text><rect x="385.0" y="75.6" width="20" height="56.4" fill="var(--ink)"/><text class="ax sm" x="395.0" y="71.6" text-anchor="middle">4.1</text><text class="ax" x="374.0" y="148" text-anchor="middle">China</text><rect x="435.6" y="112.8" width="20" height="19.2" fill="var(--rule2)"/><text class="ax sm" x="445.6" y="108.8" text-anchor="middle">1.4</text><rect x="456.6" y="119.6" width="20" height="12.4" fill="var(--accent)"/><text class="ax sm" x="466.6" y="115.6" text-anchor="middle">0.9</text><rect x="477.6" y="115.5" width="20" height="16.5" fill="var(--ink)"/><text class="ax sm" x="487.6" y="111.5" text-anchor="middle">1.2</text><text class="ax" x="466.6" y="148" text-anchor="middle">Euro area</text><rect x="528.1" y="116.9" width="20" height="15.1" fill="var(--rule2)"/><text class="ax sm" x="538.1" y="112.9" text-anchor="middle">1.1</text><rect x="549.1" y="123.8" width="20" height="8.2" fill="var(--accent)"/><text class="ax sm" x="559.1" y="119.8" text-anchor="middle">0.6</text><rect x="570.1" y="122.4" width="20" height="9.6" fill="var(--ink)"/><text class="ax sm" x="580.1" y="118.4" text-anchor="middle">0.7</text><text class="ax" x="559.1" y="148" text-anchor="middle">Japan</text><rect x="620.7" y="26.1" width="20" height="105.9" fill="var(--rule2)"/><text class="ax sm" x="630.7" y="22.1" text-anchor="middle">7.7</text><rect x="641.7" y="44.0" width="20" height="88.0" fill="var(--accent)"/><text class="ax sm" x="651.7" y="40.0" text-anchor="middle">6.4</text><rect x="662.7" y="39.9" width="20" height="92.1" fill="var(--ink)"/><text class="ax sm" x="672.7" y="35.9" text-anchor="middle">6.7</text><text class="ax" x="651.7" y="148" text-anchor="middle">India</text></svg>
+    <div class="key"><span><i style="background:var(--rule2)"></i>2025</span>
+      <span><i style="background:var(--accent)"></i>2026 forecast</span>
+      <span><i style="background:var(--ink)"></i>2027 forecast</span></div>
+    <figcaption>The Fund has global growth slowing to 3.0% in 2026 from 3.5% in 2025 before a
+    recovery to 3.4% in 2027, with the war in the Middle East partly offset by the AI driven
+    technology cycle. Global headline inflation is projected to rise from 4.1% in 2025 to 4.7% in
+    2026 before easing to 3.9% in 2027, which the Fund describes as the disinflation trend since
+    early 2024 having stalled. World trade volume growth slows from 5.0% to 3.5%. India is shown on
+    a fiscal year basis; on calendar years the Fund has 7.0% for 2026 and 6.4% for 2027.</figcaption>
+  </figure>
+</section>
+
+<section>
+  <div class="eyebrow"><h2>United States cycle</h2><span class="asat">ClearBridge Recession Dashboard &middot; 31 Aug 2026</span></div>
+  <div class="cb">
+    <div class="cb__grp"><h4>Consumer</h4><ul><li><span class="light light--g"></span>Housing permits</li><li><span class="light light--r"></span>Job sentiment</li><li><span class="light light--g"></span>Jobless claims</li><li><span class="light light--g"></span>Retail sales</li><li><span class="light light--g"></span>Wage growth</li></ul></div><div class="cb__grp"><h4>Business activity</h4><ul><li><span class="light light--g"></span>Commodities</li><li><span class="light light--g"></span>ISM new orders</li><li><span class="light light--g"></span>Profit margins</li><li><span class="light light--g"></span>Truck shipments</li></ul></div><div class="cb__grp"><h4>Financial</h4><ul><li><span class="light light--g"></span>Credit spreads</li><li><span class="light light--g"></span>Money supply</li><li><span class="light light--g"></span>Yield curve</li></ul></div>
+    <div class="cb__overall"><span class="light light--g" style="width:14px;height:14px"></span>
+      <b>Overall signal: expansion.</b>
+      <span class="note">Eleven of twelve variables green with job sentiment the sole recession
+      reading, and no indicator changes in August. ClearBridge attributes the rise in the 10 year
+      Treasury yield since late February primarily to real rates, up 50 basis points against 15 for
+      inflation expectations and 17 for the term premium, and reads that as economic normalisation
+      rather than a fiscal or credibility shock. Nominal GDP is running near 6% against a 10 year
+      yield around 4.75%, a configuration last seen in the 2001 to 2007 expansion when the yield
+      averaged 4.5% and traded between 4.0% and 5.0%. Second quarter earnings per share for the
+      S&amp;P 500 grew 52% year on year while the index sits less than 3% above where it entered
+      the reporting season, which lowers the valuation hurdle for further gains.</span></div>
+  </div>
+  <p class="note" style="margin-top:14px">ClearBridge published this reading on 9 September, before the Federal Reserve
+  raised rates on 16 September, before Brent reached a four month high near US$106 and before the 10 year Treasury yield
+  closed September at 5.28%, so none of those moves is reflected above. The next update, with the dashboard as at
+  30 September, is expected in early October. ClearBridge puts the term premium at roughly 0.76%, moderate against its own
+  history, and notes longer dated credit default swap spreads on United States Treasury debt are essentially unchanged from
+  late February, which it reads as limited evidence of a fiscal or credibility premium.</p>
+</section>
+
+<section>
+  <div class="eyebrow"><h2>Markets</h2><span class="asat">Morgan Stanley, Bloomberg &middot; 30 Sep 2026</span></div>
+  <div class="mkts"><div class="mkt"><h4>Equities</h4><table class="tbl tbl--mkt"><thead><tr><th>&nbsp;</th><th class="num">Last</th><th class="num">1 mth</th><th class="num">CYTD</th><th></th></tr></thead><tbody><tr><th scope="row">S&amp;P/ASX 200</th><td class="num">8,789</td><td class="num"><span class="neg">-3.2</span></td><td class="num"><span class="pos">+0.9</span></td><td class="barcell"><span class="bar"><i class="bar__f bar__f--neg" style="width:13%"></i></span></td></tr><tr><th scope="row">S&amp;P 500</th><td class="num">7,652</td><td class="num"><span class="neg">-0.5</span></td><td class="num"><span class="pos">+11.8</span></td><td class="barcell"><span class="bar"><i class="bar__f bar__f--neg" style="width:2%"></i></span></td></tr><tr><th scope="row">Nikkei</th><td class="num">66,754</td><td class="num"><span class="pos">+0.7</span></td><td class="num"><span class="pos">+32.6</span></td><td class="barcell"><span class="bar"><i class="bar__f bar__f--pos" style="width:3%"></i></span></td></tr><tr><th scope="row">Hang Seng</th><td class="num">24,613</td><td class="num"><span class="neg">-3.7</span></td><td class="num"><span class="neg">-4.0</span></td><td class="barcell"><span class="bar"><i class="bar__f bar__f--neg" style="width:15%"></i></span></td></tr></tbody></table></div><div class="mkt"><h4>Rates and credit</h4><table class="tbl tbl--mkt"><thead><tr><th>&nbsp;</th><th class="num">Last</th><th class="num">1 mth</th><th class="num">CYTD</th><th></th></tr></thead><tbody><tr><th scope="row">Australian 10yr yield</th><td class="num">5.35%</td><td class="num"><span class="pos">+0.26</span></td><td class="num"><span class="pos">+0.61</span></td><td class="barcell"><span class="bar"><i class="bar__f bar__f--pos" style="width:1%"></i></span></td></tr><tr><th scope="row">US 10yr yield</th><td class="num">5.28%</td><td class="num"><span class="pos">+0.53</span></td><td class="num"><span class="pos">+1.12</span></td><td class="barcell"><span class="bar"><i class="bar__f bar__f--pos" style="width:3%"></i></span></td></tr><tr><th scope="row">RBA cash rate</th><td class="num">4.60%</td><td class="num"><span class="neg">+0.25</span></td><td class="num"><span class="neg">+1.00</span></td><td class="barcell"></td></tr><tr><th scope="row">Fed funds, upper</th><td class="num">4.00%</td><td class="num"><span class="neg">+0.25</span></td><td class="num"><span class="neg">+0.25</span></td><td class="barcell"></td></tr></tbody></table></div><div class="mkt"><h4>Currency and commodities</h4><table class="tbl tbl--mkt"><thead><tr><th>&nbsp;</th><th class="num">Last</th><th class="num">1 mth</th><th class="num">CYTD</th><th></th></tr></thead><tbody><tr><th scope="row">AUD/USD</th><td class="num">0.6947</td><td class="num"><span class="neg">-3.1</span></td><td class="num"><span class="pos">+4.1</span></td><td class="barcell"><span class="bar"><i class="bar__f bar__f--neg" style="width:12%"></i></span></td></tr><tr><th scope="row">Brent crude</th><td class="num">US$103.50</td><td class="num"><span class="pos">+14.4</span></td><td class="num"><span class="pos">+70.1</span></td><td class="barcell"><span class="bar"><i class="bar__f bar__f--pos" style="width:58%"></i></span></td></tr><tr><th scope="row">Iron ore 62% CFR</th><td class="num">US$94.10</td><td class="num"><span class="neg">-5.9</span></td><td class="num"><span class="neg">-11.0</span></td><td class="barcell"><span class="bar"><i class="bar__f bar__f--neg" style="width:24%"></i></span></td></tr><tr><th scope="row">Gold</th><td class="num">US$4,157</td><td class="num"><span class="neg">-6.3</span></td><td class="num"><span class="neg">-3.7</span></td><td class="barcell"><span class="bar"><i class="bar__f bar__f--neg" style="width:25%"></i></span></td></tr><tr><th scope="row">Copper</th><td class="num">US$14,410</td><td class="num"><span class="pos">+0.8</span></td><td class="num"><span class="pos">+16.0</span></td><td class="barcell"><span class="bar"><i class="bar__f bar__f--pos" style="width:3%"></i></span></td></tr><tr><th scope="row">CRB index</th><td class="num">410.0</td><td class="num"><span class="neg">-0.1</span></td><td class="num"><span class="pos">+37.3</span></td><td class="barcell"><span class="bar"><i class="bar__f bar__f--neg" style="width:0%"></i></span></td></tr></tbody></table></div></div>
+  <p class="note" style="margin-top:16px">Levels only, price returns for equities. Yields and the cash rate rows move in percentage points; a cash rate rise shows in red. Asset class returns sit on the <a href="benchmark-data.html">Benchmark Data</a> page. Source: Morgan Stanley Australia Macro+ (The Monthly, 2 October 2026), Bloomberg, as at 30 September. The Australian 10 year peaked at 5.40% on 15 September and the United States 10 year closed it at 5.28%.</p>
+</section>
+
+<section>
+  <div class="eyebrow"><h2>Valuation and earnings</h2><span class="asat">Morgan Stanley, IBES &middot; 30 Sep 2026</span></div>
+  <div class="grid2">
+    <figure>
+      <h3>ASX 200 twelve-month forward P/E</h3>
+      <svg viewBox="0 0 700 100" class="chart" role="img" aria-label="ASX 200 forward P/E"><rect x="46" y="37" width="574" height="18" fill="var(--band)"/><line x1="254.1" y1="32" x2="254.1" y2="60" stroke="var(--muted)" stroke-width="1.6"/><text class="ax" x="254.1" y="76" text-anchor="middle">long-run 14.9</text><line x1="361.7" y1="32" x2="361.7" y2="60" stroke="var(--muted)" stroke-width="1.6"/><text class="ax" x="361.7" y="76" text-anchor="middle">10yr 16.4</text><rect x="46" y="41" width="365.9" height="10" fill="var(--ink)"/><circle cx="411.9" cy="46" r="6" fill="var(--amber)"/><text class="num lg" x="411.9" y="26" text-anchor="middle">17.1x</text><text class="ax" x="44" y="76">12x</text><text class="ax" x="620" y="76" text-anchor="end">20x</text></svg>
+      <figcaption>The multiple fell 0.8 turns during September to 17.1 times, a 15% premium to the
+      long-run average of 14.9 and 4% above the ten year average of 16.4. Forward dividend yield 3.5%, price to book 2.4 times,
+      return on equity 13.5%. With the ten year bond at 5.35%, Morgan Stanley puts the forward earnings yield 0.6 percentage
+      points above it and the dividend yield 1.7 points below. Resources trade on 14.2 times and Industrials ex Financials on
+      21.5 times, while Health Care has re-rated to 23.2 times, the top of its twelve month range.</figcaption>
+    </figure>
+    <figure>
+      <h3>Consensus EPS growth, revision drift</h3>
+      <table class="tbl" style="margin-top:10px">
+        <thead><tr><th></th><th class="num">Current</th><th class="num">4 weeks ago</th>
+          <th class="num">13 weeks ago</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">FY26 estimate</th><td class="num strong">13.7</td><td class="num">12.0</td><td class="num">12.9</td></tr>
+          <tr><th scope="row">FY27 estimate</th><td class="num strong">7.2</td><td class="num">8.9</td><td class="num">12.9</td></tr>
+          <tr><th scope="row">FY28 estimate</th><td class="num strong">7.1</td><td class="num">6.7</td><td class="num">6.0</td></tr>
+          <tr><th scope="row">Revision ratio, FY1</th><td class="num strong">-5.4</td><td class="num"><span class="dim">&mdash;</span></td><td class="num">-7.1</td></tr>
+        </tbody>
+      </table>
+      <figcaption>FY27 was cut a further 1.7 percentage points over four weeks to 7.2%, and sits 5.7
+      points below its level thirteen weeks ago, with three month revisions of minus 4.6% led by Energy (-12.8%), Materials
+      (-9.6%) and Industrials (-7.3%). FY26 lifted to 13.7% as results were finalised. The revision ratio row is the three month
+      average FY1 ratio; the latest weekly print is -0.5%. Morgan Stanley sees risk to earnings on the downside, with AGM trading
+      updates the next test for banks, housing-linked and consumer sectors.</figcaption>
+    </figure>
+    <figure class="span2">
+      <h3>Australia against the world</h3>
+      <svg viewBox="0 0 700 175" class="chart" role="img" aria-label="Australia against global equities"><line class="grid" x1="46" y1="130.0" x2="700" y2="130.0"/><text class="ax" x="40" y="133.5" text-anchor="end">0</text><line class="grid" x1="46" y1="103.8" x2="700" y2="103.8"/><text class="ax" x="40" y="107.2" text-anchor="end">5</text><line class="grid" x1="46" y1="77.5" x2="700" y2="77.5"/><text class="ax" x="40" y="81.0" text-anchor="end">10</text><line class="grid" x1="46" y1="51.2" x2="700" y2="51.2"/><text class="ax" x="40" y="54.8" text-anchor="end">15</text><line class="grid" x1="46" y1="25.0" x2="700" y2="25.0"/><text class="ax" x="40" y="28.5" text-anchor="end">20</text><rect x="105.0" y="34.45" width="70" height="95.55" fill="var(--accent)"/><text class="num lg" x="140.0" y="28.5" text-anchor="middle">18.2</text><text class="ax" x="140.0" y="145" text-anchor="middle">Australia</text><rect x="215.0" y="40.75" width="70" height="89.25" fill="var(--ink)"/><text class="num lg" x="250.0" y="34.8" text-anchor="middle">17.0</text><text class="ax" x="250.0" y="145" text-anchor="middle">Global</text><rect x="435.0" y="84.33" width="70" height="45.67" fill="var(--accent)"/><text class="num lg" x="470.0" y="78.3" text-anchor="middle">8.7</text><text class="ax" x="470.0" y="145" text-anchor="middle">Australia</text><rect x="545.0" y="39.17" width="70" height="90.83" fill="var(--ink)"/><text class="num lg" x="580.0" y="33.2" text-anchor="middle">17.3</text><text class="ax" x="580.0" y="145" text-anchor="middle">Global</text><line class="div" x1="350" y1="25" x2="350" y2="130"/><text class="ax" x="195" y="165" text-anchor="middle">Forward P/E (x)</text><text class="ax" x="525" y="165" text-anchor="middle">Forward EPS growth to end 2027 (%)</text></svg>
+      <figcaption>Australia carries a higher multiple on a weaker earnings outlook. Betashares, at 31 August, has
+      the local market on 18.2 times forward earnings against 17.0 for global equities, a 7%
+      premium, while Australian forward earnings are expected to grow 8.7% to the end of 2027
+      against 17.3% globally. Global valuations sit at the lower end of their three year range,
+      having peaked at 19.6 times in October 2025. Morgan Stanley puts the ASX 200 on 17.1 times at
+      30 September using its own universe and forward window, against 17.9 times at the end of August, so the two levels are not directly comparable and
+      the relative gap is the point rather than the absolute figure.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow"><h2>Risk register</h2><span class="asat">reviewed monthly</span></div>
+  <div class="risks">
+    <div class="risk risk--hi"><h4><span>Elevated</span>Bond yields and the discount rate</h4>
+      <p>The United States 10 year closed September at 5.28%, its highest since 2007, and the Australian 10 year at 5.35% after peaking at 5.40% on 15 September, with Japanese and German yields at multi-decade highs. Morgan Stanley puts the ASX 200 forward earnings yield only 0.6 percentage points above the bond, while FY27 consensus earnings growth has been cut to 7.2% and three month revisions are negative.</p></div>
+    <div class="risk risk--hi"><h4><span>Elevated</span>Energy and the Strait of Hormuz</h4>
+      <p>Brent finished September at US$103.5, up 14.4% for the month and 70.1% for the calendar year, after reaching
+      US$106 on 15 September when three pumping stations on Saudi Arabia's East to West pipeline were damaged. The EIA
+      assumes export constraints persist through the end of the year. Fuel and electricity carried Australian headline CPI
+      to 4.0% in August.</p></div>
+    <div class="risk risk--hi"><h4><span>Elevated</span>Australian housing correction</h4>
+      <p>Values have fallen for six consecutive months and sit 5.2% below the March peak, with 97% of capital city suburbs
+      down over the September quarter and sales 19.1% below a year earlier. Cotality expects falls to continue into 2027,
+      and the 29 September increase adds to repayment pressure on variable rate borrowers.</p></div>
+    <div class="risk risk--hi"><h4><span>Elevated</span>Private credit and property lending</h4>
+      <p>Bathla's administration, with about $3.4 billion of known debt across roughly 40 lenders, has been followed by
+      redemption limits at several property credit funds and, on 30 September, the suspension of redemptions from Metrics
+      wholesale funds managing more than $11 billion. ASIC's concerns are centred on development and construction lending,
+      where falling dwelling values and higher rates test valuations and refinancing.</p></div>
+    <div class="risk risk--md"><h4><span>Watch</span>Business margins and the labour market</h4>
+      <p>NAB profitability fell to minus 9 in August, a post-pandemic low, with purchase costs at 2.3% in quarterly terms
+      against output prices at 0.8%, and unemployment rose to 4.6% in the same month. NAB notes profitability tends to lead
+      employment. The September labour force release is on 15 October.</p></div>
+    <div class="risk risk--lo"><h4><span>Upside</span>The technology cycle running longer</h4>
+      <p>ClearBridge reports second quarter S&amp;P 500 earnings per share growth of 52% year on year, and consensus at the
+      end of August had global forward earnings growing 17.3% to the end of 2027 against 8.7% for Australia. The MSCI All
+      Countries World Index returned 2.0% in Australian dollars in September while the ASX 200 Accumulation Index returned
+      minus 2.4%.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow"><h2>Structural: the productivity gap</h2><span class="asat">Ausbil, Jim Chronis &middot; 7 May 2026 &middot; updated twice yearly</span></div>
+  <p>Australian productivity has been flat at 0% since 2022 while United States productivity has run
+  at 2% or better for five years, a gap Chronis illustrated as the difference between travelling at
+  60 and 100 kilometres an hour. Unit labour costs have grown around 5% annually over the past two
+  years against 2% in the United States, which makes the inflation target structurally harder for
+  the RBA to reach and sustains restrictive policy independently of where the cycle sits.</p>
+  <p>Government spending sits at roughly 28% of GDP with investment at only 5%, maintaining the
+  existing capital stock rather than adding productive capacity, while consumption including the
+  NDIS continues to grow and crowd it out. Ausbil expects GDP to slow from 2.3% to around 1.8% and
+  remain below trend until a private sector led pickup in the second half of 2027, which Chronis
+  characterises as a moderation rather than a contraction. The 2025-26 financial year came in at
+  2.4%, ahead of that path, and this section is next due for refresh in November.</p>
+</section>
+
+<section>
+  <div class="eyebrow"><h2>Next six weeks</h2><span class="asat">from 3 Oct 2026</span></div>
+  <div class="cal">
+    <div><span class="d">14 Oct</span><span class="e">US CPI, September</span></div>
+    <div><span class="d">15 Oct</span><span class="e">ABS labour force, September</span></div>
+    <div><span class="d">20 Oct</span><span class="e">PBoC loan prime rate</span></div>
+    <div><span class="d">28 Oct</span><span class="e">ABS CPI, September quarter</span></div>
+    <div><span class="d">28 Oct</span><span class="e">FOMC and Bank of Canada decisions</span></div>
+    <div><span class="d">29 Oct</span><span class="e">ECB decision</span></div>
+    <div><span class="d">3 Nov</span><span class="e">RBA decision</span></div>
+    <div><span class="d">5 Nov</span><span class="e">Bank of England decision</span></div>
+  </div>
+</section>
+
+<footer>
+  <p>Sources: Morgan Stanley Wealth Management (Weekly Asset Class Performance Sheet, month end returns to
+  30 September 2026), Morgan Stanley Australia Macro+ (The Monthly, 2 October 2026), ClearBridge Investments (AOR Update,
+  9 September 2026, dashboard as at 31 August 2026), International Monetary Fund (World Economic Outlook Update, July 2026),
+  Betashares (Market Trends, David Bassanese, 2 September 2026), Ausbil Investment Management (Jim Chronis roadshow,
+  7 May 2026), US Energy Information Administration (Short Term Energy Outlook, September 2026), ASIC, RBA, ABS, Cotality,
+  NAB Business Survey, Westpac-Melbourne Institute, US Bureau of Labor Statistics, US Treasury, and the Federal Reserve, ECB,
+  Bank of Japan, Bank of England, Bank of Canada, RBNZ and PBoC directly.</p>
+  <p>Prepared for internal use by Vantage Wealth Management. Forecasts are those of the named
+  research houses and not of Vantage. This page is not investment advice and does not take account
+  of the objectives, financial situation or needs of any person.</p>
+</footer>
+
+</div>
+</body>
+</html>

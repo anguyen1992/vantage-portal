@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vantage Monthly Investment Brief | September 2026</title>
+<style>
+  :root {
+    --navy: #0E2A47;
+    --navy-deep: #091D33;
+    --gold: #C9A227;
+    --gold-soft: #E3CB7A;
+    --ink: #2B2F36;
+    --ink-soft: #5A6270;
+    --paper: #FAFAF7;
+    --card: #FFFFFF;
+    --rule: #E2E0D8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Ebrima','Segoe UI','Helvetica Neue',Arial,sans-serif; background: var(--paper); color: var(--ink); line-height: 1.65; font-size: 16px; }
+  .wrap { max-width: 840px; margin: 0 auto; padding: 0 28px; }
+
+  /* Masthead */
+  header.masthead { background: linear-gradient(160deg,var(--navy) 0%,var(--navy-deep) 100%); color:#fff; padding:52px 0 44px; border-bottom:4px solid var(--gold); }
+  .masthead .brand { font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold-soft); margin-bottom:14px; }
+  .masthead h1 { font-size:34px; font-weight:700; letter-spacing:-.01em; line-height:1.2; margin-bottom:10px; }
+  .masthead .edition { font-size:15px; color:rgba(255,255,255,.78); }
+  .masthead .edition span.sep { color:var(--gold); margin:0 10px; }
+
+  /* Shared panel */
+  .shared-panel { background:var(--navy); color:#fff; border-radius:6px; padding:30px 34px 28px; margin:-34px auto 48px; max-width:840px; box-shadow:0 10px 30px rgba(9,29,51,.18); border-top:3px solid var(--gold); }
+  .shared-panel .eyebrow { font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold-soft); margin-bottom:16px; }
+  .shared-item { padding:14px 0; border-top:1px solid rgba(255,255,255,.12); }
+  .shared-item:first-of-type { border-top:none; padding-top:0; }
+  .shared-item .date { font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:4px; }
+  .shared-item .stitle { font-size:16px; font-weight:700; margin-bottom:5px; }
+  .shared-item p { font-size:14.5px; line-height:1.6; color:rgba(255,255,255,.88); margin:0; }
+
+  /* Sections */
+  section { margin-bottom:54px; }
+  .eyebrow { font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:8px; }
+  h2 { font-size:24px; color:var(--navy); font-weight:700; margin-bottom:18px; line-height:1.25; }
+  h3 { font-size:17px; color:var(--navy); font-weight:700; margin:26px 0 8px; }
+  h4 { font-size:14px; color:var(--navy); font-weight:700; text-transform:uppercase; letter-spacing:.06em; margin:20px 0 6px; }
+  .period-head { font-size:15px; font-weight:700; color:var(--navy); margin:0 0 12px; padding-bottom:8px; border-bottom:2px solid var(--gold); }
+  .period-head.spaced { margin-top:28px; }
+  p { margin-bottom:14px; }
+  p.lede { font-size:17px; }
+
+  /* Snapshot */
+  .snapshot-5 { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-bottom:10px; }
+  .snapshot-2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:34px; }
+  .snap-tile { background:var(--card); border:1px solid var(--rule); border-top:3px solid var(--gold); border-radius:6px; padding:14px 16px 12px; }
+  .snap-tile svg { width:22px; height:22px; stroke:var(--navy); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; margin-bottom:7px; }
+  .snap-tile .snap-label { font-size:10px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; color:var(--gold); margin-bottom:4px; }
+  .snapshot-5 .snap-tile p { font-size:12.5px; line-height:1.5; color:var(--ink); margin:0; }
+  .snapshot-2 .snap-tile p { font-size:13.5px; line-height:1.55; color:var(--ink); margin:0; }
+  .snap-wide-title { font-size:14px; font-weight:700; color:var(--navy); margin-bottom:7px; }
+  .snap-detail span { display:inline-block; background:#F3F2EC; border-radius:3px; padding:2px 8px; font-size:12.5px; margin:2px 3px 2px 0; color:var(--ink); }
+  .snap-detail span.lead { background:#E8F4EC; color:#1E6640; font-weight:600; }
+  .snap-detail span.lag { background:#FBE9E9; color:#8B2020; font-weight:600; }
+
+  /* Watching box */
+  .watching-box { background:#F3F2EC; border-left:3px solid var(--gold); border-radius:4px; padding:14px 18px; font-size:14.5px; margin:4px 0 6px; }
+  .watching-box strong { color:var(--navy); }
+
+  /* Tables */
+  .tbl-wrap { margin:12px 0; border:1px solid var(--rule); border-radius:4px; overflow:hidden; }
+  table { width:100%; border-collapse:collapse; font-size:13.5px; background:var(--card); }
+  .tbl-section-head { background:var(--navy); }
+  .tbl-section-head td { color:#fff; font-weight:700; font-size:12px; letter-spacing:.1em; text-transform:uppercase; padding:9px 12px; }
+  .tbl-col-head { background:#1A3D60; }
+  .tbl-col-head th { color:rgba(255,255,255,.9); font-size:11.5px; font-weight:600; padding:7px 12px; text-align:right; }
+  .tbl-col-head th:first-child { text-align:left; }
+  tbody td { padding:9px 12px; border-bottom:1px solid var(--rule); }
+  tbody td.num { text-align:right; font-variant-numeric:tabular-nums; }
+  tbody tr:last-child td { border-bottom:none; }
+  tr.bench td { background:#F3F2EC; color:var(--ink-soft); font-size:13px; }
+  tr.bench td:first-child { font-style:italic; }
+  tr.diff-row td { background:#FAFAF7; font-size:12.5px; color:var(--ink-soft); font-style:italic; border-bottom:1px solid var(--rule); }
+  tr.diff-row td.num { text-align:right; }
+  .tbl-note { font-size:12px; color:var(--ink-soft); padding:6px 12px 8px; background:#F6F5F0; border-top:1px solid var(--rule); }
+
+  /* Commentary */
+  .commentary { background:var(--card); border:1px solid var(--rule); border-radius:6px; padding:18px 22px; margin:14px 0 6px; font-size:15px; }
+  .commentary p:last-child { margin-bottom:0; }
+
+  /* Portal links */
+  .portal-links { font-size:13.5px; margin:14px 0 4px; padding:11px 16px; background:#F3F2EC; border-radius:4px; line-height:1.9; }
+  .portal-links a { color:var(--navy); font-weight:600; text-decoration:none; border-bottom:1px solid var(--gold); }
+  .portal-links a:hover { color:var(--gold); }
+
+  /* Actions */
+  .actions li { margin:0 0 14px 0; list-style:none; padding-left:22px; position:relative; }
+  .actions li::before { content:""; position:absolute; left:0; top:9px; width:9px; height:9px; background:var(--gold); border-radius:1px; transform:rotate(45deg); }
+
+  hr.section-rule { border:none; border-top:1px solid var(--rule); margin:0 0 54px; }
+
+  footer { background:var(--navy-deep); color:rgba(255,255,255,.66); font-size:12.5px; line-height:1.7; padding:36px 0 44px; margin-top:70px; border-top:4px solid var(--gold); }
+  footer .fbrand { color:var(--gold-soft); font-size:12px; letter-spacing:.18em; text-transform:uppercase; margin-bottom:14px; }
+  footer p { margin-bottom:10px; }
+
+  /* Event cards */
+  .events-row { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:22px 0 6px; }
+  .event-card { background:var(--navy); color:#fff; border-radius:6px; padding:18px 18px 16px; border-top:3px solid var(--gold); }
+  .event-date { font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold-soft); font-weight:700; margin-bottom:6px; }
+  .event-title { font-size:15px; font-weight:700; color:#fff; margin-bottom:8px; line-height:1.3; }
+  .event-body { font-size:13px; color:rgba(255,255,255,.82); line-height:1.55; }
+
+  @media(max-width:680px){
+    .events-row { grid-template-columns:1fr; }
+    .masthead h1{font-size:26px;}
+    .shared-panel{padding:24px 22px 20px;margin-top:-24px;}
+    .snapshot-5{grid-template-columns:repeat(3,1fr);}
+    .snapshot-2{grid-template-columns:1fr;}
+    tbody td{padding:7px 8px;font-size:12px;}
+  }
+
+  /* --- July additions --- */
+  .tbc { color:#B4462F !important; font-weight:700; }
+  .tbc-inline { color:#B4462F; }
+  .tbc-chip { display:inline-block; background:#FBEDE9; border:1px dashed #B4462F;
+              color:#B4462F; font-size:12px; padding:4px 9px; border-radius:4px; line-height:1.4; }
+  .tbc-block { background:#FBEDE9; border-left:3px solid #B4462F; color:#8A3523;
+               padding:11px 14px; border-radius:0 4px 4px 0; font-size:14.5px; }
+  td.num.pos { color:#1D6B45; font-weight:600; }
+  td.num.neg { color:#B4462F; font-weight:600; }
+  .cal-wrap { overflow-x:auto; margin:16px 0 6px; }
+  table.cal { width:100%; border-collapse:collapse; table-layout:fixed; }
+  table.cal thead th { background:#1A2B3C; color:#fff; font-size:11px;
+      letter-spacing:.06em; text-transform:uppercase; padding:7px 8px; text-align:left;
+      font-weight:600; border:1px solid rgba(255,255,255,.15); }
+  table.cal td { border:1px solid #E2E6EA; vertical-align:top; padding:7px 8px;
+      height:100px; background:#fff; }
+  table.cal td.cal-empty { background:#F7F8F9; }
+  .cal-d { display:block; font-size:12px; font-weight:700; color:#8A97A3; margin-bottom:5px; }
+  .cal-tk { display:inline-block; background:#1D4E6B; color:#fff; font-size:11px;
+      font-weight:700; letter-spacing:.04em; padding:3px 7px; border-radius:3px;
+      margin:0 3px 3px 0; }
+  .cal-tk.hy { background:#5E8CA8; }
+  .cal-tk.q3 { background:#fff; color:#1D4E6B; border:1px solid #1D4E6B; padding:2px 6px; }
+  .cal-mac { display:block; font-size:10.5px; color:#8A5A12; background:#FDF4E3;
+      border-left:2px solid #C88A1E; padding:2px 5px; margin:3px 0 0; line-height:1.3;
+      border-radius:0 2px 2px 0; }
+  .cal-ev { display:block; font-size:10.5px; color:#7A8792; line-height:1.3; margin-top:3px;
+      font-style:italic; }
+  .cal-legend { font-size:12px; color:#5A6B7A; margin:8px 0 0; line-height:2; }
+  .cal-key { font-size:13.5px; color:#5A6B7A; line-height:1.6;
+      background:#F4F7F9; border-radius:4px; padding:11px 14px; margin-top:12px; }
+
+  /* --- Table formatting: even columns, centred data --- */
+  .tbl-wrap table { table-layout: fixed; }
+  .tbl-col-head th { text-align: center; }
+  .tbl-col-head th:first-child { text-align: left; }
+  tbody td.num { text-align: center; }
+  tr.diff-row td.num { text-align: center; }
+
+  /* --- August additions: reporting season --- */
+  .prelim-banner { background:#FBEDE9; border:1px solid #E0A091; border-left:4px solid #B4462F; color:#8A3523;
+      border-radius:4px; padding:12px 16px; font-size:14px; margin:0 0 30px; line-height:1.6; }
+  .prelim-banner strong { color:#6E2A1A; }
+  .rs-strip { display:grid; grid-template-columns:repeat(6,1fr); gap:8px; margin:20px 0 10px; }
+  .rs-tile { background:var(--card); border:1px solid var(--rule); border-top:3px solid var(--navy); border-radius:4px; padding:12px 10px; text-align:center; }
+  .rs-tile.t-beat { border-top-color:#1F7A4D; }
+  .rs-tile.t-inline { border-top-color:#7A8290; }
+  .rs-tile.t-miss { border-top-color:#B03A2E; }
+  .rs-tile .k { font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-soft); font-weight:700; }
+  .rs-tile .v { font-size:23px; font-weight:700; color:var(--navy); line-height:1.2; margin:3px 0 1px; }
+  .rs-tile .v.up { color:#1F7A4D; } .rs-tile .v.down { color:#B03A2E; }
+  .rs-tile .s { font-size:11px; color:var(--ink-soft); line-height:1.35; }
+  .rs-strip-note { font-size:12.5px; color:var(--ink-soft); border-left:3px solid var(--rule); padding-left:12px; margin-bottom:6px; }
+  .rs-list { list-style:none; }
+  .rs-list li { font-size:14.5px; line-height:1.6; padding:6px 0 6px 18px; position:relative; margin:0; }
+  .rs-list li:before { content:"\25B8"; position:absolute; left:0; color:var(--gold); }
+  .rs-fig { margin:14px 0 4px; }
+  .rs-fig svg { width:100%; height:auto; display:block; }
+  .rs-fig.narrow svg { max-width:430px; }
+  .rs-fig-cap { font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; font-weight:700; color:var(--navy); margin-bottom:4px; }
+  .rs-fig-src { font-size:11.5px; color:var(--ink-soft); line-height:1.5; margin-top:4px; }
+  .rs-fig-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:14px 0 4px; }
+  .rs-fig-2 svg { width:100%; height:auto; display:block; }
+  @media(max-width:680px){ .rs-fig-2 { grid-template-columns:1fr; } }
+  .bottom-line { background:var(--navy); color:#fff; border-radius:5px; border-top:3px solid var(--gold); padding:18px 24px; margin-top:16px; font-size:14.5px; line-height:1.6; }
+  .bottom-line strong { color:var(--gold-soft); letter-spacing:.1em; font-size:11px; text-transform:uppercase; display:block; margin-bottom:6px; }
+  .sc-legend { font-size:12.5px; color:var(--ink-soft); margin:6px 0 12px; }
+  .dot { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:8px; flex:0 0 auto; }
+  .dot.beat { background:#1F7A4D; } .dot.inline { background:#7A8290; } .dot.miss { background:#B03A2E; }
+  .sc-group { font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--navy); font-weight:700; border-bottom:2px solid var(--gold); padding-bottom:6px; margin:24px 0 4px; }
+  .sc-row { display:flex; align-items:center; width:100%; text-align:left; background:none; border:none; border-bottom:1px solid var(--rule); padding:9px 8px; cursor:pointer; font-family:inherit; font-size:14.5px; color:var(--ink); }
+  .sc-row:hover { background:#F2F5F8; }
+  .sc-row:focus-visible { outline:2px solid var(--gold); outline-offset:-2px; }
+  .sc-row .code { font-weight:700; color:var(--navy); width:52px; flex:0 0 auto; }
+  .sc-row .line { flex:1 1 auto; padding-right:12px; }
+  .sc-row .rx { width:60px; flex:0 0 auto; text-align:right; font-weight:700; font-variant-numeric:tabular-nums; }
+  .sc-row .chev { width:18px; flex:0 0 auto; text-align:right; color:var(--ink-soft); font-size:13px; }
+  .pos { color:#1F7A4D; } .neg { color:#B03A2E; } .flat { color:var(--ink-soft); }
+  .rs-backdrop { position:fixed; inset:0; background:rgba(9,29,51,.62); display:none; align-items:flex-start; justify-content:center; padding:32px 16px; z-index:900; overflow-y:auto; }
+  .rs-backdrop.open { display:flex; }
+  .rs-modal { background:var(--card); max-width:760px; width:100%; border-radius:6px; border-top:4px solid var(--gold); box-shadow:0 20px 50px rgba(9,29,51,.35); }
+  .rs-modal-head { background:var(--navy); color:#fff; padding:20px 26px 18px; position:relative; }
+  .rs-modal-head .mtitle { font-size:20px; font-weight:700; line-height:1.25; padding-right:34px; }
+  .rs-modal-head .msub { font-size:13px; color:rgba(255,255,255,.78); margin-top:4px; }
+  .mverdict { display:inline-block; font-size:11px; letter-spacing:.1em; text-transform:uppercase; font-weight:700; padding:4px 10px; border-radius:3px; margin-top:11px; line-height:1.4; }
+  .mverdict.beat { background:#1F7A4D; color:#fff; } .mverdict.inline { background:#5A6270; color:#fff; } .mverdict.miss { background:#B03A2E; color:#fff; }
+  .rs-close { position:absolute; top:14px; right:16px; background:none; border:none; color:rgba(255,255,255,.7); font-size:26px; line-height:1; cursor:pointer; padding:2px 6px; }
+  .rs-close:hover { color:#fff; }
+  .rs-modal-body { padding:22px 26px 26px; }
+  .mtiles { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:20px; }
+  .mtile { background:#F4F7F9; border-radius:4px; padding:11px 12px; }
+  .mtile .k { font-size:9.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--ink-soft); font-weight:700; }
+  .mtile .v { font-size:18px; font-weight:700; color:var(--navy); line-height:1.25; margin:2px 0 1px; }
+  .mtile .s { font-size:11.5px; color:var(--ink-soft); line-height:1.35; }
+  .rs-modal-body ul { list-style:none; margin-bottom:6px; }
+  .rs-modal-body li { font-size:14px; line-height:1.6; padding:4px 0 4px 18px; position:relative; }
+  .rs-modal-body li:before { content:"\25B8"; position:absolute; left:0; color:var(--gold); }
+  .desk { background:#F4F7F9; border-left:3px solid var(--gold); border-radius:0 4px 4px 0; padding:13px 16px; margin-top:18px; font-size:13.5px; line-height:1.6; }
+  .desk strong { display:block; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--navy); margin-bottom:4px; }
+  .rs-nav { display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--rule); padding:14px 26px; }
+  .rs-nav button { background:none; border:1px solid var(--rule); border-radius:4px; padding:6px 14px; font-family:inherit; font-size:13px; color:var(--navy); cursor:pointer; }
+  .rs-nav button:hover { background:#F2F5F8; }
+  .rs-nav .pos-ind { font-size:12px; color:var(--ink-soft); }
+  @media(max-width:680px){
+    .rs-strip { grid-template-columns:repeat(2,1fr); }
+    .mtiles { grid-template-columns:repeat(2,1fr); }
+    .rs-backdrop { padding:0; }
+    .rs-modal { border-radius:0; min-height:100vh; }
+    .sc-row .line { font-size:13px; }
+  }
+
+  /* --- September additions --- */
+  ul.blist { margin:6px 0 12px; padding-left:20px; }
+  ul.blist li { margin:0 0 8px; line-height:1.6; }
+  .commentary ul.blist li { font-size:15px; }
+  .mini-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; margin:16px 0 8px; }
+  .mini-fig { margin:0; background:var(--card); border:1px solid var(--rule); border-radius:6px; padding:12px 12px 8px; }
+  .mini-title { font-size:13px; font-weight:600; color:var(--navy); margin-bottom:4px; }
+  .mini-fig figcaption { font-size:11.5px; color:var(--ink-soft); line-height:1.45; margin-top:4px; }
+  .mgr-card { background:var(--card); border:1px solid var(--rule); border-left:3px solid var(--gold); border-radius:6px; padding:12px 18px 4px; margin:12px 0; }
+  .mgr-name { font-weight:700; color:var(--navy); margin-bottom:4px; }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="brand">Vantage Wealth Management</div>
+    <h1>Monthly Investment Brief</h1>
+    <div class="edition">September 2026 edition <span class="sep">|</span> Interim, 3 October 2026 <span class="sep">|</span> Prepared by Anthony Nguyen</div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="shared-panel">
+    <div class="eyebrow">Key market events in September</div>
+    <div class="shared-item">
+      <div class="date">7 to 15 September</div>
+      <div class="stitle">Conflict around Hormuz and a Saudi pipeline outage take Brent above US$100</div>
+      <p>Strikes between the United States and Iran resumed around the Strait of Hormuz, and damage to three pumping stations on Saudi Arabia's East to West pipeline took Brent to a four month high near US$106 on 15 September. Oil finished the month around US$103, up 14.4% for September and 72.0% for the calendar year, and fuel and electricity lifted Australian headline CPI to 4.0% in August.</p>
+    </div>
+    <div class="shared-item">
+      <div class="date">10 to 29 September</div>
+      <div class="stitle">Four central banks raise rates, including the RBA to 4.60%</div>
+      <p>The ECB raised to 2.50% on 10 September, the Federal Reserve to 3.75% to 4.00% on 16 September, its first increase since 2023, and the Bank of Japan to 1.25% on 18 September. The RBA followed on 29 September with a unanimous 25 basis point increase to 4.60%, its fourth of the year, saying some upside risks to inflation were materialising.</p>
+    </div>
+    <div class="shared-item">
+      <div class="date">15 to 28 September</div>
+      <div class="stitle">Long bond yields reach multi-decade highs</div>
+      <p>The Australian 10 year yield reached 5.40% on 15 September, the highest since May 2011, and finished the month at 5.35%. The United States 10 year closed September at 5.28%, up 53 basis points in the month and its highest since 2007. The Bloomberg AusBond Composite returned negative 0.9% and information technology shares fell 10.6%, the two areas most exposed to higher discount rates.</p>
+    </div>
+    <div class="shared-item">
+      <div class="date">28 to 30 September</div>
+      <div class="stitle">Metrics suspends three listed funds and gates its wholesale funds</div>
+      <p>Metrics Credit Partners suspended its three ASX listed trusts after auditor KPMG challenged valuation inputs, cutting net tangible assets by between 1.99% and 12.16%, then suspended redemptions from wholesale funds managing more than $11 billion. Our position is set out in the private credit section at the end of this brief.</p>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <div class="prelim-banner">
+    <strong>Interim edition.</strong> Portfolio returns are interim figures for 1 to 28 September 2026 and for the financial
+    year to date from 1 July to 28 September 2026. Benchmark and active returns are shown as N/A and unavailable figures as
+    TBC, and both will be confirmed in the final edition. Index and market data are full September month returns to
+    30 September 2026, so market commentary covers two more trading days than the portfolio figures.
+  </div>
+
+  <!-- MACRO -->
+  <section id="macro">
+    <div class="eyebrow">Macro</div>
+    <h2>What moved markets in September</h2>
+    <p class="lede">September was a month in which rates did the damage. Brent returned above US$100 on renewed conflict
+    around the Strait of Hormuz, four of the major central banks we track raised rates, and long bond yields finished the
+    month at 5.35% in Australia and 5.28% in the United States, up 26 and 53 basis points respectively. The S&amp;P/ASX 200
+    Accumulation Index returned negative 2.4% to close at 8,789, ending five consecutive monthly gains, with information
+    technology down 10.6% and materials down 6.0% as gold fell 6.3% and iron ore 5.9%. The Australian dollar fell 3.1% to
+    0.6947, which turned mostly negative offshore markets into a 2.0% gain for the MSCI All Countries World Index in
+    Australian dollars, while the RBA lifted the cash rate to 4.60% on 29 September.</p>
+
+    <div class="snapshot-5">
+      <div class="snap-tile">
+        <svg viewBox="0 0 24 24"><path d="M4 20h16M6 16v-5M10 16V8M14 16v-7M18 16V5"/></svg>
+        <div class="snap-label">Equities</div>
+        <p>ASX 200 Accumulation negative 2.4% and the MSCI All Countries World Index (AUD) +2.0%. In local currency the S&amp;P 500 returned negative 0.3%, the Nikkei 225 +1.3% and the DAX negative 4.0%.</p>
+      </div>
+      <div class="snap-tile">
+        <svg viewBox="0 0 24 24"><path d="M19 5L5 19M7.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM16.5 18a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
+        <div class="snap-label">Rates</div>
+        <p>The RBA raised to 4.60% on 29 September and the Fed to 3.75% to 4.00% on 16 September. The Australian 10 year closed at 5.35% (+26bp) and the US 10 year at 5.28% (+53bp), both multi-decade highs.</p>
+      </div>
+      <div class="snap-tile">
+        <svg viewBox="0 0 24 24"><path d="M12 20a8 8 0 1 1 8-8M12 12l4.5-3"/></svg>
+        <div class="snap-label">Credit</div>
+        <p>AusBond Credit returned negative 0.5% and Credit FRN +0.4%. Global Corporate Credit hedged returned negative 2.1% and Global High Yield negative 1.7%.</p>
+      </div>
+      <div class="snap-tile">
+        <svg viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg>
+        <div class="snap-label">Commodities</div>
+        <p>Brent rose 14.4% to US$103.5 and Newcastle thermal coal 3.4%. Gold fell 6.3% to US$4,157 and iron ore 5.9% to US$94.1 a tonne.</p>
+      </div>
+      <div class="snap-tile">
+        <svg viewBox="0 0 24 24"><path d="M5 17l5-5 3 3 6-6M19 9V5h-4"/></svg>
+        <div class="snap-label">Currency &amp; Policy</div>
+        <p>The Australian dollar fell 3.1% to 0.6947, 1.0% against sterling and 0.6% against the euro, trimming the calendar year gain to 4.1%. Headline CPI rose to 4.0% in August.</p>
+      </div>
+    </div>
+
+    <div class="snapshot-2">
+      <div class="snap-tile">
+        <svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        <div class="snap-label">Global Equities</div>
+        <div class="snap-wide-title">Regional returns for September, local currency</div>
+        <div class="snap-detail" style="margin-bottom:12px;">
+          <span class="lead">Japan +1.3%</span><span>Korea +0.3%</span><span>US -0.3%</span><span>UK -2.0%</span><span>Europe 50 -2.3%</span><span>Australia -2.4%</span><span>Europe 600 -2.5%</span><span class="lag">Hong Kong -3.3%</span><span class="lag">China -3.6%</span><span class="lag">Germany -4.0%</span>
+        </div>
+        <div class="snap-wide-title">In Australian dollars</div>
+        <div class="snap-detail" style="margin-bottom:12px;">
+          <span>MSCI World ex-Aus +1.6%</span><span class="lag">Hedged -0.5%</span><span>MSCI ACWI +2.0%</span><span>EM +2.1%</span><span class="lead">Asia ex-Japan +2.4%</span>
+        </div>
+        <div class="snap-wide-title">Currency lift to unhedged exposure</div>
+        <div class="snap-detail">
+          <span class="lead">2.1 percentage points</span><span>AUDUSD -3.1%</span><span>AUDGBP -1.0%</span><span>AUDEUR -0.6%</span>
+        </div>
+      </div>
+      <div class="snap-tile">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <div class="snap-label">Australian Equities</div>
+        <div class="snap-wide-title">Strongest sectors (total return)</div>
+        <div class="snap-detail" style="margin-bottom:12px;">
+          <span class="lead">Health Care +4.4%</span><span class="lead">Energy +0.6%</span><span>Financials -1.0%</span><span>Staples -1.0%</span><span>Industrials -1.1%</span>
+        </div>
+        <div class="snap-wide-title">Weakest sectors (total return)</div>
+        <div class="snap-detail" style="margin-bottom:12px;">
+          <span class="lag">Info Technology -10.6%</span><span class="lag">Materials -6.0%</span><span class="lag">Utilities -3.1%</span><span class="lag">Cons Disc -3.0%</span><span class="lag">Telecoms -3.0%</span>
+        </div>
+        <div class="snap-wide-title">Size</div>
+        <div class="snap-detail">
+          <span>ASX 200 Accumulation -2.4%</span><span>Small Cap Accumulation -2.3%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="watching-box">
+      <strong>The RBA has moved and the next decision turns on the September quarter CPI.</strong> The Board raised the cash
+      rate to 4.60% on 29 September and said it will raise further if needed. The August CPI the following day showed trimmed
+      mean steady at 3.6%, with headline at 4.0% driven by electricity and fuel, both of which the trimmed mean excludes. The
+      September quarter CPI on 28 October is the last major input before the 3 November meeting. Morgan Stanley now expects the
+      cash rate to stay at 4.60% until mid-2027, with cuts to 4.10% in the second half of that year. In the United States, futures
+      priced around 55% to 58% for a further Fed increase on 28 October in the days after the September decision, and around
+      90% for one by the December meeting.
+    </div>
+
+    <div class="snap-wide-title" style="font-size:15px;margin:24px 0 4px;">Upcoming Key Events</div>
+    <div class="events-row">
+      <div class="event-card">
+        <div class="event-date">14 October</div>
+        <div class="event-title">US September consumer price index</div>
+        <div class="event-body">August CPI rose 0.4% for the month and 3.4% over the year, with petrol accounting for more than a third of the monthly rise and core running at 0.3%. September covers the month in which Brent averaged above US$100, which makes it the main input to the 28 October decision.</div>
+      </div>
+      <div class="event-card">
+        <div class="event-date">28 October</div>
+        <div class="event-title">Australian September quarter CPI and the FOMC</div>
+        <div class="event-body">The quarterly CPI is the last inflation reading before the RBA meets on 3 November. Trimmed mean has held at 3.6% for three months against a 2% to 3% target band. The Federal Reserve announces its decision the same day.</div>
+      </div>
+      <div class="event-card">
+        <div class="event-date">3 November</div>
+        <div class="event-title">RBA cash rate decision</div>
+        <div class="event-body">The cash rate sits at 4.60% after four increases this year. The Board's statement on 29 September said it will raise the cash rate further if needed, and the decision will follow the September quarter CPI and the September labour force release on 15 October.</div>
+      </div>
+    </div>
+    <div class="tbl-note" style="background:none;border:none;padding:6px 0 0;">Index data sourced from Morgan Stanley Australia Macro+ (The Monthly, 2 October 2026) and the Morgan Stanley Wealth Management Weekly Asset Class Performance Sheet, both as at 30 September 2026. Australian sector figures are total returns. Monthly figures are full September month returns.</div>
+  </section>
+
+  <hr class="section-rule">
+
+  <!-- LONG BONDS -->
+  <section id="long-bonds">
+    <div class="eyebrow">Fixed income</div>
+    <h2>Why long bond yields have risen</h2>
+    <p>Long bond yields reached their highest levels in fifteen years in Australia and nineteen years in the United States in
+    September. The rise matters for every part of a diversified portfolio because the 10 year yield sets the discount rate
+    for all other assets.</p>
+
+    <div class="mini-grid">
+      <figure class="mini-fig"><div class="mini-title">US Treasury yields, 2026</div><svg viewBox="0 0 320 200" role="img" aria-label="US Treasury yields March and September 2026" style="width:100%;height:auto"><line x1="34" x2="316" y1="160.0" y2="160.0" stroke="#E2E0D8"/><text x="28" y="163.0" font-size="10" text-anchor="end" fill="#5A6270">3.0%</text><line x1="34" x2="316" y1="106.9" y2="106.9" stroke="#E2E0D8"/><text x="28" y="109.9" font-size="10" text-anchor="end" fill="#5A6270">4.0%</text><line x1="34" x2="316" y1="53.8" y2="53.8" stroke="#E2E0D8"/><text x="28" y="56.8" font-size="10" text-anchor="end" fill="#5A6270">5.0%</text><rect x="52" y="113.3" width="28" height="46.7" fill="#E3CB7A"/><rect x="82" y="66.6" width="28" height="93.4" fill="#0E2A47"/><text x="96" y="60.6" font-size="10" text-anchor="middle" fill="#0E2A47" font-weight="600">+88bp</text><text x="81" y="176" font-size="11" text-anchor="middle" fill="#2B2F36">2 year</text><rect x="142" y="86.2" width="28" height="73.8" fill="#E3CB7A"/><rect x="172" y="53.3" width="28" height="106.7" fill="#0E2A47"/><text x="186" y="47.3" font-size="10" text-anchor="middle" fill="#0E2A47" font-weight="600">+62bp</text><text x="171" y="176" font-size="11" text-anchor="middle" fill="#2B2F36">10 year</text><rect x="232" y="56.0" width="28" height="104.0" fill="#E3CB7A"/><rect x="262" y="35.8" width="28" height="124.2" fill="#0E2A47"/><text x="276" y="29.8" font-size="10" text-anchor="middle" fill="#0E2A47" font-weight="600">+38bp</text><text x="261" y="176" font-size="11" text-anchor="middle" fill="#2B2F36">30 year</text><rect x="60" y="188" width="10" height="8" fill="#E3CB7A"/><text x="74" y="196" font-size="10" fill="#5A6270">20 Mar</text><rect x="130" y="188" width="10" height="8" fill="#0E2A47"/><text x="144" y="196" font-size="10" fill="#5A6270">18 Sep</text></svg><figcaption>Source: Viola Private Wealth, US Department of the Treasury. The 2 year rose most, consistent with a repricing of the policy path.</figcaption></figure>
+      <figure class="mini-fig"><div class="mini-title">What drove the US 10 year higher</div><svg viewBox="0 0 320 200" role="img" aria-label="Decomposition of the rise in the US 10 year yield" style="width:100%;height:auto"><text x="10" y="34" font-size="11" fill="#2B2F36">Real yield</text><rect x="10" y="40" width="230.0" height="18" fill="#0E2A47"/><text x="246.0" y="53" font-size="11" font-weight="600" fill="#0E2A47">+50bp</text><text x="10" y="80" font-size="11" fill="#2B2F36">Inflation expectations</text><rect x="10" y="86" width="69.0" height="18" fill="#C9A227"/><text x="85.0" y="99" font-size="11" font-weight="600" fill="#0E2A47">+15bp</text><text x="10" y="126" font-size="11" fill="#2B2F36">Term premium</text><rect x="10" y="132" width="78.2" height="18" fill="#8A9BB0"/><text x="94.2" y="145" font-size="11" font-weight="600" fill="#0E2A47">+17bp</text><text x="10" y="186" font-size="10" fill="#5A6270">10 year: 3.94% on 27 Feb to 4.75% on 31 Aug</text></svg><figcaption>Source: ClearBridge Investments, Federal Reserve, Bloomberg. Real yields did most of the lifting.</figcaption></figure>
+      <figure class="mini-fig"><div class="mini-title">Equity earnings yield against bonds</div><svg viewBox="0 0 320 200" role="img" aria-label="Forward earnings yield against the 10 year bond yield" style="width:100%;height:auto"><line x1="34" x2="316" y1="160.0" y2="160.0" stroke="#E2E0D8"/><text x="28" y="163.0" font-size="10" text-anchor="end" fill="#5A6270">0%</text><line x1="34" x2="316" y1="121.1" y2="121.1" stroke="#E2E0D8"/><text x="28" y="124.1" font-size="10" text-anchor="end" fill="#5A6270">2%</text><line x1="34" x2="316" y1="82.3" y2="82.3" stroke="#E2E0D8"/><text x="28" y="85.3" font-size="10" text-anchor="end" fill="#5A6270">4%</text><line x1="34" x2="316" y1="43.4" y2="43.4" stroke="#E2E0D8"/><text x="28" y="46.4" font-size="10" text-anchor="end" fill="#5A6270">6%</text><rect x="70" y="47.3" width="34" height="112.7" fill="#0E2A47"/><rect x="106" y="56.1" width="34" height="103.9" fill="#C9A227"/><text x="87" y="42.3" font-size="10" text-anchor="middle" fill="#0E2A47">5.8%</text><text x="123" y="51.1" font-size="10" text-anchor="middle" fill="#0E2A47">5.35%</text><text x="105" y="176" font-size="11" text-anchor="middle" fill="#2B2F36">Australia</text><rect x="200" y="51.2" width="34" height="108.8" fill="#0E2A47"/><rect x="236" y="57.4" width="34" height="102.6" fill="#C9A227"/><text x="217" y="46.2" font-size="10" text-anchor="middle" fill="#0E2A47">5.6%</text><text x="253" y="52.4" font-size="10" text-anchor="middle" fill="#0E2A47">5.28%</text><text x="235" y="176" font-size="11" text-anchor="middle" fill="#2B2F36">United States</text><rect x="60" y="188" width="10" height="8" fill="#0E2A47"/><text x="74" y="196" font-size="10" fill="#5A6270">Forward earnings yield</text><rect x="196" y="188" width="10" height="8" fill="#C9A227"/><text x="210" y="196" font-size="10" fill="#5A6270">10 year bond</text></svg><figcaption>Source: Morgan Stanley (ASX 200 at 17.1 times forward earnings, bond yields at 30 September); Viola Private Wealth, J.P. Morgan (S&amp;P 500 at 18 times 2027 earnings).</figcaption></figure>
+    </div>
+
+    <h4>Where yields are</h4>
+    <ul class="blist">
+      <li>The Australian 10 year reached 5.40% on 15 September, the highest since May 2011, and finished the month at 5.35%, up 26 basis points in September and from 4.64% at the end of February.</li>
+      <li>The United States 10 year closed September at 5.28%, up 53 basis points in the month and its highest since 2007, with the 30 year reaching 5.56%. Japanese, UK, French and German yields also reached multi-year highs.</li>
+    </ul>
+
+    <h4>What is driving them</h4>
+    <ul class="blist">
+      <li><strong>Inflation and the policy path.</strong> Brent is up 72% this year and Australian headline CPI is back to 4.0%. United States futures have moved from pricing several rate cuts in February to pricing further increases, and the RBA, Federal Reserve, ECB and Bank of Japan all raised rates in September.</li>
+      <li><strong>Real yields more than inflation fears.</strong> ClearBridge's decomposition attributes most of the United States rise since late February to real yields, and the ten year breakeven inflation rate was 2.33% on 18 September. Viola Private Wealth, using the Federal Reserve's Kim-Wright model over March to September, puts about half the rise down to term premium, so estimates differ on how much is compensation for uncertainty.</li>
+      <li><strong>Supply.</strong> Treasury raised its September quarter borrowing estimate to US$739 billion, US$68 billion above May, while technology companies funding AI infrastructure are issuing record amounts of corporate debt that competes for the same buyers.</li>
+    </ul>
+
+    <h4>What it means for portfolios</h4>
+    <ul class="blist">
+      <li><strong>Bond prices fall when yields rise.</strong> The AusBond Composite returned negative 0.9% in September and the Vantage Fixed Interest portfolio negative 0.45%, with the shorter duration holdings positive.</li>
+      <li><strong>Real assets carry the most rate sensitivity.</strong> Listed infrastructure and property discount long-dated cash flows, which is why the Property and Infrastructure portfolio returned negative 4.99% in the month.</li>
+      <li><strong>The equity cushion is thin.</strong> The ASX 200 trades on 17.1 times forward earnings, a forward earnings yield of about 5.8%, which Morgan Stanley puts only 0.6 percentage points above the 10 year bond. The S&amp;P 500's 5.6% earnings yield on 2027 forecasts sits about 0.3 points above United States Treasuries. With FY27 consensus earnings growth for the ASX 200 cut to 7.2%, equities need that growth delivered to justify current prices.</li>
+    </ul>
+
+    <h4>Outlook</h4>
+    <ul class="blist">
+      <li><strong>Better income from defensive assets.</strong> Starting yields above 5% are the best for Australian bonds since 2011 and give more protection against further price falls.</li>
+      <li><strong>Duration of high rates is the key risk.</strong> Companies and households are still partly insulated by borrowing taken out at lower rates, and that protection fades the longer yields stay near current levels and more debt is refinanced.</li>
+      <li><strong>More modest returns ahead.</strong> With the cash rate at 4.60% and long bonds above 5%, we anticipate returns from diversified portfolios over the coming years will be lower and more variable than the strong results of the past twelve months.</li>
+    </ul>
+  </section>
+  <hr class="section-rule">
+
+  <!-- MULTI-SECTOR -->
+  <section id="multisector">
+    <div class="eyebrow">Portfolios</div>
+    <h2>Vantage Multi-sector Portfolios</h2>
+    <p>Interim returns cover 1 to 28 September 2026 and the financial year to date from 1 July to 28 September 2026, and are
+    net of investment manager fees. Vantage HUB24 portfolios launched 14 July 2025. Objective, peer category, calendar year,
+    one year and since inception figures will be confirmed in the final edition.</p>
+
+    <h3>HUB24 Vantage Multi-sector SMAs</h3>
+    <div class="tbl-wrap">
+      <table>
+        <colgroup><col style="width:34%;"><col style="width:13.2%;"><col style="width:13.2%;"><col style="width:13.2%;"><col style="width:13.2%;"><col style="width:13.2%;"></colgroup>
+        <tbody>
+          <tr class="tbl-section-head"><td colspan="6">Vantage Moderate Growth Portfolio (VAN005)</td></tr><tr class="tbl-col-head"><th>Strategy</th><th>September&sup2;</th><th>FYTD&sup2;</th><th>CYTD</th><th>1 Year</th><th>Since Inception&sup1; p.a.</th></tr><tr><td>Vantage Moderate Growth Portfolio (VAN005)</td><td class="num neg">-1.12%</td><td class="num pos">0.18%</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td></tr><tr class="bench"><td>CPI + 2% objective</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td></tr><tr class="diff-row"><td>Difference vs objective</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td></tr><tr class="bench"><td>Morningstar Aus Fund Multisector Balanced (41 to 60 Growth)</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td></tr><tr class="diff-row"><td>Difference vs peer category</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td></tr>
+          <tr class="tbl-section-head"><td colspan="6">Vantage Growth Portfolio (VAN006)</td></tr><tr class="tbl-col-head"><th>Strategy</th><th>September&sup2;</th><th>FYTD&sup2;</th><th>CYTD</th><th>1 Year</th><th>Since Inception&sup1; p.a.</th></tr><tr><td>Vantage Growth Portfolio (VAN006)</td><td class="num neg">-1.36%</td><td class="num pos">0.31%</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td></tr><tr class="bench"><td>CPI + 3% objective</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td></tr><tr class="diff-row"><td>Difference vs objective</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td></tr><tr class="bench"><td>Morningstar Aus Fund Multisector Growth (61 to 80 Growth)</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td></tr><tr class="diff-row"><td>Difference vs peer category</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td></tr>
+          <tr class="tbl-section-head"><td colspan="6">Vantage High Growth Portfolio (VAN007)</td></tr><tr class="tbl-col-head"><th>Strategy</th><th>September&sup2;</th><th>FYTD&sup2;</th><th>CYTD</th><th>1 Year</th><th>Since Inception&sup1; p.a.</th></tr><tr><td>Vantage High Growth Portfolio (VAN007)</td><td class="num neg">-1.62%</td><td class="num pos">0.41%</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td></tr><tr class="bench"><td>CPI + 3.5% objective</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td></tr><tr class="diff-row"><td>Difference vs objective</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td></tr><tr class="bench"><td>Morningstar Aus Fund Multisector Aggressive (&gt;80 Growth)</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td></tr><tr class="diff-row"><td>Difference vs peer category</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td></tr>
+        </tbody>
+      </table>
+      <div class="tbl-note">&sup1; Portfolio inception 14 July 2025. &nbsp; &sup2; Interim, 1 to 28 September 2026 and 1 July to 28 September 2026. Source: HUB24. Returns are net of investment manager fees. N/A: objective returns are not shown in the interim edition. TBC: to be confirmed in the final edition.</div>
+    </div>
+
+    <div class="commentary">
+      <h4 style="margin-top:0;">September in review</h4>
+      <ul class="blist">
+        <li><strong>All three portfolios fell.</strong> Moderate Growth returned -1.12%, Growth -1.36% and High Growth -1.62% to 28 September, as rising bond yields pushed growth and defensive assets lower at the same time. High Growth fell most because it holds the most Australian equities and real assets.</li>
+        <li><strong>Australian Equities -3.60%.</strong> Resources fell with iron ore and gold, and high-multiple growth stocks such as Xero sold off as yields rose.</li>
+        <li><strong>Property and Infrastructure -4.99%.</strong> Infrastructure and property are the most rate-sensitive holdings, because their long-dated cash flows are worth less when yields rise.</li>
+        <li><strong>Global Equities +0.32%.</strong> Offshore markets were mostly lower in local terms, and the 3.1% fall in the Australian dollar turned that into a small gain on unhedged holdings.</li>
+        <li><strong>Fixed Interest -0.45%.</strong> Bond prices fell as yields rose, partly offset by the short duration holdings, which were positive.</li>
+        <li><strong>Financial year to date.</strong> Moderate Growth is at 0.18%, Growth 0.31% and High Growth 0.41%, with Australian Equities (0.81%) and Global Equities (1.96%) offsetting Property and Infrastructure (-6.63%) and Fixed Interest (-0.41%).</li>
+      </ul>
+    </div>
+
+    <h3>Vantage CFS FirstChoice Managed Accounts</h3>
+    <p style="font-size:14px;color:var(--ink-soft);margin-bottom:10px;">Returns are net of investment manager fees. Since inception 28 June 2019. Morningstar peer category rows are shown beneath each strategy.</p>
+    <div class="tbl-wrap">
+      <table>
+        <colgroup><col style="width:34%;"><col style="width:13.2%;"><col style="width:13.2%;"><col style="width:13.2%;"><col style="width:13.2%;"><col style="width:13.2%;"></colgroup>
+        <tbody>
+          <tr class="tbl-section-head"><td colspan="6">Aggressive</td></tr><tr class="tbl-col-head"><th>Strategy</th><th>September</th><th>1 Year</th><th>3 Yrs p.a.</th><th>5 Yrs p.a.</th><th>Since Inception p.a.</th></tr><tr><td>Vantage CFS Aggressive, Pension</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td></tr><tr><td>Vantage CFS Aggressive, Super</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td></tr><tr class="bench"><td>Morningstar Aus Fund Multisector Aggressive (&gt;80 Growth)</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td></tr>
+          <tr class="tbl-section-head"><td colspan="6">High Growth</td></tr><tr class="tbl-col-head"><th>Strategy</th><th>September</th><th>1 Year</th><th>3 Yrs p.a.</th><th>5 Yrs p.a.</th><th>Since Inception p.a.</th></tr><tr><td>Vantage CFS High Growth, Pension</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td></tr><tr><td>Vantage CFS High Growth, Super</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td></tr><tr class="bench"><td>Morningstar Aus Fund Multisector Aggressive (&gt;80 Growth)</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td></tr>
+          <tr class="tbl-section-head"><td colspan="6">Growth</td></tr><tr class="tbl-col-head"><th>Strategy</th><th>September</th><th>1 Year</th><th>3 Yrs p.a.</th><th>5 Yrs p.a.</th><th>Since Inception p.a.</th></tr><tr><td>Vantage CFS Growth, Pension</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td></tr><tr><td>Vantage CFS Growth, Super</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td></tr><tr class="bench"><td>Morningstar Aus Fund Multisector Growth (61 to 80 Growth)</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td></tr>
+          <tr class="tbl-section-head"><td colspan="6">Moderate</td></tr><tr class="tbl-col-head"><th>Strategy</th><th>September</th><th>1 Year</th><th>3 Yrs p.a.</th><th>5 Yrs p.a.</th><th>Since Inception p.a.</th></tr><tr><td>Vantage CFS Moderate, Pension</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td></tr><tr><td>Vantage CFS Moderate, Super</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td></tr><tr class="bench"><td>Morningstar Aus Fund Multisector Balanced (41 to 60 Growth)</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td></tr>
+          <tr class="tbl-section-head"><td colspan="6">Conservative</td></tr><tr class="tbl-col-head"><th>Strategy</th><th>September</th><th>1 Year</th><th>3 Yrs p.a.</th><th>5 Yrs p.a.</th><th>Since Inception p.a.</th></tr><tr><td>Vantage CFS Conservative, Pension</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td></tr><tr><td>Vantage CFS Conservative, Super</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td></tr><tr class="bench"><td>Morningstar Aus Fund Multisector Moderate (21 to 40 Growth)</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td><td class="num">TBC</td></tr>
+        </tbody>
+      </table>
+      <div class="tbl-note">Source: FE Precision Plus, CFS. TBC: September figures for the CFS FirstChoice range were not available for the interim edition and will be included in the final edition.</div>
+    </div>
+
+    <div class="portal-links">
+      Detailed portfolio performance: <a href="https://anguyen1992.github.io/vantage-portal/pages/managed-accounts-hub-performance.html">HUB24 Portfolio Performance</a> &nbsp;|&nbsp; <a href="https://anguyen1992.github.io/vantage-portal/pages/managed-accounts-cfs-performance.html">CFS Portfolio Performance</a>
+    </div>
+  </section>
+
+  <hr class="section-rule">
+
+  <!-- SINGLE ASSET CLASS -->
+  <section id="sector-smas">
+    <div class="eyebrow">Sector portfolios</div>
+    <h2>Vantage Single-Asset Class HUB24 SMA Performance</h2>
+    <p>Interim portfolio data covers 1 to 28 September 2026 and the financial year to date from 1 July to 28 September 2026,
+    sourced from HUB24 Shadow Portfolio Performance Reports. Market data is the full September month from the Morgan Stanley
+    Wealth Management Weekly Asset Class Performance Sheet.</p>
+
+    <h3>Australian Equities (VAN001)</h3>
+    <div class="tbl-wrap">
+      <table>
+        <colgroup><col style="width:40%;"><col style="width:20%;"><col style="width:20%;"><col style="width:20%;"></colgroup>
+        <tbody>
+          <tr class="tbl-col-head"><th>Portfolio / Benchmark</th><th>September&sup2;</th><th>FYTD&sup2;</th><th>1 Year</th></tr>
+          <tr><td>Vantage Australian Equities Portfolio (VAN001)</td><td class="num neg">-3.60%</td><td class="num pos">0.81%</td><td class="num">TBC</td></tr>
+          <tr class="bench"><td>S&amp;P/ASX 300 Accumulation Index</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td></tr>
+          <tr class="diff-row"><td>Difference vs benchmark</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td></tr>
+        </tbody>
+      </table>
+      <div class="tbl-note">&sup2; Interim, 1 to 28 September 2026 and 1 July to 28 September 2026. Source: HUB24 Shadow Portfolio Performance Report. Returns are net of investment manager fees. N/A: benchmark returns are not shown in the interim edition. TBC: to be confirmed in the final edition.</div>
+    </div>
+    <div class="commentary">
+      <div class="period-head">September month to date</div>
+      <h4 style="margin-top:0;">Market</h4>
+      <ul class="blist"><li>ASX 200 Accumulation -2.4%, ending five months of gains. Information technology fell 10.6% as higher yields hit high-multiple stocks, and materials fell 6.0% as gold dropped 6.3% and iron ore 5.9%, with BHP alone taking 76 basis points off the index.</li><li>Health Care (+4.4%, led by CSL +8.8%) and Energy (+0.6%) were the only sectors higher. Financials (-1.0%) held up as ANZ, Westpac and NAB rose, while Commonwealth Bank (-5.6%) took 55 basis points off the index.</li><li>The ASX 200 now trades on 17.1 times forward earnings against FY27 consensus earnings growth of 7.2%. Morgan Stanley sees risk to earnings on the downside as AGM trading updates begin to show the effect of tighter policy.</li></ul>
+      <h4>Our managers</h4>
+      <ul class="blist"><li><strong>Detractors.</strong> Xero (-29.96%) and HUB24 (-15.40%) fell with other high-multiple growth stocks as yields rose. BHP (-6.37%) and Rio Tinto (-6.01%) fell with iron ore, and the SPDR S&amp;P/ASX 200 Fund (-3.18%) tracked the market.</li><li><strong>Contributors.</strong> QBE Insurance (+5.08%) and ANZ (+3.36%) rose as higher rates lift insurer investment income and bank margins, and Challenger (+7.83%) from higher yields on its annuity book. Monadelphous (+7.91%) and Orica (+4.14%) recovered after falls through reporting season.</li></ul>
+      <div class="period-head spaced">Financial year to date</div>
+      <ul class="blist"><li>The portfolio has returned 0.81% since 1 July. Newmont (+24.37%) and Woodside Energy (+14.41%) led on higher gold and oil prices, with BHP (+4.39%) and ResMed (+9.97%) also contributing.</li><li>Xero (-19.63%), HUB24 (-11.83%), Commonwealth Bank (-7.08%) and QBE Insurance (-5.84%) are the largest detractors, the banks and insurers reflecting reporting season guidance and the platforms the rise in yields.</li></ul>
+    </div>
+
+    <h3>Global Equities (VAN002)</h3>
+    <div class="tbl-wrap">
+      <table>
+        <colgroup><col style="width:40%;"><col style="width:20%;"><col style="width:20%;"><col style="width:20%;"></colgroup>
+        <tbody>
+          <tr class="tbl-col-head"><th>Portfolio / Benchmark</th><th>September&sup2;</th><th>FYTD&sup2;</th><th>1 Year</th></tr>
+          <tr><td>Vantage Global Equities Portfolio (VAN002)</td><td class="num pos">0.32%</td><td class="num pos">1.96%</td><td class="num">TBC</td></tr>
+          <tr class="bench"><td>MSCI World ex-Australia Index (Unhedged)</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td></tr>
+          <tr class="bench"><td>MSCI World ex-Australia Index (Hedged)</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td></tr>
+          <tr class="bench"><td>70/30 Combined Benchmark</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td></tr>
+          <tr class="diff-row"><td>Difference vs benchmark</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td></tr>
+        </tbody>
+      </table>
+      <div class="tbl-note">&sup2; Interim, 1 to 28 September 2026 and 1 July to 28 September 2026. Source: HUB24 Shadow Portfolio Performance Report. Returns are net of investment manager fees. N/A: benchmark returns are not shown in the interim edition. TBC: to be confirmed in the final edition.</div>
+    </div>
+    <div class="commentary">
+      <div class="period-head">September month to date</div>
+      <h4 style="margin-top:0;">Market</h4>
+      <ul class="blist"><li>Most offshore markets fell in local currency: the S&amp;P 500 -0.3%, the DAX -4.0% and the STOXX 600 -2.5%, with the Nikkei +1.3% the exception.</li><li>The Australian dollar fell 3.1%, so MSCI World ex-Australia returned +1.6% unhedged against -0.5% hedged.</li></ul>
+      <h4>Our managers</h4>
+      <ul class="blist"><li><strong>Unhedged holdings led.</strong> QUAL (+2.01%), T. Rowe Price Global Equity (+1.94%) and VGS (+1.39%) benefited from the weaker Australian dollar.</li><li><strong>Hedged and value exposure lagged.</strong> Arrowstreet Global Equity No. 2 Hedged (-0.80%) received no currency lift. VVLU (-2.05%) and Aoris International (-3.14%) hold little of the large US technology companies that supported the index.</li></ul>
+      <div class="period-head spaced">Financial year to date</div>
+      <ul class="blist"><li>The portfolio has returned 1.96% since 1 July. Aoris (+3.18%), VVLU (+3.12%) and Arrowstreet Hedged (+2.55%) lead after avoiding the July semiconductor selloff and capturing the hedged gain in August, while T. Rowe Price (-0.35%) and Arrowstreet Global Small Companies (-1.18%) remain behind.</li></ul>
+    </div>
+
+    <h3>Property &amp; Infrastructure (VAN003)</h3>
+    <div class="tbl-wrap">
+      <table>
+        <colgroup><col style="width:40%;"><col style="width:20%;"><col style="width:20%;"><col style="width:20%;"></colgroup>
+        <tbody>
+          <tr class="tbl-col-head"><th>Portfolio / Benchmark</th><th>September&sup2;</th><th>FYTD&sup2;</th><th>1 Year</th></tr>
+          <tr><td>Vantage Property &amp; Infrastructure Portfolio (VAN003)</td><td class="num neg">-4.99%</td><td class="num neg">-6.63%</td><td class="num">TBC</td></tr>
+          <tr class="bench"><td>FTSE EPRA Nareit Developed Index (Net, $A Hedged)</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td></tr>
+          <tr class="bench"><td>FTSE Developed Core Infrastructure 50/50 ($A Hedged)</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td></tr>
+          <tr class="bench"><td>50/50 Combined Benchmark</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td></tr>
+          <tr class="diff-row"><td>Difference vs benchmark</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td></tr>
+        </tbody>
+      </table>
+      <div class="tbl-note">&sup2; Interim, 1 to 28 September 2026 and 1 July to 28 September 2026. Source: HUB24 Shadow Portfolio Performance Report. Returns are net of investment manager fees. N/A: benchmark returns are not shown in the interim edition. TBC: to be confirmed in the final edition.</div>
+    </div>
+    <div class="commentary">
+      <div class="period-head">September month to date</div>
+      <h4 style="margin-top:0;">Market</h4>
+      <ul class="blist"><li>Global listed infrastructure hedged -4.1% and global property -2.4% in Australian dollars, both falling as long bond yields rose. Their long-dated cash flows are discounted at rates linked to bond yields, making them the most rate-sensitive listed assets.</li></ul>
+      <h4>Our managers</h4>
+      <ul class="blist"><li><strong>Infrastructure fell most.</strong> Ausbil Global Essential Infrastructure Hedged (-5.94%), ATLAS Infrastructure Global Fund (-5.60%) and VanEck Infrastructure ETF (-5.48%) carry the longest duration cash flows in the sleeve.</li><li><strong>Property fell less.</strong> VanEck International REIT ETF returned -5.11% and Quay Global Real Estate -3.49%.</li></ul>
+      <div class="period-head spaced">Financial year to date</div>
+      <ul class="blist"><li>The portfolio has returned -6.63% since 1 July, the weakest sleeve this financial year, with every holding negative as yields rose through July and September.</li><li>The benchmark for this sleeve remains open with HUB24, which shows an Inflation plus 3% objective in one report and the 50/50 blend above in another.</li></ul>
+    </div>
+
+    <h3>Fixed Income (VAN004)</h3>
+    <div class="tbl-wrap">
+      <table>
+        <colgroup><col style="width:40%;"><col style="width:20%;"><col style="width:20%;"><col style="width:20%;"></colgroup>
+        <tbody>
+          <tr class="tbl-col-head"><th>Portfolio / Benchmark</th><th>September&sup2;</th><th>FYTD&sup2;</th><th>1 Year</th></tr>
+          <tr><td>Vantage Fixed Interest Portfolio (VAN004)</td><td class="num neg">-0.45%</td><td class="num neg">-0.41%</td><td class="num">TBC</td></tr>
+          <tr class="bench"><td>Bloomberg AusBond Composite 0+Y Index</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td></tr>
+          <tr class="bench"><td>Bloomberg Global Aggregate (Hedged AUD)</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td></tr>
+          <tr class="bench"><td>60/40 Combined Benchmark</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td></tr>
+          <tr class="diff-row"><td>Difference vs benchmark</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td></tr>
+        </tbody>
+      </table>
+      <div class="tbl-note">&sup2; Interim, 1 to 28 September 2026 and 1 July to 28 September 2026. Source: HUB24 Shadow Portfolio Performance Report. Returns are net of investment manager fees. N/A: benchmark returns are not shown in the interim edition. TBC: to be confirmed in the final edition.</div>
+    </div>
+    <div class="commentary">
+      <div class="period-head">September month to date</div>
+      <h4 style="margin-top:0;">Market</h4>
+      <ul class="blist"><li>AusBond Composite -0.9% and Global Aggregate hedged -1.6% as yields rose, while floating rate credit (+0.4%) and bank bills (+0.4%) were positive.</li></ul>
+      <h4>Our managers</h4>
+      <ul class="blist"><li><strong>Short duration held up.</strong> Realm Short Term Income (+0.30%) and Perpetual Diversified Income (+0.09%) hold floating rate and short-dated credit, which gains from higher rates.</li><li><strong>Longer duration fell.</strong> Macquarie Dynamic Bond (-1.83%) and Bentham Global Income (-1.46%) carry the most interest rate sensitivity in the sleeve.</li></ul>
+      <div class="period-head spaced">Financial year to date</div>
+      <ul class="blist"><li>The portfolio has returned -0.41% since 1 July. Perpetual Diversified Income (+0.88%), Coolabah Short Term Income (+0.49%) and Realm Short Term Income (+0.44%) are positive, while Macquarie Dynamic Bond (-2.54%) and Bentham Global Income (-2.44%) reflect the July and September duration selloffs. Coolabah and Bentham Asset Backed Securities carry no September return in the interim report.</li></ul>
+    </div>
+
+    <h3>Alternatives</h3>
+    <div class="tbl-wrap">
+      <table>
+        <colgroup><col style="width:40%;"><col style="width:20%;"><col style="width:20%;"><col style="width:20%;"></colgroup>
+        <tbody>
+          <tr class="tbl-col-head"><th>Portfolio / Benchmark</th><th>September&sup2;</th><th>FYTD&sup2;</th><th>1 Year</th></tr>
+          <tr><td>Vantage Alternatives Portfolio</td><td class="num pos">1.86%</td><td class="num pos">0.54%</td><td class="num">TBC</td></tr>
+          <tr class="bench"><td>Cash + 2%</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td></tr>
+          <tr class="diff-row"><td>Difference vs benchmark</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td></tr>
+        </tbody>
+      </table>
+      <div class="tbl-note">&sup2; Interim, 1 to 28 September 2026 and 1 July to 28 September 2026. Source: HUB24 Shadow Portfolio Performance Report. Returns are net of investment manager fees. N/A: benchmark returns are not shown in the interim edition. TBC: to be confirmed in the final edition.</div>
+    </div>
+    <div class="commentary">
+      <div class="period-head">September month to date</div>
+      <h4 style="margin-top:0;">Our managers</h4>
+      <ul class="blist"><li><strong>Currency and Asia led.</strong> The iShares Asia 50 ETF (+5.92%) gained as Asian large caps rose and the weaker Australian dollar added to returns, and the VanEck 1-3 Month US Treasury Bond ETF (+2.73%) was almost entirely a currency gain.</li><li><strong>Trend following helped.</strong> Aspect Absolute Return (+4.04%), a trend-following strategy, gained in a month of sustained moves in bond yields and oil.</li><li><strong>Defensive income was flat to lower.</strong> Colchester Emerging Markets Bond (+0.01%) and Janus Henderson Global Multi-Strategy (-0.02%) were flat, and Fortlake Real Higher Income (-1.40%) fell as bond yields rose. The sleeve is not held within the multi-sector portfolios.</li></ul>
+      <div class="period-head spaced">Financial year to date</div>
+      <ul class="blist"><li>The portfolio has returned 0.54% since 1 July. Aspect (+6.22%), Perpetual Pure Equity Alpha (+3.38%) and Janus Henderson (+1.94%) lead, while the iShares Asia 50 ETF (-3.94%) still carries its 8.66% fall in July.</li></ul>
+    </div>
+
+    <div class="portal-links">
+      Detailed performance: <a href="https://anguyen1992.github.io/vantage-portal/pages/managed-accounts-hub-performance.html">HUB24 Portfolio Performance</a> &nbsp;|&nbsp; Underlying stock and fund monthly commentary: <a href="https://anguyen1992.github.io/vantage-portal/pages/managed-accounts-hub-analytics.html">Portfolio Analytics Dashboard</a>
+    </div>
+  </section>
+
+  <hr class="section-rule">
+
+  <!-- OCTOBER CALENDAR -->
+  <section id="macro-calendar">
+    <div class="eyebrow">Looking ahead</div>
+    <h2>October 2026 Macro Calendar</h2>
+    <p>The releases that set the policy path into the RBA's 3 November meeting. The September quarter CPI on 28 October is the
+    main domestic input, and the Federal Reserve announces its decision on the same day. Sources: ABS release calendar, US
+    Bureau of Labor Statistics, Federal Reserve, ECB, Bank of Canada, PBoC and Cotality. Dates are subject to change by the
+    issuing agency.</p>
+
+    <div class="cal-wrap">
+      <table class="cal">
+        <thead>
+          <tr><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="cal-empty"><span class="cal-d">28 Sep</span></td>
+            <td class="cal-empty"><span class="cal-d">29 Sep</span></td>
+            <td class="cal-empty"><span class="cal-d">30 Sep</span></td>
+            <td><span class="cal-d">1</span><span class="cal-mac">Cotality home value index, September</span></td>
+            <td><span class="cal-d">2</span><span class="cal-mac">US employment situation, September</span></td>
+          </tr>
+          <tr>
+            <td><span class="cal-d">5</span></td>
+            <td><span class="cal-d">6</span></td>
+            <td><span class="cal-d">7</span></td>
+            <td><span class="cal-d">8</span></td>
+            <td><span class="cal-d">9</span></td>
+          </tr>
+          <tr>
+            <td><span class="cal-d">12</span></td>
+            <td><span class="cal-d">13</span></td>
+            <td><span class="cal-d">14</span><span class="cal-mac">US consumer price index, September</span></td>
+            <td><span class="cal-d">15</span><span class="cal-mac">Australian labour force, September</span></td>
+            <td><span class="cal-d">16</span></td>
+          </tr>
+          <tr>
+            <td><span class="cal-d">19</span></td>
+            <td><span class="cal-d">20</span><span class="cal-mac">PBoC loan prime rate</span></td>
+            <td><span class="cal-d">21</span></td>
+            <td><span class="cal-d">22</span></td>
+            <td><span class="cal-d">23</span></td>
+          </tr>
+          <tr>
+            <td><span class="cal-d">26</span></td>
+            <td><span class="cal-d">27</span><span class="cal-mac">FOMC meeting begins</span></td>
+            <td><span class="cal-d">28</span><span class="cal-mac">Australian CPI, September quarter</span><span class="cal-mac">FOMC rate decision, 2.00pm ET</span><span class="cal-mac">Bank of Canada decision</span></td>
+            <td><span class="cal-d">29</span><span class="cal-mac">ECB monetary policy decision</span></td>
+            <td><span class="cal-d">30</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="cal-legend"><span class="cal-mac" style="display:inline-block;margin:0;">macroeconomic event</span> &nbsp; The RBA next decides on 3 November and the Bank of England on 5 November. No portfolio holdings report during October; the next results are Xero, Orica and Technology One in November.</div>
+  </section>
+
+  <hr class="section-rule">
+
+  <!-- PRIVATE CREDIT -->
+  <section id="private-credit">
+    <div class="eyebrow">Investment team</div>
+    <h2>Australian private credit</h2>
+    <p>Press coverage of Australian private credit increased through September, driven by the administration of Bathla Group
+    and the suspension of three Metrics Credit Partners funds. Below is what has happened, where our exposure sits and our
+    view on each manager we use.</p>
+
+    <h4>What has happened</h4>
+    <ul class="blist">
+      <li><strong>Bathla Group.</strong> The Sydney developer entered voluntary administration on 25 August owing about $3.4 billion, including $3.08 billion to secured lenders across roughly 40 private credit funds. Centuria Bass and CVS Lane have limited redemptions, and MA Financial capped its separate MA Secured Real Estate Income Fund at 1% a month from 31 August.</li>
+      <li><strong>ASIC.</strong> ASIC Chair Sarah Court described Bathla as a troubling development for the sector, and the regulator's concerns are centred on property development and construction lending.</li>
+      <li><strong>Metrics.</strong> On 28 September Metrics suspended its three listed trusts after KPMG challenged valuation inputs, cutting net tangible assets by 1.99% (MXT), 10.08% (MOT) and 12.16% (MRE). On 30 September it suspended redemptions from the underlying wholesale funds, which manage more than $11 billion.</li>
+    </ul>
+
+    <h4>Where our exposure sits</h4>
+    <ul class="blist">
+      <li><strong>No to very limited construction exposure.</strong> Vantage deliberately avoids property development and construction lending in private credit, the segment at the centre of ASIC's concerns.</li>
+      <li><strong>Approved list, not managed accounts.</strong> The private credit funds are approved list options for client portfolios and are not held within the Vantage managed account portfolios.</li>
+      <li><strong>Close contact with managers.</strong> The investment team remains in close contact with each manager we use and will update advisers as needed.</li>
+    </ul>
+
+    <h4>Why we did not invest with Metrics</h4>
+    <ul class="blist">
+      <li><strong>Too big.</strong> When we reviewed Metrics two to three years ago, the volume of capital to deploy was in our view pushing the manager into deals, often larger projects, rather than selecting them.</li>
+      <li><strong>Complicated structure.</strong> Retail vehicles invest through other Metrics funds in a fund of funds arrangement, which is how a valuation dispute in the listed trusts led to redemptions being suspended in the wholesale funds behind them.</li>
+      <li><strong>Not transparent.</strong> Metrics did not provide access to the underlying loans or the additional information we requested, and it has remained off our approved list since.</li>
+    </ul>
+
+    <h4>Our view on each manager</h4>
+
+    <div class="mgr-card">
+      <div class="mgr-name">Keyview Flagship Fund</div>
+      <ul class="blist">
+        <li><strong>Comfortable with the Bathla exposure.</strong> Keyview has been a focus for the team as it held four loans connected to Bathla. All four are secured over completed or near-completed land subdivision projects.</li>
+        <li><strong>Ring-fenced from the administration.</strong> The loans sit in special purpose vehicles that are bankruptcy remote from Bathla's administration, so repayment depends on lot settlements rather than the group's survival.</li>
+        <li><strong>Expected to repay in full.</strong> Keyview is very confident the loans will be repaid in full and on time, and it has no redemption restrictions in place. We will report on repayment as the loans settle.</li>
+      </ul>
+    </div>
+
+    <div class="mgr-card">
+      <div class="mgr-name">Realm Strategic Income Fund</div>
+      <ul class="blist">
+        <li><strong>Positive on the strategy.</strong> The portfolio is well diversified and has strong risk protections built into its structure.</li>
+        <li><strong>Deep loss buffer.</strong> Portfolio modelling shows Australian house prices would need to fall more than 40% before the portfolio realises a loss.</li>
+        <li><strong>Outside the sectors of concern.</strong> With no direct property construction or software exposure, Realm is not directly exposed to the current private credit sectors of concern.</li>
+      </ul>
+    </div>
+
+    <div class="mgr-card">
+      <div class="mgr-name">Revolution Wholesale Private Debt Fund II</div>
+      <ul class="blist">
+        <li><strong>Conservative side of private credit.</strong> The fund lends senior secured to corporates, asset-backed securities and real estate debt, and excludes construction and development lending.</li>
+        <li><strong>Software exposure is in mission critical names.</strong> Revolution has some software exposure, but in businesses whose products are mission critical to their customers.</li>
+        <li><strong>Highly experienced team.</strong> The fund is led by a highly experienced investment team.</li>
+      </ul>
+    </div>
+
+    <div class="mgr-card">
+      <div class="mgr-name">MA Priority Income Fund</div>
+      <ul class="blist">
+        <li><strong>Structural protection.</strong> MA holds a 10% first loss position beneath investors, so MA's capital absorbs losses before investors do.</li>
+        <li><strong>Diversified lending.</strong> The fund lends mainly against asset-backed and corporate loans rather than development projects.</li>
+        <li><strong>Separate from the capped fund.</strong> The 1% redemption limit applies to MA's separate real estate credit fund, which we do not use.</li>
+      </ul>
+    </div>
+
+    <p style="margin-top:18px;">Private credit earns a place in client portfolios only where we can see the underlying loans,
+    understand the structure and judge the manager's discipline in deploying capital. That is the standard Metrics did not meet,
+    and it is the standard we will keep applying to every manager on the approved list as lending conditions tighten.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fbrand">Vantage Wealth Management</div>
+    <p>This communication is prepared by VWM Financial Services Pty Ltd (AFSL 345744) for use by financial advisers of Vantage Wealth Management. It contains general information only and does not take into account the objectives, financial situation or needs of any person. Advisers should consider the appropriateness of any information for individual clients before acting on it.</p>
+    <p>This is an interim edition. Past performance is not a reliable indicator of future performance. Performance figures are net of investment fees unless otherwise stated. Portfolio data are sourced from HUB24 Portfolio Performance Reports and Shadow Portfolio Performance Reports covering 1 to 28 September 2026 and 1 July to 28 September 2026; benchmark returns are not shown and will be published in the final edition. Index and market data are sourced from Morgan Stanley Australia Macro+ (The Monthly, 2 October 2026) and the Morgan Stanley Wealth Management Weekly Asset Class Performance Sheet, both as at 30 September 2026. Private credit fund performance is sourced from Lonsec and Morningstar as published on the Vantage funds portal. Macro and market events are sourced from the RBA, ABS, ASIC, Cotality, NAB, Westpac-Melbourne Institute, US Bureau of Labor Statistics, Federal Reserve, ECB, Bank of Japan, Bank of England, ClearBridge Investments, company and manager disclosures, and ASX announcements. Forward looking statements reflect the views of the Vantage investment team at the date of publication and may change.</p>
+    <p>&copy; 2026 VWM Financial Services Pty Ltd. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
