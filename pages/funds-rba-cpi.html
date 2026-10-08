@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RBA Cash Rate &amp; Australian CPI — Vantage Wealth Management | Investment Data Portal</title>
-  <meta name="last-updated" content="11 Sep 2026">
+  <meta name="last-updated" content="8 Oct 2026">
   <meta name="owner"        content="Anthony Nguyen">
   <meta name="source"       content="Morningstar">
-  <meta name="as-at"        content="31 Aug 2026">
+  <meta name="as-at"        content="30 Sep 2026">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -65,11 +65,37 @@
       <div class="period-selector-bar">
         <label for="period-select">Period:</label>
         <select id="period-select">
+          <option value="sep2026">30 Sep 2026</option>
           <option value="aug2026">31 Aug 2026</option>
           <option value="jul2026">31 Jul 2026</option>
           <option value="jun2026">30 Jun 2026</option>
           <option value="may2026">31 May 2026</option>
         </select>
+      </div>
+      <div class="period-panel" id="panel-sep2026">
+      <div class="asset-section">
+        <h2 class="asset-title">RBA Cash Rate &amp; Australian CPI</h2>
+        <div class="notice"><strong>Note:</strong> CPI figures as at 30 June 2026 (quarterly release). Monthly CPI series as at 30 June 2026.</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Series</th><th></th>
+                <th class="numeric">CYTD</th>
+                <th class="numeric">1M</th><th class="numeric">3M</th><th class="numeric">6M</th>
+                <th class="numeric">1Y</th><th class="numeric">3Y</th><th class="numeric">5Y</th>
+                <th class="numeric">10Y</th><th class="numeric">15Y</th><th class="numeric">20Y</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>RBA Cash Rate Target</td><td class="w">4.35%</td><td class="r">3.19%</td><td class="r">0.36%</td><td class="r">1.12%</td><td class="r">2.21%</td><td class="r">4.14%</td><td class="r">4.28%</td><td class="r">3.41%</td><td class="r">2.20%</td><td class="r">2.39%</td><td class="r">3.13%</td></tr>
+              <tr><td>ABS Australian CPI &mdash; Quarterly</td><td class="w">30 June 2026</td><td class="r">1.98%</td><td class="r">0.60%</td><td class="r">0.60%</td><td class="r">1.98%</td><td class="r">3.94%</td><td class="r">3.28%</td><td class="r">4.41%</td><td class="r">3.09%</td><td class="r">2.67%</td><td class="r">2.73%</td></tr>
+              <tr><td>ABS Australian CPI &mdash; Monthly</td><td class="w">30 June 2026</td><td class="r">2.51%</td><td class="r">0.42%</td><td class="r">1.38%</td><td class="r">2.16%</td><td class="r">3.97%</td><td class="r">-5.00%</td><td class="r">-0.66%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+        <p style="font-size:0.78rem;color:var(--muted);">Source: Morningstar, ABS, RBA. Historical returns as at 30 September 2026. CPI as at 30 June 2026 (quarterly and monthly).</p>
       </div>
       <div class="period-panel" id="panel-aug2026">
       <div class="asset-section">
@@ -178,6 +204,7 @@
   <script>
     (function() {
       var META = {
+        'sep2026': { asat: '30 Sep 2026', updated: '8 Oct 2026' },
         'aug2026': { asat: '31 Aug 2026', updated: '11 Sep 2026' },
         'jul2026': { asat: '31 Jul 2026', updated: '11 Aug 2026' },
         'jun2026': { asat: '30 Jun 2026', updated: '05 Jul 2026' },

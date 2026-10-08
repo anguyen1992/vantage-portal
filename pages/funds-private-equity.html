@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Private Equity — Vantage Wealth Management | Investment Data Portal</title>
-  <meta name="last-updated" content="11 Sep 2026">
+  <meta name="last-updated" content="8 Oct 2026">
   <meta name="owner"        content="Anthony Nguyen">
   <meta name="source"       content="Morningstar">
   <meta name="as-at"        content="31 Aug 2026">
@@ -65,10 +65,40 @@
       <div class="period-selector-bar">
         <label for="period-select">Period:</label>
         <select id="period-select">
+          <option value="sep2026">30 Sep 2026</option>
           <option value="aug2026">31 Aug 2026</option>
           <option value="jul2026">31 Jul 2026</option>
           <option value="jun2026">30 Jun 2026</option>
         </select>
+      </div>
+      <div class="period-panel" id="panel-sep2026">
+      <div class="asset-section">
+        <h2 class="asset-title">Private Equity — Active</h2>
+        <div class="notice"><strong>Note:</strong> Performance as at 31 August 2026 for all four funds (30 September 2026 funds master).</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Fund</th><th>APIR</th>
+                <th class="numeric">CYTD</th>
+                <th class="numeric">1M</th><th class="numeric">3M</th><th class="numeric">6M</th>
+                <th class="numeric">1Y</th><th class="numeric">3Y</th><th class="numeric">5Y</th>
+                <th class="numeric">10Y</th><th class="numeric">15Y</th><th class="numeric">20Y</th>
+                <th>Inception</th><th class="numeric">IM Fee</th>
+                <th class="numeric">MS Rating</th><th>MS Medallist</th>
+                <th>APL Date</th><th>Checklist</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>PEP Gateway Vintages (Access Fund) - 2025</td><td class="apir">PEP8930AU</td><td class="r">0.41%</td><td class="r">-0.61%</td><td class="r">1.38%</td><td class="r">1.93%</td><td class="r">2.55%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">-</td><td class="r">-</td><td class="r">-</td><td>-</td><td class="w">-</td><td class="w">-</td></tr>
+              <tr><td>PEP Gateway Vintages (Access Fund) 2026</td><td class="apir">PEP3009AU</td><td class="r">20.27%</td><td class="r">2.52%</td><td class="r">3.84%</td><td class="r">4.63%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">-</td><td class="r">-</td><td class="r">-</td><td>-</td><td class="w">-</td><td class="w">-</td></tr>
+              <tr><td>PEP Gateway Evergreen (Access Fund)</td><td class="apir">PEP3457AU</td><td class="r">0.83%</td><td class="r">-0.42%</td><td class="r">0.95%</td><td class="r">1.08%</td><td class="r">3.06%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">-</td><td class="r">1.65%</td><td class="r">-</td><td>-</td><td class="w">-</td><td class="w">-</td></tr>
+              <tr><td>Scarcity GP Access (Feeder)</td><td class="apir">SCR6020AU</td><td class="r">-2.59%</td><td class="r">0.30%</td><td class="r">-2.70%</td><td class="r">-1.37%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">-</td><td class="r">1.80%</td><td class="r">-</td><td>-</td><td class="w">-</td><td class="w">-</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+        <p style="font-size:0.78rem;color:var(--muted);">Source: Morningstar. Private equity performance as at 31 August 2026. Morningstar star ratings are carried forward from 31 August 2026. Past performance is not a reliable indicator of future performance.</p>
       </div>
       <div class="period-panel" id="panel-aug2026">
       <div class="asset-section">
@@ -168,6 +198,7 @@
   <script>
     (function() {
       var META = {
+        'sep2026': { asat: '31 Aug 2026', updated: '8 Oct 2026' },
         'aug2026': { asat: '31 Aug 2026', updated: '11 Sep 2026' },
         'jul2026': { asat: '31 Jul 2026', updated: '11 Aug 2026' },
         'jun2026': { asat: '30 Jun 2026', updated: '05 Jul 2026' }
