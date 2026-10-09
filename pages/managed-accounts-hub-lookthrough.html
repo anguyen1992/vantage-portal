@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HUB24 Quarterly Look-Through Analysis — Vantage Wealth Management | Investment Data Portal</title>
-  <meta name="last-updated" content="6 Aug 2026">
-  <meta name="as-at"        content="30 Jun 2026">
+  <meta name="last-updated" content="9 Oct 2026">
+  <meta name="as-at"        content="30 Sep 2026">
   <meta name="owner"        content="Anthony Nguyen">
   <meta name="source"       content="HUB24 / Macquarie / Vanguard / VanEck / T.Rowe Price">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -278,6 +278,11 @@
       max-width: 860px;
     }
 
+    #panel-global.gl-tbc .lk-subtabs,
+    #panel-global.gl-tbc .lk-subpanel { display: none !important; }
+
+    .lk-datebar { margin: -0.2rem 0 1rem; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: #b8963e; font-weight: 600; }
+
     /* Print */
     @media print {
       .lk-tabs, .lk-subtabs, .lk-toggle { display: none; }
@@ -305,8 +310,8 @@
         <p class="page-eyebrow">HUB24 Managed Accounts</p>
         <h1>Quarterly Look-Through Analysis</h1>
         <div class="page-meta">
-          <span class="meta-item"><strong>As at:</strong> <span id="meta-as-at">30 Jun 2026</span></span>
-          <span class="meta-item"><strong>Last updated:</strong> 6 Aug 2026</span>
+          <span class="meta-item"><strong>As at:</strong> <span id="meta-as-at">30 Sep 2026</span></span>
+          <span class="meta-item"><strong>Last updated:</strong> 9 Oct 2026</span>
           <span class="meta-item"><strong>Owner:</strong> Anthony Nguyen</span>
           <span class="meta-item"><strong>Source:</strong> HUB24 / Underlying Fund Reports</span>
         </div>
@@ -316,7 +321,8 @@
       <div class="lk-period">
         <span class="lk-period-label">Reporting Period</span>
         <div class="lk-period-btns" id="period-toggle">
-          <button class="active" data-period="jun2026">30 Jun 2026</button>
+          <button class="active" data-period="sep2026">30 Sep 2026</button>
+          <button data-period="jun2026">30 Jun 2026</button>
           <button data-period="mar2026">31 Mar 2026</button>
         </div>
       </div>
@@ -340,7 +346,8 @@
         <div class="lk-subpanel active" id="sub-aus-sector">
           <div class="lk-section">
             <h2>Australian Equities — Sector Look-Through</h2>
-            <p class="lk-intro">Aggregated sector exposure across the direct equity holdings and the SPDR S&amp;P/ASX 200 ETF (STW) sleeve. Index = VAS (S&amp;P/ASX 300).</p>
+            <p class="lk-datebar"><span class="aus-datelabel"></span></p>
+            <p class="lk-intro">Aggregated sector exposure across the direct equity holdings and the SPDR S&amp;P/ASX 200 ETF (STW) sleeve. Index = <span class="aus-idx-desc">VAS (S&amp;P/ASX 300)</span>.</p>
             <div class="lk-grid">
               <div class="lk-pie-wrap">
                 <div class="lk-pie-title">Portfolio Sector Allocation</div>
@@ -348,14 +355,48 @@
                 <div class="lk-legend" id="aus-pie-legend"></div>
               </div>
               <div>
-                <h3>Sector Breakdown vs Index (VAS)</h3>
+                <h3>Sector Breakdown vs Index (<span class="aus-idx">VAS</span>)</h3>
                 <div class="lk-table-wrap">
                   <table id="aus-sector-tbl">
                     <thead>
                       <tr>
                         <th>Sector</th>
                         <th class="num">Portfolio</th>
-                        <th class="num">Index (VAS)</th>
+                        <th class="num">Index (<span class="aus-idx">VAS</span>)</th>
+                        <th class="num">OW / UW</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                    <tfoot>
+                      <tr><td>Total</td><td class="num">100.0%</td><td class="num">100.0%</td><td class="num flat">—</td></tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+<div class="lk-section lk-rebal" style="margin-top:3.2rem;padding-top:2.2rem;border-top:2px solid #b8963e;">
+            <div class="notice" style="margin:0 0 1.6rem;"><strong>Why this view is shown: rebalance of STW to 50%. </strong>The STW holding in the Australian Equities SMA was rebalanced to a 50% target. This view shows the portfolio after the rebalance as at 8 October 2026, using the Resonant model weights dated 8 October 2026 (STW at 49.19%) and STW index holdings as at 8 October 2026. The view above shows the portfolio as at 30 September 2026, before the rebalance.</div>
+            
+            <h2>Australian Equities — Sector Look-Through</h2>
+            <p class="lk-datebar">Analysis date: 8 October 2026 (after rebalance)</p>
+            <p class="lk-intro">Aggregated sector exposure across the direct equity holdings and the SPDR S&amp;P/ASX 200 ETF (STW) sleeve. Index = <span class="aus-idx-desc">VAS (S&amp;P/ASX 300)</span>.</p>
+            <div class="lk-grid">
+              <div class="lk-pie-wrap">
+                <div class="lk-pie-title">Portfolio Sector Allocation</div>
+                <div id="aus-pie-rb"></div>
+                <div class="lk-legend" id="aus-pie-legend-rb"></div>
+              </div>
+              <div>
+                <h3>Sector Breakdown vs Index (<span class="aus-idx">VAS</span>)</h3>
+                <div class="lk-table-wrap">
+                  <table id="aus-sector-tbl-rb">
+                    <thead>
+                      <tr>
+                        <th>Sector</th>
+                        <th class="num">Portfolio</th>
+                        <th class="num">Index (<span class="aus-idx">VAS</span>)</th>
                         <th class="num">OW / UW</th>
                       </tr>
                     </thead>
@@ -374,7 +415,8 @@
         <div class="lk-subpanel" id="sub-aus-banks">
           <div class="lk-section">
             <h2>Australian Equities — Banks Look-Through</h2>
-            <p class="lk-intro">Aggregate look-through exposure to the major Australian banks across the Aus Equities SMA. Benchmark = VAS (S&amp;P/ASX 300).</p>
+            <p class="lk-datebar"><span class="aus-datelabel"></span></p>
+            <p class="lk-intro">Aggregate look-through exposure to the major Australian banks across the Aus Equities SMA. Benchmark = <span class="aus-idx-desc">VAS (S&amp;P/ASX 300)</span>.</p>
 
             <h3 style="margin-bottom:0.8rem;">Big 4 Banks + Macquarie</h3>
             <div class="lk-table-wrap">
@@ -385,7 +427,7 @@
                     <th>Company</th>
                     <th>Sector</th>
                     <th class="num">Portfolio</th>
-                    <th class="num">Index (VAS)</th>
+                    <th class="num">Index (<span class="aus-idx">VAS</span>)</th>
                     <th class="num">OW / UW</th>
                     <th class="num">Visual</th>
                   </tr>
@@ -404,7 +446,7 @@
                     <th>Company</th>
                     <th>Sector</th>
                     <th class="num">Portfolio</th>
-                    <th class="num">Index (VAS)</th>
+                    <th class="num">Index (<span class="aus-idx">VAS</span>)</th>
                     <th class="num">OW / UW</th>
                     <th class="num">Visual</th>
                   </tr>
@@ -414,12 +456,59 @@
               </table>
             </div>
           </div>
+
+<div class="lk-section lk-rebal" style="margin-top:3.2rem;padding-top:2.2rem;border-top:2px solid #b8963e;">
+            <div class="notice" style="margin:0 0 1.6rem;"><strong>Why this view is shown: rebalance of STW to 50%. </strong>The STW holding in the Australian Equities SMA was rebalanced to a 50% target. This view shows the portfolio after the rebalance as at 8 October 2026, using the Resonant model weights dated 8 October 2026 (STW at 49.19%) and STW index holdings as at 8 October 2026. The view above shows the portfolio as at 30 September 2026, before the rebalance.</div>
+            
+            <h2>Australian Equities — Banks Look-Through</h2>
+            <p class="lk-datebar">Analysis date: 8 October 2026 (after rebalance)</p>
+            <p class="lk-intro">Aggregate look-through exposure to the major Australian banks across the Aus Equities SMA. Benchmark = <span class="aus-idx-desc">VAS (S&amp;P/ASX 300)</span>.</p>
+
+            <h3 style="margin-bottom:0.8rem;">Big 4 Banks + Macquarie</h3>
+            <div class="lk-table-wrap">
+              <table id="aus-banks-big5-tbl-rb" style="max-width:860px;">
+                <thead>
+                  <tr>
+                    <th>Code</th>
+                    <th>Company</th>
+                    <th>Sector</th>
+                    <th class="num">Portfolio</th>
+                    <th class="num">Index (<span class="aus-idx">VAS</span>)</th>
+                    <th class="num">OW / UW</th>
+                    <th class="num">Visual</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot><tr id="aus-banks-big5-totals-rb"></tr></tfoot>
+              </table>
+            </div>
+
+            <h3 style="margin-top:2.4rem;margin-bottom:0.8rem;">Big 4 Banks</h3>
+            <div class="lk-table-wrap">
+              <table id="aus-banks-big4-tbl-rb" style="max-width:860px;">
+                <thead>
+                  <tr>
+                    <th>Code</th>
+                    <th>Company</th>
+                    <th>Sector</th>
+                    <th class="num">Portfolio</th>
+                    <th class="num">Index (<span class="aus-idx">VAS</span>)</th>
+                    <th class="num">OW / UW</th>
+                    <th class="num">Visual</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot><tr id="aus-banks-big4-totals-rb"></tr></tfoot>
+              </table>
+            </div>
+          </div>
         </div>
 
         <!-- AUS Holdings -->
         <div class="lk-subpanel" id="sub-aus-holdings">
           <div class="lk-section">
             <h2>Australian Equities — Portfolio Look-Through Holdings</h2>
+            <p class="lk-datebar"><span class="aus-datelabel"></span></p>
             <p class="lk-intro">Top look-through stock positions combining direct equity allocations and ETF sleeve exposure.</p>
             <div class="lk-toggle" id="aus-toggle">
               <button class="active" data-view="top">Top 50 Holdings</button>
@@ -428,11 +517,29 @@
             </div>
             <div class="lk-table-wrap" id="aus-holdings-content"></div>
           </div>
+
+<div class="lk-section lk-rebal" style="margin-top:3.2rem;padding-top:2.2rem;border-top:2px solid #b8963e;">
+            <div class="notice" style="margin:0 0 1.6rem;"><strong>Why this view is shown: rebalance of STW to 50%. </strong>The STW holding in the Australian Equities SMA was rebalanced to a 50% target. This view shows the portfolio after the rebalance as at 8 October 2026, using the Resonant model weights dated 8 October 2026 (STW at 49.19%) and STW index holdings as at 8 October 2026. The view above shows the portfolio as at 30 September 2026, before the rebalance.</div>
+            
+            <h2>Australian Equities — Portfolio Look-Through Holdings</h2>
+            <p class="lk-datebar">Analysis date: 8 October 2026 (after rebalance)</p>
+            <p class="lk-intro">Top look-through stock positions combining direct equity allocations and ETF sleeve exposure.</p>
+            <div class="lk-toggle" id="aus-toggle-rb">
+              <button class="active" data-view="top">Top 50 Holdings</button>
+              <button data-view="ow">Top 20 Overweight</button>
+              <button data-view="uw">Top 20 Underweight</button>
+            </div>
+            <div class="lk-table-wrap" id="aus-holdings-content-rb"></div>
+          </div>
         </div>
       </div>
 
       <!-- ===== GLOBAL EQUITIES PANEL ===== -->
       <div class="lk-panel" id="panel-global">
+        <div class="notice" id="gl-tbc-notice" style="display:none;margin-top:0;">
+          <strong>Global Equities look-through &mdash; TBC. </strong>
+          Global Equities look-through for 30 September 2026 is to be confirmed. It will be published once the underlying fund holdings and VGS (MSCI World ex-Australia) data are available. The 30 June 2026 and 31 March 2026 views remain available using the reporting period selector.
+        </div>
         <div class="lk-subtabs">
           <button class="lk-subtab active" data-sub="gl-region">Regional</button>
           <button class="lk-subtab" data-sub="gl-sector">Sector</button>
@@ -561,6 +668,7 @@
               <tfoot></tfoot>
             </table>
           </div>
+          <p class="fi-note" id="fi-data-note" style="display:none;margin-top:0.6rem;"></p>
 
           <h3 style="margin-top:2.2rem;">Credit Rating Breakdown</h3>
           <div class="lk-table-wrap">
@@ -640,6 +748,188 @@
   <script>
   // ====== DATA ======
   const PERIODS = {
+  sep2026: {
+    asAt: '30 Sep 2026',
+    ausIndex: 'STW',
+    ausIndexDesc: 'STW (S&amp;P/ASX 200)',
+    ausDateLabel: 'Analysis date: 30 September 2026 (before rebalance)',
+    glTBC: true,
+    glHasRegion: true,
+    methodology: 'Look-through positions aggregate the underlying holdings of each SMA constituent, being direct equity positions plus the reported holdings of each managed fund and ETF, weighted by their share of the SMA. The Australian Equities SMA at 30 September 2026 holds a 52.94% direct equity sleeve across 26 positions, 45.87% in the SPDR S&amp;P/ASX 200 ETF (STW) and 1.20% cash at IMA level, so each stock weight equals the direct weight plus the STW constituent weight multiplied by 45.87%. A second Australian Equities view is shown as at 8 October 2026, following the rebalance of the STW holding to a 50% target. It uses the Resonant Asset Management model weights dated 8 October 2026, which show STW at 49.19%, 49.65% across the same 26 direct positions and 1.16% cash, together with STW holdings as at 8 October 2026. For both Australian Equities views the benchmark is STW (S&amp;P/ASX 200) because VAS holdings for these dates were not available. Comparisons against STW are therefore not directly comparable with prior periods, which used VAS (S&amp;P/ASX 300). Sectors follow the STW GICS classification. Global Equities look-through for 30 September 2026 is to be confirmed (TBC) pending underlying fund and VGS data. The Fixed Interest SMA weights are as at 30 September 2026. Underlying fund characteristics are taken from the 31 August 2026 reports for Bentham Global Income, Macquarie Dynamic Bond and Realm Short Term Income. For the Perpetual Diversified Income Fund, the running yield, credit duration and interest rate duration are from its August 2026 flash report, while the domicile and credit rating splits are carried forward from 30 June 2026 because the August report did not provide them. The Realm credit rating split is read from the unlabelled bar chart in the factsheet and is approximate, and the running yield for the Macquarie Dynamic Bond Fund is its reported yield to maturity. Credit duration and interest rate duration are weighted by SMA holding with cash treated as zero.',
+    ausSectors: [
+      ["Financials",32.53,32.7],
+      ["Materials",29.26,26.58],
+      ["Industrials",5.35,6.86],
+      ["Health Care",5.52,6.92],
+      ["Energy",5.55,4.67],
+      ["Utilities",4.19,1.42],
+      ["Real Estate",4.01,5.45],
+      ["Consumer Discretionary",4.06,6.45],
+      ["Information Technology",3.06,2.04],
+      ["Communication Services",2.5,3.2],
+      ["Consumer Staples",2.79,3.71],
+      ["Cash",1.2,0]
+    ],
+    ausTop: [
+      ["BHP","BHP Group Ltd","Materials",13.89,11.6],
+      ["CBA","Commonwealth Bank of Australia","Financials",6.27,9.49],
+      ["NAB","National Australia Bank Ltd","Financials",5.69,4.57],
+      ["MQG","Macquarie Group Ltd","Financials",4.7,3.17],
+      ["RIO","Rio Tinto Ltd","Materials",4.65,2.33],
+      ["ANZ","ANZ Group Holdings Ltd","Financials",4.51,4.33],
+      ["QBE","QBE Insurance Group Ltd","Financials",3.56,1.31],
+      ["WDS","Woodside Energy Group Ltd","Energy",3.34,2.27],
+      ["ORG","Origin Energy Ltd","Utilities",2.66,0.71],
+      ["RMD","ResMed Inc","Health Care",2.65,0.68],
+      ["NEM","Newmont Corp","Materials",2.27,0.48],
+      ["WBC","Westpac Banking Corp","Financials",2.07,4.5],
+      ["ORI","Orica Ltd","Materials",1.93,0.42],
+      ["SGP","Stockland","Real Estate",1.69,0.39],
+      ["COL","Coles Group Ltd","Consumer Staples",1.63,1.18],
+      ["STO","Santos Ltd","Energy",1.59,1.05],
+      ["CSL","CSL Ltd","Health Care",1.52,3.31],
+      ["WES","Wesfarmers Ltd","Consumer Discretionary",1.5,3.26],
+      ["TNE","Technology One Ltd","Information Technology",1.4,0.32],
+      ["AGL","AGL Energy Ltd","Utilities",1.3,0.19],
+      ["AMC","Amcor PLC","Materials",1.26,0.29],
+      ["NHF","nib holdings Ltd/Australia","Financials",1.21,0.12],
+      ["CWY","Cleanaway Waste Management Ltd","Industrials",1.21,0.22],
+      ["CGF","Challenger Ltd","Financials",1.21,0.19],
+      ["BRG","Breville Group Ltd","Consumer Discretionary",1.15,0.12],
+      ["MND","Monadelphous Group Ltd","Industrials",1.14,0.11],
+      ["HUB","HUB24 Ltd","Financials",1.1,0.2],
+      ["TPG","TPG Telecom Ltd","Communication Services",1.07,0.09],
+      ["XRO","Xero Ltd","Information Technology",1.03,0.36],
+      ["GMG","Goodman Group","Real Estate",0.96,2.09],
+      ["TLS","Telstra Group Ltd","Communication Services",0.94,2.04],
+      ["WOW","Woolworths Group Ltd","Consumer Staples",0.82,1.8],
+      ["TCL","Transurban Group","Industrials",0.72,1.57],
+      ["ALL","Aristocrat Leisure Ltd","Consumer Discretionary",0.62,1.35],
+      ["NST","Northern Star Resources Ltd","Materials",0.61,1.33],
+      ["FMG","Fortescue Ltd","Materials",0.47,1.03],
+      ["EVN","Evolution Mining Ltd","Materials",0.47,1.02],
+      ["BXB","Brambles Ltd","Industrials",0.45,0.99],
+      ["S32","South32 Ltd","Materials",0.39,0.86],
+      ["CPU","Computershare Ltd","Industrials",0.38,0.83],
+      ["SUN","Suncorp Group Ltd","Financials",0.37,0.8],
+      ["IAG","Insurance Australia Group Ltd","Financials",0.32,0.7],
+      ["SCG","Scentre Group","Real Estate",0.32,0.69],
+      ["SOL","Washington H Soul Pattinson & Co Ltd","Financials",0.3,0.65],
+      ["SIG","Sigma Healthcare Ltd","Health Care",0.26,0.57],
+      ["APA","APA Group","Utilities",0.24,0.53],
+      ["QAN","Qantas Airways Ltd","Industrials",0.24,0.52],
+      ["BSL","BlueScope Steel Ltd","Materials",0.23,0.5],
+      ["MPL","Medibank Pvt Ltd","Financials",0.22,0.48],
+      ["LYC","Lynas Rare Earths Ltd","Materials",0.22,0.48]
+    ],
+    ausBanksBig5: [
+      ["CBA","Commonwealth Bank of Australia","Financials",6.27,9.49],
+      ["NAB","National Australia Bank Ltd","Financials",5.69,4.57],
+      ["MQG","Macquarie Group Ltd","Financials",4.7,3.17],
+      ["ANZ","ANZ Group Holdings Ltd","Financials",4.51,4.33],
+      ["WBC","Westpac Banking Corp","Financials",2.07,4.5]
+    ],
+    ausBanksBig4: [
+      ["CBA","Commonwealth Bank of Australia","Financials",6.27,9.49],
+      ["NAB","National Australia Bank Ltd","Financials",5.69,4.57],
+      ["ANZ","ANZ Group Holdings Ltd","Financials",4.51,4.33],
+      ["WBC","Westpac Banking Corp","Financials",2.07,4.5]
+    ],
+    ausRebal: {
+      ausSectors: [
+        ["Financials",32.33,32.54],
+        ["Materials",28.88,26.5],
+        ["Industrials",5.47,6.81],
+        ["Health Care",5.65,6.94],
+        ["Energy",5.56,4.74],
+        ["Utilities",4.12,1.47],
+        ["Real Estate",4.05,5.4],
+        ["Consumer Discretionary",4.26,6.53],
+        ["Information Technology",3.08,2.06],
+        ["Communication Services",2.58,3.25],
+        ["Consumer Staples",2.86,3.75],
+        ["Cash",1.16,0]
+      ],
+      ausTop: [
+        ["BHP","BHP Group Ltd","Materials",13.92,11.84],
+        ["CBA","Commonwealth Bank of Australia","Financials",6.41,9.45],
+        ["NAB","National Australia Bank Ltd","Financials",5.45,4.48],
+        ["MQG","Macquarie Group Ltd","Financials",4.64,3.23],
+        ["ANZ","ANZ Group Holdings Ltd","Financials",4.41,4.29],
+        ["RIO","Rio Tinto Ltd","Materials",4.39,2.3],
+        ["QBE","QBE Insurance Group Ltd","Financials",3.58,1.39],
+        ["WDS","Woodside Energy Group Ltd","Energy",3.34,2.34],
+        ["ORG","Origin Energy Ltd","Utilities",2.59,0.73],
+        ["RMD","ResMed Inc","Health Care",2.59,0.71],
+        ["WBC","Westpac Banking Corp","Financials",2.16,4.39],
+        ["NEM","Newmont Corp","Materials",2.11,0.47],
+        ["ORI","Orica Ltd","Materials",1.79,0.41],
+        ["CSL","CSL Ltd","Health Care",1.63,3.31],
+        ["WES","Wesfarmers Ltd","Consumer Discretionary",1.62,3.29],
+        ["COL","Coles Group Ltd","Consumer Staples",1.59,1.18],
+        ["SGP","Stockland","Real Estate",1.58,0.39],
+        ["STO","Santos Ltd","Energy",1.57,1.07],
+        ["TNE","Technology One Ltd","Information Technology",1.4,0.34],
+        ["AGL","AGL Energy Ltd","Utilities",1.26,0.19],
+        ["CWY","Cleanaway Waste Management Ltd","Industrials",1.23,0.24],
+        ["AMC","Amcor PLC","Materials",1.17,0.29],
+        ["NHF","nib holdings Ltd/Australia","Financials",1.14,0.12],
+        ["CGF","Challenger Ltd","Financials",1.11,0.19],
+        ["BRG","Breville Group Ltd","Consumer Discretionary",1.1,0.12],
+        ["MND","Monadelphous Group Ltd","Industrials",1.07,0.11],
+        ["HUB","HUB24 Ltd","Financials",1.06,0.21],
+        ["TPG","TPG Telecom Ltd","Communication Services",1.03,0.09],
+        ["TLS","Telstra Group Ltd","Communication Services",1.03,2.08],
+        ["GMG","Goodman Group","Real Estate",1.01,2.05],
+        ["XRO","Xero Ltd","Information Technology",1.01,0.37],
+        ["WOW","Woolworths Group Ltd","Consumer Staples",0.89,1.81],
+        ["TCL","Transurban Group","Industrials",0.77,1.56],
+        ["ALL","Aristocrat Leisure Ltd","Consumer Discretionary",0.68,1.39],
+        ["NST","Northern Star Resources Ltd","Materials",0.64,1.31],
+        ["FMG","Fortescue Ltd","Materials",0.49,1.0],
+        ["EVN","Evolution Mining Ltd","Materials",0.49,0.99],
+        ["BXB","Brambles Ltd","Industrials",0.48,0.98],
+        ["S32","South32 Ltd","Materials",0.42,0.85],
+        ["CPU","Computershare Ltd","Industrials",0.41,0.83],
+        ["SUN","Suncorp Group Ltd","Financials",0.38,0.77],
+        ["IAG","Insurance Australia Group Ltd","Financials",0.35,0.72],
+        ["SCG","Scentre Group","Real Estate",0.34,0.69],
+        ["SOL","Washington H Soul Pattinson & Co Ltd","Financials",0.31,0.63],
+        ["SIG","Sigma Healthcare Ltd","Health Care",0.29,0.58],
+        ["APA","APA Group","Utilities",0.27,0.54],
+        ["BSL","BlueScope Steel Ltd","Materials",0.25,0.51],
+        ["QAN","Qantas Airways Ltd","Industrials",0.25,0.5],
+        ["MPL","Medibank Pvt Ltd","Financials",0.24,0.49],
+        ["ASX","Asx Ltd","Financials",0.22,0.46]
+      ],
+      ausBanksBig5: [
+        ["CBA","Commonwealth Bank of Australia","Financials",6.41,9.45],
+        ["NAB","National Australia Bank Ltd","Financials",5.45,4.48],
+        ["MQG","Macquarie Group Ltd","Financials",4.64,3.23],
+        ["ANZ","ANZ Group Holdings Ltd","Financials",4.41,4.29],
+        ["WBC","Westpac Banking Corp","Financials",2.16,4.39]
+      ],
+      ausBanksBig4: [
+        ["CBA","Commonwealth Bank of Australia","Financials",6.41,9.45],
+        ["NAB","National Australia Bank Ltd","Financials",5.45,4.48],
+        ["ANZ","ANZ Group Holdings Ltd","Financials",4.41,4.29],
+        ["WBC","Westpac Banking Corp","Financials",2.16,4.39]
+      ]
+    },
+    fi: {
+      dual: true,
+      note: 'Fund characteristics as at 31 August 2026. Perpetual Diversified Income: yield and durations from its August 2026 flash report, domicile and credit rating splits carried forward from 30 June 2026. SMA weights as at 30 September 2026.',
+      rows: [
+        ["CSA0038AU","Bentham Global Income Fund",13.76,27.0,36.0,37.0,2.76,6.25,5.5,18,16,12,8,4,9,0,33],
+        ["MAQ0274AU","Macquarie Dynamic Bond Fund",25.46,31.5,68.5,0.0,2.7,5.2,6.1,18.8,17.8,33.0,26.6,2.3,1.3,0.2,0.0],
+        ["PER0260AU","Perpetual Diversified Income Fund",30.24,68.8,20.5,10.7,3.63,0.61,5.98,22.7,7.8,16.6,37.2,4.4,0.0,0.6,10.7],
+        ["OMF3725AU","Realm Short Term Income Fund",29.91,52.06,43.98,3.96,1.49,0.1,5.95,16.7,13.3,16.6,53.4,0,0,0,0],
+        ["CASH","Cash + Reserves",0.63,null,null,100.0,null,null,null,0,0,0,0,0,0,0,100.0]
+      ],
+      totals: ["TOTAL",100.0,48.11,41.75,10.14,2.61,2.4,5.9,19.1,13.1,20.0,35.1,2.5,1.6,0.2,8.4]
+    },
+    fiProposed: null
+  },
   jun2026: {
     asAt: '30 Jun 2026',
     glHasRegion: true,
@@ -1333,7 +1623,7 @@
   ];
 
   // ====== State ======
-  let activePeriod = 'jun2026';
+  let activePeriod = 'sep2026';
   let ausView = 'top';
   let glView  = 'top';
 
@@ -1468,13 +1758,13 @@
   }
 
   // ====== AUS Holdings ======
-  function ausHoldingsTable(rows) {
+  function ausHoldingsTable(rows, idx) {
     return `<table>
       <thead>
         <tr>
           <th>#</th><th>Code</th><th>Security</th><th>Sector</th>
           <th class="num">Portfolio</th>
-          <th class="num">Index (VAS)</th>
+          <th class="num">Index (${idx})</th>
           <th class="num">OW / UW</th>
         </tr>
       </thead>
@@ -1495,15 +1785,17 @@
     </table>`;
   }
 
+  function ausHoldingsHtml(src, view, idx) {
+    if (view === 'top') return ausHoldingsTable(src.ausTop.slice(0, 50), idx);
+    const sorted = [...src.ausTop].sort((x, y) => view === 'ow' ? (y[3]-y[4])-(x[3]-x[4]) : (x[3]-x[4])-(y[3]-y[4]));
+    return ausHoldingsTable(sorted.slice(0, 20), idx);
+  }
+
   function renderAusHoldings(d, view) {
-    const el = document.getElementById('aus-holdings-content');
-    if (view === 'top') {
-      el.innerHTML = ausHoldingsTable(d.ausTop.slice(0, 50));
-    } else if (view === 'ow') {
-      el.innerHTML = ausHoldingsTable([...d.ausTop].sort((a,b) => (b[3]-b[4])-(a[3]-a[4])).slice(0,20));
-    } else {
-      el.innerHTML = ausHoldingsTable([...d.ausTop].sort((a,b) => (a[3]-a[4])-(b[3]-b[4])).slice(0,20));
-    }
+    const idx = d.ausIndex || 'VAS';
+    document.getElementById('aus-holdings-content').innerHTML = ausHoldingsHtml(d, view, idx);
+    const rbEl = document.getElementById('aus-holdings-content-rb');
+    if (rbEl && d.ausRebal) rbEl.innerHTML = ausHoldingsHtml(d.ausRebal, view, idx);
   }
 
   // ====== Global Holdings ======
@@ -1604,6 +1896,9 @@
     document.getElementById('fi-head').innerHTML = fiHead(dual);
     document.querySelector('#fi-tbl tbody').innerHTML = d.fi.rows.map(r => fiHoldingsRow(r, dual)).join('');
     document.querySelector('#fi-tbl tfoot').innerHTML = fiTotalsRow(d.fi.totals, dual);
+    const fiNote = document.getElementById('fi-data-note');
+    fiNote.textContent = d.fi.note || '';
+    fiNote.style.display = d.fi.note ? '' : 'none';
 
     // Credit rating breakdown
     document.querySelector('#fi-credit-tbl tbody').innerHTML = d.fi.rows.map(r => `<tr>
@@ -1641,18 +1936,37 @@
     drawPie('aus-pie', 'aus-pie-legend', d.ausSectors);
     buildAllocationTable('aus-sector-tbl', d.ausSectors);
 
-    drawPie('gl-region-pie', 'gl-region-legend', d.globalRegions);
-    buildAllocationTable('gl-region-tbl', d.globalRegions);
+    document.querySelectorAll('.aus-idx').forEach(el => { el.textContent = d.ausIndex || 'VAS'; });
+    document.querySelectorAll('.aus-datelabel').forEach(el => {
+      if (!el.closest('.lk-rebal')) el.textContent = d.ausDateLabel || ('Analysis date: ' + d.asAt);
+    });
+    const rb = d.ausRebal;
+    document.querySelectorAll('.lk-rebal').forEach(el => { el.style.display = rb ? '' : 'none'; });
+    if (rb) {
+      drawPie('aus-pie-rb', 'aus-pie-legend-rb', rb.ausSectors);
+      buildAllocationTable('aus-sector-tbl-rb', rb.ausSectors);
+      buildBanksTable('aus-banks-big5-tbl-rb', 'aus-banks-big5-totals-rb', rb.ausBanksBig5);
+      buildBanksTable('aus-banks-big4-tbl-rb', 'aus-banks-big4-totals-rb', rb.ausBanksBig4);
+    }
+    document.querySelectorAll('.aus-idx-desc').forEach(el => { el.innerHTML = d.ausIndexDesc || 'VAS (S&amp;P/ASX 300)'; });
 
-    drawPie('gl-sector-pie', 'gl-sector-legend', d.globalSectors);
-    buildAllocationTable('gl-sector-tbl', d.globalSectors);
+    const glTBC = !!d.glTBC;
+    document.getElementById('panel-global').classList.toggle('gl-tbc', glTBC);
+    document.getElementById('gl-tbc-notice').style.display = glTBC ? '' : 'none';
+    if (!glTBC) {
+      drawPie('gl-region-pie', 'gl-region-legend', d.globalRegions);
+      buildAllocationTable('gl-region-tbl', d.globalRegions);
 
-    buildMag7(d.globalMag7);
+      drawPie('gl-sector-pie', 'gl-sector-legend', d.globalSectors);
+      buildAllocationTable('gl-sector-tbl', d.globalSectors);
+
+      buildMag7(d.globalMag7);
+    }
     buildBanksTable('aus-banks-big5-tbl', 'aus-banks-big5-totals', d.ausBanksBig5);
     buildBanksTable('aus-banks-big4-tbl', 'aus-banks-big4-totals', d.ausBanksBig4);
 
     renderAusHoldings(d, ausView);
-    renderGlHoldings(d, glView);
+    if (!glTBC) renderGlHoldings(d, glView);
     renderFI(d);
   }
 
@@ -1688,11 +2002,11 @@
     });
   });
 
-  // AUS holdings toggle
-  document.querySelectorAll('#aus-toggle button').forEach(btn => {
+  // AUS holdings toggle (both the main and rebalance views)
+  const ausToggleBtns = document.querySelectorAll('#aus-toggle button, #aus-toggle-rb button');
+  ausToggleBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('#aus-toggle button').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+      ausToggleBtns.forEach(b => b.classList.toggle('active', b.dataset.view === btn.dataset.view));
       ausView = btn.dataset.view;
       renderAusHoldings(PERIODS[activePeriod], ausView);
     });
