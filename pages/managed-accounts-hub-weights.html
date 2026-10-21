@@ -73,6 +73,17 @@
       border-top: 1px solid var(--line);
     }
 
+
+    /* ── Allocation summary (multisector portfolios) ─────────────── */
+    .alloc-summary { margin-top: 2rem; }
+    .alloc-summary h3 { font-size: 0.95rem; font-weight: 600; color: var(--navy); margin: 0 0 0.6rem; }
+    .alloc-summary table { width: 100%; table-layout: fixed; border-collapse: collapse; }
+    .alloc-summary td.lbl { text-align: left; }
+    .alloc-summary td.pos { color: #1f6b3a; }
+    .alloc-summary td.neg { color: #a33a2a; }
+    .alloc-summary tr.sum-split td { font-weight: 600; background: var(--paper); }
+    .alloc-summary .sum-note { font-size: 0.75rem; color: var(--muted); margin: 0.6rem 0 0; }
+
     /* ── Date switcher ───────────────────────────────────────────── */
     .date-switcher-bar {
       display: flex;
@@ -179,9 +190,9 @@
         <button class="tab-btn"        role="tab" data-tab="prop-infra"  onclick="showTab('prop-infra')">Prop / Infra</button>
         <button class="tab-btn"        role="tab" data-tab="fixed-int"   onclick="showTab('fixed-int')">Fixed Interest</button>
         <button class="tab-btn"        role="tab" data-tab="alts"        onclick="showTab('alts')">Alternatives</button>
-        <button class="tab-btn"        role="tab" data-tab="high-growth" onclick="showTab('high-growth')">High Growth</button>
-        <button class="tab-btn"        role="tab" data-tab="growth"      onclick="showTab('growth')">Growth</button>
         <button class="tab-btn"        role="tab" data-tab="mod-growth"  onclick="showTab('mod-growth')">Moderate Growth</button>
+        <button class="tab-btn"        role="tab" data-tab="growth"      onclick="showTab('growth')">Growth</button>
+        <button class="tab-btn"        role="tab" data-tab="high-growth" onclick="showTab('high-growth')">High Growth</button>
       </div>
 
       <!-- Tab panels — bodies populated by JS -->
@@ -262,18 +273,19 @@
       </div>
 
       <!-- Multi-asset portfolios: no Classification column -->
-      <div id="panel-high-growth" class="tab-panel">
+      <div id="panel-mod-growth" class="tab-panel">
         <div class="block">
           <p class="block-eyebrow">Multi-Asset Portfolio</p>
-          <h2>High Growth Portfolio</h2>
+          <h2>Moderate Growth Portfolio</h2>
           <p class="block-meta">HUB24 Managed Accounts — SMA. Inception 14 July 2025.</p>
           <div class="table-wrap">
-            <table id="tbl-high-growth" style="table-layout:fixed;width:100%;">
+            <table id="tbl-mod-growth" style="table-layout:fixed;width:100%;">
               <colgroup><col style="width:12%"><col style="width:62%"><col style="width:13%"><col style="width:13%"></colgroup>
               <thead><tr><th>Code</th><th class="th-name">Security</th><th>Allocation</th><th>SMA MER</th></tr></thead>
               <tbody></tbody>
             </table>
           </div>
+          <div id="sum-mod-growth" class="alloc-summary"></div>
         </div>
       </div>
 
@@ -289,21 +301,23 @@
               <tbody></tbody>
             </table>
           </div>
+          <div id="sum-growth" class="alloc-summary"></div>
         </div>
       </div>
 
-      <div id="panel-mod-growth" class="tab-panel">
+      <div id="panel-high-growth" class="tab-panel">
         <div class="block">
           <p class="block-eyebrow">Multi-Asset Portfolio</p>
-          <h2>Moderate Growth Portfolio</h2>
+          <h2>High Growth Portfolio</h2>
           <p class="block-meta">HUB24 Managed Accounts — SMA. Inception 14 July 2025.</p>
           <div class="table-wrap">
-            <table id="tbl-mod-growth" style="table-layout:fixed;width:100%;">
+            <table id="tbl-high-growth" style="table-layout:fixed;width:100%;">
               <colgroup><col style="width:12%"><col style="width:62%"><col style="width:13%"><col style="width:13%"></colgroup>
               <thead><tr><th>Code</th><th class="th-name">Security</th><th>Allocation</th><th>SMA MER</th></tr></thead>
               <tbody></tbody>
             </table>
           </div>
+          <div id="sum-high-growth" class="alloc-summary"></div>
         </div>
       </div>
 
@@ -1838,6 +1852,65 @@
         </tr>`;
       }
     }).join('');
+    renderSummary(tableId, rows);
+  }
+
+
+  // ─── ALLOCATION SUMMARY (current vs target SAA) ─────────────────────────
+  // Targets: Vantage SAA (New), constant across all periods.
+  const SAA_TARGETS = {
+    'tbl-mod-growth':  { name: 'Moderate Growth', 'Australian Equities': 20.0, 'Global Equities': 27.5, 'Property / Infrastructure': 7.5,  'Fixed Interest': 35.0, 'Cash': 10.0 },
+    'tbl-growth':      { name: 'Growth',          'Australian Equities': 27.5, 'Global Equities': 34.0, 'Property / Infrastructure': 8.5,  'Fixed Interest': 25.0, 'Cash': 5.0 },
+    'tbl-high-growth': { name: 'High Growth',     'Australian Equities': 35.0, 'Global Equities': 40.0, 'Property / Infrastructure': 10.0, 'Fixed Interest': 12.0, 'Cash': 3.0 },
+  };
+  const SUMMARY_CLASSES = [
+    ['Australian Equities', 'Australian Equities'],
+    ['Global Equities', 'International Equities'],
+    ['Property / Infrastructure', 'Property &amp; Infrastructure'],
+    ['Fixed Interest', 'Fixed Interest'],
+    ['Cash', 'Cash'],
+  ];
+  const GROWTH_CLASSES = ['Australian Equities', 'Global Equities', 'Property / Infrastructure'];
+
+  function renderSummary(tableId, rows) {
+    const t = SAA_TARGETS[tableId];
+    const el = document.getElementById(tableId.replace('tbl-', 'sum-'));
+    if (!t || !el) return;
+    const cur = {};
+    let sec = null;
+    rows.forEach(r => {
+      if (r.type === 'sub') { sec = r.label; cur[sec] = cur[sec] || 0; }
+      else if (r.type === 'row' && sec) cur[sec] += parseFloat(r.alloc);
+    });
+    // Scale to the portfolio total so rounding in the underlying 2dp holdings does not leave the summary off 100%.
+    const rawTotal = Object.values(cur).reduce((a, b) => a + b, 0);
+    if (rawTotal > 0) Object.keys(cur).forEach(k => { cur[k] = cur[k] * 100 / rawTotal; });
+    const fmt = v => v.toFixed(1) + '%';
+    const rel = v => {
+      const x = Math.round(v * 10) / 10;
+      const cls = x > 0 ? 'pos' : (x < 0 ? 'neg' : '');
+      return `<td class="alloc ${cls}">${x > 0 ? '+' : ''}${x.toFixed(1)}%</td>`;
+    };
+    const line = (label, c, tg, cssClass) =>
+      `<tr${cssClass ? ' class="' + cssClass + '"' : ''}><td class="td-name lbl">${label}</td><td class="alloc">${fmt(c)}</td><td class="alloc">${fmt(tg)}</td>${rel(c - tg)}</tr>`;
+
+    let body = '', curTot = 0, tgtTot = 0, curG = 0, tgtG = 0;
+    SUMMARY_CLASSES.forEach(([key, label]) => {
+      const c = cur[key] || 0, tg = t[key];
+      curTot += c; tgtTot += tg;
+      if (GROWTH_CLASSES.includes(key)) { curG += c; tgtG += tg; }
+      body += line(label, c, tg);
+    });
+    body += `<tr class="total-row"><td class="td-name lbl">Total</td><td class="alloc">${fmt(curTot)}</td><td class="alloc">${fmt(tgtTot)}</td>${rel(curTot - tgtTot)}</tr>`;
+    body += line('Growth Assets', curG, tgtG, 'sum-split');
+    body += line('Defensive Assets', curTot - curG, tgtTot - tgtG, 'sum-split');
+
+    el.innerHTML = `<h3>Asset allocation summary: current vs target</h3>
+      <div class="table-wrap"><table>
+        <colgroup><col style="width:40%"><col style="width:20%"><col style="width:20%"><col style="width:20%"></colgroup>
+        <thead><tr><th class="th-name">Asset class</th><th>Current</th><th>Target</th><th>Relative</th></tr></thead>
+        <tbody>${body}</tbody></table></div>
+      <p class="sum-note">Current is the sum of the portfolio holdings above by asset class, scaled to a 100% total. Target is the Vantage SAA for the ${t.name} risk profile. Relative is current minus target, in percentage points (positive is overweight), shown to one decimal place. Growth Assets are Australian Equities, International Equities and Property &amp; Infrastructure. Defensive Assets are Fixed Interest and Cash.</p>`;
   }
 
   // ─── CSV EXPORT ─────────────────────────────────────────────────────────
@@ -1867,7 +1940,8 @@
     const header = ['Portfolio', 'Asset Class / Section', 'Code', 'Security', 'Classification', 'Allocation', 'SMA MER'];
     const csvRows = [header];
 
-    Object.entries(period.tables).forEach(([tableId, rows]) => {
+    const CSV_ORDER = ['tbl-aus-eq','tbl-global-eq','tbl-prop-infra','tbl-fixed-int','tbl-alts','tbl-mod-growth','tbl-growth','tbl-high-growth'];
+    Object.entries(period.tables).sort((a, b) => CSV_ORDER.indexOf(a[0]) - CSV_ORDER.indexOf(b[0])).forEach(([tableId, rows]) => {
       const portfolio = TABLE_LABELS[tableId] || tableId;
       let section = '';
       rows.forEach(r => {
