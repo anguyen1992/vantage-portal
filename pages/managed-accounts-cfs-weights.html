@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CFS Weights — Vantage Wealth Management | Investment Data Portal</title>
 
-  <meta name="last-updated" content="24 Aug 2026">
+  <meta name="last-updated" content="23 Oct 2026">
   <meta name="owner"        content="Anthony Nguyen">
   <meta name="source"       content="CFS">
   <meta name="as-at"        content="14 Aug 2026">
@@ -62,6 +62,26 @@
     td.alloc { font-variant-numeric: tabular-nums; text-align: right; font-weight: 600; color: var(--navy); }
     td.fee   { font-variant-numeric: tabular-nums; text-align: right; color: var(--ink-soft); }
     td.na    { text-align: right; color: var(--muted); font-style: italic; }
+
+    /* ===== Model weights and rebalance note ===== */
+    .rebalance-note {
+      background: var(--cream);
+      border-left: 3px solid var(--gold);
+      padding: 1.1rem 1.4rem;
+      margin: 0 0 1.8rem;
+    }
+    .rebalance-note p { font-size: 0.88rem; line-height: 1.6; color: var(--ink-soft); margin: 0 0 0.7rem; }
+    .rebalance-note p:last-child { margin-bottom: 0; }
+    .rebalance-note strong { color: var(--navy); }
+
+    /* ===== Asset allocation summary ===== */
+    .alloc-summary { margin: 0 0 2rem; }
+    .alloc-summary h3,
+    .holdings-heading { font-size: 0.95rem; font-weight: 600; color: var(--navy); margin: 0 0 0.6rem; }
+    .alloc-summary table { width: 100%; table-layout: fixed; border-collapse: collapse; }
+    .alloc-summary td.lbl { text-align: left; }
+    .alloc-summary tr.sum-split td { font-weight: 600; background: var(--paper); }
+    .alloc-summary .sum-note { font-size: 0.75rem; color: var(--muted); margin: 0.6rem 0 0; }
   </style>
 </head>
 
@@ -101,10 +121,16 @@
         <h1>CFS Model Portfolio Weights</h1>
         <div class="page-meta">
           <span class="meta-item"><strong>Last rebalance:</strong> 14 Aug 2026</span>
-          <span class="meta-item"><strong>Last updated:</strong> 24 Aug 2026</span>
+          <span class="meta-item"><strong>Last updated:</strong> 23 Oct 2026</span>
           <span class="meta-item"><strong>Owner:</strong> Anthony Nguyen</span>
           <span class="meta-item"><strong>Source:</strong> CFS</span>
         </div>
+      </div>
+
+      <!-- ===== MODEL WEIGHTS AND REBALANCE NOTE ===== -->
+      <div class="rebalance-note">
+        <p><strong>Model target weights.</strong> The weights on this page are the model target weights for each CFS portfolio. Client account holdings move away from these weights between rebalances as markets move.</p>
+        <p><strong>Auto-rebalance schedule.</strong> The CFS portfolios are auto-rebalanced quarterly, on the 14th of February, May, August and November. A scheduled auto-rebalance is skipped if the Portfolio Manager has made a change to the portfolio since the previous rebalance. For example, if the Portfolio Manager implements a trade on 1 October 2026, the 14 November 2026 auto-rebalance is skipped and the next auto-rebalance is 14 February 2027.</p>
       </div>
 
       <!-- ===== TABS ===== -->
@@ -864,6 +890,67 @@
 
   <script src="../assets/js/main.js"></script>
   <script>
+    /* Asset allocation summary: summed from each tab's fund rows, so it always ties to the weights below. */
+    const SUMMARY_CLASSES = [
+      ['Australian Shares', 'Australian Equities'],
+      ['International Shares', 'International Equities'],
+      ['Property & Infrastructure', 'Property & Infrastructure'],
+      ['Fixed Interest', 'Fixed Interest'],
+      ['Cash', 'Cash'],
+    ];
+    const GROWTH_CLASSES = ['Australian Shares', 'International Shares', 'Property & Infrastructure'];
+
+    function buildAllocationSummaries() {
+      document.querySelectorAll('.tab-panel').forEach(panel => {
+        const tbody = panel.querySelector('.table-wrap tbody');
+        const wrap = panel.querySelector('.table-wrap');
+        if (!tbody || !wrap) return;
+
+        const sums = {};
+        let section = null;
+        tbody.querySelectorAll('tr').forEach(tr => {
+          if (tr.classList.contains('subheader')) {
+            section = tr.textContent.trim();
+            sums[section] = sums[section] || 0;
+          } else if (!tr.classList.contains('total-row') && section) {
+            sums[section] += parseFloat(tr.querySelector('td.alloc').textContent);
+          }
+        });
+
+        const fmt = v => (Math.round(v * 10) / 10).toFixed(1) + '%';
+        const line = (label, v, cls) =>
+          `<tr${cls ? ' class="' + cls + '"' : ''}><td class="lbl">${label}</td><td class="alloc">${fmt(v)}</td></tr>`;
+
+        let body = '', total = 0, growth = 0;
+        SUMMARY_CLASSES.forEach(([key, label]) => {
+          const v = sums[key] || 0;
+          total += v;
+          if (GROWTH_CLASSES.includes(key)) growth += v;
+          body += line(label.replace('&', '&amp;'), v);
+        });
+        body += `<tr class="total-row"><td class="lbl">Total</td><td class="alloc">${fmt(total)}</td></tr>`;
+        body += line('Growth Assets', growth, 'sum-split');
+        body += line('Defensive Assets', total - growth, 'sum-split');
+
+        const summary = document.createElement('div');
+        summary.className = 'alloc-summary';
+        summary.innerHTML = `<h3>Asset allocation summary: model target weights</h3>
+          <div class="table-wrap"><table>
+            <colgroup><col style="width:70%"><col style="width:30%"></colgroup>
+            <thead><tr><th>Asset class</th><th class="numeric">Target weight</th></tr></thead>
+            <tbody>${body}</tbody></table></div>
+          <p class="sum-note">Target weight is the sum of the fund allocations below by asset class. Growth Assets are Australian Equities, International Equities and Property &amp; Infrastructure. Defensive Assets are Fixed Interest and Cash.</p>`;
+
+        const heading = document.createElement('h3');
+        heading.className = 'holdings-heading';
+        heading.textContent = 'Fund allocations';
+
+        wrap.parentNode.insertBefore(summary, wrap);
+        wrap.parentNode.insertBefore(heading, wrap);
+      });
+    }
+    document.addEventListener('DOMContentLoaded', buildAllocationSummaries);
+
     /* Tab switcher */
     function showTab(tabName) {
       document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
