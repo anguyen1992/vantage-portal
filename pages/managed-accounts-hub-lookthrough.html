@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HUB24 Quarterly Look-Through Analysis — Vantage Wealth Management | Investment Data Portal</title>
-  <meta name="last-updated" content="9 Oct 2026">
+  <meta name="last-updated" content="26 Oct 2026">
   <meta name="as-at"        content="30 Sep 2026">
   <meta name="owner"        content="Anthony Nguyen">
-  <meta name="source"       content="HUB24 / Macquarie / Vanguard / VanEck / T.Rowe Price">
+  <meta name="source"       content="HUB24 / Macquarie / Vanguard / VanEck / T.Rowe Price / Ausbil / ATLAS / Quay">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -280,6 +280,11 @@
 
     #panel-global.gl-tbc .lk-subtabs,
     #panel-global.gl-tbc .lk-subpanel { display: none !important; }
+    #panel-pi.pi-na .lk-subtabs,
+    #panel-pi.pi-na .lk-subpanel { display: none !important; }
+    #pi-funds-tbl { min-width: 880px; }
+    #pi-funds-tbl tbody td { vertical-align: top; line-height: 1.5; }
+    .pi-note { font-size: 0.8rem; color: var(--ink-soft); line-height: 1.65; margin: 0.2rem 0 0; max-width: 860px; }
 
     .lk-datebar { margin: -0.2rem 0 1rem; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: #b8963e; font-weight: 600; }
 
@@ -311,7 +316,7 @@
         <h1>Quarterly Look-Through Analysis</h1>
         <div class="page-meta">
           <span class="meta-item"><strong>As at:</strong> <span id="meta-as-at">30 Sep 2026</span></span>
-          <span class="meta-item"><strong>Last updated:</strong> 9 Oct 2026</span>
+          <span class="meta-item"><strong>Last updated:</strong> 26 Oct 2026</span>
           <span class="meta-item"><strong>Owner:</strong> Anthony Nguyen</span>
           <span class="meta-item"><strong>Source:</strong> HUB24 / Underlying Fund Reports</span>
         </div>
@@ -331,6 +336,7 @@
       <div class="lk-tabs" role="tablist">
         <button class="lk-tab active" data-panel="aus">Aus Equities</button>
         <button class="lk-tab" data-panel="global">Global Equities</button>
+        <button class="lk-tab" data-panel="pi">Property &amp; Infrastructure</button>
         <button class="lk-tab" data-panel="fi">Fixed Interest</button>
       </div>
 
@@ -538,7 +544,7 @@
       <div class="lk-panel" id="panel-global">
         <div class="notice" id="gl-tbc-notice" style="display:none;margin-top:0;">
           <strong>Global Equities look-through &mdash; TBC. </strong>
-          Global Equities look-through for 30 September 2026 is to be confirmed. It will be published once the underlying fund holdings and VGS (MSCI World ex-Australia) data are available. The 30 June 2026 and 31 March 2026 views remain available using the reporting period selector.
+          Global Equities look-through for 30 September 2026 is not available. The 30 June 2026 and 31 March 2026 views remain available using the reporting period selector.
         </div>
         <div class="lk-subtabs">
           <button class="lk-subtab active" data-sub="gl-region">Regional</button>
@@ -653,6 +659,145 @@
         </div>
       </div>
 
+      <!-- ===== PROPERTY & INFRASTRUCTURE PANEL ===== -->
+      <div class="lk-panel" id="panel-pi">
+        <div class="notice" id="pi-na-notice" style="display:none;margin-top:0;">
+          <strong>Property &amp; Infrastructure look-through &mdash; 30 September 2026 only. </strong>
+          This look-through starts at 30 September 2026. Select the 30 Sep 2026 reporting period to view it.
+        </div>
+        <div class="lk-subtabs">
+          <button class="lk-subtab active" data-sub="pi-sector">Sector</button>
+          <button class="lk-subtab" data-sub="pi-region">Regional</button>
+          <button class="lk-subtab" data-sub="pi-holdings">Portfolio Look-Through Holdings</button>
+          <button class="lk-subtab" data-sub="pi-funds">Fund Inputs</button>
+        </div>
+
+        <!-- PI Sector -->
+        <div class="lk-subpanel active" id="sub-pi-sector">
+          <div class="lk-section">
+            <h2>Property &amp; Infrastructure &mdash; Sector Look-Through</h2>
+            <p class="lk-datebar">Analysis date: 30 September 2026</p>
+            <p class="lk-intro">Aggregated sector exposure across the five Property &amp; Infrastructure funds, classified to the VanEck FTSE Global Infrastructure (IFRA) and VanEck FTSE International Property (REIT) sector definitions. Benchmark = 50% REIT / 50% IFRA.</p>
+            <div class="lk-grid">
+              <div class="lk-pie-wrap">
+                <div class="lk-pie-title">Portfolio Sector Allocation</div>
+                <div id="pi-sector-pie"></div>
+                <div class="lk-legend" id="pi-sector-legend"></div>
+              </div>
+              <div>
+                <h3>Sector Breakdown vs Benchmark (50% REIT / 50% IFRA)</h3>
+                <div class="lk-table-wrap">
+                  <table id="pi-sector-tbl">
+                    <thead>
+                      <tr>
+                        <th>Sector</th>
+                        <th class="num">Portfolio</th>
+                        <th class="num">Benchmark</th>
+                        <th class="num">OW / UW</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                    <tfoot></tfoot>
+                  </table>
+                </div>
+                <h3 style="margin-top:1.6rem;">Infrastructure vs Property Split</h3>
+                <div class="lk-table-wrap">
+                  <table id="pi-asset-tbl">
+                    <thead>
+                      <tr>
+                        <th>Asset class</th>
+                        <th class="num">Portfolio</th>
+                        <th class="num">Benchmark</th>
+                        <th class="num">OW / UW</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <p class="pi-note">Ausbil, ATLAS and Quay report their own sector splits and disclose only their top 10 holdings, so their weights are mapped to the VanEck classifications on a best-efforts basis. In the Ausbil fund, Utilities outside the named top 10 are allocated in line with the IFRA utilities mix, and GEK Terna is treated as Transportation Infrastructure. Quay single-family and manufactured housing sit in Property: Other REITs, as the VanEck classification does not break them out. The Infrastructure Communications bucket combines IFRA Specialized REITs (towers), Diversified Telecommunication, Communications Equipment and Media. The VanEck ETFs are shown excluding their own net cash positions (IFRA -2.16%, REIT -2.57%) and rescaled to 100%, so the benchmark carries no cash and splits exactly 50% infrastructure and 50% property.</p>
+          </div>
+        </div>
+
+        <!-- PI Regional -->
+        <div class="lk-subpanel" id="sub-pi-region">
+          <div class="lk-section">
+            <h2>Property &amp; Infrastructure &mdash; Regional Look-Through</h2>
+            <p class="lk-datebar">Analysis date: 30 September 2026</p>
+            <p class="lk-intro">Aggregated regional exposure across the five funds. Benchmark = 50% REIT / 50% IFRA. VanEck ETFs are shown by country of listing, and the active funds by each manager&#39;s reported allocation.</p>
+            <div class="lk-grid">
+              <div class="lk-pie-wrap">
+                <div class="lk-pie-title">Portfolio Regional Allocation</div>
+                <div id="pi-region-pie"></div>
+                <div class="lk-legend" id="pi-region-legend"></div>
+              </div>
+              <div>
+                <h3>Regional Breakdown vs Benchmark (50% REIT / 50% IFRA)</h3>
+                <div class="lk-table-wrap">
+                  <table id="pi-region-tbl">
+                    <thead>
+                      <tr>
+                        <th>Region</th>
+                        <th class="num">Portfolio</th>
+                        <th class="num">Benchmark</th>
+                        <th class="num">OW / UW</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                    <tfoot></tfoot>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <p class="pi-note">Australia sits in Asia Pacific. The REIT ETF excludes Australian REITs, so Australian exposure comes from IFRA (Transurban, Atlas Arteria, APA Group and others), Quay (Scentre Group) and ATLAS. Other / Cash includes Israel (0.57% of the REIT ETF) and the cash held by Ausbil, ATLAS, Quay and the SMA. The VanEck ETFs exclude their own net cash positions.</p>
+          </div>
+        </div>
+
+        <!-- PI Holdings -->
+        <div class="lk-subpanel" id="sub-pi-holdings">
+          <div class="lk-section">
+            <h2>Property &amp; Infrastructure &mdash; Portfolio Look-Through Holdings</h2>
+            <p class="lk-datebar">Analysis date: 30 September 2026</p>
+            <p class="lk-intro">Look-through security positions combining the five funds, shown against a 50% REIT / 50% IFRA benchmark. Securities held in more than one fund are combined.</p>
+            <div class="lk-toggle" id="pi-toggle">
+              <button class="active" data-view="top">Top 50 Holdings</button>
+              <button data-view="ow">Top 20 Overweight</button>
+              <button data-view="uw">Top 20 Underweight</button>
+            </div>
+            <div class="lk-table-wrap" id="pi-holdings-content"></div>
+            <p class="pi-note">The VanEck IFRA and REIT holdings are complete as at 30 September 2026. Ausbil, ATLAS and Quay disclose their top 10 holdings only, so positions outside those lists are not captured for the active funds. The Quay top 10 is from its 30 September 2026 portfolio snapshot. ETF weights exclude the ETFs&#39; net cash positions and are rescaled to 100%. Country is the country of listing. Positions below 0.10% in both the portfolio and the benchmark are not shown.</p>
+          </div>
+        </div>
+
+        <!-- PI Fund inputs -->
+        <div class="lk-subpanel" id="sub-pi-funds">
+          <div class="lk-section">
+            <h2>Property &amp; Infrastructure &mdash; Fund Inputs</h2>
+            <p class="lk-datebar">Analysis date: 30 September 2026</p>
+            <p class="lk-intro">SMA weights and the source used for each fund in the look-through.</p>
+            <div class="lk-table-wrap">
+              <table id="pi-funds-tbl">
+                <thead>
+                  <tr>
+                    <th>Code</th>
+                    <th>Security</th>
+                    <th class="num">Port. Weight</th>
+                    <th>Sector source</th>
+                    <th>Region source</th>
+                    <th>Holdings</th>
+                    <th>As at</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot></tfoot>
+              </table>
+            </div>
+            <p class="pi-note">Weights are as supplied and sum to 99.99% through rounding. The look-through rescales them to 100%.</p>
+          </div>
+        </div>
+      </div>
+
       <!-- ===== FIXED INTEREST PANEL ===== -->
       <div class="lk-panel" id="panel-fi">
         <div class="lk-section">
@@ -753,9 +898,16 @@
     ausIndex: 'STW',
     ausIndexDesc: 'STW (S&amp;P/ASX 200)',
     ausDateLabel: 'Analysis date: 30 September 2026 (before rebalance)',
-    glTBC: true,
+    glTBC: false,
     glHasRegion: true,
-    methodology: 'Look-through positions aggregate the underlying holdings of each SMA constituent, being direct equity positions plus the reported holdings of each managed fund and ETF, weighted by their share of the SMA. The Australian Equities SMA at 30 September 2026 holds a 52.94% direct equity sleeve across 26 positions, 45.87% in the SPDR S&amp;P/ASX 200 ETF (STW) and 1.20% cash at IMA level, so each stock weight equals the direct weight plus the STW constituent weight multiplied by 45.87%. A second Australian Equities view is shown as at 8 October 2026, following the rebalance of the STW holding to a 50% target. It uses the Resonant Asset Management model weights dated 8 October 2026, which show STW at 49.19%, 49.65% across the same 26 direct positions and 1.16% cash, together with STW holdings as at 8 October 2026. For both Australian Equities views the benchmark is STW (S&amp;P/ASX 200) because VAS holdings for these dates were not available. Comparisons against STW are therefore not directly comparable with prior periods, which used VAS (S&amp;P/ASX 300). Sectors follow the STW GICS classification. Global Equities look-through for 30 September 2026 is to be confirmed (TBC) pending underlying fund and VGS data. The Fixed Interest SMA weights are as at 30 September 2026. Underlying fund characteristics are taken from the 31 August 2026 reports for Bentham Global Income, Macquarie Dynamic Bond and Realm Short Term Income. For the Perpetual Diversified Income Fund, the running yield, credit duration and interest rate duration are from its August 2026 flash report, while the domicile and credit rating splits are carried forward from 30 June 2026 because the August report did not provide them. The Realm credit rating split is read from the unlabelled bar chart in the factsheet and is approximate, and the running yield for the Macquarie Dynamic Bond Fund is its reported yield to maturity. Credit duration and interest rate duration are weighted by SMA holding with cash treated as zero.',
+    globalRegions: [["North America",63.96,77.7],["Emerging Markets",9.39,0.0],["Europe ex UK",9.31,11.94],["Japan",7.01,6.01],["United Kingdom",6.51,3.46],["Asia ex Japan",1.02,0.88],["Cash",1.65,0],["Other",1.14,0]],
+    globalSectors: [["Information Technology",33.52,32.28],["Financials",17.43,15.3],["Industrials",10.18,10.9],["Health Care",9.72,9.26],["Consumer Discretionary",8.47,8.4],["Communication Services",5.22,8.41],["Energy",4.79,4.03],["Materials",2.98,2.86],["Consumer Staples",2.94,4.78],["Real Estate",1.14,1.48],["Utilities",0.97,2.31],["Cash",1.66,0],["Other",0.98,0]],
+    globalMag7: [["NVIDIA",3.2,5.9],["Apple",2.7,5.5],["Alphabet",2.47,4.06],["Microsoft",4.26,4.07],["Amazon.com",1.94,2.71],["Meta Platforms",0.86,1.79],["Tesla",0.26,1.14]],
+    globalTop: [["Microsoft Corp","Information Technology","North America",4.26,4.07],["NVIDIA Corp","Information Technology","North America",3.2,5.9],["Apple Inc","Information Technology","North America",2.7,5.5],["Alphabet Inc","Communication Services","North America",2.47,4.06],["Amazon.com Inc","Consumer Discretionary","North America",1.94,2.71],["Cash","Cash","Cash",1.66,0],["ASML Holding NV","Information Technology","Europe ex UK",1.17,0.79],["Sandisk Corp","Information Technology","North America",1.07,0.29],["Visa Inc","Financials","North America",1.04,0.67],["Miscellaneous Securities","Other","Other",0.98,0],["Meta Platforms Inc","Communication Services","North America",0.86,1.79],["Kioxia Holdings Corp","Information Technology","Japan",0.86,0.15],["Mastercard Inc","Financials","North America",0.84,0.5],["Broadcom Inc","Information Technology","North America",0.81,1.78],["Diploma PLC","Industrials","United Kingdom",0.74,0.02],["Amphenol Corp","Information Technology","North America",0.72,0.23],["Medtronic PLC","Health Care","North America",0.66,0.12],["InterContinental Hotels Group PLC","Consumer Discretionary","United Kingdom",0.66,0.03],["Compass Group PLC","Consumer Discretionary","United Kingdom",0.63,0.06],["SAP SE","Information Technology","Europe ex UK",0.62,0.24],["RELX PLC","Industrials","United Kingdom",0.62,0.07],["Experian PLC","Industrials","United Kingdom",0.6,0.03],["Jack Henry & Associates Inc","Information Technology","North America",0.54,0.0],["Cintas Corp","Industrials","North America",0.53,0.07],["Eli Lilly & Co","Health Care","North America",0.51,1.04],["Advanced Micro Devices Inc","Information Technology","North America",0.48,1.12],["Halma PLC","Information Technology","United Kingdom",0.45,0.02],["WW Grainger Inc","Industrials","North America",0.41,0.06],["Taiwan Semiconductor Manufacturing","Information Technology","Emerging Markets",0.38,0.0],["Micron Technology Inc","Information Technology","North America",0.35,1.35],["Moody's Corp","Financials","North America",0.34,0.08],["Bentley Systems Inc","Information Technology","North America",0.32,0.0],["JPMorgan Chase & Co","Financials","North America",0.3,0.99],["Intel Corp","Information Technology","North America",0.27,0.59],["Tesla Inc","Consumer Discretionary","North America",0.26,1.14],["Johnson & Johnson","Health Care","North America",0.24,0.72],["Samsung Electronics Co Ltd","Information Technology","Emerging Markets",0.19,0.0],["Chevron Corp","Energy","North America",0.17,0.42],["UnitedHealth Group Inc","Health Care","North America",0.17,0.37],["Lam Research Corp","Information Technology","North America",0.17,0.46],["Berkshire Hathaway Inc","Financials","North America",0.16,0.79],["Sk Hynix Inc","Information Technology","Emerging Markets",0.15,0.0],["Palantir Technologies Inc","Information Technology","North America",0.15,0.46],["ExxonMobil Holdings Corp","Energy","North America",0.15,0.76],["Netflix Inc","Communication Services","North America",0.13,0.33],["Shopify Inc","Information Technology","North America",0.13,0.2],["Linde PLC","Materials","North America",0.13,0.25],["ConocoPhillips","Energy","North America",0.12,0.17],["Bank of America Corp","Financials","North America",0.12,0.4],["AstraZeneca PLC","Health Care","United Kingdom",0.12,0.28],["Airbus SE","Industrials","Europe ex UK",0.12,0.14],["Arista Networks Inc","Information Technology","North America",0.12,0.24],["KLA Corp","Information Technology","North America",0.12,0.29],["Morgan Stanley","Financials","North America",0.11,0.25],["Siemens AG","Industrials","Europe ex UK",0.11,0.26],["Crowdstrike Holdings Inc","Information Technology","North America",0.11,0.3],["Tenet Healthcare Corp","Health Care","North America",0.11,0.0],["Unilever PLC","Consumer Staples","United Kingdom",0.1,0.15],["Citigroup Inc","Financials","North America",0.1,0.23],["Chubb Ltd","Financials","North America",0.1,0.13],["Schneider Electric SE","Industrials","Europe ex UK",0.1,0.2],["Recruit Holdings Co Ltd","Industrials","Japan",0.1,0.16],["Marvell Technology Inc","Information Technology","North America",0.1,0.25],["Welltower Inc","Real Estate","North America",0.1,0.18],["AbbVie Inc","Health Care","North America",0.1,0.52],["Walmart Inc","Consumer Staples","North America",0.1,0.51],["Axis Capital Holdings Ltd","Financials","North America",0.1,0.0],["Procter & Gamble Co/The","Consumer Staples","North America",0.09,0.38],["SLB Ltd","Energy","North America",0.09,0.08],["Mitsubishi UFJ Financial Group Inc","Financials","Japan",0.09,0.28],["Goldman Sachs Group Inc/The","Financials","North America",0.09,0.25],["Boeing Co/The","Industrials","North America",0.09,0.16],["Infineon Technologies AG","Information Technology","Europe ex UK",0.09,0.1],["Dell Technologies Inc","Information Technology","North America",0.09,0.18],["Cisco Systems Inc","Information Technology","North America",0.09,0.48],["Applied Materials Inc","Information Technology","North America",0.09,0.46],["Costco Wholesale Corp","Consumer Staples","North America",0.09,0.45],["Sea Ltd","Consumer Discretionary","North America",0.08,0.04],["TotalEnergies SE","Energy","Europe ex UK",0.08,0.19],["Gilead Sciences Inc","Health Care","North America",0.08,0.21],["Intuitive Surgical Inc","Health Care","North America",0.08,0.16],["Stryker Corp","Health Care","North America",0.08,0.11],["Thermo Fisher Scientific Inc","Health Care","North America",0.08,0.28],["Ge Aerospace","Industrials","North America",0.08,0.0],["Howmet Aerospace Inc","Industrials","North America",0.08,0.1],["Siemens Energy AG","Industrials","Europe ex UK",0.08,0.14],["Vertiv Holdings Co","Industrials","North America",0.08,0.1],["Oracle Corp","Information Technology","North America",0.08,0.27],["Caterpillar Inc","Industrials","North America",0.08,0.42],["Merck & Co Inc","Health Care","North America",0.08,0.4],["HSBC Holdings PLC","Financials","United Kingdom",0.08,0.38],["Halozyme Therapeutics Inc","Health Care","North America",0.08,0.0],["Asia Commercial Bank","Financials","Emerging Markets",0.07,0.0],["Capital One Financial Corp","Financials","North America",0.07,0.13],["MetLife Inc","Financials","North America",0.07,0.06],["Natera Inc","Health Care","North America",0.07,0.06],["Deere & Co","Industrials","North America",0.07,0.18],["QUALCOMM Inc","Information Technology","North America",0.07,0.22],["Franco-Nevada Corp","Materials","North America",0.07,0.05],["NextEra Energy Inc","Utilities","North America",0.07,0.18]],
+    globalTopOW: [["Cash","Cash","Cash",1.66,0],["Miscellaneous Securities","Other","Other",0.98,0],["Sandisk Corp","Information Technology","North America",1.07,0.29],["Diploma PLC","Industrials","United Kingdom",0.74,0.02],["Kioxia Holdings Corp","Information Technology","Japan",0.86,0.15],["InterContinental Hotels Group PLC","Consumer Discretionary","United Kingdom",0.66,0.03],["Compass Group PLC","Consumer Discretionary","United Kingdom",0.63,0.06],["Experian PLC","Industrials","United Kingdom",0.6,0.03],["RELX PLC","Industrials","United Kingdom",0.62,0.07],["Medtronic PLC","Health Care","North America",0.66,0.12],["Jack Henry & Associates Inc","Information Technology","North America",0.54,0.0],["Amphenol Corp","Information Technology","North America",0.72,0.23],["Cintas Corp","Industrials","North America",0.53,0.07],["Halma PLC","Information Technology","United Kingdom",0.45,0.02],["SAP SE","Information Technology","Europe ex UK",0.62,0.24],["Taiwan Semiconductor Manufacturing","Information Technology","Emerging Markets",0.38,0.0],["ASML Holding NV","Information Technology","Europe ex UK",1.17,0.79],["Visa Inc","Financials","North America",1.04,0.67],["WW Grainger Inc","Industrials","North America",0.41,0.06],["Mastercard Inc","Financials","North America",0.84,0.5],["Bentley Systems Inc","Information Technology","North America",0.32,0.0],["Moody's Corp","Financials","North America",0.34,0.08],["Samsung Electronics Co Ltd","Information Technology","Emerging Markets",0.19,0.0],["Microsoft Corp","Information Technology","North America",4.26,4.07],["Sk Hynix Inc","Information Technology","Emerging Markets",0.15,0.0],["Tenet Healthcare Corp","Health Care","North America",0.11,0.0],["Axis Capital Holdings Ltd","Financials","North America",0.1,0.0],["Ge Aerospace","Industrials","North America",0.08,0.0],["Halozyme Therapeutics Inc","Health Care","North America",0.08,0.0],["Asia Commercial Bank","Financials","Emerging Markets",0.07,0.0],["Globus Medical Inc","Health Care","North America",0.07,0.0],["Ensign Group Inc","Health Care","North America",0.07,0.0],["Cognex Corp","Information Technology","North America",0.07,0.0],["Chroma Ate Inc","Information Technology","Emerging Markets",0.07,0.0],["Kokusai Electric Corp","Information Technology","Japan",0.07,0.01],["Alibaba Group Holding Ltd","Consumer Discretionary","Emerging Markets",0.06,0.0],["Encompass Health Corp","Health Care","North America",0.06,0.0],["Delta Electronics Inc","Information Technology","Emerging Markets",0.06,0.0],["Ase Technology Holding Co Ltd","Information Technology","Emerging Markets",0.06,0.0],["Renaissancere Holdings Ltd","Financials","North America",0.06,0.0],["Inretail Peru Corp","Consumer Staples","Emerging Markets",0.05,0.0],["Uranium Energy Corp","Energy","North America",0.05,0.0],["Banco Bilbao Vizcaya Argenta","Financials","Europe ex UK",0.05,0.0],["Huntington Bancshares Inc","Financials","North America",0.05,0.0],["Icici Bank Ltd","Financials","Emerging Markets",0.05,0.0],["Schwab (Charles) Corp","Financials","North America",0.05,0.0],["Hongfa Technology Co Ltd-A Shs Mma","Industrials","Emerging Markets",0.05,0.0],["Grupo Mexico Sab De Cv-Ser B","Materials","Emerging Markets",0.05,0.0],["Southern Copper Corp","Materials","Emerging Markets",0.05,0.0],["Fortum Oyj","Utilities","Europe ex UK",0.06,0.01]],
+    globalTopUW: [["Apple Inc","Information Technology","North America",2.7,5.5],["NVIDIA Corp","Information Technology","North America",3.2,5.9],["Alphabet Inc","Communication Services","North America",2.47,4.06],["Micron Technology Inc","Information Technology","North America",0.35,1.35],["Broadcom Inc","Information Technology","North America",0.81,1.78],["Meta Platforms Inc","Communication Services","North America",0.86,1.79],["Tesla Inc","Consumer Discretionary","North America",0.26,1.14],["Amazon.com Inc","Consumer Discretionary","North America",1.94,2.71],["JPMorgan Chase & Co","Financials","North America",0.3,0.99],["Advanced Micro Devices Inc","Information Technology","North America",0.48,1.12],["Berkshire Hathaway Inc","Financials","North America",0.16,0.79],["ExxonMobil Holdings Corp","Energy","North America",0.15,0.76],["Eli Lilly & Co","Health Care","North America",0.51,1.04],["Johnson & Johnson","Health Care","North America",0.24,0.72],["AbbVie Inc","Health Care","North America",0.1,0.52],["Walmart Inc","Consumer Staples","North America",0.1,0.51],["Cisco Systems Inc","Information Technology","North America",0.09,0.48],["Applied Materials Inc","Information Technology","North America",0.09,0.46],["Costco Wholesale Corp","Consumer Staples","North America",0.09,0.45],["Caterpillar Inc","Industrials","North America",0.08,0.42],["Merck & Co Inc","Health Care","North America",0.08,0.4],["Intel Corp","Information Technology","North America",0.27,0.59],["Palantir Technologies Inc","Information Technology","North America",0.15,0.46],["HSBC Holdings PLC","Financials","United Kingdom",0.08,0.38],["Coca-Cola Co/The","Consumer Staples","North America",0.07,0.37],["Lam Research Corp","Information Technology","North America",0.17,0.46],["Procter & Gamble Co/The","Consumer Staples","North America",0.09,0.38],["General Electric Co","Industrials","North America",0.07,0.36],["Palo Alto Networks Inc","Information Technology","North America",0.07,0.36],["Bank of America Corp","Financials","North America",0.12,0.4],["Roche Holding AG","Health Care","Europe ex UK",0.07,0.34],["Philip Morris International Inc","Consumer Staples","North America",0.07,0.33],["Home Depot Inc/The","Consumer Discretionary","North America",0.06,0.32],["Royal Bank of Canada","Financials","North America",0.06,0.31],["Shell PLC","Energy","United Kingdom",0.06,0.31],["Chevron Corp","Energy","North America",0.17,0.42],["Novartis AG","Health Care","Europe ex UK",0.06,0.3],["GE Vernova Inc","Industrials","North America",0.06,0.29],["Texas Instruments Inc","Information Technology","North America",0.06,0.29],["RTX Corp","Industrials","North America",0.06,0.28],["Wells Fargo & Co","Financials","North America",0.05,0.27],["Nestle SA","Consumer Staples","Europe ex UK",0.05,0.26],["Amgen Inc","Health Care","North America",0.05,0.26],["Netflix Inc","Communication Services","North America",0.13,0.33],["Thermo Fisher Scientific Inc","Health Care","North America",0.08,0.28],["UnitedHealth Group Inc","Health Care","North America",0.17,0.37],["Mitsubishi UFJ Financial Group Inc","Financials","Japan",0.09,0.28],["Crowdstrike Holdings Inc","Information Technology","North America",0.11,0.3],["Oracle Corp","Information Technology","North America",0.08,0.27],["International Business Machines Corp","Information Technology","North America",0.05,0.23]],
+    pi: {"asAt":"30 September 2026","sectors":[["Infra: Electric Utilities",20.51,15.06],["Infra: Multi-Utilities",6.47,6.72],["Infra: Gas Utilities",1.86,2.36],["Infra: Water Utilities",5.31,1.23],["Infra: Transportation Infrastructure",9.17,8.73],["Infra: Ground Transportation",5.61,6.43],["Infra: Oil, Gas &amp; Consumable Fuels",5.4,7.02],["Infra: Communications (Towers &amp; Telecom)",4.25,2.45],["Property: Health Care REITs",6.94,8.92],["Property: Retail REITs",8.94,8.43],["Property: Industrial REITs",4.64,7.41],["Property: Data Center REITs",2.8,5.02],["Property: Multi-Family Residential REITs",2.66,3.61],["Property: Real Estate Operating Cos",1.27,3.22],["Property: Diversified REITs",1.12,2.83],["Property: Self-Storage REITs",4.41,2.68],["Property: Other Specialized REITs",0.95,2.39],["Property: Office REITs",1.09,2.24],["Property: Other REITs",4.1,3.25],["Cash / Other",2.5,0.0]],"asset":[["Infrastructure (IFRA classification)",58.59,50.0],["Property (REIT classification)",38.91,50.0],["Cash / Other",2.5,0.0]],"regions":[["North America",65.22,73.05],["Europe (ex UK)",17.78,10.47],["United Kingdom",8.75,4.1],["Asia Pacific",6.33,12.09],["Other / Cash",1.92,0.29]],"rows":[["WELL US","Welltower Inc","Property: Health Care REITs","United States",1.96,4.95],["NEE US","NextEra Energy Inc","Infra: Electric Utilities","United States",1.89,2.38],["AENA SM","Aena SME SA","Infra: Transportation Infrastructure","Spain",1.83,2.58],["CSX US","CSX Corp","Infra: Ground Transportation","United States",1.67,1.04],["SPG US","Simon Property Group Inc","Property: Retail REITs","United States",1.65,1.91],["VTR US","Ventas Inc","Property: Health Care REITs","United States",1.64,1.29],["SVT LN","Severn Trent Plc","Infra: Water Utilities","United Kingdom",1.6,0.18],["PNW US","Pinnacle West Capital Corp","Infra: Electric Utilities","United States",1.58,0.19],["UU/ LN","United Utilities Group Plc","Infra: Water Utilities","United Kingdom",1.58,0.23],["PEG US","Public Service Enterprise Group Inc","Infra: Multi-Utilities","United States",1.57,0.56],["ETR US","Entergy Corp","Infra: Electric Utilities","United States",1.47,0.77],["PLD US","Prologis Inc","Property: Industrial REITs","United States",1.45,3.66],["NSC US","Norfolk Southern Corp","Infra: Ground Transportation","United States",1.43,0.84],["WMB US","Williams Cos Inc","Infra: Oil, Gas &amp; Consumable Fuels","United States",1.4,1.15],["MAC US","Macerich Co","Property: Retail REITs","United States",1.24,0.19],["LNG US","Cheniere Energy Inc","Infra: Oil, Gas &amp; Consumable Fuels","United States",1.21,0.78],["ED US","Consolidated Edison Inc","Infra: Multi-Utilities","United States",1.18,0.63],["EQIX US","Equinix Inc","Property: Data Center REITs","United States",1.17,2.96],["INVH US","Invitation Homes Inc","Property: Other REITs","United States",1.17,0.46],["SUI US","Sun Communities Inc","Property: Other REITs","United States",1.17,0.4],["TRN IM","Terna S.p.A.","Infra: Electric Utilities","Italy",1.17,0.24],["ESS US","Essex Property Trust Inc","Property: Multi-Family Residential REITs","United States",1.05,0.51],["CSH-U CN","Chartwell Retirement Residences","Property: Health Care REITs","Canada",1.04,0.14],["CNR CN","Canadian National Railway Co","Infra: Ground Transportation","Canada",1.02,0.77],["HTO US","H2O America","Infra: Water Utilities","United States",1.0,0.03],["EMA CN","Emera Inc","Infra: Electric Utilities","Canada",0.99,0.24],["TCL AU","Transurban Group","Infra: Transportation Infrastructure","Australia",0.98,2.47],["GEKTERNA GA","GEK Terna Holding","Infra: Transportation Infrastructure","Greece",0.98,0.0],["SCG AU","Scentre Group","Property: Retail REITs","Australia",0.97,0.0],["SRE LN","Sirius Real Estate Ltd","Property: Industrial REITs","United Kingdom",0.93,0.05],["EDP PL","EDP S.A.","Infra: Electric Utilities","Portugal",0.93,0.0],["RWE GR","RWE AG","Infra: Electric Utilities","Germany",0.89,0.0],["SIA CN","Sienna Senior Living Inc","Property: Health Care REITs","Canada",0.85,0.0],["DG FP","Vinci SA","Infra: Transportation Infrastructure","France",0.83,0.0],["UNP US","Union Pacific Corp","Infra: Ground Transportation","United States",0.77,1.95],["DLR US","Digital Realty Trust Inc","Property: Data Center REITs","United States",0.77,1.93],["SO US","Southern Co/The","Infra: Electric Utilities","United States",0.63,1.6],["O US","Realty Income Corp","Property: Retail REITs","United States",0.6,1.51],["DUK US","Duke Energy Corp","Infra: Electric Utilities","United States",0.59,1.48],["ENB CN","Enbridge Inc","Infra: Oil, Gas &amp; Consumable Fuels","Canada",0.57,1.43],["PSA US","Public Storage","Property: Self-Storage REITs","United States",0.56,1.41],["VMRK US","Vivmark Residential","Property: Multi-Family Residential REITs","United States",0.54,1.37],["NG/ LN","National Grid Plc","Infra: Multi-Utilities","United Kingdom",0.5,1.28],["AIA NZ","Auckland International Airport Ltd","Infra: Transportation Infrastructure","New Zealand",0.47,1.19],["AEP US","American Electric Power Co Inc","Infra: Electric Utilities","United States",0.43,1.08],["AMT US","American Tower Corp","Infra: Communications (Towers &amp; Telecom)","United States",0.42,1.05],["IRM US","Iron Mountain Inc","Property: Other Specialized REITs","United States",0.39,0.97],["CP CN","Canadian Pacific Railway Ltd","Infra: Ground Transportation","Canada",0.36,0.92],["D US","Dominion Energy Inc","Infra: Multi-Utilities","United States",0.35,0.89],["SRE US","Sempra","Infra: Multi-Utilities","United States",0.34,0.85],["TRP CN","TC Energy Corp","Infra: Oil, Gas &amp; Consumable Fuels","Canada",0.33,0.84],["EXR US","Extra Space Storage Inc","Property: Self-Storage REITs","United States",0.32,0.82],["KMI US","Kinder Morgan Inc","Infra: Oil, Gas &amp; Consumable Fuels","United States",0.32,0.81],["TRGP US","Targa Resources Corp","Infra: Oil, Gas &amp; Consumable Fuels","United States",0.31,0.79],["OKE US","ONEOK Inc","Infra: Oil, Gas &amp; Consumable Fuels","United States",0.29,0.74],["VICI US","VICI Properties Inc","Property: Other Specialized REITs","United States",0.29,0.74],["ADP FP","Aeroports de Paris SA","Infra: Transportation Infrastructure","France",0.29,0.74],["XEL US","Xcel Energy Inc","Infra: Electric Utilities","United States",0.29,0.73],["FHZN SW","Flughafen Zurich AG","Infra: Transportation Infrastructure","Switzerland",0.27,0.69],["EXC US","Exelon Corp","Infra: Electric Utilities","United States",0.27,0.69],["WEC US","WEC Energy Group Inc","Infra: Multi-Utilities","United States",0.22,0.55],["SGRO LN","Segro Plc","Property: Industrial REITs","United Kingdom",0.2,0.5],["AEE US","Ameren Corp","Infra: Multi-Utilities","United States",0.18,0.46],["HST US","Host Hotels &amp; Resorts Inc","Property: Other REITs","United States",0.18,0.45],["FTS CN","Fortis Inc","Infra: Electric Utilities","Canada",0.18,0.45],["PCG US","PG&amp;E Corp","Infra: Electric Utilities","United States",0.18,0.45],["KIM US","Kimco Realty Corp","Property: Retail REITs","United States",0.17,0.44],["WPC US","WP Carey Inc","Property: Diversified REITs","United States",0.17,0.43],["ATO US","Atmos Energy Corp","Infra: Gas Utilities","United States",0.17,0.43],["AWK US","American Water Works Co Inc","Infra: Water Utilities","United States",0.17,0.43],["VNA GR","Vonovia SE","Property: Real Estate Operating Cos","Germany",0.17,0.42],["OHI US","Omega Healthcare Investors Inc","Property: Health Care REITs","United States",0.17,0.42],["DOC US","Healthpeak Properties Inc","Property: Health Care REITs","United States",0.16,0.41],["PPL US","PPL Corp","Infra: Electric Utilities","United States",0.16,0.41],["MAA US","Mid-America Apartment Communities Inc","Property: Multi-Family Residential REITs","United States",0.16,0.4],["ES US","Eversource Energy","Infra: Electric Utilities","United States",0.16,0.4],["CNP US","CenterPoint Energy Inc","Infra: Multi-Utilities","United States",0.16,0.4],["FE US","FirstEnergy Corp","Infra: Electric Utilities","United States",0.16,0.4],["FRA GR","Fraport AG","Infra: Transportation Infrastructure","Germany",0.16,0.4],["CCI US","Crown Castle Inc","Infra: Communications (Towers &amp; Telecom)","United States",0.15,0.39],["REG US","Regency Centers Corp","Property: Retail REITs","United States",0.15,0.39],["823 HK","Link REIT","Property: Retail REITs","Hong Kong",0.14,0.37],["PPL CN","Pembina Pipeline Corp","Infra: Oil, Gas &amp; Consumable Fuels","Canada",0.14,0.36],["URW FP","Unibail-Rodamco-Westfield","Property: Retail REITs","France",0.14,0.35],["SPSN SW","Swiss Prime Site AG","Property: Real Estate Operating Cos","Switzerland",0.14,0.35],["EIX US","Edison International","Infra: Electric Utilities","United States",0.14,0.34],["ELS US","Equity Lifestyle Properties Inc","Property: Other REITs","United States",0.13,0.34],["CICT SP","CapitaLand Integrated Commercial Trust","Property: Retail REITs","Singapore",0.13,0.33],["CMS US","CMS Energy Corp","Infra: Multi-Utilities","United States",0.13,0.33],["UDR US","UDR Inc","Property: Multi-Family Residential REITs","United States",0.13,0.32],["GLPI US","Gaming and Leisure Properties Inc","Property: Other Specialized REITs","United States",0.13,0.32],["NI US","NiSource Inc","Infra: Multi-Utilities","United States",0.12,0.31],["EGP US","EastGroup Properties Inc","Property: Industrial REITs","United States",0.12,0.31],["EVRG US","Evergy Inc","Infra: Electric Utilities","United States",0.12,0.3],["AMH US","American Homes 4 Rent","Property: Other REITs","United States",0.12,0.3],["AHR US","American Healthcare REIT Inc","Property: Health Care REITs","United States",0.12,0.29],["BXP US","Boston Properties Inc","Property: Office REITs","United States",0.11,0.29],["9503 JP","Kansai Electric Power Co Inc","Infra: Electric Utilities","Japan",0.11,0.28],["CPT US","Camden Property Trust","Property: Multi-Family Residential REITs","United States",0.11,0.28],["FRT US","Federal Realty Investment Trust","Property: Retail REITs","United States",0.11,0.28],["LNT US","Alliant Energy Corp","Infra: Electric Utilities","United States",0.11,0.27],["9020 JP","East Japan Railway Co","Infra: Ground Transportation","Japan",0.11,0.27],["LI FP","Klepierre SA","Property: Retail REITs","France",0.11,0.27],["2 HK","CLP Holdings Ltd","Infra: Electric Utilities","Hong Kong",0.1,0.26],["NTGY SM","Naturgy Energy Group SA","Infra: Gas Utilities","Spain",0.1,0.25],["CTRE US","CareTrust REIT Inc","Property: Health Care REITs","United States",0.1,0.25],["CUBE US","CubeSmart","Property: Self-Storage REITs","United States",0.1,0.25],["BRX US","Brixmor Property Group Inc","Property: Retail REITs","United States",0.1,0.25],["ADC US","Agree Realty Corp","Property: Retail REITs","United States",0.1,0.24],["ARE US","Alexandria Real Estate Equities Inc","Property: Office REITs","United States",0.1,0.24],["9022 JP","Central Japan Railway Co","Infra: Ground Transportation","Japan",0.09,0.24],["REXR US","Rexford Industrial Realty Inc","Property: Industrial REITs","United States",0.09,0.24],["SBAC US","SBA Communications Corp","Infra: Communications (Towers &amp; Telecom)","United States",0.09,0.23],["RHP US","Ryman Hospitality Properties Inc","Property: Other REITs","United States",0.09,0.23],["FR US","First Industrial Realty Trust Inc","Property: Industrial REITs","United States",0.09,0.23],["PSPN SW","PSP Swiss Property AG","Property: Real Estate Operating Cos","Switzerland",0.09,0.23],["HKL SP","Hongkong Land Holdings Ltd","Property: Real Estate Operating Cos","Singapore",0.09,0.23],["NNN US","National Retail Properties Inc","Property: Retail REITs","United States",0.09,0.23],["CLAR SP","CapitaLand Ascendas REIT","Property: Industrial REITs","Singapore",0.09,0.22],["9532 JP","Osaka Gas Co Ltd","Infra: Gas Utilities","Japan",0.09,0.22],["9502 JP","Chubu Electric Power Co Inc","Infra: Electric Utilities","Japan",0.08,0.21],["9531 JP","Tokyo Gas Co Ltd","Infra: Gas Utilities","Japan",0.08,0.21],["ASTS US","AST SpaceMobile Inc","Infra: Communications (Towers &amp; Telecom)","United States",0.08,0.21],["STAG US","STAG Industrial Inc","Property: Industrial REITs","United States",0.08,0.2],["ALX AU","Atlas Arteria Ltd","Infra: Transportation Infrastructure","Australia",0.08,0.2],["TRNO US","Terreno Realty Corp","Property: Industrial REITs","United States",0.08,0.2],["AED BB","Aedifica SA","Property: Health Care REITs","Belgium",0.08,0.2],["FGP LN","FirstGroup Plc","Infra: Ground Transportation","United Kingdom",0.08,0.2],["CLNX SM","Cellnex Telecom SA","Infra: Communications (Towers &amp; Telecom)","Spain",0.08,0.2],["H CN","Hydro One Ltd","Infra: Electric Utilities","Canada",0.08,0.19],["WTRG US","Essential Utilities Inc","Infra: Water Utilities","United States",0.07,0.19],["LAND LN","Land Securities Group Plc","Property: Diversified REITs","United Kingdom",0.07,0.19],["SRG IM","Snam SpA","Infra: Gas Utilities","Italy",0.07,0.18],["8951 JP","Nippon Building Fund Inc","Property: Office REITs","Japan",0.07,0.18],["1997 HK","Wharf Real Estate Investment Co Ltd","Property: Real Estate Operating Cos","Hong Kong",0.07,0.18],["AIA GA","Athens International Airport SA","Infra: Transportation Infrastructure","Greece",0.07,0.18],["VNO US","Vornado Realty Trust","Property: Office REITs","United States",0.07,0.18],["MRL SM","Merlin Properties Socimi SA","Property: Diversified REITs","Spain",0.07,0.18],["HR US","Healthcare Realty Trust Inc","Property: Health Care REITs","United States",0.07,0.18],["6 HK","Power Assets Holdings Ltd","Infra: Electric Utilities","Hong Kong",0.07,0.17],["3 HK","Hong Kong &amp; China Gas Co Ltd","Infra: Gas Utilities","Hong Kong",0.07,0.17],["EPRT US","Essential Properties Realty Trust Inc","Property: Retail REITs","United States",0.07,0.17],["LMP LN","LondonMetric Property Plc","Property: Diversified REITs","United Kingdom",0.07,0.17],["BLND LN","British Land Co Plc","Property: Diversified REITs","United Kingdom",0.06,0.16],["HPHT SP","Hutchison Port Holdings Trust","Infra: Transportation Infrastructure","Singapore",0.06,0.16],["OGE US","OGE Energy Corp","Infra: Electric Utilities","United States",0.06,0.16],["CNA LN","Centrica Plc","Infra: Multi-Utilities","United Kingdom",0.06,0.15],["BBOX LN","Tritax Big Box REIT Plc","Property: Industrial REITs","United Kingdom",0.06,0.15],["SBRA US","Sabra Health Care REIT Inc","Property: Health Care REITs","United States",0.06,0.15],["KRG US","Kite Realty Group Trust","Property: Retail REITs","United States",0.06,0.15],["AZRG IT","Azrieli Group Ltd","Property: Real Estate Operating Cos","Israel",0.06,0.14],["PECO US","Phillips Edison &amp; Co Inc","Property: Retail REITs","United States",0.06,0.14],["8952 JP","Japan Real Estate Investment Corp","Property: Office REITs","Japan",0.06,0.14],["8953 JP","Japan Metropolitan Fund Investment","Property: Office REITs","Japan",0.05,0.14],["CUZ US","Cousins Properties Inc","Property: Office REITs","United States",0.05,0.14],["PPC GA","Public Power Corp SA","Infra: Electric Utilities","Greece",0.05,0.13],["APA AU","APA Group","Infra: Gas Utilities","Australia",0.05,0.13],["IDA US","IDACORP Inc","Infra: Electric Utilities","United States",0.05,0.13],["REI-U CN","RioCan REIT","Property: Retail REITs","Canada",0.05,0.13],["WDP BB","Warehouses De Pauw CVA","Property: Industrial REITs","Belgium",0.05,0.13],["EPR US","EPR Properties","Property: Other Specialized REITs","United States",0.05,0.13],["VSAT US","Viasat Inc","Infra: Communications (Towers &amp; Telecom)","United States",0.05,0.12],["LEG GR","LEG Immobilien SE","Property: Real Estate Operating Cos","Germany",0.05,0.12],["COLD US","Americold Realty Trust","Property: Industrial REITs","United States",0.05,0.12],["MRP US","Millrose Properties Inc","Property: Other Specialized REITs","United States",0.05,0.12],["3281 JP","GLP J-REIT","Property: Industrial REITs","Japan",0.05,0.12],["CAST SS","Castellum AB","Property: Real Estate Operating Cos","Sweden",0.05,0.12],["RED SM","Red Electrica Corp SA","Infra: Electric Utilities","Spain",0.04,0.11],["SKT US","Tanger Inc","Property: Retail REITs","United States",0.04,0.11],["KRC US","Kilroy Realty Corp","Property: Office REITs","United States",0.04,0.11],["CDP US","COPT Defense Properties","Property: Office REITs","United States",0.04,0.11],["3283 JP","Nippon Prologis REIT Inc","Property: Industrial REITs","Japan",0.04,0.11],["TXNM US","PNM Resources Inc","Infra: Electric Utilities","United States",0.04,0.11],["GRT-U CN","Granite REIT","Property: Industrial REITs","Canada",0.04,0.11],["GFC FP","Gecina SA","Property: Office REITs","France",0.04,0.11],["3462 JP","Nomura Real Estate Master Fund Inc","Property: Diversified REITs","Japan",0.04,0.11],["KDCREIT SP","Keppel DC REIT","Property: Data Center REITs","Singapore",0.04,0.11],["9508 JP","Kyushu Electric Power Co Inc","Infra: Electric Utilities","Japan",0.04,0.1],["BNL US","Broadstone Net Lease Inc","Property: Diversified REITs","United States",0.04,0.1],["LXP US","LXP Industrial Trust","Property: Industrial REITs","United States",0.04,0.1],["SLG US","SL Green Realty Corp","Property: Office REITs","United States",0.04,0.1],["APLE US","Apple Hospitality REIT Inc","Property: Other REITs","United States",0.04,0.1],["CAR-U CN","Canadian Apartment Properties REIT","Property: Multi-Family Residential REITs","Canada",0.04,0.1],["IRT US","Independence Realty Trust Inc","Property: Multi-Family Residential REITs","United States",0.04,0.1],["FCR-U CN","First Capital REIT","Property: Retail REITs","Canada",0.04,0.1],["SAGAB SS","Sagax AB","Property: Industrial REITs","Sweden",0.04,0.1],["8972 JP","KDX Realty Investment Corp","Property: Office REITs","Japan",0.04,0.1]],"funds":[["AAP3601AU","Ausbil Global Essential Infrastructure Fund (Hedged)",20.25,"Ausbil four-sector allocation mapped to IFRA sectors. Named top 10 holdings placed directly; unnamed Utilities split pro rata to the IFRA utilities mix (estimate).","Ausbil region allocation","Top 10 only","30 Sep 2026"],["BFL0020AU","Quay Global Real Estate Fund (Unhedged)",19.79,"Quay sector weighting (30 Sep 2026 portfolio snapshot) mapped to REIT sub-industries.","Quay geographic weighting (asset location)","Top 10 only","30 Sep 2026"],["IFRA","VanEck FTSE Global Infrastructure (Hedged) ETF",19.76,"VanEck fact sheet sector weights.","Country of listing, from holdings file","Full holdings (144 securities), ex net cash","30 Sep 2026"],["PIM1961AU","ATLAS Infrastructure Australian Feeder Fund (Hedged)",19.8,"ATLAS sector chart mapped to IFRA sectors. PSEG and Consolidated Edison reclassified to Multi-Utilities.","ATLAS country allocation (country of exchange)","Top 10 only","30 Sep 2026"],["REIT","VanEck FTSE International Property (Hedged) ETF",19.81,"VanEck fact sheet sub-industry weights.","Country of listing, from holdings file","Full holdings (301 securities), ex net cash","30 Sep 2026"],["CASH","Cash + Reserves",0.58,"Cash / Other","Other / Cash","n/a","30 Sep 2026"]]},
+    methodology: 'Look-through positions aggregate the underlying holdings of each SMA constituent, being direct equity positions plus the reported holdings of each managed fund and ETF, weighted by their share of the SMA. The Australian Equities SMA at 30 September 2026 holds a 52.94% direct equity sleeve across 26 positions, 45.87% in the SPDR S&amp;P/ASX 200 ETF (STW) and 1.20% cash at IMA level, so each stock weight equals the direct weight plus the STW constituent weight multiplied by 45.87%. A second Australian Equities view is shown as at 8 October 2026, following the rebalance of the STW holding to a 50% target. It uses the Resonant Asset Management model weights dated 8 October 2026, which show STW at 49.19%, 49.65% across the same 26 direct positions and 1.16% cash, together with STW holdings as at 8 October 2026. For both Australian Equities views the benchmark is STW (S&amp;P/ASX 200) because VAS holdings for these dates were not available. Comparisons against STW are therefore not directly comparable with prior periods, which used VAS (S&amp;P/ASX 300). Sectors follow the STW GICS classification. The Global Equities look-through at 30 September 2026 aggregates eight constituents at the SMA weights supplied (Arrowstreet Global Equity No. 2 Hedged 33.90%, VGS 19.91%, T. Rowe Price Global Equity 13.17%, Arrowstreet Global Small Companies No. 2 10.06%, Vanguard Global Value Equity Active ETF 9.11%, Aoris International 8.44%, VanEck MSCI International Quality ETF 4.93% and cash 0.47%), rescaled by 0.01% so that the weights sum to 100%. Full holdings are used for VGS (30 September holdings file, rescaled to 100% so that benchmark cash is zero), T. Rowe Price (30 September holdings, with the 7.45% of the fund in concealed securities shown as Miscellaneous Securities) and Aoris (15 stocks and 0.61% cash). Full holdings are not available for Arrowstreet or the Vanguard Global Value Equity Active ETF, so their sector and regional weights come from the 30 September fact sheet or monthly report, and only the top 10 stocks are included in the holdings views for Arrowstreet and QUAL (the Vanguard Global Value top 10 are disclosed without individual weights and are excluded). Stock level weights, including the Magnificent 7, are therefore a lower bound for those funds. The Arrowstreet reports are for the unhedged funds and are used for the hedged and No. 2 vehicles, and the Vanguard Global Value sectors (ICB) are mapped to GICS names, so Telecommunications is shown as Communication Services and Technology as Information Technology. Korea and Poland are shown in Emerging Markets, and the QUAL remaining country weight (2.47%) is shown as Other. VGS sectors are mapped from GICS industries. The Fixed Interest SMA weights are as at 30 September 2026. Underlying fund characteristics are taken from the 30 September 2026 reports for Bentham Global Income and Realm Short Term Income, and from the 31 August 2026 report for Macquarie Dynamic Bond, as its September report was not available. For the Perpetual Diversified Income Fund, the running yield, credit spread duration and interest rate duration are from its September 2026 flash report, while the domicile and credit rating splits are carried forward from 30 June 2026 because the report does not provide them. The Realm domicile split is carried forward from its August 2026 factsheet because the September pack does not provide it, and its credit rating split excludes the 3.44% cash holding. Credit duration for Perpetual is its credit spread duration, and the running yield for the Macquarie Dynamic Bond Fund is its reported yield to maturity. Credit duration and interest rate duration are weighted by SMA holding with cash treated as zero. The Property &amp; Infrastructure look-through at 30 September 2026 aggregates five funds at the SMA weights supplied (Ausbil 20.25%, Quay 19.79%, VanEck IFRA 19.76%, ATLAS 19.80%, VanEck REIT 19.81% and cash 0.58%), rescaled by 0.01% so that the weights sum to 100%. The benchmark is a 50/50 blend of the VanEck FTSE International Property (REIT) ETF and the VanEck FTSE Global Infrastructure (IFRA) ETF, using each ETF&#39;s 30 September 2026 holdings excluding the ETF&#39;s own net cash position (IFRA -2.16%, REIT -2.57%), rescaled to 100%, so the benchmark holds no cash. Sector classifications follow VanEck: IFRA sector weights and REIT sub-industry weights are taken from the September 2026 fact sheets, and the Specialized REITs, Diversified Telecommunication, Communications Equipment, Media and Construction &amp; Engineering lines of IFRA are combined into a single Communications bucket so that the active managers&#39; communications infrastructure holdings map to it. Ausbil, ATLAS and Quay do not disclose holdings beyond their top 10, so their sector splits are mapped from each manager&#39;s own sector reporting to the VanEck classifications. In the Ausbil fund, utilities holdings outside the named top 10 (28.56% of the fund) are allocated across Electric, Multi, Gas and Water Utilities in line with the IFRA utilities mix, and GEK Terna is treated as Transportation Infrastructure. Regions use the country of listing for the VanEck ETFs and each manager&#39;s reported allocation for the active funds. The Quay top 10, sector and geographic weights are taken from its 30 September 2026 portfolio snapshot.',
     ausSectors: [
       ["Financials",32.53,32.7],
       ["Materials",29.26,26.58],
@@ -918,15 +1070,15 @@
     },
     fi: {
       dual: true,
-      note: 'Fund characteristics as at 31 August 2026. Perpetual Diversified Income: yield and durations from its August 2026 flash report, domicile and credit rating splits carried forward from 30 June 2026. SMA weights as at 30 September 2026.',
+      note: 'Fund characteristics as at 30 September 2026 for Bentham Global Income, Perpetual Diversified Income and Realm Short Term Income, and as at 31 August 2026 for Macquarie Dynamic Bond (September report not yet available). Perpetual: domicile and credit rating splits carried forward from 30 June 2026. Realm: domicile split carried forward from its August 2026 factsheet. SMA weights as at 30 September 2026.',
       rows: [
-        ["CSA0038AU","Bentham Global Income Fund",13.76,27.0,36.0,37.0,2.76,6.25,5.5,18,16,12,8,4,9,0,33],
-        ["MAQ0274AU","Macquarie Dynamic Bond Fund",25.46,31.5,68.5,0.0,2.7,5.2,6.1,18.8,17.8,33.0,26.6,2.3,1.3,0.2,0.0],
-        ["PER0260AU","Perpetual Diversified Income Fund",30.24,68.8,20.5,10.7,3.63,0.61,5.98,22.7,7.8,16.6,37.2,4.4,0.0,0.6,10.7],
-        ["OMF3725AU","Realm Short Term Income Fund",29.91,52.06,43.98,3.96,1.49,0.1,5.95,16.7,13.3,16.6,53.4,0,0,0,0],
-        ["CASH","Cash + Reserves",0.63,null,null,100.0,null,null,null,0,0,0,0,0,0,0,100.0]
+        ["CSA0038AU", "Bentham Global Income Fund", 13.76, 28.0, 34.0, 38.0, 2.69, 6.3, 6.04, 17, 13, 12, 10, 5, 9, 0, 34],
+        ["MAQ0274AU", "Macquarie Dynamic Bond Fund", 25.46, 31.5, 68.5, 0.0, 2.7, 5.2, 6.1, 18.8, 17.8, 33.0, 26.6, 2.3, 1.3, 0.2, 0.0],
+        ["PER0260AU", "Perpetual Diversified Income Fund", 30.24, 68.8, 20.5, 10.7, 3.45, 0.82, 5.99, 22.7, 7.8, 16.6, 37.2, 4.4, 0.0, 0.6, 10.7],
+        ["OMF3725AU", "Realm Short Term Income Fund", 29.91, 52.06, 43.98, 3.96, 1.49, 0.1, 6.11, 16.9, 13.0, 16.6, 53.5, 0, 0, 0, 0],
+        ["CASH", "Cash + Reserves", 0.63, null, null, 100.0, null, null, null, 0, 0, 0, 0, 0, 0, 0, 100.0]
       ],
-      totals: ["TOTAL",100.0,48.11,41.75,10.14,2.61,2.4,5.9,19.1,13.1,20.0,35.1,2.5,1.6,0.2,8.4]
+      totals: ["TOTAL", 100.0, 48.25, 41.47, 10.28, 2.55, 2.47, 6.02, 19.0, 12.6, 20.0, 35.4, 2.6, 1.6, 0.2, 8.5]
     },
     fiProposed: null
   },
@@ -1626,6 +1778,7 @@
   let activePeriod = 'sep2026';
   let ausView = 'top';
   let glView  = 'top';
+  let piView  = 'top';
 
   // ====== Helpers ======
   const fmtSigned = v => {
@@ -1645,7 +1798,8 @@
   const fmtYld = v => v == null ? '—' : v.toFixed(2) + '%';
 
   // ====== Pie chart ======
-  function drawPie(containerId, legendId, dataset) {
+  function drawPie(containerId, legendId, dataset, pal) {
+    const P = pal || palette;
     const total = dataset.reduce((a, b) => a + b[1], 0);
     const size = 260, cx = size / 2, cy = size / 2, r = 100, ir = 54;
     let cum = 0, paths = '';
@@ -1660,7 +1814,7 @@
       const xi1= cx + ir * Math.cos(ea), yi1= cy + ir * Math.sin(ea);
       const xi2= cx + ir * Math.cos(sa), yi2= cy + ir * Math.sin(sa);
       const path = `M ${x1} ${y1} A ${r} ${r} 0 ${la} 1 ${x2} ${y2} L ${xi1} ${yi1} A ${ir} ${ir} 0 ${la} 0 ${xi2} ${yi2} Z`;
-      const col = palette[i % palette.length];
+      const col = P[i % P.length];
       paths += `<path d="${path}" fill="${col}" stroke="#fff" stroke-width="1.5"><title>${d[0]}: ${v.toFixed(2)}%</title></path>`;
     });
     const svg = `<svg viewBox="0 0 ${size} ${size}" width="260" height="260" xmlns="http://www.w3.org/2000/svg">
@@ -1672,7 +1826,7 @@
     if (legendId) {
       document.getElementById(legendId).innerHTML = dataset.map((d, i) =>
         `<div class="lk-legend-item">
-          <span class="lk-swatch" style="background:${palette[i % palette.length]}"></span>
+          <span class="lk-swatch" style="background:${P[i % P.length]}"></span>
           <span class="lk-legend-name">${d[0]}</span>
           <span class="lk-legend-val">${d[1].toFixed(2)}%</span>
         </div>`
@@ -1843,6 +1997,82 @@
     el.innerHTML = glHoldingsTable(src.map(r => glNormalise(r, hr)), hr);
   }
 
+
+  // ====== Property & Infrastructure ======
+  const piPalette = [
+    '#0d1b2a','#1a2b3f','#3f5d70','#6b8e7f','#4d7a3a','#7a8c7d','#2e5d6f','#8aa5b5',
+    '#b8954b','#cdb076','#d4a574','#a83a3a','#5d4e37','#8e7c5e','#b8a487','#9c8558','#c97b5a','#e0c88f','#7a5c3a',
+    '#b5b0a3'
+  ];
+  const piRegionPalette = ['#0d1b2a','#b8954b','#4d7a3a','#a83a3a','#b5b0a3'];
+
+  function piHoldingsTable(rows) {
+    return `<table>
+      <thead>
+        <tr>
+          <th>#</th><th>Code</th><th>Security</th><th>Sector</th><th>Country</th>
+          <th class="num">Portfolio</th>
+          <th class="num">Benchmark</th>
+          <th class="num">OW / UW</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${rows.map((r, i) => {
+          const diff = r[4] - r[5];
+          return `<tr>
+            <td class="code-cell">${String(i+1).padStart(2,'0')}</td>
+            <td><strong>${r[0]}</strong></td>
+            <td>${r[1]}</td>
+            <td>${r[2]}</td>
+            <td>${r[3]}</td>
+            <td class="num">${r[4].toFixed(2)}%</td>
+            <td class="num">${r[5].toFixed(2)}%</td>
+            <td class="num">${fmtSigned(diff)}</td>
+          </tr>`;
+        }).join('')}
+      </tbody>
+    </table>`;
+  }
+
+  function renderPiHoldings(p, view) {
+    const el = document.getElementById('pi-holdings-content');
+    if (!p) { el.innerHTML = ''; return; }
+    let src;
+    if (view === 'top') src = [...p.rows].sort((x, y) => y[4] - x[4]).slice(0, 50);
+    else if (view === 'ow') src = [...p.rows].sort((x, y) => (y[4]-y[5]) - (x[4]-x[5])).slice(0, 20);
+    else src = [...p.rows].sort((x, y) => (x[4]-x[5]) - (y[4]-y[5])).slice(0, 20);
+    el.innerHTML = piHoldingsTable(src);
+  }
+
+  function renderPI(d) {
+    const p = d.pi;
+    const panel = document.getElementById('panel-pi');
+    panel.classList.toggle('pi-na', !p);
+    document.getElementById('pi-na-notice').style.display = p ? 'none' : '';
+    if (!p) return;
+    drawPie('pi-sector-pie', 'pi-sector-legend', p.sectors, piPalette);
+    buildAllocationTable('pi-sector-tbl', p.sectors);
+    document.querySelector('#pi-asset-tbl tbody').innerHTML = p.asset.map(([name, pw, bw]) => `<tr>
+      <td>${name}</td>
+      <td class="num">${pw.toFixed(2)}%</td>
+      <td class="num">${bw.toFixed(2)}%</td>
+      <td class="num">${fmtSigned(pw - bw)}</td>
+    </tr>`).join('');
+    drawPie('pi-region-pie', 'pi-region-legend', p.regions, piRegionPalette);
+    buildAllocationTable('pi-region-tbl', p.regions);
+    renderPiHoldings(p, piView);
+    document.querySelector('#pi-funds-tbl tbody').innerHTML = p.funds.map(f => `<tr>
+      <td class="code-cell"><strong>${f[0]}</strong></td>
+      <td>${f[1]}</td>
+      <td class="num">${f[2].toFixed(2)}%</td>
+      <td>${f[3]}</td>
+      <td>${f[4]}</td>
+      <td>${f[5]}</td>
+      <td>${f[6]}</td>
+    </tr>`).join('');
+    document.querySelector('#pi-funds-tbl tfoot').innerHTML = `<tr><td colspan="2">Total</td><td class="num">100.0%</td><td colspan="4"></td></tr>`;
+  }
+
   // ====== Fixed Interest ======
   const FI_COLS_DUAL   = ['12%','24%','9%','9%','12%','8%','9%','9%','8%'];
   const FI_COLS_SINGLE = ['13%','26%','10%','10%','13%','9%','10%','9%'];
@@ -1968,6 +2198,7 @@
     renderAusHoldings(d, ausView);
     if (!glTBC) renderGlHoldings(d, glView);
     renderFI(d);
+    renderPI(d);
   }
 
   render(activePeriod);
@@ -2009,6 +2240,16 @@
       ausToggleBtns.forEach(b => b.classList.toggle('active', b.dataset.view === btn.dataset.view));
       ausView = btn.dataset.view;
       renderAusHoldings(PERIODS[activePeriod], ausView);
+    });
+  });
+
+  // P&I holdings toggle
+  document.querySelectorAll('#pi-toggle button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#pi-toggle button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      piView = btn.dataset.view;
+      renderPiHoldings(PERIODS[activePeriod].pi, piView);
     });
   });
 
