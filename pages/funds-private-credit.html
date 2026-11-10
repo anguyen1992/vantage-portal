@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Private Credit — Vantage Wealth Management | Investment Data Portal</title>
-  <meta name="last-updated" content="8 Oct 2026">
+  <meta name="last-updated" content="10 Nov 2026">
   <meta name="owner"        content="Anthony Nguyen">
   <meta name="source"       content="Morningstar">
-  <meta name="as-at"        content="31 Aug 2026">
+  <meta name="as-at"        content="31 Oct 2026">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -65,12 +65,42 @@
       <div class="period-selector-bar">
         <label for="period-select">Period:</label>
         <select id="period-select">
+          <option value="oct2026">31 Oct 2026</option>
           <option value="sep2026">30 Sep 2026</option>
           <option value="aug2026">31 Aug 2026</option>
           <option value="jul2026">31 Jul 2026</option>
           <option value="jun2026">30 Jun 2026</option>
           <option value="may2026">31 May 2026</option>
         </select>
+      </div>
+      <div class="period-panel" id="panel-oct2026">
+      <div class="asset-section">
+        <h2 class="asset-title">Private Credit — Active</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Fund</th><th>APIR</th>
+                <th class="numeric">CYTD</th>
+                <th class="numeric">1M</th><th class="numeric">3M</th><th class="numeric">6M</th>
+                <th class="numeric">1Y</th><th class="numeric">3Y</th><th class="numeric">5Y</th>
+                <th class="numeric">10Y</th><th class="numeric">15Y</th><th class="numeric">20Y</th>
+                <th>Inception</th><th class="numeric">IM Fee</th>
+                <th class="numeric">MS Rating</th><th>MS Medallist</th>
+                <th>APL Date</th><th>Checklist</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Revolution Wholesale Private Debt Fund II</td><td class="apir">CHN2868AU</td><td class="r">6.16%</td><td class="r">0.66%</td><td class="r">2.06%</td><td class="r">4.14%</td><td class="r">8.22%</td><td class="r">8.63%</td><td class="r">7.75%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">31-Mar-20</td><td class="r">0.15%</td><td class="r">-</td><td>-</td><td class="w">-</td><td class="w">-</td></tr>
+              <tr><td>Realm Strategic Income Fund (Enduring Units)</td><td class="apir">OMF5868AU</td><td class="r">3.56%</td><td class="r">0.70%</td><td class="r">2.12%</td><td class="r">4.26%</td><td class="r">5.29%</td><td class="r">8.31%</td><td class="r">7.91%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">21-Feb-20</td><td class="r">0.99%</td><td class="r">-</td><td>-</td><td class="w">-</td><td class="w">-</td></tr>
+              <tr><td>MA Priority Income Fund</td><td class="apir">MAA8010AU</td><td class="r">6.26%</td><td class="r">0.69%</td><td class="r">2.12%</td><td class="r">4.24%</td><td class="r">8.30%</td><td class="r">8.44%</td><td class="r">7.55%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">-</td><td class="r">-</td><td class="r">-</td><td>-</td><td class="w">-</td><td class="w">-</td></tr>
+              <tr><td>Ares Diversified Credit</td><td class="apir">HOW7354AU</td><td class="r">1.13%</td><td class="r">-0.25%</td><td class="r">0.85%</td><td class="r">1.66%</td><td class="r">0.59%</td><td class="r">6.33%</td><td class="r">5.85%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">-</td><td class="r">-</td><td class="r">-</td><td>-</td><td class="w">-</td><td class="w">-</td></tr>
+              <tr><td>Keyview Flagship Fund (Realside Capital Flagship Fund)</td><td class="apir">RSM8774AU</td><td class="r">9.20%</td><td class="r">0.37%</td><td class="r">2.73%</td><td class="r">6.06%</td><td class="r">11.69%</td><td class="r">10.12%</td><td class="r">10.85%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">-</td><td class="r">1.75%</td><td class="r">-</td><td>-</td><td class="w">-</td><td class="w">-</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+        <p style="font-size:0.78rem;color:var(--muted);">Source: Morningstar. Historical returns as at 31 August 2026, except Ares Diversified Credit, which is as at 30 September 2026. Morningstar star ratings are carried forward from 31 August 2026. Past performance is not a reliable indicator of future performance.</p>
       </div>
       <div class="period-panel" id="panel-sep2026">
       <div class="asset-section">
@@ -224,6 +254,7 @@
   <script>
     (function() {
       var META = {
+        'oct2026': { asat: '30 Sep 2026', updated: '10 Nov 2026' },
         'sep2026': { asat: '31 Aug 2026', updated: '8 Oct 2026' },
         'aug2026': { asat: '31 Aug 2026', updated: '11 Sep 2026' },
         'jul2026': { asat: '31 Jul 2026', updated: '11 Aug 2026' },

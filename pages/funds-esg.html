@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ESG — Vantage Wealth Management | Investment Data Portal</title>
-  <meta name="last-updated" content="8 Oct 2026">
+  <meta name="last-updated" content="10 Nov 2026">
   <meta name="owner"        content="Anthony Nguyen">
   <meta name="source"       content="Morningstar">
-  <meta name="as-at"        content="30 Sep 2026">
+  <meta name="as-at"        content="31 Oct 2026">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -65,12 +65,42 @@
       <div class="period-selector-bar">
         <label for="period-select">Period:</label>
         <select id="period-select">
+          <option value="oct2026">31 Oct 2026</option>
           <option value="sep2026">30 Sep 2026</option>
           <option value="aug2026">31 Aug 2026</option>
           <option value="jul2026">31 Jul 2026</option>
           <option value="jun2026">30 Jun 2026</option>
           <option value="may2026">31 May 2026</option>
         </select>
+      </div>
+      <div class="period-panel" id="panel-oct2026">
+      <div class="asset-section">
+        <h2 class="asset-title">ESG</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Fund</th><th>APIR</th>
+                <th class="numeric">CYTD</th>
+                <th class="numeric">1M</th><th class="numeric">3M</th><th class="numeric">6M</th>
+                <th class="numeric">1Y</th><th class="numeric">3Y</th><th class="numeric">5Y</th>
+                <th class="numeric">10Y</th><th class="numeric">15Y</th><th class="numeric">20Y</th>
+                <th>Inception</th><th class="numeric">IM Fee</th>
+                <th class="numeric">MS Rating</th><th>MS Medallist</th>
+                <th>APL Date</th><th>Checklist</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Alphinity Sustainable Share Fund</td><td class="apir">HOW0121AU</td><td class="r">4.00%</td><td class="r">1.44%</td><td class="r">-1.80%</td><td class="r">3.13%</td><td class="r">1.75%</td><td class="r">13.60%</td><td class="r">6.56%</td><td class="r">10.40%</td><td class="r">10.26%</td><td class="r">6.21%</td><td class="w">12-Jul-10</td><td class="r">0.95%</td><td class="r">4</td><td>Silver</td><td class="w">19-May-21</td><td class="w">13-May-21</td></tr>
+              <tr><td>Australian Ethical Australian Shares Fund</td><td class="apir">AUG0018AU</td><td class="r">-4.80%</td><td class="r">1.87%</td><td class="r">3.55%</td><td class="r">4.67%</td><td class="r">-8.87%</td><td class="r">8.53%</td><td class="r">1.19%</td><td class="r">7.66%</td><td class="r">-</td><td class="r">-</td><td class="w">23-Jan-12</td><td class="r">1.10%</td><td class="r">3</td><td>-</td><td class="w">21-Jul-21</td><td class="w">-</td></tr>
+              <tr><td>Nanuk New World Fund</td><td class="apir">SLT2171AU</td><td class="r">15.93%</td><td class="r">-3.05%</td><td class="r">2.44%</td><td class="r">11.65%</td><td class="r">15.19%</td><td class="r">24.21%</td><td class="r">13.14%</td><td class="r">14.74%</td><td class="r">-</td><td class="r">-</td><td class="w">02-Nov-15</td><td class="r">1.10%</td><td class="r">4</td><td>-</td><td class="w">21-Jul-21</td><td class="w">17-Jun-21</td></tr>
+              <tr><td>Stewart Investors Wholesale Worldwide Sustainability Fund</td><td class="apir">FSF1295AU</td><td class="r">-2.19%</td><td class="r">-3.85%</td><td class="r">-1.31%</td><td class="r">3.57%</td><td class="r">-3.51%</td><td class="r">12.03%</td><td class="r">2.58%</td><td class="r">8.39%</td><td class="r">-</td><td class="r">-</td><td class="w">21-Feb-13</td><td class="r">0.97%</td><td class="r">2</td><td>Silver</td><td class="w">16-Jun-21</td><td class="w">11-Jun-21</td></tr>
+              <tr><td>T. Rowe Price Global Impact Equity Fund</td><td class="apir">ETL6342AU</td><td class="r">1.10%</td><td class="r">-2.89%</td><td class="r">-0.65%</td><td class="r">3.47%</td><td class="r">-0.75%</td><td class="r">9.71%</td><td class="r">2.62%</td><td class="r">-</td><td class="r">-</td><td class="r">-</td><td class="w">29-Mar-21</td><td class="r">0.85%</td><td class="r">2</td><td>-</td><td class="w">21-Jul-21</td><td class="w">24-Jun-21</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+        <p style="font-size:0.78rem;color:var(--muted);">Source: Morningstar. Historical returns as at 30 September 2026. Morningstar star ratings are carried forward from 31 August 2026. Past performance is not a reliable indicator of future performance.</p>
       </div>
       <div class="period-panel" id="panel-sep2026">
       <div class="asset-section">
@@ -224,6 +254,7 @@
   <script>
     (function() {
       var META = {
+        'oct2026': { asat: '31 Oct 2026', updated: '10 Nov 2026' },
         'sep2026': { asat: '30 Sep 2026', updated: '8 Oct 2026' },
         'aug2026': { asat: '31 Aug 2026', updated: '11 Sep 2026' },
         'jul2026': { asat: '31 Jul 2026', updated: '11 Aug 2026' },
