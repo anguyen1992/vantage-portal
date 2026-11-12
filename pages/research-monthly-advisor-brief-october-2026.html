@@ -249,6 +249,10 @@
   .heat em { display:block; font-style:normal; font-size:15px; font-weight:600; }
   .heat-note { font-size:12.5px; color:var(--ink-soft); margin:0 0 18px; }
   @media (max-width:700px){ .heat { grid-template-columns:repeat(3,1fr); } }
+  .dot.pending { background:transparent; border:2px solid #7A8290; width:9px; height:9px; box-sizing:border-box; }
+  .mverdict.pending { background:#E9ECEF; color:#5A6270; }
+  .sc-row .ix { width:74px; flex:0 0 auto; text-align:right; font-size:12px; color:var(--ink-soft); font-variant-numeric:tabular-nums; }
+  @media (max-width:560px){ .sc-row .ix { width:62px; font-size:11px; } }
 </style>
 </head>
 <body>
@@ -257,7 +261,7 @@
   <div class="wrap">
     <div class="brand">Vantage Wealth Management</div>
     <h1>Monthly Investment Brief</h1>
-    <div class="edition">October 2026 edition <span class="sep">|</span> Draft, 3 November 2026 <span class="sep">|</span> Prepared by Anthony Nguyen</div>
+    <div class="edition">October 2026 edition <span class="sep">|</span> Published 12 November 2026 <span class="sep">|</span> Prepared by Anthony Nguyen</div>
   </div>
 </header>
 
@@ -284,12 +288,7 @@
 
 <main class="wrap">
 
-  <div class="prelim-banner">
-    <strong>Draft edition.</strong> HUB24 and CFS FirstChoice portfolio returns are to 31 October 2026, from the HUB24 and FE Precision Plus
-    data in the Vantage APL for November 2026. Morningstar peer category returns had not been published at the time of writing. Market data are full month
-    returns to 31 October 2026 from the Morgan Stanley Wealth Management Weekly Asset Class Performance Sheet and Monthly
-    Market Review.
-  </div>
+  
 
   <!-- MACRO -->
   <section id="macro">
@@ -414,6 +413,34 @@
 
   <hr class="section-rule">
 
+  <!-- NOVEMBER REPORTING SEASON -->
+  <section id="reporting-season">
+    <div class="eyebrow">Reporting season</div>
+    <h2>November 2026 Off-Cycle Reporting Season</h2>
+    <p class="lede">Thirteen results and trading updates covered: ten released by Vantage Australian Equities holdings between 23 October and 12 November, two holdings still to report (TechnologyOne on 17 November and QBE, expected 27 November) and Westpac for read-through. Results are measured against analyst consensus on the primary earnings line (sales for Coles), with the day one ASX share price move shown separately. Data as at 12 November 2026. Source: company disclosures, consensus estimates, FNArena, Reuters, AFR, ABC.</p>
+
+    <div class="rs-strip">
+      <div class="rs-tile"><div class="k">Names</div><div class="v">13</div><div class="s">10 reported &middot; 2 due &middot; 1 read-through</div></div>
+      <div class="rs-tile t-beat"><div class="k">Beat</div><div class="v">4</div><div class="s">vs consensus</div></div>
+      <div class="rs-tile t-inline"><div class="k">In line</div><div class="v">3</div><div class="s">as expected</div></div>
+      <div class="rs-tile t-miss"><div class="k">Miss</div><div class="v">3</div><div class="s">of held names</div></div>
+      <div class="rs-tile"><div class="k">Best held</div><div class="v up">+6.0%</div><div class="s">Xero</div></div>
+      <div class="rs-tile"><div class="k">Worst held</div><div class="v down">-7.8%</div><div class="s">Amcor</div></div>
+    </div>
+    <div class="rs-strip-note">The beat, in line and miss split covers the ten held names that have reported. ResMed, Newmont and Coles released their September quarter updates in late October and are included with the November reporters.</div>
+
+    <div class="bottom-line">
+      <strong>Bottom line</strong>
+      Bad debts and guidance drove the share price reactions. The banks reported more borrowers falling behind and slowing home lending as interest rates rose, and companies that cut or held guidance were sold even where the result met forecasts. NAB and Amcor fell 5.4% and 7.8% on 5 November, a day the ASX 200 rose 2.6%. Across the market, FNArena counts 9 misses against 7 beats from the first 22 companies to report.
+    </div>
+
+    <h4>The scorecard</h4>
+    <div class="sc-legend">One line per result. The dot shows how the result landed against consensus (hollow for results still to come); the figures on the right are the day one share price move and, in grey, the S&amp;P/ASX 200 move on the same day, given October and November's volatility. Pending results show the expected date. Select any row for the full one page analysis.</div>
+    <div id="scorecard"></div>
+  </section>
+
+  <hr class="section-rule">
+
   <!-- MULTI-SECTOR -->
   <section id="multisector">
     <div class="eyebrow">Portfolios</div>
@@ -424,12 +451,12 @@
       <table>
         <colgroup><col style="width:34%;"><col style="width:13.2%;"><col style="width:13.2%;"><col style="width:13.2%;"><col style="width:13.2%;"><col style="width:13.2%;"></colgroup>
         <tbody>
-          <tr class="tbl-section-head"><td colspan="6">Vantage Moderate Growth Portfolio (VAN005)</td></tr><tr class="tbl-col-head"><th>Strategy</th><th>October</th><th>FYTD</th><th>CYTD</th><th>1 Year</th><th>Since Inception&sup1; p.a.</th></tr><tr><td>Vantage Moderate Growth Portfolio (VAN005)</td><td class="num">0.84%</td><td class="num">1.26%</td><td class="num">6.58%</td><td class="num">6.14%</td><td class="num">7.22%</td></tr><tr class="bench"><td>CPI + 2% objective</td><td class="num">0.46%</td><td class="num">1.83%</td><td class="num">4.48%</td><td class="num">5.29%</td><td class="num">5.18%</td></tr><tr class="diff-row"><td>Difference vs objective</td><td class="num pos">+0.38%</td><td class="num neg">-0.57%</td><td class="num pos">+2.10%</td><td class="num pos">+0.85%</td><td class="num pos">+2.04%</td></tr><tr class="bench"><td>Morningstar Aus Fund Multisector Balanced (41 to 60 Growth)</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td></tr>
-          <tr class="tbl-section-head"><td colspan="6">Vantage Growth Portfolio (VAN006)</td></tr><tr class="tbl-col-head"><th>Strategy</th><th>October</th><th>FYTD</th><th>CYTD</th><th>1 Year</th><th>Since Inception&sup1; p.a.</th></tr><tr><td>Vantage Growth Portfolio (VAN006)</td><td class="num">0.93%</td><td class="num">1.52%</td><td class="num">7.54%</td><td class="num">6.88%</td><td class="num">8.16%</td></tr><tr class="bench"><td>CPI + 3% objective</td><td class="num">0.54%</td><td class="num">2.16%</td><td class="num">5.31%</td><td class="num">6.29%</td><td class="num">6.18%</td></tr><tr class="diff-row"><td>Difference vs objective</td><td class="num pos">+0.39%</td><td class="num neg">-0.64%</td><td class="num pos">+2.23%</td><td class="num pos">+0.59%</td><td class="num pos">+1.98%</td></tr><tr class="bench"><td>Morningstar Aus Fund Multisector Growth (61 to 80 Growth)</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td></tr>
-          <tr class="tbl-section-head"><td colspan="6">Vantage High Growth Portfolio (VAN007)</td></tr><tr class="tbl-col-head"><th>Strategy</th><th>October</th><th>FYTD</th><th>CYTD</th><th>1 Year</th><th>Since Inception&sup1; p.a.</th></tr><tr><td>Vantage High Growth Portfolio (VAN007)</td><td class="num">1.03%</td><td class="num">1.75%</td><td class="num">8.49%</td><td class="num">7.63%</td><td class="num">9.08%</td></tr><tr class="bench"><td>CPI + 3.5% objective</td><td class="num">0.58%</td><td class="num">2.32%</td><td class="num">5.72%</td><td class="num">6.79%</td><td class="num">6.68%</td></tr><tr class="diff-row"><td>Difference vs objective</td><td class="num pos">+0.45%</td><td class="num neg">-0.57%</td><td class="num pos">+2.77%</td><td class="num pos">+0.84%</td><td class="num pos">+2.40%</td></tr><tr class="bench"><td>Morningstar Aus Fund Multisector Aggressive (&gt;80 Growth)</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td></tr>
+          <tr class="tbl-section-head"><td colspan="6">Vantage Moderate Growth Portfolio (VAN005)</td></tr><tr class="tbl-col-head"><th>Strategy</th><th>October</th><th>FYTD</th><th>CYTD</th><th>1 Year</th><th>Since Inception&sup1; p.a.</th></tr><tr><td>Vantage Moderate Growth Portfolio (VAN005)</td><td class="num">0.84%</td><td class="num">1.26%</td><td class="num">6.58%</td><td class="num">6.14%</td><td class="num">7.22%</td></tr><tr class="bench"><td>CPI + 2% objective</td><td class="num">0.46%</td><td class="num">1.83%</td><td class="num">4.48%</td><td class="num">5.29%</td><td class="num">5.18%</td></tr><tr class="diff-row"><td>Difference vs objective</td><td class="num pos">+0.38%</td><td class="num neg">-0.57%</td><td class="num pos">+2.10%</td><td class="num pos">+0.85%</td><td class="num pos">+2.04%</td></tr><tr class="bench"><td>Morningstar Multisector Balanced</td><td class="num">0.24%</td><td class="num">-0.38%</td><td class="num">&ndash;</td><td class="num">3.09%</td><td class="num">&ndash;</td></tr>
+          <tr class="tbl-section-head"><td colspan="6">Vantage Growth Portfolio (VAN006)</td></tr><tr class="tbl-col-head"><th>Strategy</th><th>October</th><th>FYTD</th><th>CYTD</th><th>1 Year</th><th>Since Inception&sup1; p.a.</th></tr><tr><td>Vantage Growth Portfolio (VAN006)</td><td class="num">0.93%</td><td class="num">1.52%</td><td class="num">7.54%</td><td class="num">6.88%</td><td class="num">8.16%</td></tr><tr class="bench"><td>CPI + 3% objective</td><td class="num">0.54%</td><td class="num">2.16%</td><td class="num">5.31%</td><td class="num">6.29%</td><td class="num">6.18%</td></tr><tr class="diff-row"><td>Difference vs objective</td><td class="num pos">+0.39%</td><td class="num neg">-0.64%</td><td class="num pos">+2.23%</td><td class="num pos">+0.59%</td><td class="num pos">+1.98%</td></tr><tr class="bench"><td>Morningstar Multisector Growth</td><td class="num">0.08%</td><td class="num">0.03%</td><td class="num">&ndash;</td><td class="num">3.53%</td><td class="num">&ndash;</td></tr>
+          <tr class="tbl-section-head"><td colspan="6">Vantage High Growth Portfolio (VAN007)</td></tr><tr class="tbl-col-head"><th>Strategy</th><th>October</th><th>FYTD</th><th>CYTD</th><th>1 Year</th><th>Since Inception&sup1; p.a.</th></tr><tr><td>Vantage High Growth Portfolio (VAN007)</td><td class="num">1.03%</td><td class="num">1.75%</td><td class="num">8.49%</td><td class="num">7.63%</td><td class="num">9.08%</td></tr><tr class="bench"><td>CPI + 3.5% objective</td><td class="num">0.58%</td><td class="num">2.32%</td><td class="num">5.72%</td><td class="num">6.79%</td><td class="num">6.68%</td></tr><tr class="diff-row"><td>Difference vs objective</td><td class="num pos">+0.45%</td><td class="num neg">-0.57%</td><td class="num pos">+2.77%</td><td class="num pos">+0.84%</td><td class="num pos">+2.40%</td></tr><tr class="bench"><td>Morningstar Multisector High Growth</td><td class="num">-0.21%</td><td class="num">0.25%</td><td class="num">&ndash;</td><td class="num">4.00%</td><td class="num">&ndash;</td></tr>
         </tbody>
       </table>
-      <div class="tbl-note">&sup1; Portfolio inception 14 July 2025. Returns are to 31 October 2026 from the HUB24 portfolio data in the Vantage APL for November 2026, before investment management fees. CPI + 2% and CPI + 3.5% objective returns are derived from the CPI + 3% series by adjusting for the objective margin. Morningstar peer category returns had not been published at the time of writing.</div>
+      <div class="tbl-note">&sup1; Portfolio inception 14 July 2025. Returns are to 31 October 2026 from the HUB24 portfolio data in the Vantage APL for November 2026, before investment management fees. CPI + 2% and CPI + 3.5% objective returns are derived from the CPI + 3% series by adjusting for the objective margin. Morningstar peer returns are the Morningstar Multisector category estimates to 31 October 2026.</div>
     </div>
     <div class="commentary">
       <h4 style="margin-top:0;">October in review</h4>
@@ -447,14 +474,14 @@
       <table>
         <colgroup><col style="width:34%;"><col style="width:13.2%;"><col style="width:13.2%;"><col style="width:13.2%;"><col style="width:13.2%;"><col style="width:13.2%;"></colgroup>
         <tbody>
-          <tr class="tbl-section-head"><td colspan="6">Aggressive</td></tr><tr class="tbl-col-head"><th>Strategy</th><th>October</th><th>1 Year</th><th>3 Yrs p.a.</th><th>5 Yrs p.a.</th><th>Since Inception p.a.</th></tr><tr><td>Vantage CFS Aggressive, Pension</td><td class="num">0.00%</td><td class="num">3.82%</td><td class="num">12.96%</td><td class="num">6.65%</td><td class="num">7.66%</td></tr><tr><td>Vantage CFS Aggressive, Super</td><td class="num">0.00%</td><td class="num">3.54%</td><td class="num">11.64%</td><td class="num">5.98%</td><td class="num">6.91%</td></tr><tr class="bench"><td>Morningstar Aus Fund Multisector Aggressive (&gt;80 Growth)</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td></tr>
-          <tr class="tbl-section-head"><td colspan="6">High Growth</td></tr><tr class="tbl-col-head"><th>Strategy</th><th>October</th><th>1 Year</th><th>3 Yrs p.a.</th><th>5 Yrs p.a.</th><th>Since Inception p.a.</th></tr><tr><td>Vantage CFS High Growth, Pension</td><td class="num">0.33%</td><td class="num">3.55%</td><td class="num">11.92%</td><td class="num">6.20%</td><td class="num">6.97%</td></tr><tr><td>Vantage CFS High Growth, Super</td><td class="num">0.29%</td><td class="num">3.25%</td><td class="num">10.68%</td><td class="num">5.56%</td><td class="num">6.26%</td></tr><tr class="bench"><td>Morningstar Aus Fund Multisector Aggressive (&gt;80 Growth)</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td></tr>
-          <tr class="tbl-section-head"><td colspan="6">Growth</td></tr><tr class="tbl-col-head"><th>Strategy</th><th>October</th><th>1 Year</th><th>3 Yrs p.a.</th><th>5 Yrs p.a.</th><th>Since Inception p.a.</th></tr><tr><td>Vantage CFS Growth, Pension</td><td class="num">0.35%</td><td class="num">3.32%</td><td class="num">10.68%</td><td class="num">5.64%</td><td class="num">6.21%</td></tr><tr><td>Vantage CFS Growth, Super</td><td class="num">0.31%</td><td class="num">2.99%</td><td class="num">9.54%</td><td class="num">5.03%</td><td class="num">5.55%</td></tr><tr class="bench"><td>Morningstar Aus Fund Multisector Growth (61 to 80 Growth)</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td></tr>
-          <tr class="tbl-section-head"><td colspan="6">Moderate</td></tr><tr class="tbl-col-head"><th>Strategy</th><th>October</th><th>1 Year</th><th>3 Yrs p.a.</th><th>5 Yrs p.a.</th><th>Since Inception p.a.</th></tr><tr><td>Vantage CFS Moderate, Pension</td><td class="num">0.40%</td><td class="num">3.14%</td><td class="num">9.37%</td><td class="num">5.13%</td><td class="num">5.46%</td></tr><tr><td>Vantage CFS Moderate, Super</td><td class="num">0.36%</td><td class="num">2.79%</td><td class="num">8.33%</td><td class="num">4.55%</td><td class="num">4.85%</td></tr><tr class="bench"><td>Morningstar Aus Fund Multisector Balanced (41 to 60 Growth)</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td></tr>
-          <tr class="tbl-section-head"><td colspan="6">Conservative</td></tr><tr class="tbl-col-head"><th>Strategy</th><th>October</th><th>1 Year</th><th>3 Yrs p.a.</th><th>5 Yrs p.a.</th><th>Since Inception p.a.</th></tr><tr><td>Vantage CFS Conservative, Pension</td><td class="num">0.69%</td><td class="num">2.80%</td><td class="num">8.07%</td><td class="num">4.37%</td><td class="num">4.41%</td></tr><tr><td>Vantage CFS Conservative, Super</td><td class="num">0.62%</td><td class="num">2.43%</td><td class="num">7.14%</td><td class="num">3.85%</td><td class="num">3.89%</td></tr><tr class="bench"><td>Morningstar Aus Fund Multisector Moderate (21 to 40 Growth)</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td><td class="num">&ndash;</td></tr>
+          <tr class="tbl-section-head"><td colspan="6">Aggressive</td></tr><tr class="tbl-col-head"><th>Strategy</th><th>October</th><th>1 Year</th><th>3 Yrs p.a.</th><th>5 Yrs p.a.</th><th>Since Inception p.a.</th></tr><tr><td>Vantage CFS Aggressive, Pension</td><td class="num">0.00%</td><td class="num">3.82%</td><td class="num">12.96%</td><td class="num">6.65%</td><td class="num">7.66%</td></tr><tr><td>Vantage CFS Aggressive, Super</td><td class="num">0.00%</td><td class="num">3.54%</td><td class="num">11.64%</td><td class="num">5.98%</td><td class="num">6.91%</td></tr><tr class="bench"><td>Morningstar Aus Fund Multisector Aggressive (&gt;80 Growth)</td><td class="num">-0.21%</td><td class="num">4.43%</td><td class="num">14.28%</td><td class="num">7.65%</td><td class="num">N/A</td></tr>
+          <tr class="tbl-section-head"><td colspan="6">High Growth</td></tr><tr class="tbl-col-head"><th>Strategy</th><th>October</th><th>1 Year</th><th>3 Yrs p.a.</th><th>5 Yrs p.a.</th><th>Since Inception p.a.</th></tr><tr><td>Vantage CFS High Growth, Pension</td><td class="num">0.33%</td><td class="num">3.55%</td><td class="num">11.92%</td><td class="num">6.20%</td><td class="num">6.97%</td></tr><tr><td>Vantage CFS High Growth, Super</td><td class="num">0.29%</td><td class="num">3.25%</td><td class="num">10.68%</td><td class="num">5.56%</td><td class="num">6.26%</td></tr><tr class="bench"><td>Morningstar Aus Fund Multisector Aggressive (&gt;80 Growth)</td><td class="num">-0.21%</td><td class="num">4.43%</td><td class="num">14.28%</td><td class="num">7.65%</td><td class="num">N/A</td></tr>
+          <tr class="tbl-section-head"><td colspan="6">Growth</td></tr><tr class="tbl-col-head"><th>Strategy</th><th>October</th><th>1 Year</th><th>3 Yrs p.a.</th><th>5 Yrs p.a.</th><th>Since Inception p.a.</th></tr><tr><td>Vantage CFS Growth, Pension</td><td class="num">0.35%</td><td class="num">3.32%</td><td class="num">10.68%</td><td class="num">5.64%</td><td class="num">6.21%</td></tr><tr><td>Vantage CFS Growth, Super</td><td class="num">0.31%</td><td class="num">2.99%</td><td class="num">9.54%</td><td class="num">5.03%</td><td class="num">5.55%</td></tr><tr class="bench"><td>Morningstar Aus Fund Multisector Growth (61 to 80 Growth)</td><td class="num">0.08%</td><td class="num">3.68%</td><td class="num">11.32%</td><td class="num">5.98%</td><td class="num">N/A</td></tr>
+          <tr class="tbl-section-head"><td colspan="6">Moderate</td></tr><tr class="tbl-col-head"><th>Strategy</th><th>October</th><th>1 Year</th><th>3 Yrs p.a.</th><th>5 Yrs p.a.</th><th>Since Inception p.a.</th></tr><tr><td>Vantage CFS Moderate, Pension</td><td class="num">0.40%</td><td class="num">3.14%</td><td class="num">9.37%</td><td class="num">5.13%</td><td class="num">5.46%</td></tr><tr><td>Vantage CFS Moderate, Super</td><td class="num">0.36%</td><td class="num">2.79%</td><td class="num">8.33%</td><td class="num">4.55%</td><td class="num">4.85%</td></tr><tr class="bench"><td>Morningstar Aus Fund Multisector Balanced (41 to 60 Growth)</td><td class="num">0.24%</td><td class="num">3.51%</td><td class="num">9.74%</td><td class="num">4.92%</td><td class="num">N/A</td></tr>
+          <tr class="tbl-section-head"><td colspan="6">Conservative</td></tr><tr class="tbl-col-head"><th>Strategy</th><th>October</th><th>1 Year</th><th>3 Yrs p.a.</th><th>5 Yrs p.a.</th><th>Since Inception p.a.</th></tr><tr><td>Vantage CFS Conservative, Pension</td><td class="num">0.69%</td><td class="num">2.80%</td><td class="num">8.07%</td><td class="num">4.37%</td><td class="num">4.41%</td></tr><tr><td>Vantage CFS Conservative, Super</td><td class="num">0.62%</td><td class="num">2.43%</td><td class="num">7.14%</td><td class="num">3.85%</td><td class="num">3.89%</td></tr><tr class="bench"><td>Morningstar Aus Fund Multisector Moderate (21 to 40 Growth)</td><td class="num">0.59%</td><td class="num">2.77%</td><td class="num">7.42%</td><td class="num">3.63%</td><td class="num">4.06%</td></tr>
         </tbody>
       </table>
-      <div class="tbl-note">Source: FE Precision Plus, CFS. Since inception 28 June 2019. Returns are net of investment manager fees. Morningstar peer category returns had not been published at the time of writing.</div>
+      <div class="tbl-note">Source: FE Precision Plus, CFS. Since inception 28 June 2019. Returns are net of investment manager fees. Morningstar peer returns are to 31 October 2026.</div>
     </div>
   </section>
 
@@ -508,7 +535,7 @@
           <tr>
             <td><span class="cal-d">9</span><span class="cal-tk" title="ANZ Group">ANZ</span></td>
             <td><span class="cal-d">10</span></td>
-            <td><span class="cal-d">11</span></td>
+            <td><span class="cal-d">11</span><span class="cal-tk q3" title="Commonwealth Bank, September quarter update">CBA</span></td>
             <td><span class="cal-d">12</span><span class="cal-tk hy" title="Xero">XRO</span> <span class="cal-tk" title="Orica">ORI</span></td>
             <td><span class="cal-d">13</span></td>
           </tr>
@@ -524,7 +551,7 @@
             <td><span class="cal-d">24</span></td>
             <td><span class="cal-d">25</span><span class="cal-mac">Australian CPI, October</span></td>
             <td><span class="cal-d">26</span></td>
-            <td><span class="cal-d">27</span></td>
+            <td><span class="cal-d">27</span><span class="cal-tk q3" title="QBE, September quarter update (expected)">QBE</span></td>
           </tr>
         </tbody>
       </table>
@@ -532,7 +559,7 @@
     <div class="cal-legend"><span class="cal-mac" style="display:inline-block;margin:0;">macroeconomic event</span> &nbsp; <span class="cal-tk">ABC</span> full year result &nbsp; <span class="cal-tk hy">ABC</span> half year result &nbsp; <span class="cal-tk q3">ABC</span> quarterly result</div>
     <ul class="blist" style="margin-top:12px;">
       <li><strong>Direct holdings reporting.</strong> Of the Australian Equities portfolio's direct holdings, NAB reports on 5 November, Macquarie its half year on 6 November and ANZ on 9 November, with Xero (half year) and Orica on 12 November and TechnologyOne on 17 November. Amcor reports its September quarter on 5 November (Australian time). Westpac, which we do not hold, reported on 2 November.</li>
-      <li><strong>Quarterly updates, dates to be confirmed.</strong> Commonwealth Bank's September quarter trading update and QBE's September quarter performance update are expected in November; last year they were released on 11 November and 27 November. NVIDIA reports its October quarter on 17 November (US time).</li>
+      <li><strong>Quarterly updates.</strong> Commonwealth Bank released its September quarter trading update on 11 November, and QBE's September quarter update is expected on 27 November, a date QBE has not yet confirmed. NVIDIA reports its October quarter on 17 November (US time).</li>
       <li><strong>Other dates.</strong> The Federal Reserve next decides on 9 December. US payrolls and CPI dates to be confirmed. Company dates can change; source company websites, CommSec, Macquarie and ABC.</li>
     </ul>
 
@@ -547,10 +574,789 @@
   <div class="wrap">
     <div class="fbrand">Vantage Wealth Management</div>
     <p>This communication is prepared by VWM Financial Services Pty Ltd (AFSL 345744) for use by financial advisers of Vantage Wealth Management. It contains general information only and does not take into account the objectives, financial situation or needs of any person. Advisers should consider the appropriateness of any information for individual clients before acting on it.</p>
-    <p>This is a draft edition. Past performance is not a reliable indicator of future performance. Portfolio performance is to 31 October 2026 from HUB24 and FE Precision Plus. Market data is to 31 October 2026 and sourced from Morgan Stanley Wealth Management, FactSet, FNArena, Reuters, S&amp;P Global Market Intelligence, the ABS, the RBA, the Federal Reserve, company reports and market data providers. Look-through positioning is from the Vantage HUB24 look-through analysis at 30 September 2026. Forward looking statements reflect the views of the Vantage investment team at the date of publication and may change.</p>
+    <p>Past performance is not a reliable indicator of future performance. Portfolio performance is to 31 October 2026 from HUB24 and FE Precision Plus. Market data is to 31 October 2026 and sourced from Morgan Stanley Wealth Management, FactSet, FNArena, Reuters, S&amp;P Global Market Intelligence, the ABS, the RBA, the Federal Reserve, company reports and market data providers. Look-through positioning is from the Vantage HUB24 look-through analysis at 30 September 2026. Forward looking statements reflect the views of the Vantage investment team at the date of publication and may change.</p>
     <p>&copy; 2026 VWM Financial Services Pty Ltd. All rights reserved.</p>
   </div>
 </footer>
 
+<div class="rs-backdrop" id="rsBackdrop">
+  <div class="rs-modal" role="dialog" aria-modal="true" aria-labelledby="rsTitle">
+    <div class="rs-modal-head">
+      <button class="rs-close" id="rsClose" aria-label="Close">&times;</button>
+      <div class="mtitle" id="rsTitle"></div>
+      <div class="msub" id="rsSub"></div>
+      <span class="mverdict" id="rsVerdict"></span>
+    </div>
+    <div class="rs-modal-body">
+      <div class="mtiles" id="rsTiles"></div>
+      <h4 style="margin-top:0;">Result: key highlights</h4>
+      <ul id="rsHighlights"></ul>
+      <h4>Outlook</h4>
+      <ul id="rsOutlook"></ul>
+    </div>
+    <div class="rs-nav">
+      <button id="rsPrev">&larr; Previous</button>
+      <span class="pos-ind" id="rsPos"></span>
+      <button id="rsNext">Next &rarr;</button>
+    </div>
+  </div>
+</div>
+<script>
+const R = [
+{
+"c": "AMC",
+"n": "Amcor",
+"h": 1,
+"v": "miss",
+"rx": "−7.8%",
+"day": "5 Nov",
+"d": "September 2026 Quarter Result, 5 November 2026",
+"line": "Slightly weaker earnings and a guidance cut; shares fell sharply",
+"t": [
+[
+"Earnings per share",
+"US$0.95",
+"down 2%, 1% below forecasts"
+],
+[
+"Sales",
+"US$6.13bn",
+"up 7%"
+],
+[
+"Six month EPS guidance",
+"US$1.70 to 1.80",
+"cut from US$1.80 to 1.90"
+],
+[
+"Dividend",
+"66c",
+"per quarter, up 1c"
+],
+[
+"Share price, day 1",
+"▼ 7.8%",
+"ASX 200 +2.6%"
+],
+[
+"Valuation",
+"15.3x",
+"2027 earnings, 5.8% yield"
+]
+],
+"hi": [
+"Earnings were slightly below forecasts even though sales rose 7%.",
+"Higher energy and freight costs are taking longer to pass on to customers than expected.",
+"Swings in plastic resin prices tied up cash in inventory, so the business used US$820m of cash in the quarter.",
+"Debt rose to US$14.0bn, which keeps paying down debt at the centre of the investment case.",
+"Volumes grew 1%, and 3% in the areas the company is focusing on."
+],
+"ou": [
+"Earnings guidance for the six months to December was cut by about 5%.",
+"Management still expects double-digit earnings growth in calendar 2027 as cost increases are recovered.",
+"The shares fell 7.8% on the day and recovered 4.7% the next day."
+],
+"ix": "+2.6%"
+},
+{
+"c": "ANZ",
+"n": "ANZ Group",
+"h": 1,
+"v": "inline",
+"rx": "−3.4%",
+"day": "9 Nov",
+"d": "FY26 Full Year Result, 9 November 2026",
+"line": "Profit up 31% on cost cuts, in line with forecasts; lending margin slipped",
+"t": [
+[
+"Cash profit",
+"$7.59bn",
+"up 31%, in line"
+],
+[
+"Final dividend",
+"83c",
+"unchanged, 80% franked"
+],
+[
+"Costs",
+"$11.1bn",
+"down 14%"
+],
+[
+"Lending margin",
+"1.53%",
+"down 0.02%"
+],
+[
+"Share price, day 1",
+"▼ 3.4%",
+"ASX 200 +0.2%"
+],
+[
+"Capital buffer",
+"11.99%",
+"CET1 ratio"
+]
+],
+"hi": [
+"Profit rose 31% to $7.6bn, in line with forecasts, driven mainly by a 14% cut in costs.",
+"Cost savings of $902m were ahead of the $875m the bank had promised.",
+"Bad debts remain low, but ANZ set aside more money for possible future losses.",
+"Loans grew 4% and deposits 9%.",
+"The lending margin, the main driver of bank income, slipped and income was a little below forecasts."
+],
+"ou": [
+"No profit guidance. The Suncorp Bank integration is due to finish by June 2027.",
+"Management expects interest rates to stay higher for longer and is seeing stress among some retail customers.",
+"The dividend was held, with no buyback announced."
+],
+"ix": "+0.2%"
+},
+{
+"c": "CBA",
+"n": "Commonwealth Bank",
+"h": 1,
+"v": "inline",
+"rx": "−1.2%",
+"day": "11 Nov",
+"d": "Q1 FY27 Trading Update, 11 November 2026",
+"line": "Quarterly profit up 8%, as expected; more borrowers behind on repayments",
+"t": [
+[
+"Quarterly cash profit",
+"~$2.8bn",
+"up 8%"
+],
+[
+"Bad debt expense",
+"$300m",
+"up on last half"
+],
+[
+"Home loans 90+ days late",
+"0.80%",
+"seven year high"
+],
+[
+"Home loan applications",
+"down 16%",
+"on a year earlier"
+],
+[
+"Share price, day 1",
+"▼ 1.2%",
+"ASX 200 +0.3%"
+],
+[
+"Capital buffer",
+"11.5%",
+"CET1 ratio"
+]
+],
+"hi": [
+"Quarterly profit of about $2.8bn was up 8% on a year earlier and close to expectations.",
+"Income rose 3%, with interest income up 4% offset by weaker trading income.",
+"Costs rose 3% on wages and technology spending.",
+"The share of home loans more than 90 days behind rose to 0.80%, the highest in seven years.",
+"Home loan applications fell 16%, while business lending grew 13.6% over the year."
+],
+"ou": [
+"No formal guidance. CBA describes the economy as slowing but resilient.",
+"Rising arrears and lower house prices are lifting provisions for bad debts.",
+"J.P. Morgan expects small downgrades to FY27 forecasts."
+],
+"ix": "+0.3%"
+},
+{
+"c": "COL",
+"n": "Coles Group",
+"h": 1,
+"v": "miss",
+"rx": "−7.7%",
+"day": "30 Oct",
+"d": "Q1 FY27 Sales Update, 30 October 2026",
+"line": "Sales missed and grew half as fast as Woolworths; profit guided flat",
+"t": [
+[
+"Group sales",
+"A$11.2bn",
+"up 2.2%, 0.9% below forecasts"
+],
+[
+"Supermarket sales",
+"up 3.6%",
+"Woolworths up 6.9%"
+],
+[
+"Online sales",
+"up 22.9%",
+"15.7% of supermarket sales"
+],
+[
+"Half year supermarket profit",
+"Flat",
+"guidance"
+],
+[
+"Share price, day 1",
+"▼ 7.7%",
+"ASX 200 +0.2%, lowest close since March 2020"
+],
+[
+"Food price inflation",
+"1.0%",
+"excluding tobacco"
+]
+],
+"hi": [
+"Sales of $11.2bn missed forecasts, with supermarket sales up 3.6%.",
+"Woolworths grew its Australian food sales 6.9% in the same quarter, so Coles lost market share.",
+"Online sales rose 22.9% and are now 15.7% of supermarket sales.",
+"Liquor sales fell 1.3%."
+],
+"ou": [
+"Supermarket profit for the half is expected to be flat, with higher fuel costs.",
+"Price cuts on more than 4,000 products will weigh on margins in the near term.",
+"Management expects a tougher consumer and strong competitor discounting into Christmas."
+],
+"ix": "+0.2%"
+},
+{
+"c": "MQG",
+"n": "Macquarie Group",
+"h": 1,
+"v": "beat",
+"rx": "−3.7%",
+"day": "6 Nov",
+"d": "1H27 Interim Result, 6 November 2026",
+"line": "Profit up 50% and ahead of forecasts on commodities trading",
+"t": [
+[
+"Net profit",
+"A$2.48bn",
+"up 50%, 7% above forecasts"
+],
+[
+"Interim dividend",
+"A$3.25",
+"up from A$2.80"
+],
+[
+"Commodities and markets",
+"A$2.03bn",
+"up 83%"
+],
+[
+"Return on equity",
+"13.8%",
+"up from 9.6%"
+],
+[
+"Share price, day 1",
+"▼ 3.7%",
+"ASX 200 −0.5%"
+],
+[
+"Valuation",
+"18.4x",
+"FY27 earnings, 2.9% yield"
+]
+],
+"hi": [
+"Profit of $2.5bn was 7% ahead of forecasts and up 50% on a year earlier.",
+"Commodities and markets trading did most of the work, with its contribution up 83%.",
+"Asset management rose 28%, helped by the sale of its aircraft leasing business.",
+"The advisory and investment banking division fell 61% on fewer deals.",
+"Profit fell 22% from the very strong previous half, which helps explain the share price fall."
+],
+"ou": [
+"Management expects trading to be slightly higher in FY27 and investment banking lower.",
+"A $9.6bn capital surplus leaves room for future capital returns.",
+"This was Shemara Wikramanayake's final result; Greg Ward became CEO on 7 November."
+],
+"ix": "−0.5%"
+},
+{
+"c": "NAB",
+"n": "National Australia Bank",
+"h": 1,
+"v": "miss",
+"rx": "−5.4%",
+"day": "5 Nov",
+"d": "FY26 Full Year Result, 5 November 2026",
+"line": "Profit missed as bad debts nearly doubled; up to 2,500 roles to go",
+"t": [
+[
+"Cash profit",
+"$6.14bn",
+"down 13%, about 3% below forecasts"
+],
+[
+"Final dividend",
+"85c",
+"unchanged, fully franked"
+],
+[
+"Bad debt charge",
+"$1.55bn",
+"up 86%"
+],
+[
+"Lending margin",
+"1.80%",
+"up 0.06%"
+],
+[
+"Share price, day 1",
+"▼ 5.4%",
+"ASX 200 +2.6%"
+],
+[
+"Capital buffer",
+"11.87%",
+"CET1 ratio"
+]
+],
+"hi": [
+"Profit missed forecasts, mainly because the bank set aside much more for bad debts.",
+"The bad debt charge rose 86% to $1.55bn, including $403m for possible future losses.",
+"Excluding one-off costs, profit was flat at $7.1bn.",
+"Business lending grew 9.8%, well ahead of home lending at 3.8%.",
+"The share of loans being watched closely rose to 1.33% from 1.11%."
+],
+"ou": [
+"Cost growth is guided below 3% in FY27, helped by up to 2,500 role cuts by September 2027.",
+"The CEO expects a tough year ahead.",
+"The dividend was held. The bank will issue new shares through its dividend plan, adding to capital."
+],
+"ix": "+2.6%"
+},
+{
+"c": "NEM",
+"n": "Newmont",
+"h": 1,
+"v": "beat",
+"rx": "−4.9%",
+"day": "23 Oct",
+"d": "Q3 2026 Result, 23 October 2026",
+"line": "Earnings 13% ahead of forecasts; shares fell as gold miners sold off",
+"t": [
+[
+"Earnings per share",
+"US$2.20",
+"13% above forecasts"
+],
+[
+"Gold produced",
+"1.30m oz",
+"in the quarter"
+],
+[
+"Cost per ounce",
+"US$1,454",
+"all-in sustaining"
+],
+[
+"Free cash flow",
+"US$1.91bn",
+"in the quarter"
+],
+[
+"Share price, day 1",
+"▼ 4.9%",
+"ASX 200 flat, gold miners sold off"
+],
+[
+"Valuation",
+"11.5x",
+"FY26 earnings"
+]
+],
+"hi": [
+"Earnings of US$2.20 a share were 13% ahead of forecasts.",
+"The company received an average of US$4,317 an ounce for its gold.",
+"Free cash flow of US$1.9bn funded US$1.6bn of share buybacks since the last update.",
+"Newmont holds more cash than debt, with net cash of US$3.2bn."
+],
+"ou": [
+"2026 production guidance was kept and cost guidance lowered.",
+"The December quarter is expected to be the strongest of the year for gold output.",
+"Spending in 2027 is expected to be higher than analysts had forecast.",
+"The shares fell on the day as gold miners sold off across the sector."
+],
+"ix": "flat"
+},
+{
+"c": "ORI",
+"n": "Orica",
+"h": 1,
+"v": "beat",
+"rx": "+4.5%",
+"day": "12 Nov",
+"d": "FY26 Full Year Result, 12 November 2026",
+"line": "Record profit slightly ahead of forecasts; dividend up 12%",
+"t": [
+[
+"Earnings (EBIT)",
+"A$1.06bn",
+"up 7%, 1.7% above forecasts"
+],
+[
+"Underlying profit",
+"A$590m",
+"up 9%"
+],
+[
+"Full year dividend",
+"64c",
+"up 12%, unfranked"
+],
+[
+"Return on capital",
+"11.3%",
+"up from 9.8%"
+],
+[
+"Share price, day 1",
+"▲ 4.5%",
+"ASX 200 −0.1%"
+],
+[
+"FY27 outlook",
+"Growth",
+"in all divisions"
+]
+],
+"hi": [
+"Record earnings of $1.06bn were slightly ahead of forecasts.",
+"The faster-growing digital and mining chemicals divisions both lifted earnings 25%.",
+"The core explosives business grew earnings 2%.",
+"The dividend rose 12% and the $500m buyback is complete."
+],
+"ou": [
+"Management expects earnings growth in all divisions in FY27.",
+"At least $100m of cost savings are targeted by the end of 2027.",
+"Plant maintenance will cost about $30m in FY27, and weaker Indonesian coal activity is a risk."
+],
+"ix": "−0.1%"
+},
+{
+"c": "RMD",
+"n": "ResMed",
+"h": 1,
+"v": "beat",
+"rx": "+0.4%",
+"day": "30 Oct",
+"d": "Q1 FY27 Result, 30 October 2026",
+"line": "Earnings 9% ahead of forecasts, but guidance was not raised",
+"t": [
+[
+"Earnings per share",
+"US$2.91",
+"up 14%, 9% above forecasts"
+],
+[
+"Revenue",
+"US$1.42bn",
+"up 6%"
+],
+[
+"Gross margin",
+"62.5%",
+"up 0.5%"
+],
+[
+"FY27 guidance",
+"Unchanged",
+"EPS US$12.00 to 12.25"
+],
+[
+"Share price, day 1",
+"▲ 0.4%",
+"ASX 200 +0.2%, ASX; fell 9.1% in the US"
+],
+[
+"Valuation",
+"18.3x",
+"FY27 earnings"
+]
+],
+"hi": [
+"Earnings were 9% ahead of forecasts, helped by higher margins.",
+"Sales of sleep devices rose 9% and masks 10%.",
+"ResMed returned more than US$1bn to shareholders through buybacks and dividends.",
+"The sale of its MatrixCare software business added US$451m of cash."
+],
+"ou": [
+"Full year guidance was left unchanged, which the market read as growth slowing.",
+"The US-listed shares fell 9.1% after a strong run; the ASX shares then fell 5.8% the next trading day.",
+"A return by competitor Philips to the US market remains the key risk."
+],
+"ix": "+0.2%"
+},
+{
+"c": "XRO",
+"n": "Xero",
+"h": 1,
+"v": "inline",
+"rx": "+6.0%",
+"day": "12 Nov",
+"d": "1H27 Half Year Result, 12 November 2026",
+"line": "Revenue up 46%, guidance raised and A$1bn buyback; shares jumped",
+"t": [
+[
+"Revenue",
+"NZ$1.75bn",
+"up 46%, 27% excluding Melio"
+],
+[
+"Earnings (EBITDA)",
+"NZ$362m",
+"up 3%"
+],
+[
+"Subscribers",
+"5.15m",
+"up 12%"
+],
+[
+"FY27 revenue guidance",
+"Raised",
+"NZ$3.77 to 3.83bn"
+],
+[
+"Share price, day 1",
+"▲ 6.0%",
+"ASX 200 −0.1%, up 12% in early trade"
+],
+[
+"Buyback",
+"A$1bn",
+"over 12 months"
+]
+],
+"hi": [
+"Revenue rose 46%, or 27% excluding the US payments business Melio it acquired.",
+"Earnings were a little below some forecasts, but the outlook drove the share price.",
+"Subscribers grew 12% to 5.15 million and revenue per subscriber rose 25%.",
+"Margins fell as lower margin payments revenue grew."
+],
+"ou": [
+"Revenue guidance for FY27 was raised and the FY28 revenue aim lifted above NZ$4.6bn.",
+"A buyback of up to A$1bn over 12 months was announced.",
+"Competition in the US and the departure of the CFO at the end of January are the watch points."
+],
+"ix": "−0.1%"
+},
+{
+"c": "TNE",
+"n": "TechnologyOne",
+"h": 1,
+"v": "pending",
+"rx": "17 Nov",
+"day": "",
+"d": "FY26 Full Year Result, due 17 November 2026",
+"line": "Reports 17 November; guiding to profit growth at the top of 18% to 20%",
+"t": [
+[
+"Result date",
+"17 Nov",
+""
+],
+[
+"Profit growth guidance",
+"18% to 20%",
+"top end, before tax"
+],
+[
+"Recurring revenue growth",
+"16% to 18%",
+"guidance"
+],
+[
+"Forecast EPS",
+"49.6c",
+"up 17.7%"
+],
+[
+"Valuation",
+"66x",
+"FY26 earnings"
+],
+[
+"Status",
+"Pending",
+""
+]
+],
+"hi": [
+"This scorecard will be completed after the result on 17 November.",
+"Management has guided to profit growth at the top end of 18% to 20%."
+],
+"ou": [
+"On about 66 times earnings, the shares leave little room for disappointment."
+],
+"ix": ""
+},
+{
+"c": "QBE",
+"n": "QBE Insurance",
+"h": 1,
+"v": "pending",
+"rx": "27 Nov",
+"day": "",
+"d": "Q3 2026 Update, expected 27 November 2026",
+"line": "Quarterly update expected 27 November; date not yet confirmed",
+"t": [
+[
+"Update date",
+"27 Nov",
+"expected"
+],
+[
+"Covers",
+"9 months",
+"to 30 September"
+],
+[
+"Focus",
+"Premiums",
+"price rises and catastrophe costs"
+],
+[
+"October share price",
+"+11.3%",
+""
+],
+[
+"Last year",
+"27 Nov 2025",
+"shares fell 6%"
+],
+[
+"Status",
+"Pending",
+""
+]
+],
+"hi": [
+"This scorecard will be completed after the update.",
+"The update will cover premium growth, price rises and catastrophe costs for the nine months to September."
+],
+"ou": [
+"Last year's third quarter update was followed by a 6% fall in the shares."
+],
+"ix": ""
+},
+{
+"c": "WBC",
+"n": "Westpac",
+"h": 0,
+"v": "miss",
+"rx": "+1.0%",
+"day": "2 Nov",
+"d": "FY26 Full Year Result, 2 November 2026",
+"line": "Profit flat at $7.0bn; a lower lending margin offset lower costs",
+"t": [
+[
+"Profit",
+"$6.99bn",
+"flat"
+],
+[
+"Final dividend",
+"77c",
+"full year $1.54, up 1%"
+],
+[
+"Lending margin",
+"1.86%",
+"down 0.03% in the half"
+],
+[
+"Costs",
+"$11.7bn",
+"down 1%"
+],
+[
+"Share price, day 1",
+"▲ 1.0%",
+"ASX 200 −0.6%"
+],
+[
+"Capital buffer",
+"12.46%",
+"CET1 ratio"
+]
+],
+"hi": [
+"Profit of $7.0bn was broadly in line, with a lower lending margin causing a slight miss on some measures.",
+"Costs fell 1% and bad debts, while higher, were better than feared.",
+"Business and institutional lending grew strongly, while mortgage applications fell 15% in the final quarter."
+],
+"ou": [
+"Westpac expects rates to stay high into 2027.",
+"It holds about $2.9bn of capital above its target."
+],
+"ix": "−0.6%"
+}
+];
+const VLABEL = {beat:"Beat", inline:"In line", miss:"Miss", pending:"Still to report"};
+const held = R.filter(r=>r.h && r.v!=="pending"), pend = R.filter(r=>r.v==="pending"), notHeld = R.filter(r=>!r.h);
+const order = held.concat(pend, notHeld);
+let idx = 0;
+function rxClass(rx){
+  if(rx.indexOf("+")===0) return "pos";
+  if(rx.indexOf("\u2212")===0 || rx.indexOf("-")===0) return "neg";
+  return "flat";
+}
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function buildRow(r){
+  const b = document.createElement("button");
+  b.className = "sc-row"; b.type = "button";
+  b.innerHTML = '<span class="dot ' + r.v + '"></span>' + '<span class="code">' + esc(r.c) + '</span>'
+    + '<span class="line">' + esc(r.line) + '</span>' + '<span class="rx ' + rxClass(r.rx) + '">' + esc(r.rx) + '</span>' + '<span class="ix">' + (r.ix ? 'ASX ' + esc(r.ix) : '') + '</span>'
+    + '<span class="chev">&rsaquo;</span>';
+  b.addEventListener("click", function(){ openResult(order.indexOf(r)); });
+  return b;
+}
+function group(label, rows){
+  const g = document.createElement("div"); g.className = "sc-group"; g.textContent = label; sc.appendChild(g);
+  rows.forEach(function(r){ sc.appendChild(buildRow(r)); });
+}
+const sc = document.getElementById("scorecard");
+if (sc) {
+  group("Portfolio holdings: " + held.length + " results", held);
+  group("Portfolio holdings: still to report", pend);
+  group("Not held: read-through only", notHeld);
+}
+const bd = document.getElementById("rsBackdrop");
+function openResult(i){
+  idx = i; const r = order[i];
+  document.getElementById("rsTitle").textContent = r.n + " (" + r.c + ")" + (r.h ? "" : "  \u00b7  not held");
+  document.getElementById("rsSub").textContent = r.d;
+  const v = document.getElementById("rsVerdict");
+  v.className = "mverdict " + r.v; v.textContent = VLABEL[r.v] + ": " + r.line;
+  document.getElementById("rsTiles").innerHTML = r.t.map(function(t){
+    return '<div class="mtile"><div class="k">' + esc(t[0]) + '</div><div class="v">' + esc(t[1]) + '</div><div class="s">' + esc(t[2] || "") + '</div></div>';
+  }).join("");
+  document.getElementById("rsHighlights").innerHTML = r.hi.map(function(x){ return "<li>" + esc(x) + "</li>"; }).join("");
+  document.getElementById("rsOutlook").innerHTML = r.ou.map(function(x){ return "<li>" + esc(x) + "</li>"; }).join("");
+  document.getElementById("rsPos").textContent = (i + 1) + " of " + order.length;
+  bd.classList.add("open"); document.body.style.overflow = "hidden"; bd.scrollTop = 0;
+}
+function closeResult(){ bd.classList.remove("open"); document.body.style.overflow = ""; }
+document.getElementById("rsClose").addEventListener("click", closeResult);
+bd.addEventListener("click", function(e){ if (e.target === bd) closeResult(); });
+document.addEventListener("keydown", function(e){
+  if (!bd.classList.contains("open")) return;
+  if (e.key === "Escape") closeResult();
+  if (e.key === "ArrowRight") openResult((idx + 1) % order.length);
+  if (e.key === "ArrowLeft") openResult((idx - 1 + order.length) % order.length);
+});
+document.getElementById("rsPrev").addEventListener("click", function(){ openResult((idx - 1 + order.length) % order.length); });
+document.getElementById("rsNext").addEventListener("click", function(){ openResult((idx + 1) % order.length); });
+</script>
 </body>
 </html>
